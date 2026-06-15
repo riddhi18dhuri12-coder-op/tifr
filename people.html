@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>TIFR Ramanujan House | Dedicated Guesthouse Staff</title>
+    <title>TIFR Ramanujan House | Official Guesthouse Portal</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,7 +40,7 @@
             scroll-behavior: smooth;
         }
 
-        /* Custom Modern Scrollbar Frame */
+        /* Custom Modern Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #dce6e2; border-radius: 10px; }
         ::-webkit-scrollbar-thumb { background: var(--accent-emerald); border-radius: 10px; }
@@ -78,7 +78,6 @@
             color: transparent;
         }
         .logo-brand i { color: var(--accent-emerald); }
-        
         .nav-links { display: flex; gap: 32px; }
         .nav-links a {
             text-decoration: none;
@@ -92,7 +91,6 @@
             gap: 6px;
         }
         .nav-links a i { font-size: 0.75rem; opacity: 0.6; }
-        .nav-links a.active { color: var(--accent-emerald); }
         .nav-links a:after {
             content: '';
             position: absolute;
@@ -103,21 +101,21 @@
             background: var(--accent-emerald);
             transition: width 0.3s;
         }
-        .nav-links a:hover:after, .nav-links a.active:after { width: 100%; }
+        .nav-links a:hover:after { width: 100%; }
 
         /* THEMED HERO COMPONENT PANEL */
         .hero-ram {
-            min-height: 75vh;
+            min-height: 95vh;
             background: linear-gradient(115deg, rgba(10,47,40,0.85) 0%, rgba(31,120,89,0.70) 100%), url('assests/people/sb-2alt.jpg') center/cover fixed;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 0 0 56px 56px;
             position: relative;
-            padding: 100px 24px 40px;
+            padding: 0 24px;
         }
         .hero-card {
-            max-width: 960px;
+            max-width: 860px;
             background: rgba(10, 47, 40, 0.45);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
@@ -130,7 +128,7 @@
             animation: floatUp 1s var(--transition-butter);
         }
         .hero-card h1 {
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 800;
             letter-spacing: -2px;
             line-height: 1.1;
@@ -138,43 +136,37 @@
         }
         .hero-card p {
             font-size: 1.1rem;
-            line-height: 1.7;
+            line-height: 1.6;
             opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto;
         }
-
-        /* QUICK CONNECT INTERACTIVE UTILITY COMMUNICATOR */
-        .connect-strip {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+        .btn-primary {
+            display: inline-flex;
+            background: white;
+            border: none;
             margin-top: 32px;
-            text-align: left;
-        }
-        .connect-node {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            padding: 16px 24px;
-            border-radius: 20px;
-            display: flex;
+            padding: 14px 38px;
+            border-radius: 50px;
+            font-weight: 700;
+            color: #0a2f28;
+            gap: 10px;
+            transition: transform 0.3s var(--transition-butter), background-color 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
             align-items: center;
-            gap: 16px;
         }
-        .connect-node i { font-size: 1.5rem; color: var(--accent-soft); }
-        .connect-node div h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-soft); }
-        .connect-node div p { font-size: 1.05rem; font-weight: 700; margin-top: 2px; }
+        .btn-primary:hover { transform: translateY(-4px); gap: 16px; background: var(--bg-ivory); }
 
         @keyframes floatUp {
             from { opacity: 0; transform: translateY(45px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* STRUCTURAL ARCHITECTURE GRID PANELS */
+        /* STRUCTURAL CONTAINER CLASSES */
         .section-wrap {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 80px 48px;
+            padding: 100px 48px;
         }
         .section-badge {
             font-size: 0.75rem;
@@ -188,7 +180,7 @@
             gap: 8px;
         }
         .section-head {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             font-weight: 800;
             letter-spacing: -1px;
             margin-bottom: 48px;
@@ -206,114 +198,136 @@
             border-radius: 4px;
         }
 
-        /* TEAM GRID FRAMEWORK WITH NATIVE 3D RESPONSIVENESS */
-        .staff-matrix {
+        /* FIXED UNSCRAMBLED BENTO LAYOUT */
+        .about-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: 1fr 1fr;
             gap: 32px;
+            align-items: stretch;
+            margin-bottom: 32px;
         }
-        .staff-matrix.leadership-tier {
-            grid-template-columns: repeat(1, 1fr);
-            max-width: 450px;
-            margin: 0 auto 40px auto;
-        }
-        .staff-matrix.caretaker-tier {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .staff-card-3d {
+        .glass-info {
             background: white;
             border-radius: 32px;
-            overflow: hidden;
-            border: 1px solid rgba(31,120,89,0.1);
+            padding: 40px;
             box-shadow: var(--shadow-elevated);
-            transition: all 0.35s var(--transition-butter);
+            border: 1px solid var(--border-soft);
             display: flex;
             flex-direction: column;
+            justify-content: center;
         }
-        .staff-card-3d:hover {
-            box-shadow: var(--shadow-hover);
+
+        /* Asymmetric Comprehensive Grid Matrix */
+        .bento-showcase {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-auto-rows: 150px;
+            gap: 16px;
         }
-        
-        .avatar-frame {
-            height: 320px;
-            overflow: hidden;
+        .bento-item {
             position: relative;
-            background-color: #e2efe8;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-elevated);
+            border: 1px solid var(--border-soft);
         }
-        .avatar-frame img {
+        .bento-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        .staff-card-3d:hover .avatar-frame img {
-            transform: scale(1.04);
-        }
+        .bento-item:hover img { transform: scale(1.05); }
+        .span-full-width { grid-column: span 2; }
+        .span-full-height { grid-row: span 2; }
 
-        .staff-bio {
-            padding: 28px;
-            text-align: center;
-            flex-grow: 1;
+        .bento-caption {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 47, 40, 0.85) 0%, rgba(0,0,0,0) 60%);
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            align-items: flex-end;
+            padding: 16px;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
         }
-        .staff-bio h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--deep-teal);
-            margin-bottom: 6px;
-        }
-        .staff-bio .role-tag {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 1px;
-            color: var(--accent-emerald);
-            background: #eef5f1;
-            padding: 6px 16px;
-            border-radius: 40px;
-            display: inline-block;
-            margin: 4px auto 16px auto;
-        }
-        
-        .staff-channels {
-            border-top: 1px solid #edf3ef;
-            padding-top: 16px;
-            margin-top: 8px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            text-align: left;
-            font-size: 0.85rem;
-        }
-        .channel-link {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            color: #4a5d58;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .channel-link:hover { color: var(--accent-emerald); }
-        .channel-link i { color: var(--accent-emerald); width: 16px; }
+        .bento-item:hover .bento-caption { opacity: 1; }
 
-        /* FOOTER SYSTEM HUB */
-        .footer-ultimate {
-            background: #0a2f28;
-            border-radius: 48px 48px 0 0;
-            padding: 80px 48px 40px;
-            color: #cbe5dd;
-            margin-top: 60px;
-        }
-        .footer-flex {
+        /* MULTI-CARD ACCOMMODATION TRACKS */
+        .room-triptych {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            max-width: 1400px;
-            margin: 0 auto;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 20px;
         }
+        .room-card-3d {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            transition: all 0.35s var(--transition-butter);
+            box-shadow: var(--shadow-elevated);
+            border: 1px solid rgba(31,120,89,0.1);
+        }
+        .room-card-3d:hover { box-shadow: var(--shadow-hover); }
+        .room-img-strip { height: 240px; overflow: hidden; }
+        .room-img-strip img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .room-card-3d:hover .room-img-strip img { transform: scale(1.04); }
+        .room-content { padding: 32px; }
+        .room-content h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+        .room-content h3 i { color: var(--accent-emerald); font-size: 1.1rem; }
+        .room-content p { font-size: 0.95rem; color: #4a5d58; margin-bottom: 16px; line-height: 1.5; }
+        .amenities-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; font-size: 0.75rem; font-weight: 600; }
+        .amenities-list span { background: #eef5f1; padding: 6px 14px; border-radius: 40px; color: #1f7859; display: flex; align-items: center; gap: 4px; }
+
+        /* SOLID DESIGN TARIFF MATRICES */
+        .tariff-elegant {
+            background: white;
+            border-radius: 40px;
+            padding: 40px;
+            box-shadow: var(--shadow-elevated);
+            border: 1px solid var(--border-soft);
+        }
+        .tariff-table { width: 100%; border-collapse: collapse; }
+        .tariff-table th {
+            text-align: left;
+            padding: 20px;
+            font-weight: 700;
+            color: #0a2f28;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            border-bottom: 2px solid #e2efe8;
+        }
+        .tariff-table td { padding: 20px; border-bottom: 1px solid #edf3ef; font-weight: 500; font-size: 0.95rem; }
+        .tariff-table tr:last-child td { border-bottom: none; }
+        .rate-badge { background: #e6f2ec; padding: 6px 18px; border-radius: 40px; font-weight: 700; color: var(--accent-emerald); display: inline-block; }
+
+        /* GRID AMENITY NODES */
+        .facilities-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; }
+        .facil-card {
+            background: white;
+            padding: 40px 24px;
+            text-align: center;
+            border-radius: 28px;
+            box-shadow: var(--shadow-elevated);
+            border: 1px solid var(--border-soft);
+            transition: transform 0.3s ease;
+        }
+        .facil-card i { font-size: 2.2rem; color: var(--accent-emerald); margin-bottom: 20px; display: block; }
+        .facil-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+        .facil-card p { font-size: 0.85rem; color: #64748b; line-height: 1.4; }
+
+        .info-dual { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; margin-top: 40px; }
+        .info-pane-img { border-radius: 32px; overflow: hidden; box-shadow: var(--shadow-elevated); border: 1px solid var(--border-soft); height: 100%; min-height: 280px; }
+        .info-pane-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* SYSTEM CORE COCKPIT FOOTER */
+        .footer-ultimate { background: #0a2f28; border-radius: 48px 48px 0 0; padding: 80px 48px 40px; color: #cbe5dd; }
+        .footer-flex { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; max-width: 1400px; margin: 0 auto; }
         .contact-pill {
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -341,39 +355,18 @@
             align-items: center;
             cursor: zoom-out;
         }
-        .lightbox-inner {
-            position: relative;
-            max-width: 85vw;
-            max-height: 85vh;
-            animation: zoomEffect 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .lightbox-inner img {
-            max-width: 100%;
-            max-height: 85vh;
-            border-radius: 24px;
-            box-shadow: 0 40px 90px rgba(0,0,0,0.6);
-            object-fit: contain;
-        }
-        @keyframes zoomEffect {
-            from { transform: scale(0.95); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        @media (max-width: 1200px) {
-            .staff-matrix { grid-template-columns: repeat(2, 1fr); }
-            .staff-matrix.caretaker-tier { grid-template-columns: repeat(2, 1fr); }
-        }
+        .lightbox-inner { position: relative; max-width: 85vw; max-height: 85vh; animation: zoomEffect 0.3s cubic-bezier(0.34, 1.56, 0.64, 1); }
+        .lightbox-inner img { max-width: 100%; max-height: 85vh; border-radius: 24px; box-shadow: 0 40px 90px rgba(0,0,0,0.6); object-fit: contain; }
+        @keyframes zoomEffect { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 
         @media (max-width: 1024px) {
-            .footer-flex, .connect-strip { grid-template-columns: 1fr; }
-            .hero-card h1 { font-size: 2.6rem; }
+            .room-triptych, .facilities-grid, .about-grid, .info-dual, .footer-flex { grid-template-columns: 1fr; }
+            .bento-showcase { grid-template-columns: 1fr; grid-auto-rows: 160px; }
+            .span-full-width, .span-full-height { grid-column: span 1; grid-row: span 1; }
+            .hero-card h1 { font-size: 2.8rem; }
             .section-wrap { padding: 60px 24px; }
             .nav-master { padding: 12px 24px; }
             .nav-links { display: none; }
-        }
-        
-        @media (max-width: 768px) {
-            .staff-matrix, .staff-matrix.caretaker-tier { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -382,151 +375,264 @@
 <nav class="nav-master">
     <div class="logo-brand"><i class="fa-solid fa-building-columns"></i> TIFR RAMANUJAN HOUSE</div>
     <div class="nav-links">
-        <a href="index.html"><i class="fa-solid fa-house-chimney"></i> TIFR Home</a>
-        <a href="index.html#about"><i class="fa-solid fa-monument"></i> About</a>
-        <a href="people.html" class="active"><i class="fa-solid fa-users-viewfinder"></i> People</a>
-        <a href="index.html#catering"><i class="fa-solid fa-utensils"></i> Catering</a>
-        <a href="index.html#usage-rules"><i class="fa-solid fa-gavel"></i> Usage Rules</a>
-        <a href="index.html#contact"><i class="fa-solid fa-address-book"></i> Contact</a>
+        <a href="#"><i class="fa-solid fa-house-chimney"></i> TIFR Home</a>
+        <a href="#about"><i class="fa-solid fa-monument"></i> About</a>
+        <a href="people.html"><i class="fa-solid fa-users-viewfinder"></i> People</a>
+        <a href="#catering"><i class="fa-solid fa-utensils"></i> Catering</a>
+        <a href="#usage-rules"><i class="fa-solid fa-gavel"></i> Usage Rules</a>
+        <a href="#contact"><i class="fa-solid fa-address-book"></i> Contact</a>
     </div>
 </nav>
 
 <section class="hero-ram">
     <div class="hero-card">
-        <h1>The Guesthouse Staff</h1>
-        <p>The TIFR Hostel and Guesthouse facility is serviced by a dedicated group of personnel who provide round-the-clock support across three operational shifts. Coordinated entirely through our front counter desk, our mission remains focused on making your research residency pleasant and comfortable.</p>
+        <h1>Srinivasa Ramanujan House</h1>
+        <p>TIFR Colaba Campus — A dedicated sanctuary for visiting scholars, scientists, and institute affiliates. Where mathematical genius meets modern hospitality.</p>
+        <a class="btn-primary" href="#accommodation">Explore Chambers <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
+    </div>
+</section>
+
+<section class="section-wrap" id="about">
+    <div class="section-badge"><i class="fa-solid fa-award"></i> Homage to Genius</div>
+    <h2 class="section-head">Infinite Legacy</h2>
+    
+    <div class="about-grid">
+        <div class="glass-info">
+            <p style="line-height: 1.7; font-size: 1.05rem; color: #2c3e3a; margin-bottom: 16px;">The TIFR Guesthouse building in the Colaba Campus is named after the legendary Indian mathematician <strong>Srinivasa Ramanujan</strong>.</p>
+            <p style="line-height: 1.7; font-size: 0.95rem; color: #4a5d58;">It consists of three individual performance tiers of rooms. In addition, the facility provides fully furnished and serviced studios and multi-bedroom apartments on campus for long-term residency options.</p>
+            <div style="margin-top: 24px; background: #e9f3ef; border-radius: 20px; padding: 20px; font-size: 0.95rem;">
+                <i class="fa-solid fa-id-card-clip" style="color: var(--accent-emerald); margin-right: 8px;"></i> <strong>Eligibility Matrix:</strong> Available strictly for registered TIFR Institute visitors. Bookings must clear the official TIFR Datanet portal via authorized faculty channels.
+            </div>
+        </div>
         
-        <div class="connect-strip">
-            <div class="connect-node">
-                <i class="fa-solid fa-phone-volume"></i>
-                <div>
-                    <h4>Internal Intercom</h4>
-                    <p>Ext. 3050</p>
-                </div>
+        <div class="bento-showcase">
+            <div class="bento-item span-full-width span-full-height">
+                <img src="assests/people/sb-2alt.jpg" class="zoomable-target" alt="Ramanujan House Entry Frontage View">
+                <div class="bento-caption">Primary Facility Frontage</div>
             </div>
-            <div class="connect-node">
-                <i class="fa-solid fa-phone-flip"></i>
-                <div>
-                    <h4>External Inquiries</h4>
-                    <p>+91-22-22783050</p>
-                </div>
+            <div class="bento-item">
+                <img src="assests/people/sb-1alt.jpg" class="zoomable-target" alt="Manicured Green Walkways">
+                <div class="bento-caption">Campus Gardens & Pathway</div>
             </div>
-            <div class="connect-node">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                <div>
-                    <h4>Availability</h4>
-                    <p>24/7 Shift Cover</p>
-                </div>
+            <div class="bento-item">
+                <img src="assests/people/sb-2a.jpg" class="zoomable-target" alt="Secondary Facade Accent View">
+                <div class="bento-caption">Ramanujan Facade Detail</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="about-grid" id="catering" style="margin-bottom: 0;">
+        <div class="bento-showcase">
+            <div class="bento-item">
+                <img src="assests/people/sb-2b.jpg" class="zoomable-target" alt="Campus Building Wing Section">
+                <div class="bento-caption">Residential Quarters Wing</div>
+            </div>
+            <div class="bento-item">
+                <img src="assests/people/sb-3alt.jpg" class="zoomable-target" alt="Lounge Area View">
+                <div class="bento-caption">Intermediate Common Lounge</div>
+            </div>
+            <div class="bento-item span-full-width">
+                <img src="assests/people/sb-4alst.jpg" class="zoomable-target" alt="Dining Hall Service Space Setup">
+                <div class="bento-caption">Catering & Dining Facilities</div>
+            </div>
+        </div>
+        <div class="glass-info">
+            <h3 style="margin-bottom: 12px; font-size: 1.25rem; font-weight: 700;"><i class="fa-solid fa-user-tie" style="color: var(--accent-emerald);"></i> Support & Direct Inquiries</h3>
+            <p style="font-size: 0.95rem; line-height: 1.6; color: #4a5d58; margin-bottom: 20px;">Manual booking requests from external collaborators or non-datanet configurations should be directed straight to the operational coordination desk: <strong style="color:#1f7859;">guesthouse@tifr.res.in</strong></p>
+            <div class="bento-item" style="height: 110px; margin-bottom: 10px;">
+                <img src="assests/people/sb-6alt.jpg" class="zoomable-target" alt="Studio suite setup overview">
+                <div class="bento-caption">Studio Suite Lounge Frame</div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section-wrap" style="padding-bottom: 40px;">
-    <div class="section-badge"><i class="fa-solid fa-shield-user"></i> Operations Hub</div>
-    <h2 class="section-head">Officer-in-Charge</h2>
-    
-    <div class="staff-matrix leadership-tier">
-        <div class="staff-card-3d interaction-node">
-            <div class="avatar-frame">
-                <img src="assests/people/Mohan M. Kakade.jpg" class="zoomable-target" alt="Mohan M. Kakade">
+<section class="section-wrap" id="accommodation">
+    <div class="section-badge"><i class="fa-solid fa-door-open"></i> Guest Chambers</div>
+    <h2 class="section-head">Room Classifications</h2>
+    <div class="room-triptych">
+        <div class="room-card-3d">
+            <div class="room-img-strip"><img src="assests/people/sb-1alt.jpg" class="zoomable-target" alt="A-Type Single room interior setup"></div>
+            <div class="room-content">
+                <h3><i class="fa-solid fa-circle-user"></i> A-Type Single</h3>
+                <p>Streamlined Single Occupancy layout built for individual scholars, featuring shared bathroom & toilet modules.</p>
+                <div class="amenities-list"><span><i class="fa-solid fa-snowflake"></i> AC</span><span><i class="fa-solid fa-temperature-arrow-down"></i> Fridge</span><span><i class="fa-solid fa-vault"></i> Locker</span></div>
             </div>
-            <div class="staff-bio">
-                <h3>Mohan M. Kakade</h3>
-                <span class="role-tag">Housekeeping Incharge</span>
-                <div class="staff-channels">
-                    <a href="tel:+912222783065" class="channel-link"><i class="fa-solid fa-square-phone"></i> +91-22-22783065</a>
-                    <a href="mailto:ghincharge@tifr.res.in" class="channel-link"><i class="fa-solid fa-square-envelope"></i> ghincharge@tifr.res.in</a>
-                    <a href="mailto:housekeeping@tifr.res.in" class="channel-link"><i class="fa-solid fa-envelope"></i> housekeeping@tifr.res.in</a>
-                </div>
+        </div>
+        <div class="room-card-3d">
+            <div class="room-img-strip"><img src="assests/people/sb-2b.jpg" class="zoomable-target" alt="C-Type Attached Twin beds layout"></div>
+            <div class="room-content">
+                <h3><i class="fa-solid fa-user-group"></i> C-Type Double</h3>
+                <p>Features two individual twin-beds configurations with fully integrated private attached bathroom & toilet utilities.</p>
+                <div class="amenities-list"><span><i class="fa-solid fa-snowflake"></i> AC</span><span><i class="fa-solid fa-temperature-arrow-down"></i> Fridge</span><span><i class="fa-solid fa-mug-hot"></i> Kettle</span></div>
+            </div>
+        </div>
+        <div class="room-card-3d">
+            <div class="room-img-strip"><img src="assests/people/sb-6alt.jpg" class="zoomable-target" alt="D-Type Executive Lounge Suite Space"></div>
+            <div class="room-content">
+                <h3><i class="fa-solid fa-hotel"></i> D-Type Suite</h3>
+                <p>Premium multi-room layout containing twin beds, attached bathroom, an integrated Kitchenette, and a spacious Living Hall area.</p>
+                <div class="amenities-list"><span><i class="fa-solid fa-couch"></i> Living Hall</span><span><i class="fa-solid fa-kitchen-set"></i> Kitchenette</span><span><i class="fa-solid fa-snowflake"></i> AC</span></div>
             </div>
         </div>
     </div>
 </section>
 
-<section class="section-wrap" style="padding-top: 20px; padding-bottom: 40px;">
-    <div class="section-badge"><i class="fa-solid fa-headset"></i> Communications Matrix</div>
-    <h2 class="section-head">Front Desk Personnel</h2>
+<section class="section-wrap" id="tariff">
+    <div class="section-badge"><i class="fa-solid fa-calculator"></i> Financial Framework</div>
+    <h2 class="section-head">Tariff Matrix</h2>
+    <div class="tariff-elegant">
+        <table class="tariff-table">
+            <thead><tr><th>Room Configuration</th><th>Official (INR)</th><th>Personal (INR)</th></tr></thead>
+            <tbody>
+                <tr><td>A-Type (Single Occupancy)</td><td><span class="rate-badge">₹200</span></td><td><span class="rate-badge">₹600</span></td></tr>
+                <tr><td>C-Type (Single Occupancy)</td><td><span class="rate-badge">₹500</span></td><td><span class="rate-badge">₹1,500</span></td></tr>
+                <tr><td>C-Type (Double Occupancy)</td><td><span class="rate-badge">₹650</span></td><td><span class="rate-badge">₹1,950</span></td></tr>
+                <tr><td>D-Type (Single Occupancy)</td><td><span class="rate-badge">₹650</span></td><td><span class="rate-badge">₹1,950</span></td></tr>
+                <tr><td>D-Type (Double Occupancy)</td><td><span class="rate-badge">₹900</span></td><td><span class="rate-badge">₹2,700</span></td></tr>
+                <tr><td>D-Type (Family Occupancy)</td><td><span class="rate-badge">₹1,200</span></td><td><span class="rate-badge">₹3,600</span></td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="section-wrap" id="usage-rules">
+    <div class="section-badge"><i class="fa-solid fa-circle-exclamation"></i> Academic Infrastructure</div>
+    <h2 class="section-head">Venues & Settlement</h2>
     
-    <div class="staff-matrix">
-        <div class="staff-card-3d interaction-node">
-            <div class="avatar-frame">
-                <img src="assests/people/Mohan M. Vartak.jpg" class="zoomable-target" alt="Mohan M. Vartak">
-            </div>
-            <div class="staff-bio">
-                <h3>Mohan M. Vartak</h3>
-                <span class="role-tag">Front Desk Desk Ops</span>
-                <div class="staff-channels">
-                    <a href="tel:22783050" class="channel-link"><i class="fa-solid fa-phone"></i> Ext. 3050 / 22783050</a>
-                </div>
-            </div>
+    <div class="room-triptych" style="grid-template-columns: 1.1fr 0.9fr; align-items: stretch;">
+        <div class="glass-info">
+            <i class="fa-solid fa-users" style="font-size: 2rem; color:var(--accent-emerald); margin-bottom: 20px; display: block;"></i>
+            <h3 style="margin-bottom: 12px; font-size: 1.4rem; font-weight: 700;">Conference & Seminar Auditoriums</h3>
+            <p style="color: #4a5d58; line-height: 1.6; font-size: 0.95rem; margin-bottom: 20px;">Ramanujan House hosts spaces tailored for professional dialogue and collaborative research assemblies, available via advance booking options at the counter workspace.</p>
+            <div class="amenities-list" style="margin: 0;"><span style="background: var(--deep-teal); color: white;"><i class="fa-solid fa-users"></i> Seminar Room: 40-45 Seats</span><span style="background: var(--accent-emerald); color: white;"><i class="fa-solid fa-network-wired"></i> Conference: 10-12 Seats</span></div>
         </div>
-        <div class="staff-card-3d interaction-node">
-            <div class="avatar-frame">
-                <img src="assests/people/Sanjay V. Patil.jpg" class="zoomable-target" alt="Sanjay V. Patil">
-            </div>
-            <div class="staff-bio">
-                <h3>Sanjay V. Patil</h3>
-                <span class="role-tag">Front Desk Desk Ops</span>
-                <div class="staff-channels">
-                    <a href="tel:22783050" class="channel-link"><i class="fa-solid fa-phone"></i> Ext. 3050 / 22783050</a>
-                </div>
-            </div>
+        <div class="info-pane-img">
+            <img src="assests/people/sb-3alt.jpg" class="zoomable-target" alt="Auditorium Presentation Spaces">
         </div>
-        <div class="staff-card-3d interaction-node">
-            <div class="avatar-frame">
-                <img src="assests/people/Sumit S. Nitnaware.jpg" class="zoomable-target" alt="Sumit S. Nitnaware">
-            </div>
-            <div class="staff-bio">
-                <h3>Sumit S. Nitnaware</h3>
-                <span class="role-tag">Front Desk Desk Ops</span>
-                <div class="staff-channels">
-                    <a href="tel:22783050" class="channel-link"><i class="fa-solid fa-phone"></i> Ext. 3050 / 22783050</a>
-                </div>
-            </div>
+    </div>
+
+    <div class="info-dual">
+        <div class="info-pane-img">
+            <img src="assests/people/sb-2a.jpg" class="zoomable-target" alt="Executive Meeting Conference Space">
         </div>
-        <div class="staff-card-3d interaction-node">
-            <div class="avatar-frame">
-                <img src="assests/people/Bhakti V. Khetle.jpg" class="zoomable-target" alt="Bhakti V. Khetle">
-            </div>
-            <div class="staff-bio">
-                <h3>Bhakti V. Khetle</h3>
-                <span class="role-tag">Front Desk Desk Ops</span>
-                <div class="staff-channels">
-                    <a href="tel:22783050" class="channel-link"><i class="fa-solid fa-phone"></i> Ext. 3050 / 22783050</a>
-                </div>
-            </div>
+        <div class="glass-info">
+            <i class="fa-solid fa-wallet" style="font-size: 2rem; color:var(--accent-emerald); margin-bottom: 20px; display: block;"></i>
+            <h3 style="margin-bottom: 12px; font-size: 1.4rem; font-weight: 700;">Payment & Bill Settlement</h3>
+            <p style="color: #4a5d58; line-height: 1.6; font-size: 0.95rem;">Guests must coordinate structural billing requirements directly with their hosts. All operational room ledger entries, catering options, or supplementary items must be settled cleanly at the front counter prior to final checkout operations.</p>
         </div>
     </div>
 </section>
 
-<section class="section-wrap" style="padding-top: 20px;">
-    <div class="section-badge"><i class="fa-solid fa-hand-holding-hand"></i> Facility Custodians</div>
-    <h2 class="section-head">Care-takers Team</h2>
+<section class="section-wrap" id="contact">
+    <div class="section-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Amenities & Infrastructure</div>
+    <h2 class="section-head">Standard Provisions</h2>
+    <div class="facilities-grid">
+        <div class="facil-card"><i class="fa-solid fa-wifi"></i><h4>Wi-Fi Access</h4><p>High-speed campus infrastructure access keys issued at entry.</p></div>
+        <div class="facil-card"><i class="fa-solid fa-snowflake"></i><h4>Climate Managed</h4><p>Full-scale AC installations equipped across all guest suites.</p></div>
+        <div class="facil-card"><i class="fa-solid fa-shield-halved"></i><h4>Secure Safes</h4><p>Digital secure storage lockers built straight into storage closets.</p></div>
+        <div class="facil-card"><i class="fa-solid fa-mug-hot"></i><h4>Complimentary Kits</h4><p>Electric kettle setup, tea/coffee sachets replenished daily.</p></div>
+    </div>
+</section>
+
+<footer class="footer-ultimate">
+    <div class="footer-flex">
+        <div>
+            <h2 style="color: white; font-size: 1.9rem; font-weight: 800; letter-spacing: -1px;"><i class="fa-solid fa-landmark-dome"></i> Ramanujan House</h2>
+            <p style="margin-top: 18px; line-height: 1.6; opacity: 0.7;">TIFR Colaba Campus, Mumbai. Supporting scientific excellence by providing an authentic campus residential environment for global academia.</p>
+        </div>
+        <div>
+            <div class="contact-pill"><i class="fa-solid fa-envelope-open-text"></i> guesthouse@tifr.res.in</div>
+            <div class="contact-pill"><i class="fa-solid fa-business-time"></i> Check-in 12:00 Noon / Check-out 10:00 AM</div>
+            <div class="contact-pill"><i class="fa-solid fa-fingerprint"></i> TIFR Datanet Verification Required</div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 60px; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 32px; opacity: 0.5;">
+        &copy; Guesthouse TIFR | Designed by Lalit C.Borde. All rights reserved.
+    </div>
+</footer>
+
+<div class="lightbox-orb" id="globalLightbox">
+    <div class="lightbox-inner"><img id="lightboxImg" src="" alt="Active Modal Target View"></div>
+</div>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
     
-    <div class="staff-matrix caretaker-tier">
-        <div class="staff-card-3d interaction-node">
-            <div class="avatar-frame">
-                <img src="assests/people/Prasad P. Rane.jpg" class="zoomable-target" alt="Prasad P. Rane">
-            </div>
-            <div class="staff-bio">
-                <h3>Prasad P. Rane</h3>
-                <span class="role-tag">Guesthouse Caretaker</span>
-            </div>
-        </div>
-        <div class="staff-card-3d interaction-node">
-            <div class="avatar-frame">
-                <img src="assests/people/Arun S. Khude.jpg" class="zoomable-target" alt="Arun S. Khude">
-            </div>
-            <div class="staff-bio">
-                <h3>Arun S. Khude</h3>
-                <span class="role-tag">Guesthouse Caretaker</span>
-            </div>
-        </div>
-        <div class="staff-card-3d interaction-node">
-            <div class="avatar-frame">
-                <img src="assests/people/Jayawant M. Tandel.jpg" class="zoomable-target" alt="Jayawant M. Tandel">
-            </div>
-            <div class="staff-bio">
-                <h3>Jayawant M. Tandel</h3>
-                <span class="
+    // Sticky header translucent backdrop shift
+    window.addEventListener('scroll', () => {
+        const navigationBar = document.querySelector('.nav-master');
+        if(window.scrollY > 40) navigationBar.style.background = 'rgba(255, 255, 255, 0.94)';
+        else navigationBar.style.background = 'rgba(255, 255, 255, 0.75)';
+    });
+    
+    // Smooth reveal sections on scroll
+    const structuralWrappers = document.querySelectorAll('.section-wrap');
+    structuralWrappers.forEach(targetWrapper => {
+        gsap.fromTo(targetWrapper, { opacity: 0, y: 30 }, {
+            opacity: 1, y: 0, duration: 0.8, ease: "power2.out",
+            scrollTrigger: { trigger: targetWrapper, start: "top 85%", toggleActions: "play none none reverse" }
+        });
+    });
+    
+    // 3D Vector Coordinate Motion Tracker Engine over standard card modules
+    const interactionNodes = document.querySelectorAll('.room-card-3d, .facil-card, .glass-info, .info-pane-img, .bento-item');
+    interactionNodes.forEach(nodeElement => {
+        nodeElement.addEventListener('mousemove', (moveEvent) => {
+            const boundaries = nodeElement.getBoundingClientRect();
+            const coordinateVectorX = (moveEvent.clientX - boundaries.left - boundaries.width/2) / 30;
+            const coordinateVectorY = (moveEvent.clientY - boundaries.top - boundaries.height/2) / 30;
+            nodeElement.style.transform = `perspective(1000px) rotateY(${coordinateVectorX}deg) rotateX(${-coordinateVectorY}deg) translateY(-4px)`;
+            nodeElement.style.transition = 'transform 0.05s ease-out';
+        });
+        nodeElement.addEventListener('mouseleave', () => {
+            nodeElement.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px)`;
+            nodeElement.style.transition = 'transform 0.4s ease';
+        });
+    });
+    
+    // Macro Image Lightbox Zoom Display Controller 
+    const globalLightbox = document.getElementById('globalLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const comprehensiveImages = document.querySelectorAll('.zoomable-target');
+    
+    comprehensiveImages.forEach(imageInstance => {
+        imageInstance.style.cursor = 'zoom-in';
+        imageInstance.addEventListener('click', (clickEvent) => {
+            clickEvent.stopPropagation();
+            globalLightbox.style.display = 'flex';
+            lightboxImg.src = imageInstance.src;
+            document.body.style.overflow = 'hidden';
+            gsap.fromTo(lightboxImg, { scale: 0.95, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power2.out" });
+        });
+    });
+    
+    globalLightbox.addEventListener('click', () => {
+        globalLightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+    
+    // Clean scroll coordinates anchor links bindings
+    document.querySelectorAll('a[href^="#"]').forEach(navigationAnchor => {
+        navigationAnchor.addEventListener('click', function(anchorEvent) {
+            anchorEvent.preventDefault();
+            const hashValue = this.getAttribute('href');
+            if(hashValue !== "#") {
+                const destinationElement = document.querySelector(hashValue);
+                if(destinationElement) destinationElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+    
+    // Row trace display spot highlighting
+    const gridRows = document.querySelectorAll('.tariff-table tbody tr');
+    gridRows.forEach(rowInstance => {
+        rowInstance.addEventListener('mouseenter', () => gsap.to(rowInstance, { backgroundColor: '#f1f6f3', duration: 0.1 }));
+        rowInstance.addEventListener('mouseleave', () => gsap.to(rowInstance, { backgroundColor: 'transparent', duration: 0.15 }));
+    });
+    
+    // Continuous micro-float animation loop over hero card
+    gsap.to('.hero-card', { y: -6, duration: 3, repeat: -1, yoyo: true, ease: "sine.inOut" });
+</script>
+</body>
+</html>
