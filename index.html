@@ -2,335 +2,703 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TIFR | Ramanujan House Guidelines</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>TIFR Ramanujan House | Official Guesthouse Portal</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    
     <style>
-        :root {
-            --primary: #0f172a; /* Deep Navy */
-            --accent: #3b82f6;  /* Modern Blue */
-            --bg: #f8fafc;
-            --glass: rgba(255, 255, 255, 0.8);
-            --border: rgba(226, 232, 240, 0.8);
-            --shadow-3d: 0 20px 50px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0,0,0,0.02);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg-ivory: #f5f8f4;
+            --deep-teal: #0a2f28;
+            --accent-emerald: #1f7859;
+            --accent-soft: #c7e9da;
+            --glass-white: rgba(255, 255, 255, 0.85);
+            --border-soft: rgba(31, 120, 89, 0.15);
+            --shadow-elevated: 0 30px 50px -20px rgba(0,0,0,0.08), 0 0 0 1px rgba(31,120,89,0.05);
+            --shadow-hover: 0 40px 60px -20px rgba(0,0,0,0.15), 0 0 0 1px var(--accent-emerald);
+            --transition-butter: cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
-            background-color: var(--bg);
-            color: var(--primary);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-ivory);
+            color: #1b2f2a;
             overflow-x: hidden;
-            line-height: 1.6;
+            scroll-behavior: smooth;
         }
 
-        /* --- Navigation --- */
-        nav {
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #dce6e2; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb { background: var(--accent-emerald); border-radius: 10px; }
+
+        /* GLASS MORPH NAVIGATION */
+        .nav-master {
             position: fixed;
-            top: 0; width: 100%;
-            height: 80px;
-            background: var(--glass);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid var(--border);
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 48px);
+            max-width: 1400px;
+            z-index: 2000;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 80px;
+            border: 1px solid rgba(255,255,255,0.7);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+            padding: 12px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+        .logo-brand {
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            padding: 0 6%;
+            gap: 12px;
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: linear-gradient(130deg, #0a2f28, #1f7859);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
         }
-
-        .nav-logo { font-weight: 700; font-size: 1.2rem; letter-spacing: -0.5px; }
-        .nav-logo span { color: var(--accent); }
-
-        .nav-links { display: flex; gap: 30px; list-style: none; }
-        .nav-links a { 
-            text-decoration: none; color: var(--primary); 
-            font-weight: 500; font-size: 0.9rem; opacity: 0.7; transition: 0.3s;
+        .nav-links {
+            display: flex;
+            gap: 42px;
         }
-        .nav-links a:hover { opacity: 1; color: var(--accent); }
-
-        /* --- Hero Section --- */
-        .hero {
-            padding: 140px 6% 60px;
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .hero-text h1 { font-size: 3.5rem; line-height: 1.1; margin-bottom: 20px; font-weight: 800; }
-        .hero-text p { font-size: 1.1rem; color: #64748b; max-width: 500px; }
-
-        .hero-main-img {
-            width: 100%;
-            height: 450px;
-            border-radius: 30px;
-            object-fit: cover;
-            box-shadow: var(--shadow-3d);
-            cursor: zoom-in;
-            transition: var(--transition);
-        }
-        .hero-main-img:hover { transform: scale(1.02); }
-
-        /* --- 3D Gallery Grid --- */
-        .gallery-container {
-            padding: 40px 6%;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-
-        .gallery-item {
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #1f3d36;
+            transition: 0.2s;
             position: relative;
-            height: 250px;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: var(--shadow-3d);
-            cursor: zoom-in;
-            transition: var(--transition);
+        }
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-emerald);
+            transition: width 0.3s;
+        }
+        .nav-links a:hover:after { width: 100%; }
+
+        /* HERO SECTION */
+        .hero-ram {
+            min-height: 95vh;
+            background: linear-gradient(115deg, rgba(10,47,40,0.85) 0%, rgba(31,120,89,0.7) 100%), url('GH-3b.jpg') center/cover fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 0 56px 56px;
+            position: relative;
+            padding: 0 24px;
+        }
+        .hero-card {
+            max-width: 860px;
+            background: rgba(10, 47, 40, 0.45);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 56px;
+            border-radius: 40px;
+            text-align: center;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
+            animation: floatUp 1s var(--transition-butter);
+        }
+        .hero-card h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .hero-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        .btn-primary {
+            display: inline-flex;
+            background: white;
+            border: none;
+            margin-top: 32px;
+            padding: 14px 38px;
+            border-radius: 50px;
+            font-weight: 700;
+            color: #0a2f28;
+            gap: 10px;
+            transition: transform 0.3s var(--transition-butter), background-color 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+        .btn-primary:hover { transform: translateY(-4px); gap: 16px; background: var(--bg-ivory); }
+
+        @keyframes floatUp {
+            from { opacity: 0; transform: translateY(45px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        .gallery-item img {
-            width: 100%; height: 100%; object-fit: cover; transition: 0.5s;
+        /* SECTION ARCHITECTURE */
+        .section-wrap {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 48px;
+        }
+        .section-badge {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--accent-emerald);
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .section-head {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 48px;
+            position: relative;
+            display: inline-block;
+        }
+        .section-head:after {
+            content: '';
+            position: absolute;
+            bottom: -14px;
+            left: 0;
+            width: 64px;
+            height: 4px;
+            background: var(--accent-emerald);
+            border-radius: 4px;
         }
 
-        .gallery-item:hover img { transform: scale(1.1); }
-        .gallery-item:hover { transform: translateY(-10px); }
-
-        .zoom-overlay {
-            position: absolute; inset: 0; background: rgba(0,0,0,0.2);
-            display: flex; align-items: center; justify-content: center;
-            opacity: 0; transition: 0.3s; color: white; font-size: 1.5rem;
+        /* ABOUT GRID & BENTO GALLERY */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            align-items: stretch;
+            margin-bottom: 40px;
         }
-        .gallery-item:hover .zoom-overlay { opacity: 1; }
+        .glass-info {
+            background: white;
+            border-radius: 32px;
+            padding: 40px;
+            box-shadow: var(--shadow-elevated);
+            border: 1px solid var(--border-soft);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
 
-        /* --- Guidelines Bento Grid --- */
-        .section-title { padding: 60px 6% 20px; font-size: 2rem; font-weight: 700; }
-        
-        .bento-grid {
-            padding: 0 6% 80px;
+        /* Asymmetric Layout Feature */
+        .bento-showcase {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
-            perspective: 1000px; /* Essential for 3D Tilt */
+            grid-auto-rows: 160px;
+            gap: 16px;
         }
-
-        .card {
-            background: white;
-            padding: 35px;
-            border-radius: 24px;
-            border: 1px solid var(--border);
-            box-shadow: var(--shadow-3d);
-            transition: transform 0.1s ease-out, box-shadow 0.3s;
-            transform-style: preserve-3d;
+        .bento-item {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-elevated);
+            border: 1px solid var(--border-soft);
         }
-
-        .card:hover {
-            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
+        .bento-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
         }
-
-        .card i {
-            font-size: 2rem;
-            color: var(--accent);
-            margin-bottom: 20px;
-            transform: translateZ(30px); /* Pushes icon out in 3D */
+        .bento-item:hover img {
+            transform: scale(1.05);
         }
+        .span-2w { grid-column: span 2; }
+        .span-2h { grid-row: span 2; }
 
-        .card h3 { 
-            font-size: 1.25rem; margin-bottom: 15px; 
-            transform: translateZ(20px);
-        }
-
-        .card p { 
-            color: #64748b; font-size: 0.95rem; line-height: 1.6;
-            transform: translateZ(10px);
-        }
-
-        .card-large { grid-column: span 2; }
-
-        .alert-card {
-            background: #0f172a;
+        .bento-caption {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(10, 47, 40, 0.85) 0%, rgba(0,0,0,0) 60%);
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
             color: white;
+            font-size: 0.85rem;
+            font-weight: 500;
+            opacity: 0;
+            transition: opacity 0.3s;
         }
-        .alert-card p { color: #94a3b8; }
+        .bento-item:hover .bento-caption { opacity: 1; }
 
-        /* --- Lightbox / Zoom Modal --- */
-        #lightbox {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.95);
-            display: none; align-items: center; justify-content: center;
-            z-index: 2000; cursor: zoom-out;
+        /* ROOM CONFIGURATIONS */
+        .room-triptych {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .room-card-3d {
+            background: white;
+            border-radius: 32px;
+            overflow: hidden;
+            transition: all 0.35s var(--transition-butter);
+            box-shadow: var(--shadow-elevated);
+            border: 1px solid rgba(31,120,89,0.1);
+        }
+        .room-card-3d:hover {
+            box-shadow: var(--shadow-hover);
+        }
+        .room-img-strip {
+            height: 240px;
+            overflow: hidden;
+        }
+        .room-img-strip img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .room-card-3d:hover .room-img-strip img { transform: scale(1.04); }
+        .room-content {
+            padding: 32px;
+        }
+        .room-content h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .room-content p {
+            font-size: 0.95rem;
+            color: #4a5d58;
+            margin-bottom: 16px;
+        }
+        .amenities-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 20px 0;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .amenities-list span {
+            background: #eef5f1;
+            padding: 6px 14px;
+            border-radius: 40px;
+            color: #1f7859;
+        }
+
+        /* TARIFF TABLES */
+        .tariff-elegant {
+            background: white;
+            border-radius: 40px;
             padding: 40px;
+            box-shadow: var(--shadow-elevated);
+            border: 1px solid var(--border-soft);
+        }
+        .tariff-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .tariff-table th {
+            text-align: left;
+            padding: 20px;
+            font-weight: 600;
+            color: #0a2f28;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 2px solid #e2efe8;
+        }
+        .tariff-table td {
+            padding: 20px;
+            border-bottom: 1px solid #edf3ef;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+        .tariff-table tr:last-child td { border-bottom: none; }
+        .rate-badge {
+            background: #e6f2ec;
+            padding: 6px 18px;
+            border-radius: 40px;
+            font-weight: 700;
+            color: var(--accent-emerald);
+            display: inline-block;
         }
 
-        #lightbox img {
-            max-width: 90%; max-height: 90%;
-            border-radius: 10px;
-            box-shadow: 0 0 50px rgba(0,0,0,0.5);
-            animation: zoomIn 0.3s ease;
+        /* FACILITIES MAP */
+        .facilities-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 28px;
         }
+        .facil-card {
+            background: white;
+            padding: 40px 24px;
+            text-align: center;
+            border-radius: 28px;
+            box-shadow: var(--shadow-elevated);
+            border: 1px solid var(--border-soft);
+            transition: transform 0.3s;
+        }
+        .facil-card i { font-size: 2.2rem; color: var(--accent-emerald); margin-bottom: 20px; display: block; }
+        .facil-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
+        .facil-card p { font-size: 0.85rem; color: #64748b; line-height: 1.4; }
 
-        @keyframes zoomIn {
-            from { transform: scale(0.8); opacity: 0; }
+        .info-dual {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .info-pane-img {
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--shadow-elevated);
+            border: 1px solid var(--border-soft);
+            height: 100%;
+            min-height: 280px;
+        }
+        .info-pane-img img { width: 100%; height: 100%; object-fit: cover; }
+
+        /* FOOTER BRANDING */
+        .footer-ultimate {
+            background: #0a2f28;
+            border-radius: 48px 48px 0 0;
+            padding: 80px 48px 40px;
+            color: #cbe5dd;
+        }
+        .footer-flex {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        .contact-pill {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.05);
+            border-radius: 20px;
+            padding: 20px 24px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-weight: 500;
+        }
+        .contact-pill i { color: var(--accent-soft); font-size: 1.2rem; }
+
+        /* LIGHTBOX SYSTEM OVERHAUL */
+        .lightbox-orb {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(10, 23, 20, 0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+        .lightbox-inner {
+            position: relative;
+            max-width: 85vw;
+            max-height: 85vh;
+            animation: zoomEffect 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .lightbox-inner img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 24px;
+            box-shadow: 0 40px 90px rgba(0,0,0,0.6);
+            object-fit: contain;
+        }
+        @keyframes zoomEffect {
+            from { transform: scale(0.95); opacity: 0; }
             to { transform: scale(1); opacity: 1; }
         }
 
-        /* --- Footer --- */
-        footer {
-            background: white;
-            padding: 60px 6%;
-            border-top: 1px solid var(--border);
-            text-align: center;
-        }
-
-        /* --- Responsiveness --- */
-        @media (max-width: 1100px) {
-            .hero { grid-template-columns: 1fr; text-align: center; }
-            .hero-text p { margin: 0 auto 20px; }
-            .bento-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-
-        @media (max-width: 768px) {
-            .bento-grid { grid-template-columns: 1fr; }
-            .card-large { grid-column: span 1; }
-            .gallery-container { grid-template-columns: repeat(2, 1fr); }
-            .hero-text h1 { font-size: 2.5rem; }
+        @media (max-width: 1024px) {
+            .room-triptych, .facilities-grid, .about-grid, .info-dual, .footer-flex { grid-template-columns: 1fr; }
+            .bento-showcase { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 140px; }
+            .hero-card h1 { font-size: 2.8rem; }
+            .section-wrap { padding: 60px 24px; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-logo">TIFR <span>RAMANUJAN</span></div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Contact</a></li>
-        </ul>
-    </nav>
-
-    <section class="hero">
-        <div class="hero-text">
-            <h1>Refined Living at Ramanujan House</h1>
-            <p>To ensure the comfort and security of all our esteemed guests, we request you to follow these professional guidelines during your stay at TIFR.</p>
-        </div>
-        <img src="GH-3b.jpg" class="hero-main-img zoomable" alt="Main Guesthouse View">
-    </section>
-
-    <div class="section-title">Visual Showcase</div>
-    <div class="gallery-container">
-        <div class="gallery-item"><img src="sb-1.jpg" class="zoomable"><div class="zoom-overlay"><i class="fa fa-expand"></i></div></div>
-        <div class="gallery-item"><img src="sb-2.jpg" class="zoomable"><div class="zoom-overlay"><i class="fa fa-expand"></i></div></div>
-        <div class="gallery-item"><img src="sb-3.jpg" class="zoomable"><div class="zoom-overlay"><i class="fa fa-expand"></i></div></div>
-        <div class="gallery-item"><img src="sb-4.jpg" class="zoomable"><div class="zoom-overlay"><i class="fa fa-expand"></i></div></div>
+<nav class="nav-master">
+    <div class="logo-brand"><i class="fa-solid fa-landmark"></i> RAMANUJAN HOUSE</div>
+    <div class="nav-links">
+        <a href="#about">Legacy</a>
+        <a href="#accommodation">Chambers</a>
+        <a href="#tariff">Tariff</a>
+        <a href="#billing">Policies</a>
+        <a href="#contact">Reserve</a>
     </div>
+</nav>
 
-    <div class="section-title">Guest Guidelines</div>
-    <div class="bento-grid">
-        <div class="card tilt">
-            <i class="fa-solid fa-passport"></i>
-            <h3>Official Status</h3>
-            <p>Reserved exclusively for short and medium-term official visitors to the Institute. Field station staff require faculty requisition.</p>
-        </div>
-
-        <div class="card tilt">
-            <i class="fa-solid fa-clock"></i>
-            <h3>Stay Limits</h3>
-            <p>Maximum continuous stay is strictly limited to 3 months to accommodate rotating academic visitors.</p>
-        </div>
-
-        <div class="card tilt alert-card">
-            <i class="fa-solid fa-ban"></i>
-            <h3>Strict Prohibition</h3>
-            <p>Alcoholic beverages are strictly prohibited within the Guesthouse premises. Non-compliance results in immediate cancellation.</p>
-        </div>
-
-        <div class="card tilt card-large">
-            <i class="fa-solid fa-calendar-check"></i>
-            <h3>Check-in & Cancellation</h3>
-            <p>Standard Check-in is 12:00 PM. Bookings are automatically released 24 hours (Domestic) or 48 hours (International) after the scheduled arrival if no contact is made.</p>
-        </div>
-
-        <div class="card tilt">
-            <i class="fa-solid fa-bell-concierge"></i>
-            <h3>Check-out</h3>
-            <p>Check-out time is 10:00 AM. If delayed, please store luggage at the reception to allow room preparation for arriving guests.</p>
-        </div>
-
-        <div class="card tilt">
-            <i class="fa-solid fa-leaf"></i>
-            <h3>Energy & Conservation</h3>
-            <p>Kindly switch off all AC units, fans, and lights when leaving your room. Help us keep Ramanujan House green.</p>
-        </div>
-
-        <div class="card tilt">
-            <i class="fa-solid fa-anchor"></i>
-            <h3>Local Sensitivity</h3>
-            <p>Located in a Navy Nagar residential area. Please maintain silence, avoid loud TV/music, and do not congregate in corridors after 10:00 PM.</p>
-        </div>
-
-        <div class="card tilt">
-            <i class="fa-solid fa-shield-halved"></i>
-            <h3>Security</h3>
-            <p>Management is not responsible for loss of valuables. Safe lockers are available—please utilize them for peace of mind.</p>
-        </div>
+<section class="hero-ram">
+    <div class="hero-card">
+        <h1>Srinivasa Ramanujan House</h1>
+        <p>TIFR Colaba Campus — A dedicated sanctuary for visiting scholars, scientists, and institute affiliates. Where mathematical genius meets modern hospitality.</p>
+        <a class="btn-primary" href="#accommodation">Explore Stays <i class="fa-regular fa-eye"></i></a>
     </div>
+</section>
 
-    <div id="lightbox">
-        <img id="lightbox-img" src="">
-    </div>
-
-    <footer>
-        <div class="nav-logo" style="margin-bottom: 20px;">TIFR <span>RAMANUJAN</span></div>
-        <p>© 2024 Tata Institute of Fundamental Research. Designed for Excellence.</p>
-    </footer>
-
-    <script>
-        /* 1. 3D Tilt Effect Logic */
-        const cards = document.querySelectorAll('.tilt');
+<section class="section-wrap" id="about">
+    <div class="section-badge">Homage to Genius</div>
+    <h2 class="section-head">Infinite Legacy</h2>
+    
+    <div class="about-grid">
+        <div class="glass-info">
+            <p style="line-height: 1.7; font-size: 1.05rem; color: #2c3e3a;">The TIFR Guesthouse building in the Colaba Campus is named after the great Indian mathematician <strong>Srinivasa Ramanujan</strong>. It consists of three different categories of rooms. In addition, the facility provides fully furnished and serviced studios and apartments on campus for long-term guests.</p>
+            <div style="margin-top: 24px; background: #e9f3ef; border-radius: 20px; padding: 20px; font-size: 0.95rem;">
+                <i class="fa-solid fa-building-user" style="color: var(--accent-emerald); margin-right: 8px;"></i> <strong>Eligibility:</strong> TIFR guesthouse facility can be availed for TIFR institute visitor(s) only. Official booking via TIFR datanet by authorized members.
+            </div>
+        </div>
         
-        cards.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const cardRect = card.getBoundingClientRect();
-                const cardWidth = cardRect.width;
-                const cardHeight = cardRect.height;
-                const centerX = cardRect.left + cardWidth / 2;
-                const centerY = cardRect.top + cardHeight / 2;
-                const mouseX = e.clientX - centerX;
-                const mouseY = e.clientY - centerY;
-                
-                const rotateX = (-1 * (mouseY / (cardHeight / 2)) * 10).toFixed(2);
-                const rotateY = ((mouseX / (cardWidth / 2)) * 10).toFixed(2);
-                
-                card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-            
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = `rotateX(0deg) rotateY(0deg)`;
-            });
-        });
+        <div class="bento-showcase">
+            <div class="bento-item span-2w span-2h">
+                <img src="sb-2.jpg" class="zoomable-target" alt="Ramanujan House Building Entry">
+                <div class="bento-caption">Main Building Entrance</div>
+            </div>
+            <div class="bento-item span-2h">
+                <img src="sb-1.jpg" class="zoomable-target" alt="Manicured Walkway Gardens">
+                <div class="bento-caption">Campus Gardens</div>
+            </div>
+            <div class="bento-item">
+                <img src="sb-3.jpg" class="zoomable-target" alt="Lounge Area View">
+                <div class="bento-caption">Lounge Space</div>
+            </div>
+        </div>
+    </div>
 
-        /* 2. Zoom / Lightbox Logic */
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = document.getElementById('lightbox-img');
-        const zoomables = document.querySelectorAll('.zoomable');
+    <div class="about-grid" style="margin-bottom: 0;">
+        <div class="bento-showcase" style="grid-template-columns: repeat(2, 1fr); grid-auto-rows: 100%;">
+            <div class="bento-item">
+                <img src="gh_012-reception.JPG" class="zoomable-target" alt="Central Reception Desk">
+                <div class="bento-caption">24/7 Reception Desk</div>
+            </div>
+            <div class="bento-item">
+                <img src="sb-4.jpg" class="zoomable-target" alt="Dining Hall Environment">
+                <div class="bento-caption">Dining Workspace Area</div>
+            </div>
+        </div>
+        <div class="glass-info">
+            <p><i class="fa-regular fa-envelope" style="color: var(--accent-emerald);"></i> <strong>Booking requests</strong> (non-datanet): send to guesthouse in-charge — <strong style="color:#1f7859;">guesthouse@tifr.res.in</strong><br><br>All rooms are Wi-Fi enabled; guests obtain network authorization keys from the front counter desk during check-in.</p>
+            <hr style="margin: 20px 0; border-color: #e2efe8;">
+            <p style="font-weight: 600;"><i class="fa-regular fa-clock" style="color: var(--accent-emerald);"></i> Check-in: 12:00 noon &nbsp;|&nbsp; Check-out: 10:00 am</p>
+        </div>
+    </div>
+</section>
 
-        zoomables.forEach(img => {
-            img.addEventListener('click', () => {
-                lightbox.style.display = 'flex';
-                lightboxImg.src = img.src;
-            });
-        });
+<section class="section-wrap" id="accommodation">
+    <div class="section-badge">Guest Chambers</div>
+    <h2 class="section-head">Room Classifications</h2>
+    <div class="room-triptych">
+        <div class="room-card-3d">
+            <div class="room-img-strip"><img src="sb-8.jpg" class="zoomable-target" alt="A-Type Single room setup"></div>
+            <div class="room-content">
+                <h3>A-Type – Single Room</h3>
+                <p>Single occupancy configuration setup built for individual scholars, featuring shared bathroom & toilet modules.</p>
+                <div class="amenities-list"><span>❄️ AC</span><span>🧊 Refrigerator</span><span>🔐 Locker</span><span>☕ Kettle Set</span></div>
+            </div>
+        </div>
+        <div class="room-card-3d">
+            <div class="room-img-strip"><img src="sb-7.jpg" class="zoomable-target" alt="C-Type Double room layout"></div>
+            <div class="room-content">
+                <h3>C-Type – Double Room</h3>
+                <p>Features two individual twin-beds configurations with fully integrated private attached bathroom & toilet utilities.</p>
+                <div class="amenities-list"><span>❄️ AC</span><span>🧊 Fridge</span><span>🔐 Locker</span><span>🫖 Electric Unit</span></div>
+            </div>
+        </div>
+        <div class="room-card-3d">
+            <div class="room-img-strip"><img src="sb-5.jpg" class="zoomable-target" alt="D-Type Executive Suite layout"></div>
+            <div class="room-content">
+                <h3>D-Type – Suite with Living</h3>
+                <p>Premium multi-room layout containing two beds, attached bathroom, an integrated <strong>Kitchenette, and a spacious Living Hall area</strong>.</p>
+                <div class="amenities-list"><span>🏠 Living Hall</span><span>🍽️ Kitchenette</span><span>❄️ AC</span><span>🔒 Locker</span></div>
+            </div>
+        </div>
+    </div>
+</section>
 
-        lightbox.addEventListener('click', () => {
-            lightbox.style.display = 'none';
+<section class="section-wrap" id="tariff">
+    <div class="section-badge">Financial Framework</div>
+    <h2 class="section-head">Tariff & Timings</h2>
+    <div class="tariff-elegant">
+        <table class="tariff-table">
+            <thead><tr><th>Room Type</th><th>Official (INR)</th><th>Personal (INR)</th></tr></thead>
+            <tbody>
+                <tr><td>A-Type (Single Occupancy)</td><td><span class="rate-badge">₹200</span></td><td><span class="rate-badge">₹600</span></td></tr>
+                <tr><td>C-Type (Single Occupancy)</td><td><span class="rate-badge">₹500</span></td><td><span class="rate-badge">₹1,500</span></td></tr>
+                <tr><td>C-Type (Double Occupancy)</td><td><span class="rate-badge">₹650</span></td><td><span class="rate-badge">₹1,950</span></td></tr>
+                <tr><td>D-Type (Single Occupancy)</td><td><span class="rate-badge">₹650</span></td><td><span class="rate-badge">₹1,950</span></td></tr>
+                <tr><td>D-Type (Double Occupancy)</td><td><span class="rate-badge">₹900</span></td><td><span class="rate-badge">₹2,700</span></td></tr>
+                <tr><td>D-Type (Family Occupancy)</td><td><span class="rate-badge">₹1,200</span></td><td><span class="rate-badge">₹3,600</span></td></tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<section class="section-wrap" id="billing">
+    <div class="section-badge">Academic Infrastructure</div>
+    <h2 class="section-head">Venues & Settlement</h2>
+    
+    <div class="room-triptych" style="grid-template-columns: 1.1fr 0.9fr; align-items: stretch;">
+        <div class="glass-info">
+            <i class="fa-solid fa-chalkboard-user" style="font-size: 2rem; color:var(--accent-emerald); margin-bottom: 20px; display: block;"></i>
+            <h3 style="margin-bottom: 12px; font-size: 1.4rem; font-weight: 700;">Conference & Seminar Auditoriums</h3>
+            <p style="color: #4a5d58; line-height: 1.6; font-size: 0.95rem; margin-bottom: 20px;">Ramanujan House hosts spaces tailored for professional dialogue and collaborative research assemblies, including a private conference setup and a large multi-seat hall available via advanced booking options at the counter workspace.</p>
+            <div class="amenities-list" style="margin: 0;"><span style="background: var(--deep-teal); color: white;">Seminar Room: 40-45 Seats</span><span style="background: var(--accent-emerald); color: white;">Conference Room: 10-12 Seats</span></div>
+        </div>
+        <div class="info-pane-img tracked-component">
+            <img src="sem-room.JPG" class="zoomable-target" alt="Seminar Room Presentation Arena">
+        </div>
+    </div>
+
+    <div class="info-dual">
+        <div class="info-pane-img tracked-component">
+            <img src="conf-room.JPG" class="zoomable-target" alt="Executive Conference Meeting Room">
+        </div>
+        <div class="glass-info">
+            <i class="fa-solid fa-receipt" style="font-size: 2rem; color:var(--accent-emerald); margin-bottom: 20px; display: block;"></i>
+            <h3 style="margin-bottom: 12px; font-size: 1.4rem; font-weight: 700;">Payment & Bill Settlement</h3>
+            <p style="color: #4a5d58; line-height: 1.6; font-size: 0.95rem;">Guests must coordinate structural billing requirements directly with their hosts. All operational room ledger entries, food charges, or supplementary requirements must be settled cleanly at the front counter prior to final checkout operations.</p>
+        </div>
+    </div>
+</section>
+
+<section class="section-wrap">
+    <div class="section-badge">Amenities & Infrastructure</div>
+    <h2 class="section-head">Within Ramanujan House</h2>
+    <div class="facilities-grid">
+        <div class="facil-card"><i class="fa-solid fa-wifi"></i><h4>Wi-Fi Enabled</h4><p>High-speed access, credentials at front desk</p></div>
+        <div class="facil-card"><i class="fa-solid fa-kitchen-set"></i><h4>Kitchenette Room</h4><p>Cutlery, kettle, complimentary tea/coffee sets</p></div>
+        <div class="facil-card"><i class="fa-solid fa-box-archive"></i><h4>In-room Lockers</h4><p>Secure storage arrays for guest valuables</p></div>
+        <div class="facil-card"><i class="fa-regular fa-building"></i><h4>Lounge Areas</h4><p>Collaborative intermediate spaces for breaks</p></div>
+    </div>
+</section>
+
+<footer class="footer-ultimate" id="contact">
+    <div class="footer-flex">
+        <div>
+            <h2 style="color: white; font-size: 1.9rem; font-weight: 800; letter-spacing: -1px;">Ramanujan House</h2>
+            <p style="margin-top: 18px; line-height: 1.6; opacity: 0.7;">TIFR Colaba Campus, Mumbai. Supporting scientific excellence by providing an authentic campus residential environment for global academia.</p>
+        </div>
+        <div>
+            <div class="contact-pill"><i class="fa-regular fa-envelope"></i> feedback.gh@tifr.res.in</div>
+            <div class="contact-pill"><i class="fa-regular fa-clock"></i> Check-in 12:00 Noon / Check-out 10:00 AM</div>
+            <div class="contact-pill"><i class="fa-solid fa-key"></i> Booking via TIFR Datanet | Official visitors only</div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 60px; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 32px; opacity: 0.5;">&copy; 2026 Tata Institute of Fundamental Research. All rights reserved.</div>
+</footer>
+
+<div class="lightbox-orb" id="globalLightbox">
+    <div class="lightbox-inner"><img id="lightboxImg" src="" alt="Active Viewport Image Context"></div>
+</div>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Smooth sticky bar translucent background transition
+    window.addEventListener('scroll', () => {
+        const navigationBar = document.querySelector('.nav-master');
+        if(window.scrollY > 40) navigationBar.style.background = 'rgba(255, 255, 255, 0.94)';
+        else navigationBar.style.background = 'rgba(255, 255, 255, 0.75)';
+    });
+    
+    // Reveal section items sequentially via gsap trigger matrix
+    const structuralWrappers = document.querySelectorAll('.section-wrap');
+    structuralWrappers.forEach(targetWrapper => {
+        gsap.fromTo(targetWrapper, { opacity: 0, y: 30 }, {
+            opacity: 1, y: 0, duration: 0.8, ease: "power2.out",
+            scrollTrigger: { trigger: targetWrapper, start: "top 85%", toggleActions: "play none none reverse" }
         });
-    </script>
+    });
+    
+    // 3D Mouse Coordinate Rotation Tracking Core Logic
+    const interactionNodes = document.querySelectorAll('.room-card-3d, .facil-card, .glass-info, .info-pane-img');
+    interactionNodes.forEach(nodeElement => {
+        nodeElement.addEventListener('mousemove', (moveEvent) => {
+            const boundaries = nodeElement.getBoundingClientRect();
+            const coordinateVectorX = (moveEvent.clientX - boundaries.left - boundaries.width/2) / 30;
+            const coordinateVectorY = (moveEvent.clientY - boundaries.top - boundaries.height/2) / 30;
+            nodeElement.style.transform = `perspective(1000px) rotateY(${coordinateVectorX}deg) rotateX(${-coordinateVectorY}deg) translateY(-4px)`;
+            nodeElement.style.transition = 'transform 0.05s ease-out';
+        });
+        nodeElement.addEventListener('mouseleave', () => {
+            nodeElement.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px)`;
+            nodeElement.style.transition = 'transform 0.4s ease';
+        });
+    });
+    
+    // Global Micro Interaction Lightbox Zoom Handler Engine Setup
+    const globalLightbox = document.getElementById('globalLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const comprehensiveImages = document.querySelectorAll('.zoomable-target');
+    
+    comprehensiveImages.forEach(imageInstance => {
+        imageInstance.style.cursor = 'zoom-in';
+        imageInstance.addEventListener('click', (clickEvent) => {
+            clickEvent.stopPropagation();
+            globalLightbox.style.display = 'flex';
+            lightboxImg.src = imageInstance.src;
+            document.body.style.overflow = 'hidden';
+            gsap.fromTo(lightboxImg, { scale: 0.95, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power2.out" });
+        });
+    });
+    
+    globalLightbox.addEventListener('click', () => {
+        globalLightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+    
+    // Smooth scroll navigation anchors
+    document.querySelectorAll('a[href^="#"]').forEach(navigationAnchor => {
+        navigationAnchor.addEventListener('click', function(anchorEvent) {
+            anchorEvent.preventDefault();
+            const destinationElement = document.querySelector(this.getAttribute('href'));
+            if(destinationElement) destinationElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+    
+    // Table content row spotlight trace highlight elements
+    const gridRows = document.querySelectorAll('.tariff-table tbody tr');
+    gridRows.forEach(rowInstance => {
+        rowInstance.addEventListener('mouseenter', () => gsap.to(rowInstance, { backgroundColor: '#f1f6f3', duration: 0.1 }));
+        rowInstance.addEventListener('mouseleave', () => gsap.to(rowInstance, { backgroundColor: 'transparent', duration: 0.15 }));
+    });
+    
+    // Hero entry floating system simulation context animation
+    gsap.to('.hero-card', { y: -6, duration: 3, repeat: -1, yoyo: true, ease: "sine.inOut" });
+</script>
 </body>
 </html>
