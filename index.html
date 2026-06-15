@@ -1,246 +1,622 @@
-<html xmlns="http://www.w3.org/1999/xhtml"><head>
-<title>RAMANUJAN GUESTHOUSE</title>
-<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
-<link href="style.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-body {
-	margin : 0;
-	padding : 0;
-	font : 73% "Trebuchet MS", verdana, tahoma, sans-serif;
-	color : #555;
-	background : #eef6fb url(img/bg.jpg) repeat-y center;
-	line-height : 1.5em;
-	font-size: medium;
-}
-#container {
-width : 1000px;
-margin-left : auto;
-margin-right : auto;
-padding : 0;
-border : 5px solid #fff;
-}
-#navlist {
-padding : 3px 0;
-margin : 0;
-text-align : left;
-font : bold 110% "Trebuchet MS", verdana, sans-serif;
-color : #000;
-background : #99c6e7;
-}
-#navlist li {
-list-style : none;
-margin : 0;
-display : inline;
-}
-#navlist li a {
-padding : 3px 1.5em;
-margin : 0;
-color : #333;
-background : #99c6e7;
-text-decoration : none;
-}
-#navlist li a:link, #navlist li a:visited {
-color : #333;
-background : #99c6e7;
-}
-#navlist li a:hover {
-color : #fff;
-background : #6ba0e6;
-}
-#navlist li a#current {
-color : #fff;
-background : #6ba0e6;
-}
-#banner {
-width : 1000px;
-height : 200px;
-padding : 0;
-margin : 0;
-color : #fff;
-background : #738ca5 url(img/banner.jpg) no-repeat;
-}
-#banner h1 {
-margin : 0;
-padding : 20px;
-font : normal 175% "Trebuchet MS", tahoma, verdana, sans-serif;
-letter-spacing : 5px;
-text-transform : none;
-border-bottom : none;
-color : #000;
-background : transparent;
-}
-#content {
-padding : 5px;
-margin-left : 220px;
-margin-right: 5px;
-margin-bottom : 5px;
-color : #555;
-background : #eef6fb;
-}
-#sidebar-a {
-float : left;
-width : 180px;
-margin : 0 10px 10px 10px;
-padding : 5px;
-border-right : 1px solid #fff;
-color : #555;
-background : #eef6fb;
-}
-#footer {
-clear : both;
-padding : 5px;
-margin : 0;
-text-align : left;
-border-top : 10px solid #6ca3e4;
-color : #333;
-background : #99c6e7;
-}
-.roundcont {
-	margin : 10px;
-	width : 95%;
-	background : #f7fbfd;
-	color : #333;
-	font-size: small;
-	text-align: justify;
-}
-.roundcont p {
-	margin : 0 15px;
-	text-align: justify;
-}
-.roundtop {
-	background : url(img/tr.gif) no-repeat top right;
-	text-align: justify;
-}
-.roundbottom {
-background : url(img/br.gif) no-repeat top right;
-}
-img.corner {
-width : 10px;
-height : 10px;
-border : none;
-display : block !important;
-}
-p {
-	padding : 3px 10px 10px 5px;
-	text-align: justify;
-	font-size: small;
-}
-h1 {
-	margin : 10px 0 10px 10px;
-	padding : 0;
-	font : 140% "Trebuchet MS", verdana, tahoma, sans-serif;
-	text-transform : uppercase;
-	color : #738ca5;
-	background : inherit;
-	text-align: left;
-}
-h2 {
-margin : 0;
-font : 140% "Trebuchet MS", verdana, tahoma, sans-serif;
-padding : 0;
-border-bottom : 0 solid #738ca5;
-text-transform : none;
-color : #738ca5;
-background : inherit;
-}
-a {
-text-decoration : none;
-color : #666;
-background : inherit;
-}
-a:hover {
-	text-decoration : underline;
-	color : #333;
-	background : inherit;
-}
-a img {
-	border : 0;
-	text-align: left;
-}
-.img {
-float : left;
-padding : 5px;
-margin : 10px;
-border : 1px solid #556b2f;
-}
-blockquote {
-font-weight : bold;
-font-style : italic;
-color : #b29b35;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIFR Ramanujan House - Guest Guidelines</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom Design Tokens */
+        :root {
+            --bg-main: #fafbfe;
+            --surface-card: #ffffff;
+            --text-primary: #1e293b;
+            --text-muted: #64748b;
+            --accent: #2563eb;
+            --accent-glow: rgba(37, 99, 235, 0.15);
+            --danger: #ef4444;
+            --danger-glow: rgba(239, 68, 68, 0.08);
+            --glass-blur: blur(12px);
+            --border-color: rgba(226, 232, 240, 0.8);
+            
+            /* 3D Shadows */
+            --shadow-3d: 0 20px 40px rgba(15, 23, 42, 0.06), 
+                         0 1px 3px rgba(15, 23, 42, 0.02),
+                         inset 0 1px 0 rgba(255, 255, 255, 0.6);
+            --shadow-hover: 0 30px 60px rgba(15, 23, 42, 0.12), 
+                            0 10px 20px rgba(37, 99, 235, 0.05);
+        }
 
-</style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* 3D Glassmorphic Header Navigation */
+        .glass-nav {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 20px;
+            padding: 16px 32px;
+            z-index: 1000;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 700;
+            letter-spacing: 1px;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        .sub-logo {
+            color: var(--accent);
+            font-weight: 400;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent);
+        }
+
+        /* Hero Showcase Section */
+        .hero-section {
+            position: relative;
+            height: 55vh;
+            min-height: 400px;
+            display: flex;
+            align-items: flex-end;
+            padding: 60px 5%;
+            overflow: hidden;
+            background-color: #0f172a;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            transform: scale(1.05);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 70%;
+            background: linear-gradient(to top, var(--bg-main) 0%, rgba(26, 32, 44, 0) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 1.1rem;
+            max-width: 650px;
+        }
+
+        /* Grid Layout */
+        .dashboard-container {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 50px;
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 40px;
+        }
+
+        /* Sidebar Panels */
+        .side-panel {
+            position: relative;
+        }
+
+        .sticky-wrapper {
+            position: sticky;
+            top: 120px;
+        }
+
+        .panel-title {
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+        }
+
+        /* 3D Offset Image Stack */
+        .image-stack {
+            position: relative;
+            height: 280px;
+            margin-bottom: 40px;
+        }
+
+        .stack-card {
+            position: absolute;
+            width: 85%;
+            height: 220px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), z-index 0.4s;
+            border: 4px solid #fff;
+        }
+
+        .stack-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .img-tag {
+            position: absolute;
+            bottom: 12px;
+            left: 12px;
+            background: rgba(15, 23, 42, 0.75);
+            color: #fff;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+            border-radius: 20px;
+            backdrop-filter: var(--glass-blur);
+        }
+
+        .card-1 { z-index: 3; transform: translate(0, 0) scale(1); }
+        .card-2 { z-index: 2; transform: translate(25px, 25px) scale(0.95); opacity: 0.85; }
+        .card-3 { z-index: 1; transform: translate(50px, 50px) scale(0.90); opacity: 0.7; }
+
+        .image-stack:hover .card-1 { transform: translate(-10px, -10px) rotate(-2deg); z-index: 4; }
+        .image-stack:hover .card-2 { transform: translate(15px, 5px) scale(1.02) rotate(2deg); z-index: 5; }
+        .image-stack:hover .card-3 { transform: translate(45px, 40px) scale(0.95); }
+
+        /* Amenities Mini Components */
+        .amenity-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .amenity-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            background: var(--surface-card);
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .amenity-thumb {
+            width: 60px;
+            height: 60px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .amenity-item h4 { font-size: 0.9rem; font-weight: 600; }
+        .amenity-item p { font-size: 0.8rem; color: var(--text-muted); }
+
+        /* Rules Layout */
+        .rules-feed {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .category-block {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        /* 3D Accent Icon Boxes */
+        .icon-cube {
+            width: 40px;
+            height: 40px;
+            background: #ffffff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            box-shadow: -4px 4px 0px var(--accent-glow), -1px 1px 0px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+        }
+
+        .category-header h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+        }
+
+        /* Interactive 3D Rule Cards */
+        .rule-card, .rule-cardHighlight {
+            position: relative;
+            background: var(--surface-card);
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            padding: 32px 24px 24px 24px;
+            box-shadow: var(--shadow-3d);
+            transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), 
+                        box-shadow 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .rule-card:hover, .rule-cardHighlight:hover {
+            transform: translateY(-6px) scale(1.01);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(37, 99, 235, 0.2);
+        }
+
+        .rule-num {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: rgba(15, 23, 42, 0.04);
+            transition: color 0.3s ease;
+        }
+
+        .rule-card:hover .rule-num {
+            color: var(--accent-glow);
+        }
+
+        .rule-card p {
+            font-size: 0.95rem;
+            color: #334155;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* Spotlight Cards */
+        .rule-cardHighlight {
+            background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+            border-left: 4px solid var(--accent);
+        }
+
+        .rule-cardHighlight h4 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--accent);
+        }
+
+        /* Danger/Warning Cards */
+        .negative-alert {
+            border-left: 4px solid var(--danger);
+        }
+        .negative-alert:hover {
+            box-shadow: 0 30px 60px rgba(15, 23, 42, 0.1), 0 10px 20px var(--danger-glow);
+            border-color: rgba(239, 68, 68, 0.2);
+        }
+        .negative-alert .rule-num { color: rgba(239, 68, 68, 0.1); }
+        .negative-alert:hover .rule-num { color: var(--danger); }
+
+        /* Modern Glass Feedback Callout Box */
+        .feedback-glass-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(248, 250, 252, 0.8) 100%);
+            backdrop-filter: var(--glass-blur);
+            -webkit-backdrop-filter: var(--glass-blur);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: var(--shadow-3d);
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            align-items: flex-start;
+            margin-top: 20px;
+        }
+
+        .feedback-glass-card h3 { font-size: 1.3rem; font-weight: 700; }
+        .feedback-glass-card p { color: var(--text-muted); font-size: 0.95rem; max-width: 600px; }
+
+        .feedback-btn {
+            display: inline-flex;
+            flex-direction: column;
+            background: var(--text-primary);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 28px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 10px 20px rgba(15, 23, 42, 0.15);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feedback-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 25px rgba(15, 23, 42, 0.25);
+            background: #000000;
+        }
+
+        .email-text {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 2px;
+        }
+
+        .minimal-footer {
+            text-align: center;
+            padding: 60px 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            background-color: #ffffff;
+            margin-top: 80px;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .dashboard-container {
+                grid-template-columns: 1fr;
+                padding: 0 24px;
+            }
+            .sticky-wrapper { position: relative; top: 0; }
+            .image-stack { display: none; }
+            .hero-content h1 { font-size: 2.2rem; }
+        }
+    </style>
 </head>
 <body>
-<div id="container">
-  <div id="banner">
-	  <h1 align="center"></h1>
-    <p>&nbsp;</p>
-  </div>
-  <div id="navcontainer">
-    <ul id="navlist">
-      <li id="active"><a href="index.html">Home</a></li>
-      <li><a href="./About.html">About</a></li>
-      <li><a href="./People.html">People</a></li>
-      <li><a href="./Catering.html">Catering</a></li>
-      <li><a href="./Usage_Rules.html">Usage Rules</a></li>
-      <li><a href="./Contact.html">Contact</a></li>
-    </ul>
-  </div>
-  <h1> A few simple rules for our guests</h1>
-  <p>In  order to provide efficient services to all our guests a few simple instructions  and rules are formulated by the management committee. All guests and their  hosts are requested to read the following document and adhere to the  regulations. This will help us to manage the facility and provide unhindered  service to all our guests.</p>
-  <div id="sidebar-a">
-    <h2><img src="img/GH/sb-1alt2.jpg" width="180" height="271" alt=""></h2>
-    <p><img src="img/GH/sb-2a.jpg" width="180" height="239" alt=""></p>
-    <p><img src="img/GH/sb-3alt.jpg" width="180" height="180" alt=""></p>
-    <p><img src="img/GH/sb-10.jpg" width="180" height="160" alt=""></p>
-    <p><img src="img/GH/sb-11.jpg" width="180" height="160" alt=""></p>
-  </div>
-  <div id="content">
-    <div class="roundcont">
-      <div class="roundtop"><img src="img/tl.gif" alt="tl img" width="10" height="10" class="corner" style="display: none"></div>
-      <ol>
-        <li>The  Ramanujan house is part of TIFR and is only used to accommodate short and  medium term official visitors to the Institute.</li>
-        <li>Field  station staff, who require to visit Colaba campus for official work, should  send their requisition for accommodation through their Faculty member-in-charge  or Field station-in-charge.</li>
-        <li>The  Guesthouse accommodation can be provided for a maximum period of 3 months.</li>
-        <li>Hosts  are required to ensure that their visitors are informed about the settlement of  bill prior to departure.</li>
-        <li>The  booking for the guest from within India will close 24 hours after the scheduled  check-in /arrival time. </li>
-        <li>For  the guests from abroad, it will close 48 hours after the scheduled check-in  /arrival time. </li>
-        <li>If  the guest doesn’t turn up during the above period, then the booking will be  cancelled and the room will be allotted to the waitlisted guests.</li>
-        <li>The  Check-in time is 12.00 noon and the check-out time is 10.00 AM. All guests are  requested to cooperate and be punctual about the check-out time to facilitate  the room cleaning and preparation for the subsequent guests.</li>
-        <li>At  the time of check-in or soon thereafter, please re-confirm the dates of your  entire booking at the reception. Sometimes booking in the same room or the same  type of room is unavailable for the entire duration of a Guest’s stay. This is  clearly made known to the host at the time of booking. Re-confirming with the  reception can help the concerned guest to avoid misunderstanding and surprises. </li>
-        <li>Because the guesthouse is fully  booked on most days of the year, it is not permitted to overstay for any  reason. Even if your departure is delayed, you will need to check-out before  10.00 AM on the date of expiry of your booking. You may leave your baggage with  the reception and use the common area at the Guesthouse for the rest of the  day if necessary.</li>
-        <li>In case of dispute over bookings, the  Guest is advised to contact the hosts, and the host is requested to contact the  Officer In-charge of the Guesthouse for settlements. In any such case, it is  strictly forbidden to argue/abuse the guesthouse staff in any way as they are  not entitled to make any changes in the booking without approval. They have  instructions to contact with the Institute security to deal with any situation  involving unpleasantness.</li>
-        <li>Persons  staying in the Guesthouse are not entitled to bring in unauthorized guest(s)  to stay with them in the Guesthouse.</li>
-        <li>The guests  are requested to switch off the AC’s, lights, fans etc., close windows and lock  their rooms when they go out of their rooms. </li>
-        <li>Alcoholic  drinks in the Guesthouse are strictly prohibited.</li>
-        <li>The  guesthouse staff is not responsible for any valuable items left behind by  guests in the rooms. Please keep them in Electronic Lockers provided in the  rooms. </li>
-        <li>The Guesthouse is meant for you. Please help us keep it clean.</li>
-        <li>There  is always room for improvement. Suggestions/Complaints, if any, are most  welcome and may be submitted though the feedback form available at the front  desk or email it to feedback.gh{at}tifr.res.in. Your opinion will be kept confidential  from the guesthouse staff. </li>
-      </ol>
-      <div class="roundbottom"><img src="img/bl.gif" alt="bl img" width="10" height="10" class="corner" style="display: none"></div>
-    </div>
-    <h2>Noise Restrictions</h2>
-    <div class="roundcont">
-      <div class="roundtop"><img src="img/tl.gif" alt="tl img" width="10" height="10" class="corner" style="display: none"></div>
-      <ol>
-        <li>The TIFR Guesthouse is intended to provide  a peaceful environment for all its guests. It is not permitted to watch TV or  play music at loud volumes at any time and particularly after 10 PM at night.</li>
-        <li>Please do not congregate in the corridors of the  guesthouse or disturb other guests, particularly at night. </li>
-      </ol>
-      <div class="roundbottom"><img src="img/bl.gif" alt="bl img" width="10" height="10" class="corner" style="display: none"></div>
-    </div>
-    <h2>Navy Nagar Regulations</h2>
-    <div class="roundcont">
-      <div class="roundtop"><img src="img/tl.gif" alt="tl img" width="10" height="10" class="corner" style="display: none"></div>
-      <ol>
-        <li>As TIFR is located within the Navy  Nagar (Naval) Area, we are subjected to certain restrictions and regulations imposed  by the Indian Navy. In particular, photography is only permitted inside the  TIFR Housing Complex, and it is strictly forbidden on the streets outside as  well as in the Institute campus.</li>
-        <li>Naval security may screen or question  persons entering Navy Nagar. Keeping a photo-ID card all time in person by  the guest is strongly advised. The guesthouse will also provide a temporary ID  card when you check-in. You are requested to co-operate with the security  procedures and show them both the ID's if required.</li>
-      </ol>
-      <div class="roundbottom"><img src="img/bl.gif" alt="bl img" width="10" height="10" class="corner" style="display: none"></div>
-    </div>
-  </div>
-  <div id="footer">© Guesthouse TIFR| Designed by Lalit C.Borde</div>
-</div>
 
+    <nav class="glass-nav">
+        <div class="nav-container">
+            <span class="logo">RAMANUJAN <span class="sub-logo">HOUSE</span></span>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">People</a></li>
+                <li><a href="#">Catering</a></li>
+                <li><a href="#" class="active">Usage Rules</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
 
-</body></html>
+    <header class="hero-section">
+        <div class="hero-bg">
+            <img src="GH-3b.jpg" alt="Ramanujan House Front View" class="hero-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <h1>A Few Simple Rules for Our Guests</h1>
+            <p>In order to provide efficient services, the management committee requests all official visitors and hosts to adhere to these foundational guidelines during their stay.</p>
+        </div>
+    </header>
+
+    <main class="dashboard-container">
+        
+        <aside class="side-panel">
+            <div class="sticky-wrapper">
+                <h3 class="panel-title">Campus Environment</h3>
+                
+                <div class="image-stack">
+                    <div class="stack-card card-1">
+                        <img src="sb-1.jpg" alt="Building Overview">
+                        <span class="img-tag">TIFR Campus</span>
+                    </div>
+                    <div class="stack-card card-2">
+                        <img src="sb-2.jpg" alt="Manicured Walkways">
+                        <span class="img-tag">Gardens</span>
+                    </div>
+                    <div class="stack-card card-3">
+                        <img src="sb-3.jpg" alt="Greenery Landscape">
+                        <span class="img-tag">Surroundings</span>
+                    </div>
+                </div>
+
+                <div class="amenity-grid">
+                    <div class="amenity-item">
+                        <img src="gh_012-reception.JPG" alt="Reception Desk" class="amenity-thumb">
+                        <div>
+                            <h4>24/7 Front Desk</h4>
+                            <p>Re-confirm check-out dates at arrival.</p>
+                        </div>
+                    </div>
+                    <div class="amenity-item">
+                        <img src="conf-room.JPG" alt="Conference Facility" class="amenity-thumb">
+                        <div>
+                            <h4>Conference & Seminars</h4>
+                            <p>Access to modern collaborative spaces.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <section class="rules-feed">
+            
+            <div class="category-block">
+                <div class="category-header">
+                    <div class="icon-cube">📂</div>
+                    <h2>Stay & Eligibility Protocols</h2>
+                </div>
+                
+                <div class="rules-grid">
+                    <div class="rule-card">
+                        <span class="rule-num">01</span>
+                        <p>The Ramanujan house is part of TIFR and is strictly used to accommodate short and medium term official visitors to the Institute.</p>
+                    </div>
+                    <div class="rule-card">
+                        <span class="rule-num">02</span>
+                        <p>Field station staff visiting Colaba campus for official work must submit a requisition through their Faculty member-in-charge.</p>
+                    </div>
+                    <div class="rule-card">
+                        <span class="rule-num">03</span>
+                        <p>Guesthouse accommodations are provided for a maximum continuous period of 3 months.</p>
+                    </div>
+                    <div class="rule-card">
+                        <span class="rule-num">04</span>
+                        <p>Hosts are required to ensure that their visitors are fully informed about the final settlement of bills prior to departure.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="category-header">
+                    <div class="icon-cube">🕒</div>
+                    <h2>Timelines & Cancellations</h2>
+                </div>
+                
+                <div class="rules-grid">
+                    <div class="rule-cardHighlight">
+                        <span class="rule-num">05</span>
+                        <h4>Domestic Bookings</h4>
+                        <p>Closes 24 hours after the scheduled check-in / arrival time.</p>
+                    </div>
+                    <div class="rule-cardHighlight">
+                        <span class="rule-num">06</span>
+                        <h4>International Guests</h4>
+                        <p>Closes 48 hours after the scheduled check-in / arrival time.</p>
+                    </div>
+                    <div class="rule-card">
+                        <span class="rule-num">07</span>
+                        <p>If a guest does not arrive during the allocation window, bookings are automatically cancelled and rooms are allotted to waitlisted individuals.</p>
+                    </div>
+                    <div class="rule-card">
+                        <span class="rule-num">08</span>
+                        <p><strong>Check-in:</strong> 12:00 Noon | <strong>Check-out:</strong> 10:00 AM. Please remain punctual to allow adequate room preparation windows.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="category-header">
+                    <div class="icon-cube">🛡️</div>
+                    <h2>House Code of Conduct</h2>
+                </div>
+                
+                <div class="rules-grid">
+                    <div class="rule-card negative-alert">
+                        <span class="rule-num">!</span>
+                        <p>Alcoholic drinks inside the Guesthouse premises are strictly prohibited.</p>
+                    </div>
+                    <div class="rule-card negative-alert">
+                        <span class="rule-num">!</span>
+                        <p>Overstaying is not permitted for any reason. If delayed, please store your baggage at the reception and utilize common areas.</p>
+                    </div>
+                    <div class="rule-card">
+                        <span class="rule-num">09</span>
+                        <p>Guests are not entitled to bring unauthorized visitors to stay with them in their assigned rooms.</p>
+                    </div>
+                    <div class="rule-card">
+                        <span class="rule-num">10</span>
+                        <p>Please remember to switch off ACs, lights, and fans, and close windows securely whenever leaving the room.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-block">
+                <div class="category-header">
+                    <div class="icon-cube">⚓</div>
+                    <h2>Navy Nagar & Noise Regulations</h2>
+                </div>
+                
+                <div class="rules-grid">
+                    <div class="rule-card">
+                        <span class="rule-num">11</span>
+                        <p>To preserve our peaceful environment, avoid watching TV or playing loud music at any time, especially after 10:00 PM.</p>
+                    </div>
+                    <div class="rule-card">
+                        <span class="rule-num">12</span>
+                        <p>Please do not congregate in the open corridors or disturb other guests walking through the main passages at night.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="feedback-glass-card">
+                <h3>Suggestions & Continuous Improvement</h3>
+                <p>We believe there is always room for improvement. If you have any feedback or complaints, grab a form at the reception desk or drop a line to our team securely.</p>
+                <a href="mailto:feedback.gh@tifr.res.in" class="feedback-btn">
+                    <span>Email Feedback</span>
+                    <span class="email-text">feedback.gh@tifr.res.in</span>
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="minimal-footer">
+        <p>&copy; 2026 Tata Institute of Fundamental Research. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
