@@ -5,12 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title> Ramanujan House | Official Guesthouse Portal</title>
     
-    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -42,12 +40,11 @@
             scroll-behavior: smooth;
         }
 
-       
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #dce6e2; border-radius: 10px; }
         ::-webkit-scrollbar-thumb { background: var(--accent-emerald); border-radius: 10px; }
 
-
+        /* HEADER & NAVIGATION */
         .nav-master {
             position: fixed;
             top: 24px;
@@ -78,6 +75,7 @@
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
+            white-space: nowrap;
         }
         .logo-brand i {
             color: var(--accent-emerald);
@@ -113,50 +111,53 @@
         }
         .nav-links a:hover:after { width: 100%; }
 
-        /* THEMED HERO COMPONENT PANEL */
+        /* MOBILE MENU TOGGLE Button */
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            color: var(--deep-teal);
+            cursor: pointer;
+            z-index: 2100;
+        }
+
+        /* HERO AREA REDUCED SIZE */
         .hero-ram {
-            min-height: 95vh;
-            background: linear-gradient(115deg, rgba(10,47,40,0.85) 0%, rgba(31,120,89,0.70) 100%), url('Screenshot 2026-06-12 130006.jpg') center/cover fixed;
+            min-height: 65vh; /* Scaled down from 95vh */
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('main.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             display: flex;
-           
-    background: linear-gradient(
-        rgba(0,0,0,0.5),
-        rgba(0,0,0,0.5)
-    ),
-    url('main.png');
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
             align-items: center;
             justify-content: center;
             border-radius: 0 0 56px 56px;
             position: relative;
-            padding: 0 24px;
+            padding: 120px 24px 60px; /* Accounts for fixed navbar */
         }
         .hero-card {
             max-width: 860px;
-            background: rgba(10, 47, 40, 0.45);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            padding: 56px;
+            background: rgba(10, 47, 40, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 40px 56px;
             border-radius: 40px;
             text-align: center;
             color: white;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             box-shadow: 0 30px 60px rgba(0,0,0,0.2);
             animation: floatUp 1s var(--transition-butter);
         }
         .hero-card h1 {
-            font-size: 3.8rem;
+            font-size: 3.2rem;
             font-weight: 800;
-            letter-spacing: -2px;
+            letter-spacing: -1px;
             line-height: 1.1;
             margin-bottom: 20px;
         }
         .hero-card p {
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             line-height: 1.6;
             opacity: 0.9;
         }
@@ -164,7 +165,7 @@
             display: inline-flex;
             background: white;
             border: none;
-            margin-top: 32px;
+            margin-top: 24px;
             padding: 14px 38px;
             border-radius: 50px;
             font-weight: 700;
@@ -183,7 +184,7 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-    
+        /* STRUCTURAL WRAPPERS */
         .section-wrap {
             max-width: 1400px;
             margin: 0 auto;
@@ -219,7 +220,7 @@
             border-radius: 4px;
         }
 
-    
+        /* BENTO & GRIDS */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -237,8 +238,6 @@
             flex-direction: column;
             justify-content: center;
         }
-
-      
         .bento-showcase {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -258,9 +257,7 @@
             object-fit: cover;
             transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
         }
-        .bento-item:hover img {
-            transform: scale(1.04);
-        }
+        .bento-item:hover img { transform: scale(1.04); }
         .span-full-width { grid-column: span 2; }
         .span-full-height { grid-row: span 2; }
 
@@ -280,7 +277,7 @@
         }
         .bento-item:hover .bento-caption { opacity: 1; }
 
-
+        /* ROOMS LAYOUT */
         .room-triptych {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -295,23 +292,11 @@
             box-shadow: var(--shadow-elevated);
             border: 1px solid rgba(31,120,89,0.1);
         }
-        .room-card-3d:hover {
-            box-shadow: var(--shadow-hover);
-        }
-        .room-img-strip {
-            height: 240px;
-            overflow: hidden;
-        }
-        .room-img-strip img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s;
-        }
+        .room-card-3d:hover { box-shadow: var(--shadow-hover); }
+        .room-img-strip { height: 240px; overflow: hidden; }
+        .room-img-strip img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
         .room-card-3d:hover .room-img-strip img { transform: scale(1.04); }
-        .room-content {
-            padding: 32px;
-        }
+        .room-content { padding: 32px; }
         .room-content h3 {
             font-size: 1.3rem;
             font-weight: 700;
@@ -321,20 +306,8 @@
             gap: 10px;
         }
         .room-content h3 i { color: var(--accent-emerald); font-size: 1.1rem; }
-        .room-content p {
-            font-size: 0.95rem;
-            color: #4a5d58;
-            margin-bottom: 16px;
-            line-height: 1.5;
-        }
-        .amenities-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin: 20px 0;
-            font-size: 0.75rem;
-            font-weight: 600;
-        }
+        .room-content p { font-size: 0.95rem; color: #4a5d58; margin-bottom: 16px; line-height: 1.5; }
+        .amenities-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; font-size: 0.75rem; font-weight: 600; }
         .amenities-list span {
             background: #eef5f1;
             padding: 6px 14px;
@@ -345,17 +318,24 @@
             gap: 4px;
         }
 
-     
+        /* TABLES & SCROLL WRAPPERS */
         .tariff-elegant {
             background: white;
             border-radius: 40px;
             padding: 40px;
             box-shadow: var(--shadow-elevated);
             border: 1px solid var(--border-soft);
+            overflow-x: auto; /* Fallback for safe table scroll */
+        }
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
         .tariff-table {
             width: 100%;
             border-collapse: collapse;
+            min-width: 600px; /* Assures readable format on tiny viewports */
         }
         .tariff-table th {
             text-align: left;
@@ -367,12 +347,7 @@
             letter-spacing: 0.8px;
             border-bottom: 2px solid #e2efe8;
         }
-        .tariff-table td {
-            padding: 20px;
-            border-bottom: 1px solid #edf3ef;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
+        .tariff-table td { padding: 20px; border-bottom: 1px solid #edf3ef; font-weight: 500; font-size: 0.95rem; }
         .tariff-table tr:last-child td { border-bottom: none; }
         .rate-badge {
             background: #e6f2ec;
@@ -383,6 +358,7 @@
             display: inline-block;
         }
 
+        /* CORE GRID PATTERNS */
         .facilities-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -417,6 +393,7 @@
         }
         .info-pane-img img { width: 100%; height: 100%; object-fit: cover; }
 
+        /* FOOTER MODULE */
         .footer-ultimate {
             background: #0a2f28;
             border-radius: 48px 48px 0 0;
@@ -443,7 +420,7 @@
         }
         .contact-pill i { color: var(--accent-soft); font-size: 1.2rem; }
 
-        /* ENHANCED INTERACTIVE VIEWPORT LIGHTBOX MAP */
+        /* LIGHTBOX SYSTEM */
         .lightbox-orb {
             display: none;
             position: fixed;
@@ -475,41 +452,90 @@
             to { transform: scale(1); opacity: 1; }
         }
 
+        /* MEDIA QUERIES FOR MOBILE COMPATIBILITY */
         @media (max-width: 1024px) {
-            .room-triptych, .facilities-grid, .about-grid, .info-dual, .footer-flex { grid-template-columns: 1fr; }
+            .room-triptych, .facilities-grid, .about-grid, .info-dual, .footer-flex { 
+                grid-template-columns: 1fr !important; 
+            }
             .bento-showcase { grid-template-columns: 1fr; grid-auto-rows: 180px; }
             .span-full-width, .span-full-height { grid-column: span 1; grid-row: span 1; }
-            .hero-card h1 { font-size: 2.8rem; }
-            .section-wrap { padding: 60px 24px; }
-            .nav-master { padding: 12px 24px; }
-            .nav-links { display: none; }
+            
+            .hero-ram {
+                min-height: 50vh;
+                padding-top: 100px;
+            }
+            .hero-card {
+                padding: 32px 24px;
+                border-radius: 24px;
+            }
+            .hero-card h1 { font-size: 2.2rem; }
+            .hero-card p { font-size: 0.95rem; }
+            
+            .section-wrap { padding: 60px 20px; }
+            .nav-master { 
+                padding: 12px 24px; 
+                width: calc(100% - 24px);
+                top: 12px;
+                border-radius: 30px;
+            }
+            
+            /* Toggle Button & Mobile Links Overlay Setup */
+            .mobile-toggle { display: block; }
+            .nav-links {
+                position: fixed;
+                top: 75px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(25px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+                flex-direction: column;
+                padding: 30px;
+                gap: 20px;
+                border-radius: 24px;
+                border: 1px solid var(--border-soft);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: transform 0.4s ease, opacity 0.3s ease;
+                pointer-events: none;
+                z-index: 1999;
+            }
+            .nav-links.mobile-active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+            .nav-links a {
+                font-size: 1.05rem;
+                padding: 8px 0;
+                width: 100%;
+                border-bottom: 1px solid rgba(0,0,0,0.04);
+            }
         }
     </style>
 </head>
 <body>
 
-
 <nav class="nav-master">
     <div class="logo-brand"><i class="fa-solid fa-building-columns"></i> RAMANUJAN HOUSE</div>
+    <button class="mobile-toggle" aria-label="Toggle Navigation Menu"><i class="fa-solid fa-bars"></i></button>
     <div class="nav-links">
         <a href="#"><i class="fa-solid fa-house-chimney"></i> TIFR Home</a>
         <a href="#about"><i class="fa-solid fa-monument"></i> About</a>
-      <a href="people.html"> <i class="fa-solid fa-users-viewfinder"></i> People</a>
+        <a href="people.html"> <i class="fa-solid fa-users-viewfinder"></i> People</a>
         <a href="catering.html"><i class="fa-solid fa-utensils"></i> Catering</a>
         <a href="#usage-rules"><i class="fa-solid fa-gavel"></i> Usage Rules</a>
         <a href="#contact"><i class="fa-solid fa-address-book"></i> Contact</a>
     </div>
 </nav>
 
-
 <section class="hero-ram">
     <div class="hero-card">
         <h1>Ramanujan Guest House</h1>
-        <p>TIFR Colaba Campus — A dedicated sanctuary for visiting scholars, scientists, and institute affiliates. Where mathematical genius meets modern hospitality.</p>
+        <p>TIFR Colaba Campus — A dedicated sanctuary for visiting scholars, scientists, and institute affiliates.</p>
         <a class="btn-primary" href="#accommodation">Explore Chambers <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
     </div>
 </section>
-
 
 <section class="section-wrap" id="about">
     <div class="section-badge"><i class="fa-solid fa-award"></i> Homage to Genius</div>
@@ -524,7 +550,6 @@
             </div>
         </div>
         
-       
         <div class="bento-showcase">
             <div class="bento-item span-full-width">
                 <img src="sb-2.jpg" class="zoomable-target" alt="Ramanujan House Main Entrance Gate">
@@ -540,7 +565,6 @@
             </div>
         </div>
     </div>
-
 
     <div class="about-grid" id="catering" style="margin-bottom: 0;">
         <div class="bento-showcase">
@@ -562,12 +586,10 @@
     </div>
 </section>
 
-
 <section class="section-wrap" id="accommodation">
     <div class="section-badge"><i class="fa-solid fa-door-open"></i> Guest Chambers</div>
     <h2 class="section-head">Room Classifications</h2>
     <div class="room-triptych">
-   
         <div class="room-card-3d">
             <div class="room-img-strip"><img src="sb-8.jpg" class="zoomable-target" alt="A-Type Single room interior setup"></div>
             <div class="room-content">
@@ -597,25 +619,25 @@
     </div>
 </section>
 
-
 <section class="section-wrap" id="tariff">
     <div class="section-badge"><i class="fa-solid fa-calculator"></i> Financial Framework</div>
     <h2 class="section-head">Tariff Matrix</h2>
     <div class="tariff-elegant">
-        <table class="tariff-table">
-            <thead><tr><th>Room Configuration</th><th>Official (INR)</th><th>Personal (INR)</th></tr></thead>
-            <tbody>
-                <tr><td>A-Type (Single Occupancy)</td><td><span class="rate-badge">₹200</span></td><td><span class="rate-badge">₹600</span></td></tr>
-                <tr><td>C-Type (Single Occupancy)</td><td><span class="rate-badge">₹500</span></td><td><span class="rate-badge">₹1,500</span></td></tr>
-                <tr><td>C-Type (Double Occupancy)</td><td><span class="rate-badge">₹650</span></td><td><span class="rate-badge">₹1,950</span></td></tr>
-                <tr><td>D-Type (Single Occupancy)</td><td><span class="rate-badge">₹650</span></td><td><span class="rate-badge">₹1,950</span></td></tr>
-                <tr><td>D-Type (Double Occupancy)</td><td><span class="rate-badge">₹900</span></td><td><span class="rate-badge">₹2,700</span></td></tr>
-                <tr><td>D-Type (Family Occupancy)</td><td><span class="rate-badge">₹1,200</span></td><td><span class="rate-badge">₹3,600</span></td></tr>
-            </tbody>
-        </table>
+        <div class="table-responsive">
+            <table class="tariff-table">
+                <thead><tr><th>Room Configuration</th><th>Official (INR)</th><th>Personal (INR)</th></tr></thead>
+                <tbody>
+                    <tr><td>A-Type (Single Occupancy)</td><td><span class="rate-badge">₹200</span></td><td><span class="rate-badge">₹600</span></td></tr>
+                    <tr><td>C-Type (Single Occupancy)</td><td><span class="rate-badge">₹500</span></td><td><span class="rate-badge">₹1,500</span></td></tr>
+                    <tr><td>C-Type (Double Occupancy)</td><td><span class="rate-badge">₹650</span></td><td><span class="rate-badge">₹1,950</span></td></tr>
+                    <tr><td>D-Type (Single Occupancy)</td><td><span class="rate-badge">₹650</span></td><td><span class="rate-badge">₹1,950</span></td></tr>
+                    <tr><td>D-Type (Double Occupancy)</td><td><span class="rate-badge">₹900</span></td><td><span class="rate-badge">₹2,700</span></td></tr>
+                    <tr><td>D-Type (Family Occupancy)</td><td><span class="rate-badge">₹1,200</span></td><td><span class="rate-badge">₹3,600</span></td></tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </section>
-
 
 <section class="section-wrap" id="usage-rules">
     <div class="section-badge"><i class="fa-solid fa-circle-exclamation"></i> Academic Infrastructure</div>
@@ -623,7 +645,7 @@
     
     <div class="room-triptych" style="grid-template-columns: 1.1fr 0.9fr; align-items: stretch;">
         <div class="glass-info">
-            <i class="fa-solid fa-screen-users" style="font-size: 2rem; color:var(--accent-emerald); margin-bottom: 20px; display: block;"></i>
+            <i class="fa-solid fa-users-rectangle" style="font-size: 2rem; color:var(--accent-emerald); margin-bottom: 20px; display: block;"></i>
             <h3 style="margin-bottom: 12px; font-size: 1.4rem; font-weight: 700;">Conference & Seminar Auditoriums</h3>
             <p style="color: #4a5d58; line-height: 1.6; font-size: 0.95rem; margin-bottom: 20px;">Ramanujan House hosts spaces tailored for professional dialogue and collaborative research assemblies, available via advance booking options at the counter workspace.</p>
             <div class="amenities-list" style="margin: 0;"><span style="background: var(--deep-teal); color: white;"><i class="fa-solid fa-users"></i> Seminar Room: 40-45 Seats</span><span style="background: var(--accent-emerald); color: white;"><i class="fa-solid fa-network-wired"></i> Conference: 10-12 Seats</span></div>
@@ -645,7 +667,6 @@
     </div>
 </section>
 
-
 <section class="section-wrap">
     <div class="section-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Amenities & Infrastructure</div>
     <h2 class="section-head">Standard Provisions</h2>
@@ -656,7 +677,6 @@
         <div class="facil-card"><i class="fa-solid fa-mug-hot"></i><h4>Complimentary Kits</h4><p>Electric kettle setup, tea/coffee sachets replenished daily.</p></div>
     </div>
 </section>
-
 
 <footer class="footer-ultimate" id="contact">
     <div class="footer-flex">
@@ -673,7 +693,6 @@
     <div style="text-align: center; margin-top: 60px; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 32px; opacity: 0.5;">&copy; 2026 Tata Institute of Fundamental Research. All rights reserved.</div>
 </footer>
 
-
 <div class="lightbox-orb" id="globalLightbox">
     <div class="lightbox-inner"><img id="lightboxImg" src="" alt="Active Modal Target View"></div>
 </div>
@@ -681,6 +700,27 @@
 <script>
     gsap.registerPlugin(ScrollTrigger);
     
+    // Mobile Navigation Toggle Handling
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-active');
+        const icon = mobileToggle.querySelector('i');
+        if(navLinks.classList.contains('mobile-active')) {
+            icon.className = 'fa-solid fa-xmark';
+        } else {
+            icon.className = 'fa-solid fa-bars';
+        }
+    });
+
+    // Close menu when clicking links on mobile orientation
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('mobile-active');
+            mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
+        });
+    });
     
     window.addEventListener('scroll', () => {
         const navigationBar = document.querySelector('.nav-master');
@@ -688,7 +728,6 @@
         else navigationBar.style.background = 'rgba(255, 255, 255, 0.75)';
     });
     
-   
     const structuralWrappers = document.querySelectorAll('.section-wrap');
     structuralWrappers.forEach(targetWrapper => {
         gsap.fromTo(targetWrapper, { opacity: 0, y: 30 }, {
@@ -697,21 +736,23 @@
         });
     });
    
-    const interactionNodes = document.querySelectorAll('.room-card-3d, .facil-card, .glass-info, .info-pane-img, .bento-item');
-    interactionNodes.forEach(nodeElement => {
-        nodeElement.addEventListener('mousemove', (moveEvent) => {
-            const boundaries = nodeElement.getBoundingClientRect();
-            const coordinateVectorX = (moveEvent.clientX - boundaries.left - boundaries.width/2) / 30;
-            const coordinateVectorY = (moveEvent.clientY - boundaries.top - boundaries.height/2) / 30;
-            nodeElement.style.transform = `perspective(1000px) rotateY(${coordinateVectorX}deg) rotateX(${-coordinateVectorY}deg) translateY(-4px)`;
-            nodeElement.style.transition = 'transform 0.05s ease-out';
+    // Added matchMedia check to skip structural mousemove tilt animations on mobile
+    if (!window.matchMedia("(max-width: 1024px)").matches) {
+        const interactionNodes = document.querySelectorAll('.room-card-3d, .facil-card, .glass-info, .info-pane-img, .bento-item');
+        interactionNodes.forEach(nodeElement => {
+            nodeElement.addEventListener('mousemove', (moveEvent) => {
+                const boundaries = nodeElement.getBoundingClientRect();
+                const coordinateVectorX = (moveEvent.clientX - boundaries.left - boundaries.width/2) / 30;
+                const coordinateVectorY = (moveEvent.clientY - boundaries.top - boundaries.height/2) / 30;
+                nodeElement.style.transform = `perspective(1000px) rotateY(${coordinateVectorX}deg) rotateX(${-coordinateVectorY}deg) translateY(-4px)`;
+                nodeElement.style.transition = 'transform 0.05s ease-out';
+            });
+            nodeElement.addEventListener('mouseleave', () => {
+                nodeElement.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px)`;
+                nodeElement.style.transition = 'transform 0.4s ease';
+            });
         });
-        nodeElement.addEventListener('mouseleave', () => {
-            nodeElement.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px)`;
-            nodeElement.style.transition = 'transform 0.4s ease';
-        });
-    });
-    
+    }
     
     const globalLightbox = document.getElementById('globalLightbox');
     const lightboxImg = document.getElementById('lightboxImg');
@@ -733,7 +774,6 @@
         document.body.style.overflow = 'auto';
     });
     
-  
     document.querySelectorAll('a[href^="#"]').forEach(navigationAnchor => {
         navigationAnchor.addEventListener('click', function(anchorEvent) {
             anchorEvent.preventDefault();
@@ -745,15 +785,14 @@
         });
     });
     
-   
     const gridRows = document.querySelectorAll('.tariff-table tbody tr');
     gridRows.forEach(rowInstance => {
         rowInstance.addEventListener('mouseenter', () => gsap.to(rowInstance, { backgroundColor: '#f1f6f3', duration: 0.1 }));
         rowInstance.addEventListener('mouseleave', () => gsap.to(rowInstance, { backgroundColor: 'transparent', duration: 0.15 }));
     });
     
-   
-    gsap.to('.hero-card', { y: -6, duration: 3, repeat: -1, yoyo: true, ease: "sine.inOut" });
+    // Repaired broken structural timeline animation from original file
+    gsap.to('.hero-card', { y: -6, duration: 3, repeat: -1, yoyo: true, ease: "power1.inOut" });
 </script>
 </body>
 </html>
