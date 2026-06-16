@@ -21,85 +21,103 @@
         }
 
         :root {
-            --bg-ivory: #f5f8f4;
-            --deep-teal: #0a2f28;
-            --accent-emerald: #1f7859;
-            --accent-soft: #c7e9da;
-            --glass-white: rgba(255, 255, 255, 0.85);
-            --border-soft: rgba(31, 120, 89, 0.15);
-            --shadow-elevated: 0 30px 50px -20px rgba(0,0,0,0.08), 0 0 0 1px rgba(31,120,89,0.05);
-            --shadow-hover: 0 40px 60px -20px rgba(0,0,0,0.15), 0 0 0 1px var(--accent-emerald);
-            --transition-butter: cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            --bg-ivory: #f4f7f5;
+            --deep-teal: #062620;
+            --accent-emerald: #12694b;
+            --mint-glow: #eef8f4;
+            --glass-white: rgba(255, 255, 255, 0.82);
+            --border-soft: rgba(18, 105, 75, 0.12);
+            --shadow-elevated: 0 20px 40px -15px rgba(6, 38, 32, 0.06), 0 0 0 1px rgba(18, 105, 75, 0.04);
+            --shadow-hover: 0 35px 60px -20px rgba(6, 38, 32, 0.15), 0 0 0 1px var(--accent-emerald);
+            --transition-butter: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-ivory);
-            color: #1b2f2a;
+            color: #162a25;
             overflow-x: hidden;
             scroll-behavior: smooth;
         }
 
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #dce6e2; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb { background: var(--accent-emerald); border-radius: 10px; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e3ebe7; }
+        ::-webkit-scrollbar-thumb { background: var(--accent-emerald); border-radius: 4px; }
 
         /* HEADER & NAVIGATION */
         .nav-master {
             position: fixed;
-            top: 24px;
+            top: 20px;
             left: 50%;
             transform: translateX(-50%);
-            width: calc(100% - 48px);
+            width: calc(100% - 40px);
             max-width: 1400px;
             z-index: 2000;
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-radius: 80px;
-            border: 1px solid rgba(255,255,255,0.7);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.03);
-            padding: 14px 40px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 10px 30px rgba(6, 38, 32, 0.04);
+            padding: 10px 32px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: all 0.3s ease;
+            transition: all 0.4s var(--transition-butter);
         }
-        .logo-brand {
+        
+        .logo-brand-container {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 14px;
+        }
+
+        .tifr-logo {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
+        }
+
+        .logo-brand {
             font-weight: 800;
             font-size: 1.15rem;
-            background: linear-gradient(130deg, #0a2f28, #1f7859);
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, var(--deep-teal), var(--accent-emerald));
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
             white-space: nowrap;
         }
-        .logo-brand i { color: var(--accent-emerald); }
-        .nav-links { display: flex; gap: 32px; }
+        
+        .nav-links { display: flex; gap: 28px; }
         .nav-links a {
             text-decoration: none;
             font-weight: 600;
-            font-size: 0.85rem;
-            color: #1f3d36;
-            transition: 0.2s;
+            font-size: 0.88rem;
+            color: #23423a;
+            transition: color 0.25s;
             position: relative;
             display: flex;
             align-items: center;
             gap: 6px;
+            padding: 6px 0;
         }
-        .nav-links a i { font-size: 0.75rem; opacity: 0.6; }
+        .nav-links a i { font-size: 0.8rem; opacity: 0.6; transition: transform 0.3s; }
+        .nav-links a:hover { color: var(--accent-emerald); }
+        .nav-links a:hover i { transform: translateY(-1px); opacity: 1; }
+        
         .nav-links a:after {
             content: '';
             position: absolute;
-            bottom: -6px;
-            left: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
-            height: 2px;
+            height: 2.5px;
             background: var(--accent-emerald);
-            transition: width 0.3s;
+            border-radius: 2px;
+            transition: width 0.3s var(--transition-butter);
         }
         .nav-links a:hover:after { width: 100%; }
 
@@ -107,67 +125,77 @@
             display: none;
             background: none;
             border: none;
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--deep-teal);
             cursor: pointer;
             z-index: 2100;
+            padding: 4px;
         }
 
         /* HERO AREA */
         .hero-ram {
-            min-height: 65vh;
-            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('main.png');
+            min-height: 75vh;
+            background: linear-gradient(rgba(4, 25, 21, 0.6), rgba(6, 38, 32, 0.75)), url('main.png');
             background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-radius: 0 0 56px 56px;
+            border-radius: 0 0 40px 40px;
             position: relative;
-            padding: 120px 24px 60px;
+            padding: 140px 20px 80px;
         }
         .hero-card {
-            max-width: 860px;
-            background: rgba(10, 47, 40, 0.55);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            padding: 40px 56px;
-            border-radius: 40px;
+            max-width: 820px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 48px 56px;
+            border-radius: 32px;
             text-align: center;
             color: white;
             border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.2);
-            animation: floatUp 1s var(--transition-butter);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+            animation: floatUp 1.2s var(--transition-butter);
         }
         .hero-card h1 {
-            font-size: 3.2rem;
+            font-size: 3.4rem;
             font-weight: 800;
-            letter-spacing: -1px;
+            letter-spacing: -1.5px;
             line-height: 1.1;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
+            background: linear-gradient(120deg, #ffffff, #d5ece2);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
-        .hero-card p { font-size: 1.05rem; line-height: 1.6; opacity: 0.9; }
+        .hero-card p { font-size: 1.1rem; line-height: 1.6; opacity: 0.9; font-weight: 400; }
+        
         .btn-primary {
             display: inline-flex;
-            background: white;
+            background: #ffffff;
             border: none;
-            margin-top: 24px;
-            padding: 14px 38px;
+            margin-top: 28px;
+            padding: 14px 36px;
             border-radius: 50px;
             font-weight: 700;
-            color: #0a2f28;
+            font-size: 0.95rem;
+            color: var(--deep-teal);
             gap: 10px;
-            transition: transform 0.3s var(--transition-butter), background-color 0.3s;
+            transition: all 0.4s var(--transition-butter);
             cursor: pointer;
             text-decoration: none;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
             align-items: center;
         }
-        .btn-primary:hover { transform: translateY(-4px); gap: 16px; background: var(--bg-ivory); }
+        .btn-primary:hover { 
+            transform: translateY(-3px) scale(1.02); 
+            background: var(--mint-glow);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
 
         @keyframes floatUp {
-            from { opacity: 0; transform: translateY(45px); }
+            from { opacity: 0; transform: translateY(35px); }
             to { opacity: 1; transform: translateY(0); }
         }
 
@@ -175,12 +203,12 @@
         .section-wrap {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 100px 48px;
+            padding: 90px 40px;
         }
         .section-badge {
             font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 3px;
+            letter-spacing: 2.5px;
             color: var(--accent-emerald);
             font-weight: 700;
             margin-bottom: 12px;
@@ -189,20 +217,20 @@
             gap: 8px;
         }
         .section-head {
-            font-size: 2.5rem;
+            font-size: 2.4rem;
             font-weight: 800;
             letter-spacing: -1px;
             margin-bottom: 48px;
             position: relative;
-            display: inline-block;
+            color: var(--deep-teal);
         }
         .section-head:after {
             content: '';
             position: absolute;
-            bottom: -14px;
+            bottom: -12px;
             left: 0;
-            width: 64px;
-            height: 4px;
+            width: 50px;
+            height: 4.5px;
             background: var(--accent-emerald);
             border-radius: 4px;
         }
@@ -217,18 +245,21 @@
         }
         .glass-info {
             background: white;
-            border-radius: 32px;
+            border-radius: 28px;
             padding: 40px;
             box-shadow: var(--shadow-elevated);
             border: 1px solid var(--border-soft);
             display: flex;
             flex-direction: column;
             justify-content: center;
+            transition: box-shadow 0.3s ease;
         }
+        .glass-info:hover { box-shadow: 0 25px 50px -15px rgba(6,38,32,0.08); }
+        
         .bento-showcase {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-auto-rows: 180px;
+            grid-auto-rows: 190px;
             gap: 20px;
         }
         .bento-item {
@@ -242,77 +273,78 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             display: block;
         }
-        .bento-item:hover img { transform: scale(1.04); }
+        .bento-item:hover img { transform: scale(1.05); }
         .span-full-width { grid-column: span 2; }
         .span-full-height { grid-row: span 2; }
 
         .bento-caption {
             position: absolute;
             inset: 0;
-            background: linear-gradient(to top, rgba(10, 47, 40, 0.85) 0%, rgba(0,0,0,0) 60%);
+            background: linear-gradient(to top, rgba(6, 38, 32, 0.85) 0%, rgba(0,0,0,0) 60%);
             display: flex;
             align-items: flex-end;
-            padding: 20px;
+            padding: 24px;
             color: white;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             font-weight: 600;
-            letter-spacing: 0.3px;
             opacity: 0;
             transition: opacity 0.3s ease;
         }
         .bento-item:hover .bento-caption { opacity: 1; }
 
-        /* ROOM CHIP TRIPTYCH */
+        /* ROOM TRIPTYCH */
         .room-triptych {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
+            gap: 32px;
             margin-top: 20px;
         }
         .room-card-3d {
             background: white;
-            border-radius: 32px;
+            border-radius: 28px;
             overflow: hidden;
-            transition: all 0.35s var(--transition-butter);
+            transition: all 0.4s var(--transition-butter);
             box-shadow: var(--shadow-elevated);
-            border: 1px solid rgba(31,120,89,0.1);
+            border: 1px solid rgba(18, 105, 75, 0.08);
         }
-        .room-card-3d:hover { box-shadow: var(--shadow-hover); }
-        .room-img-strip { height: 240px; overflow: hidden; }
-        .room-img-strip img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; display: block; }
-        .room-card-3d:hover .room-img-strip img { transform: scale(1.04); }
+        .room-card-3d:hover { box-shadow: var(--shadow-hover); transform: translateY(-4px); }
+        .room-img-strip { height: 250px; overflow: hidden; position: relative; }
+        .room-img-strip img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; display: block; }
+        .room-card-3d:hover .room-img-strip img { transform: scale(1.05); }
         .room-content { padding: 32px; }
         .room-content h3 {
-            font-size: 1.3rem;
+            font-size: 1.35rem;
             font-weight: 700;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            color: var(--deep-teal);
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .room-content h3 i { color: var(--accent-emerald); font-size: 1.1rem; }
-        .room-content p { font-size: 0.95rem; color: #4a5d58; margin-bottom: 16px; line-height: 1.5; }
-        .amenities-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; font-size: 0.75rem; font-weight: 600; }
+        .room-content h3 i { color: var(--accent-emerald); }
+        .room-content p { font-size: 0.96rem; color: #485c56; margin-bottom: 16px; line-height: 1.55; }
+        .amenities-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; font-size: 0.78rem; font-weight: 600; }
         .amenities-list span {
-            background: #eef5f1;
+            background: var(--mint-glow);
             padding: 6px 14px;
             border-radius: 40px;
-            color: #1f7859;
+            color: var(--accent-emerald);
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
         }
 
-        /* FINANCIAL TARIFF FORMAT */
+        /* TARIFF TABLE */
         .tariff-elegant {
             background: white;
-            border-radius: 40px;
+            border-radius: 32px;
             padding: 40px;
             box-shadow: var(--shadow-elevated);
             border: 1px solid var(--border-soft);
+            overflow: hidden;
         }
         .tariff-table {
             width: 100%;
@@ -320,43 +352,45 @@
         }
         .tariff-table th {
             text-align: left;
-            padding: 20px;
+            padding: 22px;
             font-weight: 700;
-            color: #0a2f28;
-            font-size: 0.85rem;
+            color: var(--deep-teal);
+            font-size: 0.88rem;
             text-transform: uppercase;
-            letter-spacing: 0.8px;
-            border-bottom: 2px solid #e2efe8;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #e5ede9;
         }
-        .tariff-table td { padding: 20px; border-bottom: 1px solid #edf3ef; font-weight: 500; font-size: 0.95rem; }
+        .tariff-table td { padding: 20px; border-bottom: 1px solid #edf2ef; font-weight: 500; font-size: 0.98rem; }
         .tariff-table tr:last-child td { border-bottom: none; }
         .rate-badge {
-            background: #e6f2ec;
-            padding: 6px 18px;
+            background: #eef7f3;
+            padding: 6px 20px;
             border-radius: 40px;
             font-weight: 700;
             color: var(--accent-emerald);
             display: inline-block;
+            border: 1px solid rgba(18, 105, 75, 0.08);
         }
 
         /* INFRASTRUCTURE PANES & GRIDS */
         .facilities-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 28px;
+            gap: 24px;
         }
         .facil-card {
             background: white;
-            padding: 40px 24px;
+            padding: 36px 24px;
             text-align: center;
-            border-radius: 28px;
+            border-radius: 24px;
             box-shadow: var(--shadow-elevated);
             border: 1px solid var(--border-soft);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
-        .facil-card i { font-size: 2.2rem; color: var(--accent-emerald); margin-bottom: 20px; display: block; }
-        .facil-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; }
-        .facil-card p { font-size: 0.85rem; color: #64748b; line-height: 1.4; }
+        .facil-card:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(6,38,32,0.06); }
+        .facil-card i { font-size: 2.2rem; color: var(--accent-emerald); margin-bottom: 18px; display: block; }
+        .facil-card h4 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--deep-teal); }
+        .facil-card p { font-size: 0.88rem; color: #5c6e69; line-height: 1.45; }
 
         .info-dual {
             display: grid;
@@ -365,41 +399,44 @@
             margin-top: 40px;
         }
         .info-pane-img {
-            border-radius: 32px;
+            border-radius: 28px;
             overflow: hidden;
             box-shadow: var(--shadow-elevated);
             border: 1px solid var(--border-soft);
             height: 100%;
-            min-height: 280px;
+            min-height: 300px;
         }
         .info-pane-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* ULTIMATE FOOTER PANEL */
+        /* FOOTER PANEL */
         .footer-ultimate {
-            background: #0a2f28;
-            border-radius: 48px 48px 0 0;
-            padding: 80px 48px 40px;
-            color: #cbe5dd;
+            background: var(--deep-teal);
+            border-radius: 40px 40px 0 0;
+            padding: 70px 40px 35px;
+            color: #d1e2dd;
         }
         .footer-flex {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
+            grid-template-columns: 1.10fr 0.90fr;
+            gap: 50px;
             max-width: 1400px;
             margin: 0 auto;
         }
         .contact-pill {
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.06);
-            border-radius: 20px;
-            padding: 20px 24px;
-            margin-bottom: 16px;
+            border-radius: 16px;
+            padding: 16px 22px;
+            margin-bottom: 14px;
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 14px;
             font-weight: 500;
+            font-size: 0.92rem;
+            transition: background 0.3s;
         }
-        .contact-pill i { color: var(--accent-soft); font-size: 1.2rem; }
+        .contact-pill:hover { background: rgba(255,255,255,0.07); }
+        .contact-pill i { color: #59ca9f; font-size: 1.1rem; }
 
         /* LIGHTBOX SYSTEM */
         .lightbox-orb {
@@ -407,7 +444,7 @@
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: rgba(10, 23, 20, 0.96);
+            background: rgba(4, 20, 17, 0.97);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             z-index: 10000;
@@ -424,7 +461,7 @@
         .lightbox-inner img {
             max-width: 100%;
             max-height: 85vh;
-            border-radius: 24px;
+            border-radius: 20px;
             box-shadow: 0 40px 90px rgba(0,0,0,0.6);
             object-fit: contain;
         }
@@ -433,7 +470,7 @@
             to { transform: scale(1); opacity: 1; }
         }
 
-        /* MEDIA QUERIES FOR HANDHELD SMARTPHONES */
+        /* UNIVERSAL SCREEN MEDIA QUERIES */
         @media (max-width: 1024px) {
             .room-triptych, .facilities-grid, .about-grid, .info-dual, .footer-flex { 
                 grid-template-columns: 1fr !important; 
@@ -442,41 +479,45 @@
             .span-full-width, .span-full-height { grid-column: span 1; grid-row: span 1; }
             
             .hero-ram {
-                min-height: 50vh;
-                padding-top: 100px;
+                min-height: 55vh;
+                padding-top: 110px;
+                border-radius: 0 0 30px 30px;
             }
             .hero-card {
-                padding: 32px 24px;
+                padding: 36px 24px;
                 border-radius: 24px;
             }
-            .hero-card h1 { font-size: 2.2rem; }
-            .hero-card p { font-size: 0.95rem; }
+            .hero-card h1 { font-size: 2.3rem; }
+            .hero-card p { font-size: 0.98rem; }
             
             .section-wrap { padding: 60px 20px; }
+            
             .nav-master { 
-                padding: 12px 24px; 
+                padding: 10px 20px; 
                 width: calc(100% - 24px);
                 top: 12px;
-                border-radius: 30px;
+                border-radius: 20px;
             }
+            .logo-brand { font-size: 1.05rem; }
+            .tifr-logo { width: 36px; height: 36px; }
             
             .mobile-toggle { display: block; }
             .nav-links {
                 position: fixed;
-                top: 75px;
+                top: 70px;
                 left: 0;
                 width: 100%;
                 background: rgba(255, 255, 255, 0.98);
                 backdrop-filter: blur(25px);
-                box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.08);
                 flex-direction: column;
-                padding: 30px;
-                gap: 20px;
-                border-radius: 24px;
+                padding: 24px;
+                gap: 14px;
+                border-radius: 20px;
                 border: 1px solid var(--border-soft);
                 transform: translateY(-150%);
                 opacity: 0;
-                transition: transform 0.4s ease, opacity 0.3s ease;
+                transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
                 pointer-events: none;
                 z-index: 1999;
             }
@@ -486,13 +527,14 @@
                 pointer-events: auto;
             }
             .nav-links a {
-                font-size: 1.05rem;
-                padding: 8px 0;
+                font-size: 1rem;
+                padding: 10px 0;
                 width: 100%;
-                border-bottom: 1px solid rgba(0,0,0,0.04);
+                border-bottom: 1px solid #edf2ef;
             }
+            .nav-links a:after { display: none; }
 
-            /* FLEXIBLE RESPONSIVE TABLE TRANSFORMATION */
+            /* MOBILE COMPACT TABLE CARD CONVERSION */
             .tariff-elegant {
                 padding: 20px;
                 border-radius: 24px;
@@ -500,335 +542,14 @@
             .tariff-table, .tariff-table thead, .tariff-table tbody, .tariff-table th, .tariff-table td, .tariff-table tr {
                 display: block;
             }
-            .tariff-table thead { display: none; } /* Hide structural tabular heads on mobile */
+            .tariff-table thead { display: none; } 
             .tariff-table tr {
-                background: #fcfdfe;
-                border: 1px solid #e2efe8;
+                background: #fbfdfc;
+                border: 1px solid #e1ebe6;
                 border-radius: 16px;
                 padding: 16px;
-                margin-bottom: 16px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+                margin-bottom: 14px;
             }
             .tariff-table td {
                 text-align: right;
-                padding: 8px 0;
-                border-bottom: 1px dashed #edf3ef;
-                font-size: 0.9rem;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .tariff-table td:last-child { border-bottom: none; }
-            /* Insert custom row identifiers */
-            .tariff-table td:nth-of-type(1):before { content: "Configuration"; font-weight: 700; color: #0a2f28; }
-            .tariff-table td:nth-of-type(2):before { content: "Official Rate"; font-weight: 700; color: #0a2f28; }
-            .tariff-table td:nth-of-type(3):before { content: "Personal Rate"; font-weight: 700; color: #0a2f28; }
-            .rate-badge { padding: 4px 14px; font-size: 0.85rem; }
-
-            /* PHOTO REALIGNMENT ADJUSTMENTS */
-            .info-pane-img {
-                height: 220px;
-                min-height: auto;
-                margin: 12px 0;
-            }
-            .room-img-strip { height: 200px; }
-
-            /* COMPACT DOWNSIZED MOBILE FOOTER */
-            .footer-ultimate {
-                border-radius: 32px 32px 0 0;
-                padding: 48px 24px 30px;
-            }
-            .footer-ultimate h2 { font-size: 1.5rem !important; }
-            .footer-ultimate p { margin-top: 10px !important; font-size: 0.85rem; }
-            .footer-flex { gap: 32px; }
-            .contact-pill {
-                padding: 14px 18px;
-                margin-bottom: 12px;
-                font-size: 0.85rem;
-                border-radius: 14px;
-            }
-            .footer-ultimate div[style*="margin-top: 60px"] {
-                margin-top: 36px !important;
-                padding-top: 20px !important;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<nav class="nav-master">
-    <div class="logo-brand"><i class="fa-solid fa-building-columns"></i> RAMANUJAN HOUSE</div>
-    <button class="mobile-toggle" aria-label="Toggle Navigation Menu"><i class="fa-solid fa-bars"></i></button>
-    <div class="nav-links">
-        <a href="#"><i class="fa-solid fa-house-chimney"></i> TIFR Home</a>
-        <a href="#about"><i class="fa-solid fa-monument"></i> About</a>
-        <a href="people.html"> <i class="fa-solid fa-users-viewfinder"></i> People</a>
-        <a href="catering.html"><i class="fa-solid fa-utensils"></i> Catering</a>
-        <a href="#usage-rules"><i class="fa-solid fa-gavel"></i> Usage Rules</a>
-        <a href="#contact"><i class="fa-solid fa-address-book"></i> Contact</a>
-    </div>
-</nav>
-
-<section class="hero-ram">
-    <div class="hero-card">
-        <h1>Ramanujan Guest House</h1>
-        <p>TIFR Colaba Campus — A dedicated sanctuary for visiting scholars, scientists, and institute affiliates.</p>
-        <a class="btn-primary" href="#accommodation">Explore Chambers <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
-    </div>
-</section>
-
-<section class="section-wrap" id="about">
-    <div class="section-badge"><i class="fa-solid fa-award"></i> Homage to Genius</div>
-    <h2 class="section-head">Infinite Legacy</h2>
-    
-    <div class="about-grid">
-        <div class="glass-info">
-            <p style="line-height: 1.7; font-size: 1.05rem; color: #2c3e3a; margin-bottom: 16px;">The TIFR Guesthouse building in the Colaba Campus is named after the legendary Indian mathematician <strong>Srinivasa Ramanujan</strong>.</p>
-            <p style="line-height: 1.7; font-size: 0.95rem; color: #4a5d58;">It consists of three individual performance tiers of rooms. In addition, the facility provides fully furnished and serviced studios and multi-bedroom apartments on campus for long-term residency options.</p>
-            <div style="margin-top: 24px; background: #e9f3ef; border-radius: 20px; padding: 20px; font-size: 0.95rem;">
-                <i class="fa-solid fa-id-card-clip" style="color: var(--accent-emerald); margin-right: 8px;"></i> <strong>Eligibility Matrix:</strong> Available strictly for registered TIFR Institute visitors. Bookings must clear the official TIFR Datanet portal via authorized faculty channels.
-            </div>
-        </div>
-        
-        <div class="bento-showcase">
-            <div class="bento-item span-full-width">
-                <img src="sb-2.jpg" class="zoomable-target" alt="Ramanujan House Main Entrance Gate">
-                <div class="bento-caption">Primary Facility Frontage</div>
-            </div>
-            <div class="bento-item">
-                <img src="sb-1.jpg" class="zoomable-target" alt="Manicured Green Walkway Passages">
-                <div class="bento-caption">Campus Walkway Passages</div>
-            </div>
-            <div class="bento-item">
-                <img src="sb-3.jpg" class="zoomable-target" alt="Common Area Entry Hall">
-                <div class="bento-caption">Intermediate Common Lounge</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="about-grid" id="catering" style="margin-bottom: 0;">
-        <div class="bento-showcase">
-            <div class="bento-item span-full-width">
-                <img src="sb-4.jpg" class="zoomable-target" alt="Dining Hall Arrangement Spaces">
-                <div class="bento-caption">Catering & Dining Facilities</div>
-            </div>
-            <div class="bento-item span-full-width">
-                <img src="gh_012-reception.JPG" class="zoomable-target" alt="Guesthouse Central Counter Desk">
-                <div class="bento-caption">Central Reception Counter Office</div>
-            </div>
-        </div>
-        <div class="glass-info" id="people">
-            <h3 style="margin-bottom: 12px; font-size: 1.25rem; font-weight: 700;"><i class="fa-solid fa-user-tie" style="color: var(--accent-emerald);"></i> Support & Direct Inquiries</h3>
-            <p style="font-size: 0.95rem; line-height: 1.6; color: #4a5d58; margin-bottom: 20px;">Manual booking requests from external collaborators or non-datanet configurations should be directed straight to the operational coordination desk: <strong style="color:#1f7859;">guesthouse@tifr.res.in</strong></p>
-            <hr style="margin-bottom: 20px; border: 0; border-top: 1px solid #e2efe8;">
-            <p style="font-weight: 600; font-size: 0.95rem; color: var(--deep-teal);"><i class="fa-regular fa-clock" style="color: var(--accent-emerald);"></i> Front Counter: 24/7 Operations Support</p>
-        </div>
-    </div>
-</section>
-
-<section class="section-wrap" id="accommodation">
-    <div class="section-badge"><i class="fa-solid fa-door-open"></i> Guest Chambers</div>
-    <h2 class="section-head">Room Classifications</h2>
-    <div class="room-triptych">
-        <div class="room-card-3d">
-            <div class="room-img-strip"><img src="sb-8.jpg" class="zoomable-target" alt="A-Type Single room interior setup"></div>
-            <div class="room-content">
-                <h3><i class="fa-solid fa-circle-user"></i> A-Type Single</h3>
-                <p>Streamlined Single Occupancy layout built for individual scholars, featuring shared bathroom & toilet modules.</p>
-                <div class="amenities-list"><span><i class="fa-solid fa-snowflake"></i> AC</span><span><i class="fa-solid fa-temperature-arrow-down"></i> Fridge</span><span><i class="fa-solid fa-vault"></i> Locker</span></div>
-            </div>
-        </div>
-       
-        <div class="room-card-3d">
-            <div class="room-img-strip"><img src="sb-7.jpg" class="zoomable-target" alt="C-Type Attached Twin beds layout"></div>
-            <div class="room-content">
-                <h3><i class="fa-solid fa-user-group"></i> C-Type Double</h3>
-                <p>Features two individual twin-beds configurations with fully integrated private attached bathroom & toilet utilities.</p>
-                <div class="amenities-list"><span><i class="fa-solid fa-snowflake"></i> AC</span><span><i class="fa-solid fa-temperature-arrow-down"></i> Fridge</span><span><i class="fa-solid fa-mug-hot"></i> Kettle</span></div>
-            </div>
-        </div>
-      
-        <div class="room-card-3d">
-            <div class="room-img-strip"><img src="sb-5.jpg" class="zoomable-target" alt="D-Type Executive Lounge Suite Space"></div>
-            <div class="room-content">
-                <h3><i class="fa-solid fa-hotel"></i> D-Type Suite</h3>
-                <p>Premium multi-room layout containing twin beds, attached bathroom, an integrated Kitchenette, and a spacious Living Hall area.</p>
-                <div class="amenities-list"><span><i class="fa-solid fa-couch"></i> Living Hall</span><span><i class="fa-solid fa-kitchen-set"></i> Kitchenette</span><span><i class="fa-solid fa-snowflake"></i> AC</span></div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<section class="section-wrap" id="tariff">
-    <div class="section-badge"><i class="fa-solid fa-calculator"></i> Financial Framework</div>
-    <h2 class="section-head">Tariff Matrix</h2>
-    <div class="tariff-elegant">
-        <table class="tariff-table">
-            <thead><tr><th>Room Configuration</th><th>Official (INR)</th><th>Personal (INR)</th></tr></thead>
-            <tbody>
-                <tr><td>A-Type (Single Occupancy)</td><td><span class="rate-badge">₹200</span></td><td><span class="rate-badge">₹600</span></td></tr>
-                <tr><td>C-Type (Single Occupancy)</td><td><span class="rate-badge">₹500</span></td><td><span class="rate-badge">₹1,500</span></td></tr>
-                <tr><td>C-Type (Double Occupancy)</td><td><span class="rate-badge">₹650</span></td><td><span class="rate-badge">₹1,950</span></td></tr>
-                <tr><td>D-Type (Single Occupancy)</td><td><span class="rate-badge">₹650</span></td><td><span class="rate-badge">₹1,950</span></td></tr>
-                <tr><td>D-Type (Double Occupancy)</td><td><span class="rate-badge">₹900</span></td><td><span class="rate-badge">₹2,700</span></td></tr>
-                <tr><td>D-Type (Family Occupancy)</td><td><span class="rate-badge">₹1,200</span></td><td><span class="rate-badge">₹3,600</span></td></tr>
-            </tbody>
-        </table>
-    </div>
-</section>
-
-<section class="section-wrap" id="usage-rules">
-    <div class="section-badge"><i class="fa-solid fa-circle-exclamation"></i> Academic Infrastructure</div>
-    <h2 class="section-head">Venues & Settlement</h2>
-    
-    <div class="room-triptych" style="grid-template-columns: 1.1fr 0.9fr; align-items: stretch;">
-        <div class="glass-info">
-            <i class="fa-solid fa-users-rectangle" style="font-size: 2rem; color:var(--accent-emerald); margin-bottom: 20px; display: block;"></i>
-            <h3 style="margin-bottom: 12px; font-size: 1.4rem; font-weight: 700;">Conference & Seminar Auditoriums</h3>
-            <p style="color: #4a5d58; line-height: 1.6; font-size: 0.95rem; margin-bottom: 20px;">Ramanujan House hosts spaces tailored for professional dialogue and collaborative research assemblies, available via advance booking options at the counter workspace.</p>
-            <div class="amenities-list" style="margin: 0;"><span style="background: var(--deep-teal); color: white;"><i class="fa-solid fa-users"></i> Seminar Room: 40-45 Seats</span><span style="background: var(--accent-emerald); color: white;"><i class="fa-solid fa-network-wired"></i> Conference: 10-12 Seats</span></div>
-        </div>
-        <div class="info-pane-img">
-            <img src="sem-room.JPG" class="zoomable-target" alt="Auditorium Presentation Spaces">
-        </div>
-    </div>
-
-    <div class="info-dual">
-        <div class="info-pane-img">
-            <img src="conf-room.JPG" class="zoomable-target" alt="Executive Meeting Conference Space">
-        </div>
-        <div class="glass-info">
-            <i class="fa-solid fa-wallet" style="font-size: 2rem; color:var(--accent-emerald); margin-bottom: 20px; display: block;"></i>
-            <h3 style="margin-bottom: 12px; font-size: 1.4rem; font-weight: 700;">Payment & Bill Settlement</h3>
-            <p style="color: #4a5d58; line-height: 1.6; font-size: 0.95rem;">Guests must coordinate structural billing requirements directly with their hosts. All operational room ledger entries, catering options, or supplementary items must be settled cleanly at the front counter prior to final checkout operations.</p>
-        </div>
-    </div>
-</section>
-
-<section class="section-wrap">
-    <div class="section-badge"><i class="fa-solid fa-wand-magic-sparkles"></i> Amenities & Infrastructure</div>
-    <h2 class="section-head">Standard Provisions</h2>
-    <div class="facilities-grid">
-        <div class="facil-card"><i class="fa-solid fa-wifi"></i><h4>Wi-Fi Access</h4><p>High-speed campus infrastructure access keys issued at entry.</p></div>
-        <div class="facil-card"><i class="fa-solid fa-snowflake"></i><h4>Climate Managed</h4><p>Full-scale AC installations equipped across all guest suites.</p></div>
-        <div class="facil-card"><i class="fa-solid fa-shield-halved"></i><h4>Secure Safes</h4><p>Digital secure storage lockers built straight into storage closets.</p></div>
-        <div class="facil-card"><i class="fa-solid fa-mug-hot"></i><h4>Complimentary Kits</h4><p>Electric kettle setup, tea/coffee sachets replenished daily.</p></div>
-    </div>
-</section>
-
-<footer class="footer-ultimate" id="contact">
-    <div class="footer-flex">
-        <div>
-            <h2 style="color: white; font-size: 1.9rem; font-weight: 800; letter-spacing: -1px;"><i class="fa-solid fa-landmark-dome"></i> Ramanujan House</h2>
-            <p style="margin-top: 18px; line-height: 1.6; opacity: 0.7;">TIFR Colaba Campus, Mumbai. Supporting scientific excellence by providing an authentic campus residential environment for global academia.</p>
-        </div>
-        <div>
-            <div class="contact-pill"><i class="fa-solid fa-envelope-open-text"></i> feedback.gh@tifr.res.in</div>
-            <div class="contact-pill"><i class="fa-solid fa-business-time"></i> Check-in 12:00 Noon / Check-out 10:00 AM</div>
-            <div class="contact-pill"><i class="fa-solid fa-fingerprint"></i> TIFR Datanet Verification Required</div>
-        </div>
-    </div>
-    <div style="text-align: center; margin-top: 60px; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.08); padding-top: 32px; opacity: 0.5;">&copy; 2026 Tata Institute of Fundamental Research. All rights reserved.</div>
-</footer>
-
-<div class="lightbox-orb" id="globalLightbox">
-    <div class="lightbox-inner"><img id="lightboxImg" src="" alt="Active Modal Target View"></div>
-</div>
-
-<script>
-    gsap.registerPlugin(ScrollTrigger);
-    
-    const mobileToggle = document.querySelector('.mobile-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    
-    mobileToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-active');
-        const icon = mobileToggle.querySelector('i');
-        if(navLinks.classList.contains('mobile-active')) {
-            icon.className = 'fa-solid fa-xmark';
-        } else {
-            icon.className = 'fa-solid fa-bars';
-        }
-    });
-
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('mobile-active');
-            mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
-        });
-    });
-    
-    window.addEventListener('scroll', () => {
-        const navigationBar = document.querySelector('.nav-master');
-        if(window.scrollY > 40) navigationBar.style.background = 'rgba(255, 255, 255, 0.94)';
-        else navigationBar.style.background = 'rgba(255, 255, 255, 0.75)';
-    });
-    
-    const structuralWrappers = document.querySelectorAll('.section-wrap');
-    structuralWrappers.forEach(targetWrapper => {
-        gsap.fromTo(targetWrapper, { opacity: 0, y: 30 }, {
-            opacity: 1, y: 0, duration: 0.8, ease: "power2.out",
-            scrollTrigger: { trigger: targetWrapper, start: "top 85%", toggleActions: "play none none reverse" }
-        });
-    });
-   
-    if (!window.matchMedia("(max-width: 1024px)").matches) {
-        const interactionNodes = document.querySelectorAll('.room-card-3d, .facil-card, .glass-info, .info-pane-img, .bento-item');
-        interactionNodes.forEach(nodeElement => {
-            nodeElement.addEventListener('mousemove', (moveEvent) => {
-                const boundaries = nodeElement.getBoundingClientRect();
-                const coordinateVectorX = (moveEvent.clientX - boundaries.left - boundaries.width/2) / 30;
-                const coordinateVectorY = (moveEvent.clientY - boundaries.top - boundaries.height/2) / 30;
-                nodeElement.style.transform = `perspective(1000px) rotateY(${coordinateVectorX}deg) rotateX(${-coordinateVectorY}deg) translateY(-4px)`;
-                nodeElement.style.transition = 'transform 0.05s ease-out';
-            });
-            nodeElement.addEventListener('mouseleave', () => {
-                nodeElement.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px)`;
-                nodeElement.style.transition = 'transform 0.4s ease';
-            });
-        });
-    }
-    
-    const globalLightbox = document.getElementById('globalLightbox');
-    const lightboxImg = document.getElementById('lightboxImg');
-    const comprehensiveImages = document.querySelectorAll('.zoomable-target');
-    
-    comprehensiveImages.forEach(imageInstance => {
-        imageInstance.style.cursor = 'zoom-in';
-        imageInstance.addEventListener('click', (clickEvent) => {
-            clickEvent.stopPropagation();
-            globalLightbox.style.display = 'flex';
-            lightboxImg.src = imageInstance.src;
-            document.body.style.overflow = 'hidden';
-            gsap.fromTo(lightboxImg, { scale: 0.95, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power2.out" });
-        });
-    });
-    
-    globalLightbox.addEventListener('click', () => {
-        globalLightbox.style.display = 'none';
-        document.body.style.overflow = 'auto';
-    });
-    
-    document.querySelectorAll('a[href^="#"]').forEach(navigationAnchor => {
-        navigationAnchor.addEventListener('click', function(anchorEvent) {
-            anchorEvent.preventDefault();
-            const hashValue = this.getAttribute('href');
-            if(hashValue !== "#") {
-                const destinationElement = document.querySelector(hashValue);
-                if(destinationElement) destinationElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
-        });
-    });
-    
-    if (!window.matchMedia("(max-width: 1024px)").matches) {
-        const gridRows = document.querySelectorAll('.tariff-table tbody tr');
-        gridRows.forEach(rowInstance => {
-            rowInstance.addEventListener('mouseenter', () => gsap.to(rowInstance, { backgroundColor: '#f1f6f3', duration: 0.1 }));
-            rowInstance.addEventListener('mouseleave', () => gsap.to(rowInstance, { backgroundColor: 'transparent', duration: 0.15 }));
-        });
-    }
-    
-    gsap.to('.hero-card', { y: -6, duration: 3, repeat: -1, yoyo: true, ease: "power1.inOut" });
-</script>
-</body>
-</html>
+                padding: 1
