@@ -77,13 +77,8 @@
             color: transparent;
             white-space: nowrap;
         }
-        .logo-brand i {
-            color: var(--accent-emerald);
-        }
-        .nav-links {
-            display: flex;
-            gap: 32px;
-        }
+        .logo-brand i { color: var(--accent-emerald); }
+        .nav-links { display: flex; gap: 32px; }
         .nav-links a {
             text-decoration: none;
             font-weight: 600;
@@ -95,10 +90,7 @@
             align-items: center;
             gap: 6px;
         }
-        .nav-links a i {
-            font-size: 0.75rem;
-            opacity: 0.6;
-        }
+        .nav-links a i { font-size: 0.75rem; opacity: 0.6; }
         .nav-links a:after {
             content: '';
             position: absolute;
@@ -111,7 +103,6 @@
         }
         .nav-links a:hover:after { width: 100%; }
 
-        /* MOBILE MENU TOGGLE Button */
         .mobile-toggle {
             display: none;
             background: none;
@@ -122,9 +113,9 @@
             z-index: 2100;
         }
 
-        /* HERO AREA REDUCED SIZE */
+        /* HERO AREA */
         .hero-ram {
-            min-height: 65vh; /* Scaled down from 95vh */
+            min-height: 65vh;
             background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('main.png');
             background-size: cover;
             background-position: center;
@@ -134,7 +125,7 @@
             justify-content: center;
             border-radius: 0 0 56px 56px;
             position: relative;
-            padding: 120px 24px 60px; /* Accounts for fixed navbar */
+            padding: 120px 24px 60px;
         }
         .hero-card {
             max-width: 860px;
@@ -156,11 +147,7 @@
             line-height: 1.1;
             margin-bottom: 20px;
         }
-        .hero-card p {
-            font-size: 1.05rem;
-            line-height: 1.6;
-            opacity: 0.9;
-        }
+        .hero-card p { font-size: 1.05rem; line-height: 1.6; opacity: 0.9; }
         .btn-primary {
             display: inline-flex;
             background: white;
@@ -220,7 +207,7 @@
             border-radius: 4px;
         }
 
-        /* BENTO & GRIDS */
+        /* ABOUT GRID & BENTO IMAGES */
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -256,6 +243,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+            display: block;
         }
         .bento-item:hover img { transform: scale(1.04); }
         .span-full-width { grid-column: span 2; }
@@ -277,7 +265,7 @@
         }
         .bento-item:hover .bento-caption { opacity: 1; }
 
-        /* ROOMS LAYOUT */
+        /* ROOM CHIP TRIPTYCH */
         .room-triptych {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -294,7 +282,7 @@
         }
         .room-card-3d:hover { box-shadow: var(--shadow-hover); }
         .room-img-strip { height: 240px; overflow: hidden; }
-        .room-img-strip img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .room-img-strip img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; display: block; }
         .room-card-3d:hover .room-img-strip img { transform: scale(1.04); }
         .room-content { padding: 32px; }
         .room-content h3 {
@@ -318,24 +306,17 @@
             gap: 4px;
         }
 
-        /* TABLES & SCROLL WRAPPERS */
+        /* FINANCIAL TARIFF FORMAT */
         .tariff-elegant {
             background: white;
             border-radius: 40px;
             padding: 40px;
             box-shadow: var(--shadow-elevated);
             border: 1px solid var(--border-soft);
-            overflow-x: auto; /* Fallback for safe table scroll */
-        }
-        .table-responsive {
-            width: 100%;
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
         }
         .tariff-table {
             width: 100%;
             border-collapse: collapse;
-            min-width: 600px; /* Assures readable format on tiny viewports */
         }
         .tariff-table th {
             text-align: left;
@@ -358,7 +339,7 @@
             display: inline-block;
         }
 
-        /* CORE GRID PATTERNS */
+        /* INFRASTRUCTURE PANES & GRIDS */
         .facilities-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -391,9 +372,9 @@
             height: 100%;
             min-height: 280px;
         }
-        .info-pane-img img { width: 100%; height: 100%; object-fit: cover; }
+        .info-pane-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* FOOTER MODULE */
+        /* ULTIMATE FOOTER PANEL */
         .footer-ultimate {
             background: #0a2f28;
             border-radius: 48px 48px 0 0;
@@ -452,12 +433,12 @@
             to { transform: scale(1); opacity: 1; }
         }
 
-        /* MEDIA QUERIES FOR MOBILE COMPATIBILITY */
+        /* MEDIA QUERIES FOR HANDHELD SMARTPHONES */
         @media (max-width: 1024px) {
             .room-triptych, .facilities-grid, .about-grid, .info-dual, .footer-flex { 
                 grid-template-columns: 1fr !important; 
             }
-            .bento-showcase { grid-template-columns: 1fr; grid-auto-rows: 180px; }
+            .bento-showcase { grid-template-columns: 1fr; grid-auto-rows: 220px; }
             .span-full-width, .span-full-height { grid-column: span 1; grid-row: span 1; }
             
             .hero-ram {
@@ -479,7 +460,6 @@
                 border-radius: 30px;
             }
             
-            /* Toggle Button & Mobile Links Overlay Setup */
             .mobile-toggle { display: block; }
             .nav-links {
                 position: fixed;
@@ -510,6 +490,66 @@
                 padding: 8px 0;
                 width: 100%;
                 border-bottom: 1px solid rgba(0,0,0,0.04);
+            }
+
+            /* FLEXIBLE RESPONSIVE TABLE TRANSFORMATION */
+            .tariff-elegant {
+                padding: 20px;
+                border-radius: 24px;
+            }
+            .tariff-table, .tariff-table thead, .tariff-table tbody, .tariff-table th, .tariff-table td, .tariff-table tr {
+                display: block;
+            }
+            .tariff-table thead { display: none; } /* Hide structural tabular heads on mobile */
+            .tariff-table tr {
+                background: #fcfdfe;
+                border: 1px solid #e2efe8;
+                border-radius: 16px;
+                padding: 16px;
+                margin-bottom: 16px;
+                box-shadow: 0 4px 12px rgba(0,0,0,0.01);
+            }
+            .tariff-table td {
+                text-align: right;
+                padding: 8px 0;
+                border-bottom: 1px dashed #edf3ef;
+                font-size: 0.9rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .tariff-table td:last-child { border-bottom: none; }
+            /* Insert custom row identifiers */
+            .tariff-table td:nth-of-type(1):before { content: "Configuration"; font-weight: 700; color: #0a2f28; }
+            .tariff-table td:nth-of-type(2):before { content: "Official Rate"; font-weight: 700; color: #0a2f28; }
+            .tariff-table td:nth-of-type(3):before { content: "Personal Rate"; font-weight: 700; color: #0a2f28; }
+            .rate-badge { padding: 4px 14px; font-size: 0.85rem; }
+
+            /* PHOTO REALIGNMENT ADJUSTMENTS */
+            .info-pane-img {
+                height: 220px;
+                min-height: auto;
+                margin: 12px 0;
+            }
+            .room-img-strip { height: 200px; }
+
+            /* COMPACT DOWNSIZED MOBILE FOOTER */
+            .footer-ultimate {
+                border-radius: 32px 32px 0 0;
+                padding: 48px 24px 30px;
+            }
+            .footer-ultimate h2 { font-size: 1.5rem !important; }
+            .footer-ultimate p { margin-top: 10px !important; font-size: 0.85rem; }
+            .footer-flex { gap: 32px; }
+            .contact-pill {
+                padding: 14px 18px;
+                margin-bottom: 12px;
+                font-size: 0.85rem;
+                border-radius: 14px;
+            }
+            .footer-ultimate div[style*="margin-top: 60px"] {
+                margin-top: 36px !important;
+                padding-top: 20px !important;
             }
         }
     </style>
@@ -623,19 +663,17 @@
     <div class="section-badge"><i class="fa-solid fa-calculator"></i> Financial Framework</div>
     <h2 class="section-head">Tariff Matrix</h2>
     <div class="tariff-elegant">
-        <div class="table-responsive">
-            <table class="tariff-table">
-                <thead><tr><th>Room Configuration</th><th>Official (INR)</th><th>Personal (INR)</th></tr></thead>
-                <tbody>
-                    <tr><td>A-Type (Single Occupancy)</td><td><span class="rate-badge">₹200</span></td><td><span class="rate-badge">₹600</span></td></tr>
-                    <tr><td>C-Type (Single Occupancy)</td><td><span class="rate-badge">₹500</span></td><td><span class="rate-badge">₹1,500</span></td></tr>
-                    <tr><td>C-Type (Double Occupancy)</td><td><span class="rate-badge">₹650</span></td><td><span class="rate-badge">₹1,950</span></td></tr>
-                    <tr><td>D-Type (Single Occupancy)</td><td><span class="rate-badge">₹650</span></td><td><span class="rate-badge">₹1,950</span></td></tr>
-                    <tr><td>D-Type (Double Occupancy)</td><td><span class="rate-badge">₹900</span></td><td><span class="rate-badge">₹2,700</span></td></tr>
-                    <tr><td>D-Type (Family Occupancy)</td><td><span class="rate-badge">₹1,200</span></td><td><span class="rate-badge">₹3,600</span></td></tr>
-                </tbody>
-            </table>
-        </div>
+        <table class="tariff-table">
+            <thead><tr><th>Room Configuration</th><th>Official (INR)</th><th>Personal (INR)</th></tr></thead>
+            <tbody>
+                <tr><td>A-Type (Single Occupancy)</td><td><span class="rate-badge">₹200</span></td><td><span class="rate-badge">₹600</span></td></tr>
+                <tr><td>C-Type (Single Occupancy)</td><td><span class="rate-badge">₹500</span></td><td><span class="rate-badge">₹1,500</span></td></tr>
+                <tr><td>C-Type (Double Occupancy)</td><td><span class="rate-badge">₹650</span></td><td><span class="rate-badge">₹1,950</span></td></tr>
+                <tr><td>D-Type (Single Occupancy)</td><td><span class="rate-badge">₹650</span></td><td><span class="rate-badge">₹1,950</span></td></tr>
+                <tr><td>D-Type (Double Occupancy)</td><td><span class="rate-badge">₹900</span></td><td><span class="rate-badge">₹2,700</span></td></tr>
+                <tr><td>D-Type (Family Occupancy)</td><td><span class="rate-badge">₹1,200</span></td><td><span class="rate-badge">₹3,600</span></td></tr>
+            </tbody>
+        </table>
     </div>
 </section>
 
@@ -700,7 +738,6 @@
 <script>
     gsap.registerPlugin(ScrollTrigger);
     
-    // Mobile Navigation Toggle Handling
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navLinks = document.querySelector('.nav-links');
     
@@ -714,7 +751,6 @@
         }
     });
 
-    // Close menu when clicking links on mobile orientation
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             navLinks.classList.remove('mobile-active');
@@ -736,7 +772,6 @@
         });
     });
    
-    // Added matchMedia check to skip structural mousemove tilt animations on mobile
     if (!window.matchMedia("(max-width: 1024px)").matches) {
         const interactionNodes = document.querySelectorAll('.room-card-3d, .facil-card, .glass-info, .info-pane-img, .bento-item');
         interactionNodes.forEach(nodeElement => {
@@ -785,13 +820,14 @@
         });
     });
     
-    const gridRows = document.querySelectorAll('.tariff-table tbody tr');
-    gridRows.forEach(rowInstance => {
-        rowInstance.addEventListener('mouseenter', () => gsap.to(rowInstance, { backgroundColor: '#f1f6f3', duration: 0.1 }));
-        rowInstance.addEventListener('mouseleave', () => gsap.to(rowInstance, { backgroundColor: 'transparent', duration: 0.15 }));
-    });
+    if (!window.matchMedia("(max-width: 1024px)").matches) {
+        const gridRows = document.querySelectorAll('.tariff-table tbody tr');
+        gridRows.forEach(rowInstance => {
+            rowInstance.addEventListener('mouseenter', () => gsap.to(rowInstance, { backgroundColor: '#f1f6f3', duration: 0.1 }));
+            rowInstance.addEventListener('mouseleave', () => gsap.to(rowInstance, { backgroundColor: 'transparent', duration: 0.15 }));
+        });
+    }
     
-    // Repaired broken structural timeline animation from original file
     gsap.to('.hero-card', { y: -6, duration: 3, repeat: -1, yoyo: true, ease: "power1.inOut" });
 </script>
 </body>
