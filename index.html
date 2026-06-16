@@ -72,6 +72,49 @@
             gap: 14px;
         }
 
+        /* FLASHING NOTICE BANNER SYSTEM */
+.flashing-notice-bar {
+    background-color: #ffebeb;
+    border-bottom: 2px solid #ff4d4d;
+    color: #cc0000;
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 0.92rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+    margin-top: 100px; /* Pushes it down so it sits perfectly below the floating navbar */
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(204, 0, 0, 0.05);
+}
+
+.flashing-notice-bar i {
+    animation: notice-flash 1.2s infinite alternate cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes notice-flash {
+    0% { opacity: 0.3; transform: scale(0.95); }
+    100% { opacity: 1; transform: scale(1.08); color: #ff0000; }
+}
+
+/* Adjust Hero section margin since we added a banner above it */
+.hero-ram {
+    margin-top: 0 !important;
+    padding-top: 80px !important;
+}
+
+@media (max-width: 1024px) {
+    .flashing-notice-bar {
+        margin-top: 85px;
+        font-size: 0.85rem;
+        padding: 10px 16px;
+    }
+}
+
         .tifr-logo {
             width: 42px;
             height: 42px;
@@ -619,7 +662,16 @@
         <a class="btn-primary" href="#accommodation">Explore Chambers <i class="fa-solid fa-arrow-right-to-bracket"></i></a>
     </div>
 </section>
+</nav>
 
+<!-- START OF FLASHING NOTICE -->
+<div class="flashing-notice-bar">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <span>NOTICE: TIFR guesthouse facility can be availed by TIFR Institute visitors only.</span>
+</div>
+<!-- END OF FLASHING NOTICE -->
+
+<section class="hero-ram">
 <section class="section-wrap" id="about">
     <div class="section-badge"><i class="fa-solid fa-award"></i> Homage to Genius</div>
     <h2 class="section-head">Infinite Legacy</h2>
