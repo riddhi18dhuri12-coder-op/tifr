@@ -117,10 +117,10 @@
             letter-spacing: -1px;
         }
 
-        /* FIXED STATEMENT UTILITY STRIP */
+        /* FIXED STATEMENT BOX IN THE MAIN BODY */
         .fixed-statement-box {
             max-width: 1300px;
-            margin: -30px auto 40px;
+            margin: 40px auto 20px;
             padding: 0 24px;
             position: relative;
             z-index: 50;
@@ -139,7 +139,6 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
-            margin-top: 10px;
         }
         .connect-node {
             background: var(--mint-glow);
@@ -194,10 +193,10 @@
             transform: translateY(-4px);
         }
 
-        /* ABSOLUTELY STRICT UNIFORM FRAMING SCALE FOR STAFF IMAGES */
+        /* STRICT UNIFORM PICTURE FIX FOR ALL AVATARS */
         .avatar-frame {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            height: 280px; /* Forces exact matching heights across grids */
             overflow: hidden;
             background-color: var(--mint-glow);
             position: relative;
@@ -320,10 +319,11 @@
             .staff-matrix { grid-template-columns: repeat(2, 1fr); gap: 24px; }
             .staff-matrix.caretaker-tier { grid-template-columns: repeat(2, 1fr); }
             .premises-bento { grid-template-columns: repeat(2, 1fr); }
+            .avatar-frame { height: 240px; }
         }
 
         @media (max-width: 1024px) {
-            .fixed-statement-box { margin: -15px auto 20px; }
+            .fixed-statement-box { margin: 30px auto 10px; }
             .connect-strip { grid-template-columns: 1fr; gap: 12px; }
             .hero-title-container h1 { font-size: 2rem; }
             .nav-master { padding: 12px 20px; width: calc(100% - 24px); top: 12px; }
@@ -342,6 +342,7 @@
             .staff-matrix, .staff-matrix.caretaker-tier, .premises-bento { grid-template-columns: 1fr; gap: 20px; }
             .w-2, .h-2 { grid-column: span 1; grid-row: span 1; }
             .premises-bento { grid-auto-rows: 160px; }
+            .avatar-frame { height: 320px; }
         }
     </style>
 </head>
@@ -369,9 +370,9 @@
     </div>
 </section>
 
+<!-- CONNECTIVITY BAR PLACED NATURALLY IN BODY CONTENT -->
 <div class="fixed-statement-box">
     <div class="statement-card-inner">
-        <!-- INTERACTIVE STRIP WRAPPED SEAMLESSLY INSIDE EXPLANATORY FRAME -->
         <div class="connect-strip">
             <div class="connect-node">
                 <i class="fa-solid fa-phone-volume"></i>
