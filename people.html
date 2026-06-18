@@ -35,6 +35,11 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-ivory);
+            /* Subtle technical doodle/dot-grid background pattern */
+            background-image: radial-gradient(rgba(15, 92, 65, 0.04) 2px, transparent 2px), 
+                              radial-gradient(rgba(15, 92, 65, 0.04) 2px, var(--bg-ivory) 2px);
+            background-size: 32px 32px;
+            background-position: 0 0, 16px 16px;
             color: #12221e;
             overflow-x: hidden;
             scroll-behavior: smooth;
@@ -65,12 +70,12 @@
         .logo-brand-container {
             display: flex;
             align-items: center;
-            gap: 16px;
+            gap: 18px;
         }
 
         .tifr-logo {
-            width: 48px; /* Increased from 38px */
-            height: 48px; /* Increased from 38px */
+            width: 60px; /* Increased from 48px */
+            height: 60px; /* Increased from 48px */
             object-fit: contain;
             filter: drop-shadow(0 2px 8px rgba(4, 32, 27, 0.1));
             transition: transform 0.3s var(--transition-butter);
@@ -82,7 +87,7 @@
 
         .logo-brand {
             font-weight: 800;
-            font-size: 1.25rem; /* Increased size */
+            font-size: 1.35rem; /* Increased size slightly to balance logo size */
             letter-spacing: -0.5px;
             background: linear-gradient(135deg, var(--deep-teal), var(--accent-emerald));
             background-clip: text;
@@ -137,7 +142,7 @@
             padding: 14px 20px;
             font-size: 0.9rem;
             font-weight: 700;
-            margin-top: 104px; 
+            margin-top: 114px; 
             display: flex;
             align-items: center;
             justify-content: center;
@@ -320,17 +325,22 @@
         }
 
         .officer-avatar-container {
-            width: 96px;
-            height: 96px;
-            border-radius: 50%;
+            width: 120px; /* Increased configuration size for Mohan to mirror profile standard layout scale */
+            height: 120px;
+            border-radius: 16px; /* FIXED: Changed from 50% to 16px to match the layout standard card shapes */
             overflow: hidden;
             background: var(--mint-glow);
-            border: 3px solid var(--accent-emerald);
+            border: 1px solid rgba(15, 92, 65, 0.08);
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
-            box-shadow: 0 8px 20px rgba(4, 32, 27, 0.08);
+            box-shadow: 0 6px 16px rgba(4, 32, 27, 0.04);
+            transition: transform 0.4s var(--transition-butter);
+        }
+
+        .officer-block:hover .officer-avatar-container {
+            transform: scale(1.03);
         }
 
         .officer-avatar-container img {
@@ -389,7 +399,7 @@
             margin-bottom: 56px;
         }
 
-        .profile-grid.caretakers {
+        .profile-grid.caretakers, .profile-grid.new-images-grid {
             grid-template-columns: repeat(3, 1fr);
         }
 
@@ -483,7 +493,7 @@
 
         /* Mobile View Responsive Breakpoints */
         @media (max-width: 1024px) {
-            .profile-grid {
+            .profile-grid, .profile-grid.new-images-grid {
                 grid-template-columns: repeat(2, 1fr) !important;
             }
         }
@@ -497,8 +507,8 @@
             }
             
             .tifr-logo {
-                width: 40px;
-                height: 40px;
+                width: 50px; /* Scaled down responsively but still larger than previous */
+                height: 50px;
             }
 
             .logo-brand {
@@ -541,7 +551,7 @@
             .nav-links a:after { display: none; }
 
             .flashing-notice-bar {
-                margin-top: 86px;
+                margin-top: 96px;
                 font-size: 0.82rem;
                 padding: 12px 14px;
             }
@@ -567,7 +577,7 @@
             }
             .officer-meta { justify-content: center; gap: 10px 20px; }
 
-            .profile-grid {
+            .profile-grid, .profile-grid.new-images-grid {
                 grid-template-columns: 1fr !important;
                 gap: 18px;
             }
@@ -652,7 +662,7 @@
     
     <div class="officer-block">
         <div class="officer-avatar-container">
-            <img src="assets/people/Mohan M. Kakade.jpg" alt="Mohan M. Kakade Profile Image">
+            <img src="assests/people/Mohan M. Kakade.jpg" alt="Mohan M. Kakade Profile Image">
         </div>
         <div class="officer-details">
             <span class="officer-role">Housekeeping Incharge</span>
@@ -672,7 +682,7 @@
     <div class="profile-grid">
         <div class="staff-profile-card">
             <div class="image-placeholder-container">
-                <img src="assets/people/Mohan M. Vartak.jpg" alt="Mohan M. Vartak Profile Image">
+                <img src="assests/people/Mohan M. Vartak.jpg" alt="Mohan M. Vartak Profile Image">
             </div>
             <h3>Mohan M. Vartak</h3>
             <a href="tel:22783050" class="staff-phone-link"><i class="fa-solid fa-phone"></i> 22783050</a>
@@ -680,7 +690,7 @@
         
         <div class="staff-profile-card">
             <div class="image-placeholder-container">
-                <img src="assets/people/Sanjay V. Patil.jpg" alt="Sanjay V. Patil Profile Image">
+                <img src="assests/people/Sanjay V. Patil.jpg" alt="Sanjay V. Patil Profile Image">
             </div>
             <h3>Sanjay V. Patil</h3>
             <a href="tel:22783050" class="staff-phone-link"><i class="fa-solid fa-phone"></i> 22783050</a>
@@ -688,7 +698,7 @@
         
         <div class="staff-profile-card">
             <div class="image-placeholder-container">
-                <img src="assets/people/Sumit S. Nitnaware.jpg" alt="Sumit S. Nitnaware Profile Image">
+                <img src="assests/people/Sumit S. Nitnaware.jpg" alt="Sumit S. Nitnaware Profile Image">
             </div>
             <h3>Sumit S. Nitnaware</h3>
             <a href="tel:22783050" class="staff-phone-link"><i class="fa-solid fa-phone"></i> 22783050</a>
@@ -696,7 +706,7 @@
         
         <div class="staff-profile-card">
             <div class="image-placeholder-container">
-                <img src="assets/people/Bhakti V. Khetle.jpg" alt="Bhakti V. Khetle Profile Image">
+                <img src="assests/people/Bhakti V. Khetle.jpg" alt="Bhakti V. Khetle Profile Image">
             </div>
             <h3>Bhakti V. Khetle</h3>
             <a href="tel:22783050" class="staff-phone-link"><i class="fa-solid fa-phone"></i> 22783050</a>
@@ -710,7 +720,7 @@
     <div class="profile-grid caretakers">
         <div class="staff-profile-card">
             <div class="image-placeholder-container">
-                <img src="assets/people/Prasad P. Rane.jpg" alt="Prasad P. Rane Profile Image">
+                <img src="assests/people/Prasad P. Rane.jpg" alt="Prasad P. Rane Profile Image">
             </div>
             <h3>Prasad P. Rane</h3>
             <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Logistics &amp; Care</span>
@@ -718,7 +728,7 @@
         
         <div class="staff-profile-card">
             <div class="image-placeholder-container">
-                <img src="assets/people/Arun S. Khude.jpg" alt="Arun S. Khude Profile Image">
+                <img src="assests/people/Arun S. Khude.jpg" alt="Arun S. Khude Profile Image">
             </div>
             <h3>Arun S. Khude</h3>
             <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Turn-down Support</span>
@@ -726,10 +736,72 @@
         
         <div class="staff-profile-card">
             <div class="image-placeholder-container">
-                <img src="assets/people/Jayawant M. Tandel.jpg" alt="Jayawant M. Tandel Profile Image">
+                <img src="assests/people/Jayawant M. Tandel.jpg" alt="Jayawant M. Tandel Profile Image">
             </div>
             <h3>Jayawant M. Tandel</h3>
             <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Facility Maintenance</span>
+        </div>
+    </div>
+
+    <!-- Additional Facility Support Section (Mapped from provided directory image) -->
+    <div class="section-badge"><i class="fa-solid fa-plus-circle"></i> Additional Operations</div>
+    <h2 class="section-head">Assigned Guest House Staff</h2>
+    
+    <div class="profile-grid new-images-grid">
+        <div class="staff-profile-card">
+            <div class="image-placeholder-container">
+                <img src="assests/people/sb-1alt.jpg" alt="Staff Profile Image sb-1alt">
+            </div>
+            <h3>Staff Member</h3>
+            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Assigned Support</span>
+        </div>
+
+        <div class="staff-profile-card">
+            <div class="image-placeholder-container">
+                <img src="assests/people/sb-2a.jpg" alt="Staff Profile Image sb-2a">
+            </div>
+            <h3>Staff Member</h3>
+            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Assigned Support</span>
+        </div>
+
+        <div class="staff-profile-card">
+            <div class="image-placeholder-container">
+                <img src="assests/people/sb-2alt.jpg" alt="Staff Profile Image sb-2alt">
+            </div>
+            <h3>Staff Member</h3>
+            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Assigned Support</span>
+        </div>
+
+        <div class="staff-profile-card">
+            <div class="image-placeholder-container">
+                <img src="assests/people/sb-2b.jpg" alt="Staff Profile Image sb-2b">
+            </div>
+            <h3>Staff Member</h3>
+            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Assigned Support</span>
+        </div>
+
+        <div class="staff-profile-card">
+            <div class="image-placeholder-container">
+                <img src="assests/people/sb-3alt.jpg" alt="Staff Profile Image sb-3alt">
+            </div>
+            <h3>Staff Member</h3>
+            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Assigned Support</span>
+        </div>
+
+        <div class="staff-profile-card">
+            <div class="image-placeholder-container">
+                <img src="assests/people/sb-4alst.jpg" alt="Staff Profile Image sb-4alst">
+            </div>
+            <h3>Staff Member</h3>
+            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Assigned Support</span>
+        </div>
+
+        <div class="staff-profile-card">
+            <div class="image-placeholder-container">
+                <img src="assests/people/sb-6alt.jpg" alt="Staff Profile Image sb-6alt">
+            </div>
+            <h3>Staff Member</h3>
+            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Assigned Support</span>
         </div>
     </div>
 
@@ -740,7 +812,7 @@
     <div class="footer-flex">
         <div>
             <h2 style="color: white; font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 12px;">
-                <img src="tifr.jpg" alt="TIFR Seal" class="tifr-logo" style="width: 38px; height: 38px;">
+                <img src="tifr.jpg" alt="TIFR Seal" class="tifr-logo" style="width: 44px; height: 44px;">
                 TIFR Guest House
             </h2>
             <p style="margin-top: 8px; font-size: 0.88rem; opacity: 0.8; max-width: 520px; line-height: 1.5;">Tata Institute of Fundamental Research, Colaba Campus, Mumbai. Our motto is to make your stay pleasant and comfortable in TIFR.</p>
@@ -781,7 +853,7 @@
         opacity: 0,
         y: 20,
         duration: 0.6,
-        stagger: 0.08,
+        stagger: 0.06,
         ease: "power3.out",
         scrollTrigger: {
             trigger: ".section-wrap",
