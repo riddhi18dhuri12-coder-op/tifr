@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>People | Ramanujan House</title>
+    <title>People | TIFR Guest House</title>
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,8 +27,8 @@
             --mint-glow: #eef8f4;
             --glass-white: rgba(255, 255, 255, 0.82);
             --border-soft: rgba(18, 105, 75, 0.12);
-            --shadow-elevated: 0 20px 40px -15px rgba(6, 38, 32, 0.06), 0 0 0 1px rgba(18, 105, 75, 0.04);
-            --shadow-hover: 0 35px 60px -20px rgba(6, 38, 32, 0.15), 0 0 0 1px var(--accent-emerald);
+            --shadow-elevated: 0 12px 30px -10px rgba(6, 38, 32, 0.05), 0 0 0 1px rgba(18, 105, 75, 0.04);
+            --shadow-hover: 0 25px 50px -15px rgba(6, 38, 32, 0.12), 0 0 0 1px var(--accent-emerald);
             --transition-butter: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
@@ -40,25 +40,22 @@
             scroll-behavior: smooth;
         }
 
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #e3ebe7; }
-        ::-webkit-scrollbar-thumb { background: var(--accent-emerald); border-radius: 4px; }
-
+        /* Fixed Navigation Header */
         .nav-master {
             position: fixed;
-            top: 20px;
+            top: 16px;
             left: 50%;
             transform: translateX(-50%);
-            width: calc(100% - 40px);
+            width: calc(100% - 32px);
             max-width: 1400px;
             z-index: 2000;
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 20px;
             border: 1px solid rgba(255,255,255,0.6);
-            box-shadow: 0 10px 30px rgba(6, 38, 32, 0.04);
-            padding: 10px 32px;
+            box-shadow: 0 8px 24px rgba(6, 38, 32, 0.04);
+            padding: 12px 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -68,44 +65,40 @@
         .logo-brand-container {
             display: flex;
             align-items: center;
-            gap: 14px;
+            gap: 12px;
         }
 
         .tifr-logo {
-            width: 42px;
-            height: 42px;
+            width: 38px;
+            height: 38px;
             object-fit: contain;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.08));
         }
 
         .logo-brand {
             font-weight: 800;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             letter-spacing: -0.5px;
             background: linear-gradient(135deg, var(--deep-teal), var(--accent-emerald));
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
-            white-space: nowrap;
         }
         
-        .nav-links { display: flex; gap: 28px; }
+        .nav-links { display: flex; gap: 24px; }
         .nav-links a {
             text-decoration: none;
             font-weight: 600;
             font-size: 0.88rem;
             color: #23423a;
-            transition: color 0.25s;
             position: relative;
             display: flex;
             align-items: center;
             gap: 6px;
-            padding: 6px 0;
+            padding: 4px 0;
+            transition: color 0.25s;
         }
-        .nav-links a i { font-size: 0.8rem; opacity: 0.6; }
+        .nav-links a i { font-size: 0.8rem; opacity: 0.7; }
         .nav-links a:hover, .nav-links a.active { color: var(--accent-emerald); }
-        .nav-links a.active:after { width: 100% !important; }
-        
         .nav-links a:after {
             content: '';
             position: absolute;
@@ -113,338 +106,435 @@
             left: 50%;
             transform: translateX(-50%);
             width: 0;
-            height: 2.5px;
+            height: 2px;
             background: var(--accent-emerald);
-            border-radius: 2px;
             transition: width 0.3s var(--transition-butter);
         }
-        .nav-links a:hover:after { width: 100%; }
+        .nav-links a:hover:after, .nav-links a.active:after { width: 100%; }
 
         .mobile-toggle {
             display: none;
             background: none;
             border: none;
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: var(--deep-teal);
             cursor: pointer;
         }
 
+        /* Flashing Notice Bar */
         .flashing-notice-bar {
             background-color: #ffebeb;
             border-bottom: 2px solid #ff4d4d;
             color: #cc0000;
             text-align: center;
-            padding: 12px 20px;
-            font-size: 0.92rem;
+            padding: 12px 16px;
+            font-size: 0.88rem;
             font-weight: 700;
-            letter-spacing: 0.3px;
-            margin-top: 100px; 
-            position: relative;
-            z-index: 10;
+            margin-top: 88px; 
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
+            z-index: 10;
+            position: relative;
         }
 
+        /* Hero Layout Setup */
         .hero-ram {
-            min-height: 50vh;
-            background: linear-gradient(rgba(4, 25, 21, 0.4), rgba(6, 38, 32, 0.65)), url('main.png');
+            padding: 40px 16px;
+            background: linear-gradient(rgba(4, 25, 21, 0.5), rgba(6, 38, 32, 0.75)), url('main.png');
             background-size: cover;
             background-position: center;
+            border-radius: 0 0 32px 32px;
             display: flex;
-            align-items: center;
             justify-content: center;
-            border-radius: 0 0 40px 40px;
-            position: relative;
-            padding: 60px 20px;
+            align-items: center;
         }
         
         .hero-card {
-            max-width: 850px;
+            max-width: 800px;
             width: 100%; 
-            background: rgba(6, 38, 32, 0.6); 
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 40px;
-            border-radius: 32px;
+            background: rgba(6, 38, 32, 0.65); 
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            padding: 32px 24px;
+            border-radius: 24px;
             text-align: center;
             color: white;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.25);
+            border: 1px solid rgba(255, 255, 255, 0.12);
         }
 
         .hero-card h1 {
-            font-size: 2.6rem;
+            font-size: 2.2rem;
             font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 16px;
-            color: #ffffff;
+            letter-spacing: -0.8px;
+            margin-bottom: 12px;
         }
-        .hero-card p { font-size: 1.05rem; line-height: 1.6; opacity: 0.95; max-width: 720px; margin: 0 auto; }
+        .hero-card p { 
+            font-size: 0.98rem; 
+            line-height: 1.5; 
+            opacity: 0.9; 
+            max-width: 680px; 
+            margin: 0 auto 24px; 
+        }
 
-        .quick-contact-strip {
+        /* Quick-access Hotline Cards inside Content Block */
+        .hotline-banner {
+            background: white;
+            border: 1px solid var(--border-soft);
+            border-radius: 20px;
+            padding: 24px;
+            margin-bottom: 40px;
+            box-shadow: var(--shadow-elevated);
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 20px;
-            margin-top: 24px;
-            background: rgba(255, 255, 255, 0.08);
-            padding: 20px;
-            border-radius: 16px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .contact-method {
+        .hotline-card {
             display: flex;
             align-items: center;
-            gap: 12px;
-            text-align: left;
+            gap: 16px;
+            background: var(--mint-glow);
+            padding: 16px 20px;
+            border-radius: 14px;
+            border: 1px solid rgba(18, 105, 75, 0.06);
         }
 
-        .contact-method i {
-            font-size: 1.4rem;
-            color: #59ca9f;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 12px;
+        .hotline-card i {
+            font-size: 1.5rem;
+            color: var(--accent-emerald);
+            background: white;
+            width: 48px;
+            height: 48px;
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
         }
 
-        .contact-method div span {
+        .hotline-text span {
             display: block;
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            opacity: 0.7;
+            letter-spacing: 0.8px;
+            color: #5a6e68;
+            margin-bottom: 2px;
         }
 
-        .contact-method div strong {
-            font-size: 1.1rem;
-            font-weight: 700;
+        .hotline-text strong {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--deep-teal);
         }
 
+        .hotline-text a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        /* Structured Page Grids */
         .section-wrap {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 40px;
+            padding: 48px 24px;
         }
 
         .section-badge {
-            font-size: 0.75rem;
+            font-size: 0.72rem;
             text-transform: uppercase;
-            letter-spacing: 2.5px;
+            letter-spacing: 2px;
             color: var(--accent-emerald);
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 8px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
         .section-head {
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 40px;
-            position: relative;
+            letter-spacing: -0.5px;
+            margin-bottom: 32px;
             color: var(--deep-teal);
+            position: relative;
         }
 
         .section-head:after {
             content: '';
             position: absolute;
-            bottom: -12px;
+            bottom: -8px;
             left: 0;
-            width: 50px;
-            height: 4.5px;
+            width: 36px;
+            height: 3.5px;
             background: var(--accent-emerald);
-            border-radius: 4px;
+            border-radius: 2px;
         }
 
-        /* Profile Layouts */
-        .officer-container {
-            max-width: 800px;
-            margin-bottom: 60px;
-        }
-
-        .profile-card-horizontal {
+        /* Officer Horizontal Block */
+        .officer-block {
             background: white;
-            border-radius: 24px;
-            padding: 32px;
+            border-radius: 20px;
+            padding: 24px;
             display: flex;
             align-items: center;
-            gap: 32px;
+            gap: 24px;
             box-shadow: var(--shadow-elevated);
-            border: 1px solid rgba(18, 105, 75, 0.08);
+            border: 1px solid var(--border-soft);
+            margin-bottom: 48px;
         }
 
-        .avatar-circle {
-            width: 90px;
-            height: 90px;
-            background: var(--mint-glow);
+        .officer-avatar-container {
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
+            overflow: hidden;
+            background: var(--mint-glow);
+            border: 2px solid var(--accent-emerald);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
-            color: var(--accent-emerald);
-            border: 2px dashed rgba(18, 105, 75, 0.2);
             flex-shrink: 0;
         }
 
-        .profile-info h3 {
-            font-size: 1.5rem;
+        .officer-avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .officer-details h3 {
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--deep-teal);
-            margin-bottom: 4px;
         }
-
-        .profile-tag {
-            display: inline-block;
+        
+        .officer-role {
             font-size: 0.75rem;
-            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
             color: var(--accent-emerald);
-            background: var(--mint-glow);
-            padding: 4px 12px;
-            border-radius: 30px;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
+            display: inline-block;
         }
 
-        .meta-links {
+        .officer-meta {
             display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .meta-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 0.92rem;
+            flex-wrap: wrap;
+            gap: 16px;
+            font-size: 0.88rem;
             color: #485c56;
-            text-decoration: none;
+            margin-top: 6px;
         }
 
-        .meta-item i {
-            color: var(--accent-emerald);
-            width: 16px;
-        }
-
-        .meta-item a {
+        .officer-meta a {
             color: inherit;
             text-decoration: none;
             transition: color 0.2s;
         }
+        .officer-meta a:hover { color: var(--accent-emerald); }
 
-        .meta-item a:hover {
-            color: var(--accent-emerald);
-        }
-
-        /* Grid Frameworks */
-        .staff-grid {
+        /* General Profile Grid Structure matching image_f040a0.png */
+        .profile-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 24px;
-            margin-bottom: 60px;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 48px;
         }
 
-        .grid-card {
+        .profile-grid.caretakers {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .staff-profile-card {
             background: white;
-            border-radius: 20px;
-            padding: 24px;
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
             box-shadow: var(--shadow-elevated);
-            border: 1px solid rgba(18, 105, 75, 0.06);
-            transition: all 0.3s var(--transition-butter);
+            border: 1px solid var(--border-soft);
+            transition: transform 0.3s var(--transition-butter), box-shadow 0.3s ease;
         }
 
-        .grid-card:hover {
+        .staff-profile-card:hover {
             transform: translateY(-4px);
             box-shadow: var(--shadow-hover);
         }
 
-        .card-header-icon {
-            width: 48px;
-            height: 48px;
-            background: var(--mint-glow);
-            color: var(--accent-emerald);
+        .image-placeholder-container {
+            width: 110px;
+            height: 110px;
+            margin: 0 auto 16px;
             border-radius: 12px;
+            overflow: hidden;
+            background: #eef2f0;
+            border: 1px solid rgba(18, 105, 75, 0.08);
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.2rem;
-            margin-bottom: 16px;
         }
 
-        .grid-card h3 {
-            font-size: 1.2rem;
+        .image-placeholder-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .staff-profile-card h3 {
+            font-size: 1.05rem;
             font-weight: 700;
             color: var(--deep-teal);
-            margin-bottom: 12px;
+            margin-bottom: 6px;
+            line-height: 1.3;
         }
 
+        .staff-phone-link {
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--accent-emerald);
+            background: var(--mint-glow);
+            padding: 4px 12px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            margin-top: 4px;
+        }
+
+        /* Footer Layout */
         .footer-ultimate {
             background: var(--deep-teal);
-            border-radius: 40px 40px 0 0;
-            padding: 40px 40px 20px;
+            border-radius: 24px 24px 0 0;
+            padding: 32px 24px 16px;
             color: #d1e2dd;
-            margin-top: 40px;
+            margin-top: 32px;
         }
+
         .footer-flex {
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 30px;
-            max-width: 1400px;
+            gap: 24px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
+        /* Mobile View Responsive Breakpoints & Fallbacks */
         @media (max-width: 1024px) {
-            .nav-master { width: calc(100% - 24px); padding: 10px 20px; top: 12px; border-radius: 20px;}
+            .profile-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-master {
+                width: calc(100% - 16px);
+                top: 8px;
+                padding: 10px 16px;
+                border-radius: 12px;
+            }
+            
             .mobile-toggle { display: block; }
+            
             .nav-links {
                 position: fixed;
-                top: 70px;
+                top: 64px;
                 left: 0;
                 width: 100%;
                 background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(25px);
+                backdrop-filter: blur(20px);
                 flex-direction: column;
-                padding: 24px;
-                gap: 14px;
-                border-radius: 20px;
+                padding: 20px;
+                gap: 12px;
+                border-radius: 16px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+                border: 1px solid var(--border-soft);
                 transform: translateY(-150%);
                 opacity: 0;
                 transition: transform 0.4s var(--transition-butter), opacity 0.3s ease;
                 pointer-events: none;
             }
-            .nav-links.mobile-active { transform: translateY(0); opacity: 1; pointer-events: auto; }
-            .nav-links a { width: 100%; border-bottom: 1px solid #edf2ef; padding: 10px 0; }
+
+            .nav-links.mobile-active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .nav-links a {
+                width: 100%;
+                padding: 8px 0;
+                border-bottom: 1px solid #edf2ef;
+                font-size: 0.95rem;
+            }
             .nav-links a:after { display: none; }
-            
-            .flashing-notice-bar { margin-top: 85px; font-size: 0.85rem; }
-            .hero-ram { min-height: auto; padding: 40px 16px; }
-            .hero-card { padding: 24px 20px; border-radius: 20px; }
-            .hero-card h1 { font-size: 1.8rem; }
-            .hero-card p { font-size: 0.92rem; }
-            .quick-contact-strip { grid-template-columns: 1fr; gap: 14px; padding: 14px; }
-            
-            .profile-card-horizontal { flex-direction: column; align-items: flex-start; gap: 20px; padding: 24px; }
-            .section-wrap { padding: 40px 20px; }
-            .staff-grid { grid-template-columns: 1fr; }
-            .footer-flex { flex-direction: column; align-items: flex-start; }
+
+            .flashing-notice-bar {
+                margin-top: 72px;
+                font-size: 0.8rem;
+                padding: 10px 12px;
+            }
+
+            .hero-ram { border-radius: 0 0 20px 20px; padding: 24px 12px; }
+            .hero-card { padding: 20px 16px; border-radius: 16px; }
+            .hero-card h1 { font-size: 1.6rem; }
+            .hero-card p { font-size: 0.88rem; margin-bottom: 0; }
+
+            .hotline-banner {
+                grid-template-columns: 1fr;
+                gap: 12px;
+                padding: 16px;
+                margin-bottom: 32px;
+            }
+            .hotline-card { padding: 12px 16px; }
+
+            .officer-block {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px 16px;
+                gap: 16px;
+            }
+            .officer-meta { justify-content: center; gap: 8px 16px; }
+
+            .profile-grid {
+                grid-template-columns: 1fr !important;
+                gap: 16px;
+            }
+
+            .staff-profile-card {
+                display: flex;
+                align-items: center;
+                text-align: left;
+                padding: 16px;
+                gap: 16px;
+            }
+
+            .image-placeholder-container {
+                margin: 0;
+                width: 76px;
+                height: 76px;
+                border-radius: 8px;
+                flex-shrink: 0;
+            }
+
+            .footer-flex { flex-direction: column; text-align: center; }
         }
     </style>
 </head>
 <body>
 
+<!-- Navigation Header -->
 <nav class="nav-master">
     <div class="logo-brand-container">
         <img src="tifr.jpg" alt="TIFR Official Seal Logo" class="tifr-logo">
-        <div class="logo-brand">RAMANUJAN HOUSE</div>
+        <div class="logo-brand">TIFR GUEST HOUSE</div>
     </div>
-    <button class="mobile-toggle" aria-label="Toggle Navigation Menu"><i class="fa-solid fa-bars"></i></button>
+    <button class="mobile-toggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
     <div class="nav-links">
         <a href="index.html"><i class="fa-solid fa-house-chimney"></i> TIFR Home</a>
         <a href="index.html#about"><i class="fa-solid fa-monument"></i> About</a>
@@ -455,171 +545,179 @@
     </div>
 </nav>
 
+<!-- Sticky Banner Notice -->
 <div class="flashing-notice-bar">
     <i class="fa-solid fa-circle-exclamation"></i>
     <span>NOTICE: TIFR guesthouse facility can be availed by TIFR Institute visitors only.</span>
 </div>
 
+<!-- Page Top Block -->
 <section class="hero-ram">
     <div class="hero-card">
-        <h1>Guesthouse Staff</h1>
-        <p>The TIFR Hostel and Guesthouse facility is serviced by a dedicated group of professionals who provide round-the-clock support, working continuously across three operational shifts. Our ultimate motto is to make your stay pleasant and comfortable at TIFR.</p>
-        
-        <div class="quick-contact-strip">
-            <div class="contact-method">
-                <i class="fa-solid fa-phone-volume"></i>
-                <div>
-                    <span>Internal Extension</span>
-                    <strong>Dial 3050</strong>
-                </div>
-            </div>
-            <div class="contact-method">
-                <i class="fa-solid fa-earth-asia"></i>
-                <div>
-                    <span>External Contact</span>
-                    <strong>+91-22-22783050</strong>
-                </div>
-            </div>
-        </div>
+        <h1>The Guesthouse Staff</h1>
+        <p>TIFR Hostel and Guesthouse facility is serviced by a dedicated group of people who provide round-the-clock support to this facility, working in three shifts. They are coordinated through the front desk.</p>
     </div>
 </section>
 
+<!-- Core Directory Section -->
 <section class="section-wrap">
-    <div class="officer-container">
-        <div class="section-badge"><i class="fa-solid fa-user-shield"></i> Administration</div>
-        <h2 class="section-head">Officer-in-Charge</h2>
-        
-        <div class="profile-card-horizontal">
-            <div class="avatar-circle"><i class="fa-solid fa-user-tie"></i></div>
-            <div class="profile-info">
-                <span class="profile-tag">Housekeeping Incharge</span>
-                <h3>Mohan M. Kakade</h3>
-                <div class="meta-links">
-                    <div class="meta-item">
-                        <i class="fa-solid fa-phone"></i>
-                        <a href="tel:+912222783065">+91-22-22783065</a>
-                    </div>
-                    <div class="meta-item">
-                        <i class="fa-solid fa-envelope"></i>
-                        <div>
-                            <a href="mailto:ghincharge@tifr.res.in">ghincharge@tifr.res.in</a> &nbsp;|&nbsp; 
-                            <a href="mailto:housekeeping@tifr.res.in">housekeeping@tifr.res.in</a>
-                        </div>
-                    </div>
-                </div>
+
+    <!-- Direct Contact Number Section -->
+    <div class="hotline-banner">
+        <div class="hotline-card">
+            <i class="fa-solid fa-phone"></i>
+            <div class="hotline-text">
+                <span>Internal Service Request Extension</span>
+                <strong>Dial 3050</strong>
+            </div>
+        </div>
+        <div class="hotline-card">
+            <i class="fa-solid fa-phone-flip"></i>
+            <div class="hotline-text">
+                <span>External Callers / Exigencies</span>
+                <strong><a href="tel:+912222783050">022-22783050</a> / <a href="tel:+912222783050">22783050</a></strong>
             </div>
         </div>
     </div>
 
-    <div class="section-badge"><i class="fa-solid fa-headset"></i> Frontline Operations</div>
-    <h2 class="section-head">Front Desk Co-ordinators</h2>
-    <p style="margin-top: -25px; margin-bottom: 35px; color: #485c56; font-size: 0.95rem; max-width: 800px;">All shift transitions and general operations are synchronized directly through the main reception line below.</p>
+    <!-- Administration Group -->
+    <div class="section-badge"><i class="fa-solid fa-user-shield"></i> Administration</div>
+    <h2 class="section-head">Officer-in-Charge</h2>
     
-    <div class="staff-grid">
-        <div class="grid-card">
-            <div class="card-header-icon"><i class="fa-solid fa-user-clock"></i></div>
-            <h3>Mohan I. Vartak</h3>
-            <div class="meta-links">
-                <div class="meta-item"><i class="fa-solid fa-phone-flip"></i> Ext: 3050 / 22783050</div>
-            </div>
+    <div class="officer-block">
+        <div class="officer-avatar-container">
+            <img src="assets/people/Mohan M. Kakade.jpg" alt="Mohan M. Kakade Profile Image">
         </div>
-        
-        <div class="grid-card">
-            <div class="card-header-icon"><i class="fa-solid fa-user-clock"></i></div>
-            <h3>Sanjay V. Patil</h3>
-            <div class="meta-links">
-                <div class="meta-item"><i class="fa-solid fa-phone-flip"></i> Ext: 3050 / 22783050</div>
-            </div>
-        </div>
-        
-        <div class="grid-card">
-            <div class="card-header-icon"><i class="fa-solid fa-user-clock"></i></div>
-            <h3>Sumit S. Nitnaware</h3>
-            <div class="meta-links">
-                <div class="meta-item"><i class="fa-solid fa-phone-flip"></i> Ext: 3050 / 22783050</div>
-            </div>
-        </div>
-        
-        <div class="grid-card">
-            <div class="card-header-icon"><i class="fa-solid fa-user-clock"></i></div>
-            <h3>Bhakti V. Khetle</h3>
-            <div class="meta-links">
-                <div class="meta-item"><i class="fa-solid fa-phone-flip"></i> Ext: 3050 / 22783050</div>
+        <div class="officer-details">
+            <span class="officer-role">Housekeeping Incharge</span>
+            <h3>Mohan M. Kakade</h3>
+            <div class="officer-meta">
+                <span><i class="fa-solid fa-phone-alt" style="color: var(--accent-emerald);"></i> +91-22-22783065</span>
+                <span><i class="fa-solid fa-envelope" style="color: var(--accent-emerald);"></i> <a href="mailto:ghincharge@tifr.res.in">ghincharge{at}tifr.res.in</a></span>
+                <span><i class="fa-solid fa-envelope" style="color: var(--accent-emerald);"></i> <a href="mailto:housekeeping@tifr.res.in">housekeeping{at}tifr.res.in</a></span>
             </div>
         </div>
     </div>
 
-    <div class="section-badge"><i class="fa-solid fa-hand-holding-hand"></i> Facility Support</div>
+    <!-- Front Desk Section -->
+    <div class="section-badge"><i class="fa-solid fa-headset"></i> Reception Desk</div>
+    <h2 class="section-head">Front Desk Personnel</h2>
+    
+    <div class="profile-grid">
+        <div class="staff-profile-card">
+            <div class="image-placeholder-container">
+                <img src="assets/people/Mohan M. Vartak.jpg" alt="Mohan M. Vartak Profile Image">
+            </div>
+            <h3>Mohan M. Vartak</h3>
+            <a href="tel:22783050" class="staff-phone-link"><i class="fa-solid fa-phone"></i> 22783050</a>
+        </div>
+        
+        <div class="staff-profile-card">
+            <div class="image-placeholder-container">
+                <img src="assets/people/Sanjay V. Patil.jpg" alt="Sanjay V. Patil Profile Image">
+            </div>
+            <h3>Sanjay V. Patil</h3>
+            <a href="tel:22783050" class="staff-phone-link"><i class="fa-solid fa-phone"></i> 22783050</a>
+        </div>
+        
+        <div class="staff-profile-card">
+            <div class="image-placeholder-container">
+                <img src="assets/people/Sumit S. Nitnaware.jpg" alt="Sumit S. Nitnaware Profile Image">
+            </div>
+            <h3>Sumit S. Nitnaware</h3>
+            <a href="tel:22783050" class="staff-phone-link"><i class="fa-solid fa-phone"></i> 22783050</a>
+        </div>
+        
+        <div class="staff-profile-card">
+            <div class="image-placeholder-container">
+                <img src="assets/people/Bhakti V. Khetle.jpg" alt="Bhakti V. Khetle Profile Image">
+            </div>
+            <h3>Bhakti V. Khetle</h3>
+            <a href="tel:22783050" class="staff-phone-link"><i class="fa-solid fa-phone"></i> 22783050</a>
+        </div>
+    </div>
+
+    <!-- Care-takers Section -->
+    <div class="section-badge"><i class="fa-solid fa-hand-holding-hand"></i> Support Staff</div>
     <h2 class="section-head">Care-takers</h2>
     
-    <div class="staff-grid" style="grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));">
-        <div class="grid-card">
-            <div class="card-header-icon" style="background: #eef4f8; color: #2b6cb0;"><i class="fa-solid fa-house-laptop"></i></div>
+    <div class="profile-grid caretakers">
+        <div class="staff-profile-card">
+            <div class="image-placeholder-container">
+                <img src="assets/people/Prasad P. Rane.jpg" alt="Prasad P. Rane Profile Image">
+            </div>
             <h3>Prasad P. Rane</h3>
-            <p style="font-size: 0.88rem; color: #5a6e68; line-height: 1.4;">On-site resident care, guest amenities allocation, and emergency logistical support operations.</p>
+            <span style="font-size: 0.8rem; color:#687b75; display:block; margin-top:4px;">Logistics &amp; Care</span>
         </div>
         
-        <div class="grid-card">
-            <div class="card-header-icon" style="background: #eef4f8; color: #2b6cb0;"><i class="fa-solid fa-house-laptop"></i></div>
+        <div class="staff-profile-card">
+            <div class="image-placeholder-container">
+                <img src="assets/people/Arun S. Khude.jpg" alt="Arun S. Khude Profile Image">
+            </div>
             <h3>Arun S. Khude</h3>
-            <p style="font-size: 0.88rem; color: #5a6e68; line-height: 1.4;">Turn-down coordination, inventory tracking, and structural monitoring of the facility rooms.</p>
+            <span style="font-size: 0.8rem; color:#687b75; display:block; margin-top:4px;">Turn-down Support</span>
         </div>
         
-        <div class="grid-card">
-            <div class="card-header-icon" style="background: #eef4f8; color: #2b6cb0;"><i class="fa-solid fa-house-laptop"></i></div>
+        <div class="staff-profile-card">
+            <div class="image-placeholder-container">
+                <img src="assets/people/Jayawant M. Tandel.jpg" alt="Jayawant M. Tandel Profile Image">
+            </div>
             <h3>Jayawant M. Tandel</h3>
-            <p style="font-size: 0.88rem; color: #5a6e68; line-height: 1.4;">Liaison framework manager, guest support services, and immediate shift workflow tracking.</p>
+            <span style="font-size: 0.8rem; color:#687b75; display:block; margin-top:4px;">Facility Maintenance</span>
         </div>
     </div>
+
 </section>
 
+<!-- Footer Component -->
 <footer class="footer-ultimate">
     <div class="footer-flex">
         <div>
-            <h2 style="color: white; font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 12px;">
-                <img src="tifr.jpg" alt="TIFR Seal" class="tifr-logo" style="width: 36px; height: 36px;">
-                Ramanujan House
+            <h2 style="color: white; font-size: 1.4rem; font-weight: 800; display: flex; align-items: center; gap: 10px;">
+                <img src="tifr.jpg" alt="TIFR Seal" class="tifr-logo" style="width: 32px; height: 32px;">
+                TIFR Guest House
             </h2>
-            <p style="margin-top: 8px; font-size: 0.88rem; opacity: 0.75; max-width: 500px;">Tata Institute of Fundamental Research, Colaba Campus, Mumbai. Advancing research synergy through comprehensive residential hospitality.</p>
-        </div>
-        <div style="display: flex; gap: 15px; flex-wrap: wrap;">
-            <div style="background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.06); padding: 10px 18px; border-radius: 12px; font-size: 0.85rem;"><i class="fa-solid fa-shield-halved" style="color: #59ca9f; margin-right: 8px;"></i> 24/7 Support Hotline: Ext 3050</div>
+            <p style="margin-top: 6px; font-size: 0.85rem; opacity: 0.75; max-width: 500px;">Tata Institute of Fundamental Research, Colaba Campus, Mumbai. Our motto is to make your stay pleasant and comfortable in TIFR.</p>
         </div>
     </div>
-    <div style="text-align: center; margin-top: 25px; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 18px; opacity: 0.45;">&copy; 2026 Tata Institute of Fundamental Research. All rights reserved.</div>
+    <div style="text-align: center; margin-top: 24px; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 16px; opacity: 0.4;">&copy; 2026 Tata Institute of Fundamental Research. All rights reserved.</div>
 </footer>
 
+<!-- Interactivity & Responsive Control Logic -->
 <script>
-    const mobileToggle = document.querySelector('.mobile-toggle');
-    const navLinks = document.querySelector('.nav-links');
+    // Navigation Toggle for Small Displays
+    const menuToggler = document.querySelector('.mobile-toggle');
+    const linksWrapper = document.querySelector('.nav-links');
     
-    mobileToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('mobile-active');
-        const icon = mobileToggle.querySelector('i');
-        icon.className = navLinks.classList.contains('mobile-active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    menuToggler.addEventListener('click', () => {
+        linksWrapper.classList.toggle('mobile-active');
+        const iconNode = menuToggler.querySelector('i');
+        iconNode.className = linksWrapper.classList.contains('mobile-active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
     });
 
+    // Glassmorphism dynamic navbar effect during scroll sequence
     window.addEventListener('scroll', () => {
-        const navBar = document.querySelector('.nav-master');
+        const topNav = document.querySelector('.nav-master');
         if(window.scrollY > 40) {
-            navBar.style.background = 'rgba(255, 255, 255, 0.92)';
-            navBar.style.boxShadow = '0 15px 35px rgba(6, 38, 32, 0.08)';
+            topNav.style.background = 'rgba(255, 255, 255, 0.94)';
+            topNav.style.boxShadow = '0 12px 30px rgba(6, 38, 32, 0.06)';
         } else {
-            navBar.style.background = 'rgba(255, 255, 255, 0.8)';
-            navBar.style.boxShadow = '0 10px 30px rgba(6, 38, 32, 0.04)';
+            topNav.style.background = 'rgba(255, 255, 255, 0.85)';
+            topNav.style.boxShadow = '0 8px 24px rgba(6, 38, 32, 0.04)';
         }
     });
 
+    // Smooth entry layout scroll trigger animations setup
     gsap.registerPlugin(ScrollTrigger);
-    gsap.from(".grid-card, .profile-card-horizontal", {
+    gsap.from(".staff-profile-card, .officer-block, .hotline-card", {
         opacity: 0,
-        y: 20,
+        y: 16,
         duration: 0.5,
-        stagger: 0.08,
+        stagger: 0.06,
         ease: "power2.out",
         scrollTrigger: {
             trigger: ".section-wrap",
-            start: "top 85%"
+            start: "top 90%"
         }
     });
 </script>
