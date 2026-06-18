@@ -1,865 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>People | TIFR Guest House</title>
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>People — Ramanujan House, TIFR</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --ink:#1A1A2E;
+      --navy:#16213E;
+      --indigo:#0F3460;
+      --ruby:#C84B31;
+      --ruby-lt:#E8715A;
+      --cream:#F8F5F0;
+      --white:#FFFFFF;
+      --muted:#6B7280;
+      --border:#E5E7EB;
+      --text:#374151;
+    }
+    html{scroll-behavior:smooth}
+    body{background:var(--cream);font-family:'Inter',sans-serif;color:var(--text);min-height:100vh}
 
-        :root {
-            --bg-ivory: #f2f6f4;
-            --deep-teal: #04201b;
-            --accent-emerald: #0f5c41;
-            --mint-glow: #e6f4ee;
-            --glass-white: rgba(255, 255, 255, 0.88);
-            --border-soft: rgba(15, 92, 65, 0.1);
-            --shadow-elevated: 0 10px 25px -5px rgba(4, 32, 27, 0.04), 0 0 0 1px rgba(15, 92, 65, 0.03);
-            --shadow-hover: 0 20px 40px -10px rgba(4, 32, 27, 0.12), 0 0 0 2px var(--accent-emerald);
-            --transition-butter: cubic-bezier(0.16, 1, 0.3, 1);
-        }
+    .notice{background:#FEF2F2;border-bottom:1px solid #FECACA;padding:10px 16px;text-align:center;font-size:.82rem;font-weight:500;color:#991B1B;display:flex;align-items:center;justify-content:center;gap:8px;position:relative;z-index:200}
+    .notice-dot{width:16px;height:16px;background:#EF4444;border-radius:50%;color:#fff;font-size:10px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-ivory);
-            /* Subtle technical doodle/dot-grid background pattern */
-            background-image: radial-gradient(rgba(15, 92, 65, 0.04) 2px, transparent 2px), 
-                              radial-gradient(rgba(15, 92, 65, 0.04) 2px, var(--bg-ivory) 2px);
-            background-size: 32px 32px;
-            background-position: 0 0, 16px 16px;
-            color: #12221e;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
+    nav{background:var(--white);border-bottom:1px solid var(--border);display:flex;flex-direction:column;align-items:stretch;padding:0;position:sticky;top:0;z-index:100;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+    .nav-brand{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--border)}
+    .nav-badge{width:36px;height:36px;background:var(--indigo);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .nav-badge svg{width:20px;height:20px}
+    .nav-name{font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ink)}
+    .nav-links{display:flex;align-items:center;gap:2px;overflow-x:auto;padding:6px 12px;scroll-behavior:smooth;-webkit-overflow-scrolling:touch}
+    .nav-links::-webkit-scrollbar{display:none}
+    .nav-links a{color:var(--muted);text-decoration:none;font-size:.8rem;font-weight:500;padding:8px 14px;border-radius:6px;transition:background .16s,color .16s;display:flex;align-items:center;gap:6px;white-space:nowrap}
+    .nav-links a:hover{background:var(--cream);color:var(--ink)}
+    .nav-links a.active{background:var(--cream);color:var(--indigo);font-weight:600}
+    .nav-links svg{width:14px;height:14px;opacity:.65}
 
-        /* Fixed Navigation Header */
-        .nav-master {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: calc(100% - 40px);
-            max-width: 1400px;
-            z-index: 2000;
-            background: rgba(255, 255, 255, 0.82);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border-radius: 24px;
-            border: 1px solid rgba(255, 255, 255, 0.7);
-            box-shadow: 0 10px 30px rgba(4, 32, 27, 0.05);
-            padding: 14px 32px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: all 0.4s var(--transition-butter);
-        }
-        
-        .logo-brand-container {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
+    .hero{position:relative;height:auto;min-height:380px;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:40px 16px}
+    .hero-bg{
+      position:absolute;inset:0;
+      background:
+        linear-gradient(rgba(22,33,62,.55),rgba(15,52,96,.68)),
+        linear-gradient(135deg,#2D5016 0%,#1F3A0D 20%,#2C6E49 42%,#1A4A6B 62%,#16213E 100%);
+    }
+    .hero-glass{
+      position:relative;z-index:2;
+      background:rgba(22,33,62,.70);
+      backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+      border:1px solid rgba(255,255,255,.13);
+      border-radius:20px;
+      padding:32px 24px;text-align:center;
+      max-width:600px;width:100%
+    }
+    .hero-glass h1{font-family:'Playfair Display',serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;color:#fff;line-height:1.2;margin-bottom:14px}
+    .hero-glass p{font-size:.9rem;line-height:1.6;color:rgba(255,255,255,.74);margin-bottom:24px}
+    .hero-btn{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--ink);font-size:.85rem;font-weight:600;padding:12px 28px;border-radius:100px;text-decoration:none;transition:background .18s,transform .18s;letter-spacing:.01em}
+    .hero-btn:hover{background:var(--cream);transform:translateY(-1px)}
+    .hero-btn svg{width:16px;height:16px}
+    .hero-scroll{display:none}
 
-        .tifr-logo {
-            width: 60px; /* Increased from 48px */
-            height: 60px; /* Increased from 48px */
-            object-fit: contain;
-            filter: drop-shadow(0 2px 8px rgba(4, 32, 27, 0.1));
-            transition: transform 0.3s var(--transition-butter);
-        }
-        
-        .logo-brand-container:hover .tifr-logo {
-            transform: scale(1.05) rotate(3deg);
-        }
+    main{max-width:1100px;margin:0 auto;padding:40px 16px 64px}
+    .intro{margin-bottom:40px;text-align:center;display:flex;flex-direction:column;align-items:center}
+    .eyebrow{display:flex;align-items:center;gap:9px;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--ruby);margin-bottom:12px}
+    .eyebrow svg{width:15px;height:15px}
+    .intro h2{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--ink);line-height:1.2}
+    .divider{width:48px;height:3px;background:var(--ruby);border-radius:2px;margin-top:14px}
 
-        .logo-brand {
-            font-weight: 800;
-            font-size: 1.35rem; /* Increased size slightly to balance logo size */
-            letter-spacing: -0.5px;
-            background: linear-gradient(135deg, var(--deep-teal), var(--accent-emerald));
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-        }
-        
-        .nav-links { display: flex; gap: 28px; }
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.9rem;
-            color: #1e3630;
-            position: relative;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 0;
-            transition: color 0.25s;
-        }
-        .nav-links a i { font-size: 0.85rem; opacity: 0.7; }
-        .nav-links a:hover, .nav-links a.active { color: var(--accent-emerald); }
-        .nav-links a:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 2.5px;
-            background: var(--accent-emerald);
-            border-radius: 2px;
-            transition: width 0.3s var(--transition-butter);
-        }
-        .nav-links a:hover:after, .nav-links a.active:after { width: 100%; }
+    .role-section{margin-bottom:48px}
+    .role-header{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+    .role-label{font-size:.72rem;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+    .role-line{flex:1;height:1px;background:var(--border)}
 
-        .mobile-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.4rem;
-            color: var(--deep-teal);
-            cursor: pointer;
-        }
+    .grid{display:grid;gap:16px;grid-template-columns:1fr}
 
-        /* Flashing Notice Bar */
-        .flashing-notice-bar {
-            background-color: #fff0f0;
-            border-bottom: 2px solid #ff5252;
-            color: #d61c1c;
-            text-align: center;
-            padding: 14px 20px;
-            font-size: 0.9rem;
-            font-weight: 700;
-            margin-top: 114px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            z-index: 10;
-            position: relative;
-            box-shadow: 0 4px 12px rgba(214, 28, 28, 0.03);
-        }
+    .card{background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;display:flex;flex-direction:column;align-items:center;transition:transform .22s,box-shadow .22s,border-color .22s;width:100%}
+    .card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(22,33,62,.10);border-color:#C7D2FE}
+    .stripe{width:100%;height:4px}
+    .s-red{background:linear-gradient(90deg,#C84B31,#E8715A)}
+    .s-blue{background:linear-gradient(90deg,#0F3460,#3B82F6)}
+    .s-green{background:linear-gradient(90deg,#059669,#34D399)}
+    .card-body{padding:24px 16px;text-align:center;width:100%}
+    .profile-img{width:80px;height:80px;border-radius:50%;background:var(--cream);border:3px solid var(--border);overflow:hidden;margin:0 auto 16px}
+    .profile-img.lg{width:96px;height:96px}
+    .profile-img img{width:100%;height:100%;object-fit:cover}
+    .cname{font-size:.98rem;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:5px}
+    .badge{display:inline-block;font-size:.68rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:100px;margin-bottom:14px}
+    .b-red{background:#FEF2F2;color:#991B1B}
+    .b-blue{background:#EFF6FF;color:#1D4ED8}
+    .b-green{background:#ECFDF5;color:#065F46}
+    .contacts{display:flex;flex-direction:column;gap:8px}
+    .contacts a,.contacts span{font-size:.76rem;color:var(--muted);text-decoration:none;display:flex;align-items:center;justify-content:center;gap:6px;transition:color .14s;word-break:break-all}
+    .contacts a:hover{color:var(--ruby)}
+    .contacts svg{width:12px;height:12px;flex-shrink:0}
 
-        /* Hero Layout Setup */
-        .hero-ram {
-            padding: 56px 20px;
-            background: linear-gradient(rgba(4, 32, 27, 0.45), rgba(4, 32, 27, 0.75)), url('main.png');
-            background-size: cover;
-            background-position: center;
-            border-radius: 0 0 40px 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-shadow: 0 20px 40px rgba(4, 32, 27, 0.06);
-        }
-        
-        .hero-card {
-            max-width: 840px;
-            width: 100%; 
-            background: rgba(4, 32, 27, 0.55); 
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            padding: 40px 32px;
-            border-radius: 28px;
-            text-align: center;
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.15);
-        }
+    /* Gallery Section Styles */
+    .gallery-grid {display:grid;gap:16px;grid-template-columns:1fr;margin-bottom:48px}
+    .gallery-card {background:var(--white);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:transform .22s,box-shadow .22s}
+    .gallery-card:hover {transform:translateY(-4px);box-shadow:0 12px 30px rgba(22,33,62,.08)}
+    .gallery-img-wrapper {width:100%;height:200px;overflow:hidden;background:var(--cream)}
+    .gallery-img-wrapper img {width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+    .gallery-card:hover .gallery-img-wrapper img {transform:scale(1.04)}
+    .gallery-info {padding:14px 16px;text-align:left}
+    .gallery-title {font-size:.85rem;font-weight:600;color:var(--ink);letter-spacing:.02em}
 
-        .hero-card h1 {
-            font-size: 2.6rem;
-            font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 14px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-        .hero-card p { 
-            font-size: 1.05rem; 
-            line-height: 1.6; 
-            opacity: 0.95; 
-            max-width: 700px; 
-            margin: 0 auto; 
-        }
+    footer{background:var(--ink);color:rgba(255,255,255,.4);text-align:center;padding:24px 16px;font-size:.75rem;letter-spacing:.04em;line-height:1.5}
+    footer span{color:rgba(255,255,255,.7)}
 
-        /* Structured Page Grids */
-        .section-wrap {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 56px 24px;
-        }
+    @media(min-width:480px) {
+      .grid.g4{grid-template-columns:repeat(2,1fr)}
+      .grid.g3{grid-template-columns:repeat(2,1fr)}
+      .gallery-grid {grid-template-columns:repeat(2,1fr)}
+    }
 
-        /* Quick-access Hotline Cards inside Content Block */
-        .hotline-banner {
-            background: white;
-            border: 1px solid var(--border-soft);
-            border-radius: 24px;
-            padding: 24px;
-            margin-bottom: 56px;
-            box-shadow: var(--shadow-elevated);
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 24px;
-        }
-
-        .hotline-card {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            background: var(--mint-glow);
-            padding: 20px 24px;
-            border-radius: 18px;
-            border: 1px solid rgba(15, 92, 65, 0.05);
-            transition: transform 0.3s var(--transition-butter);
-        }
-        .hotline-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .hotline-card i {
-            font-size: 1.6rem;
-            color: white;
-            background: var(--accent-emerald);
-            width: 54px;
-            height: 54px;
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 6px 15px rgba(15, 92, 65, 0.2);
-        }
-
-        .hotline-text span {
-            display: block;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: #4e605a;
-            margin-bottom: 4px;
-            font-weight: 600;
-        }
-
-        .hotline-text strong {
-            font-size: 1.35rem;
-            font-weight: 800;
-            color: var(--deep-teal);
-        }
-
-        .hotline-text a {
-            color: inherit;
-            text-decoration: none;
-            border-bottom: 2px solid rgba(15, 92, 65, 0.15);
-            transition: border-color 0.2s;
-        }
-        .hotline-text a:hover {
-            border-color: var(--accent-emerald);
-        }
-
-        .section-badge {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-emerald);
-            font-weight: 700;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .section-head {
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            margin-bottom: 36px;
-            color: var(--deep-teal);
-            position: relative;
-        }
-
-        .section-head:after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 44px;
-            height: 4px;
-            background: var(--accent-emerald);
-            border-radius: 2px;
-        }
-
-        /* Officer Horizontal Block */
-        .officer-block {
-            background: white;
-            border-radius: 24px;
-            padding: 32px;
-            display: flex;
-            align-items: center;
-            gap: 32px;
-            box-shadow: var(--shadow-elevated);
-            border: 1px solid var(--border-soft);
-            margin-bottom: 56px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .officer-block::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 140px;
-            height: 100%;
-            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(230,244,238,0.3) 100%);
-            pointer-events: none;
-        }
-
-        .officer-avatar-container {
-            width: 120px; /* Increased configuration size for Mohan to mirror profile standard layout scale */
-            height: 120px;
-            border-radius: 16px; /* FIXED: Changed from 50% to 16px to match the layout standard card shapes */
-            overflow: hidden;
-            background: var(--mint-glow);
-            border: 1px solid rgba(15, 92, 65, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-shrink: 0;
-            box-shadow: 0 6px 16px rgba(4, 32, 27, 0.04);
-            transition: transform 0.4s var(--transition-butter);
-        }
-
-        .officer-block:hover .officer-avatar-container {
-            transform: scale(1.03);
-        }
-
-        .officer-avatar-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .officer-details h3 {
-            font-size: 1.45rem;
-            font-weight: 800;
-            color: var(--deep-teal);
-        }
-        
-        .officer-role {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 0.8px;
-            color: var(--accent-emerald);
-            background: var(--mint-glow);
-            padding: 4px 10px;
-            border-radius: 6px;
-            margin-bottom: 10px;
-            display: inline-block;
-        }
-
-        .officer-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            font-size: 0.9rem;
-            color: #425450;
-            margin-top: 8px;
-        }
-
-        .officer-meta span {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .officer-meta a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.2s;
-            font-weight: 500;
-        }
-        .officer-meta a:hover { color: var(--accent-emerald); }
-
-        /* General Profile Grid Structure */
-        .profile-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 24px;
-            margin-bottom: 56px;
-        }
-
-        .profile-grid.caretakers, .profile-grid.new-images-grid {
-            grid-template-columns: repeat(3, 1fr);
-        }
-
-        .staff-profile-card {
-            background: white;
-            border-radius: 20px;
-            padding: 24px;
-            text-align: center;
-            box-shadow: var(--shadow-elevated);
-            border: 1px solid var(--border-soft);
-            transition: transform 0.4s var(--transition-butter), box-shadow 0.4s var(--transition-butter);
-            position: relative;
-        }
-
-        .staff-profile-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--shadow-hover);
-        }
-
-        .image-placeholder-container {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 20px;
-            border-radius: 16px;
-            overflow: hidden;
-            background: #eef2f0;
-            border: 1px solid rgba(15, 92, 65, 0.08);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 6px 16px rgba(4, 32, 27, 0.04);
-            transition: transform 0.4s var(--transition-butter);
-        }
-
-        .staff-profile-card:hover .image-placeholder-container {
-            transform: scale(1.03);
-        }
-
-        .image-placeholder-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .staff-profile-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--deep-teal);
-            margin-bottom: 8px;
-            line-height: 1.3;
-        }
-
-        .staff-phone-link {
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: var(--accent-emerald);
-            background: var(--mint-glow);
-            padding: 6px 16px;
-            border-radius: 30px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            margin-top: 6px;
-            transition: background-color 0.2s, color 0.2s;
-        }
-
-        .staff-phone-link:hover {
-            background-color: var(--accent-emerald);
-            color: white;
-        }
-
-        /* Footer Layout */
-        .footer-ultimate {
-            background: var(--deep-teal);
-            border-radius: 32px 32px 0 0;
-            padding: 40px 32px 20px;
-            color: #cbdcd7;
-            margin-top: 48px;
-        }
-
-        .footer-flex {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 24px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Mobile View Responsive Breakpoints */
-        @media (max-width: 1024px) {
-            .profile-grid, .profile-grid.new-images-grid {
-                grid-template-columns: repeat(2, 1fr) !important;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .nav-master {
-                width: calc(100% - 20px);
-                top: 10px;
-                padding: 12px 20px;
-                border-radius: 16px;
-            }
-            
-            .tifr-logo {
-                width: 50px; /* Scaled down responsively but still larger than previous */
-                height: 50px;
-            }
-
-            .logo-brand {
-                font-size: 1.1rem;
-            }
-
-            .mobile-toggle { display: block; }
-            
-            .nav-links {
-                position: fixed;
-                top: 74px;
-                left: 0;
-                width: 100%;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(24px);
-                flex-direction: column;
-                padding: 24px;
-                gap: 14px;
-                border-radius: 20px;
-                box-shadow: 0 15px 35px rgba(4, 32, 27, 0.1);
-                border: 1px solid var(--border-soft);
-                transform: translateY(-150%);
-                opacity: 0;
-                transition: transform 0.4s var(--transition-butter), opacity 0.3s ease;
-                pointer-events: none;
-            }
-
-            .nav-links.mobile-active {
-                transform: translateY(0);
-                opacity: 1;
-                pointer-events: auto;
-            }
-
-            .nav-links a {
-                width: 100%;
-                padding: 10px 0;
-                border-bottom: 1px solid #eef3f1;
-                font-size: 1rem;
-            }
-            .nav-links a:after { display: none; }
-
-            .flashing-notice-bar {
-                margin-top: 96px;
-                font-size: 0.82rem;
-                padding: 12px 14px;
-            }
-
-            .hero-ram { border-radius: 0 0 24px 24px; padding: 32px 16px; }
-            .hero-card { padding: 24px 20px; border-radius: 20px; }
-            .hero-card h1 { font-size: 1.8rem; }
-            .hero-card p { font-size: 0.92rem; }
-
-            .hotline-banner {
-                grid-template-columns: 1fr;
-                gap: 14px;
-                padding: 16px;
-                margin-bottom: 36px;
-            }
-            .hotline-card { padding: 14px 18px; }
-
-            .officer-block {
-                flex-direction: column;
-                text-align: center;
-                padding: 24px 20px;
-                gap: 20px;
-            }
-            .officer-meta { justify-content: center; gap: 10px 20px; }
-
-            .profile-grid, .profile-grid.new-images-grid {
-                grid-template-columns: 1fr !important;
-                gap: 18px;
-            }
-
-            .staff-profile-card {
-                display: flex;
-                align-items: center;
-                text-align: left;
-                padding: 18px;
-                gap: 20px;
-            }
-
-            .image-placeholder-container {
-                margin: 0;
-                width: 84px;
-                height: 84px;
-                border-radius: 12px;
-                flex-shrink: 0;
-            }
-
-            .footer-flex { flex-direction: column; text-align: center; }
-        }
-    </style>
+    @media(min-width:768px){
+      .notice{padding:10px 24px}
+      nav{flex-direction:row;justify-content:space-between;padding:0 40px;height:64px}
+      .nav-brand{padding:0;border-bottom:none}
+      .nav-links{padding:0}
+      .hero{height:540px;padding:0}
+      .hero-glass{padding:52px 64px}
+      .hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:5px;color:rgba(255,255,255,.45);font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;animation:bob 2s ease-in-out infinite}
+      .hero-scroll svg{width:18px;height:18px}
+      main{padding:72px 24px 96px}
+      .intro{text-align:left;align-items:flex-start}
+      .grid.g1{grid-template-columns:1fr;max-width:300px}
+      .grid.g4{grid-template-columns:repeat(4,1fr)}
+      .grid.g3{grid-template-columns:repeat(3,1fr)}
+      .gallery-grid {grid-template-columns:repeat(3,1fr)}
+    }
+    @keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(5px)}}
+  </style>
 </head>
 <body>
 
-<!-- Navigation Header -->
-<nav class="nav-master">
-    <div class="logo-brand-container">
-        <img src="tifr.jpg" alt="TIFR Official Seal Logo" class="tifr-logo">
-        <div class="logo-brand">TIFR GUEST HOUSE</div>
-    </div>
-    <button class="mobile-toggle" aria-label="Toggle Menu"><i class="fa-solid fa-bars"></i></button>
-    <div class="nav-links">
-        <a href="index.html"><i class="fa-solid fa-house-chimney"></i> TIFR Home</a>
-        <a href="index.html#about"><i class="fa-solid fa-monument"></i> About</a>
-        <a href="people.html" class="active"><i class="fa-solid fa-users-viewfinder"></i> People</a>
-        <a href="catering.html"><i class="fa-solid fa-utensils"></i> Catering</a>
-        <a href="usage_rules.html"><i class="fa-solid fa-gavel"></i> Usage Rules</a>
-        <a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a>
-    </div>
-</nav>
-
-<!-- Sticky Banner Notice -->
-<div class="flashing-notice-bar">
-    <i class="fa-solid fa-circle-exclamation"></i>
-    <span>NOTICE: TIFR guesthouse facility can be availed by TIFR Institute visitors only.</span>
+<div class="notice">
+  <span class="notice-dot">!</span>
+  <strong>NOTICE:</strong>&nbsp;TIFR guesthouse facility can be availed by TIFR Institute visitors only.
 </div>
 
-<!-- Page Top Block -->
-<section class="hero-ram">
-    <div class="hero-card">
-        <h1>The Guesthouse Staff</h1>
-        <p>TIFR Hostel and Guesthouse facility is serviced by a dedicated group of people who provide round-the-clock support to this facility, working in three shifts. They are coordinated through the front desk.</p>
+<nav>
+  <div class="nav-brand">
+    <div class="nav-badge">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M3 18 Q6 10 9 14 Q12 18 15 10 Q18 2 21 6" stroke="white" stroke-width="2.2" stroke-linecap="round"/></svg>
     </div>
+    <span class="nav-name">Ramanujan House</span>
+  </div>
+  <div class="nav-links">
+    <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg><span>TIFR Home</span></a>
+    <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M6 20v-2a6 6 0 0112 0v2"/></svg><span>About</span></a>
+    <a href="#" class="active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg><span>People</span></a>
+    <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l19-9-9 19-2-8-8-2z"/></svg><span>Catering</span></a>
+    <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg><span>Usage Rules</span></a>
+    <a href="#"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><polyline points="3 9 21 9"/><line x1="9" y1="21" x2="9" y2="9"/></svg><span>Contact</span></a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-glass">
+    <h1>Our Team & Campus</h1>
+    <p>Meet the dedicated administrators and support staff, and explore the serene residential facilities of the Ramanujan Guest House.</p>
+    <a href="#staff" class="hero-btn">
+      Explore Directory &nbsp;
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+  </div>
 </section>
 
-<!-- Core Directory Section -->
-<section class="section-wrap">
+<main id="staff">
 
-    <!-- Direct Contact Number Section -->
-    <div class="hotline-banner">
-        <div class="hotline-card">
-            <i class="fa-solid fa-phone"></i>
-            <div class="hotline-text">
-                <span>Internal Service Request Extension</span>
-                <strong>Dial 3050</strong>
-            </div>
-        </div>
-        <div class="hotline-card">
-            <i class="fa-solid fa-phone-flip"></i>
-            <div class="hotline-text">
-                <span>External Callers / Exigencies</span>
-                <strong><a href="tel:+912222783050">022-22783050</a> / <a href="tel:+912222783050">22783050</a></strong>
-            </div>
-        </div>
+  <div class="intro">
+    <div class="eyebrow">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+      Guesthouse Personnel
     </div>
+    <h2>Staff Directory</h2>
+    <div class="divider"></div>
+  </div>
 
-    <!-- Administration Group -->
-    <div class="section-badge"><i class="fa-solid fa-user-shield"></i> Administration</div>
-    <h2 class="section-head">Officer-in-Charge</h2>
-    
-    <div class="officer-block">
-        <div class="officer-avatar-container">
-            <img src="assests/people/Mohan M. Kakade.jpg" alt="Mohan M. Kakade Profile Image">
+  <div class="role-section">
+    <div class="role-header"><span class="role-label">Officer in Charge</span><div class="role-line"></div></div>
+    <div class="grid g1">
+      <div class="card">
+        <div class="stripe s-red"></div>
+        <div class="card-body">
+          <div class="profile-img lg">
+            <img src="assests/people/Mohan M. Kakade.jpg" alt="Mohan M. Kakade"/>
+          </div>
+          <div class="cname">Mohan M. Kakade</div>
+          <span class="badge b-red">Housekeeping Incharge</span>
+          <div class="contacts">
+            <a href="tel:+912227833065"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.99 1.18 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>+91-22-27833065</a>
+            <a href="mailto:ghIncharge@tifr.res.in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>ghIncharge@tifr.res.in</a>
+            <a href="mailto:housekeeping@tifr.res.in"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>housekeeping@tifr.res.in</a>
+          </div>
         </div>
-        <div class="officer-details">
-            <span class="officer-role">Housekeeping Incharge</span>
-            <h3>Mohan M. Kakade</h3>
-            <div class="officer-meta">
-                <span><i class="fa-solid fa-phone-alt" style="color: var(--accent-emerald);"></i> +91-22-22783065</span>
-                <span><i class="fa-solid fa-envelope" style="color: var(--accent-emerald);"></i> <a href="mailto:ghincharge@tifr.res.in">ghincharge{at}tifr.res.in</a></span>
-                <span><i class="fa-solid fa-envelope" style="color: var(--accent-emerald);"></i> <a href="mailto:housekeeping@tifr.res.in">housekeeping{at}tifr.res.in</a></span>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Front Desk Section -->
-    <div class="section-badge"><i class="fa-solid fa-headset"></i> Reception Desk</div>
-    <h2 class="section-head">Front Desk Personnel</h2>
-    
-    <div class="profile-grid">
-        <div class="staff-profile-card">
-            <div class="image-placeholder-container">
-                <img src="assests/people/Mohan M. Vartak.jpg" alt="Mohan M. Vartak Profile Image">
-            </div>
-            <h3>Mohan M. Vartak</h3>
-            <a href="tel:22783050" class="staff-phone-link"><i class="fa-solid fa-phone"></i> 22783050</a>
+  <div class="role-section">
+    <div class="role-header"><span class="role-label">Front Desk</span><div class="role-line"></div></div>
+    <div class="grid g4">
+      <div class="card">
+        <div class="stripe s-blue"></div>
+        <div class="card-body">
+          <div class="profile-img">
+            <img src="assests/people/Mohan M. Vartak.jpg" alt="Mohan M. Vartak"/>
+          </div>
+          <div class="cname">Mohan M. Vartak</div>
+          <span class="badge b-blue">Front Desk</span>
+          <div class="contacts">
+            <a href="tel:022-22783050"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.99 1.18 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>22783050</a>
+          </div>
         </div>
-        
-        <div class="staff-profile-card">
-            <div class="image-placeholder-container">
-                <img src="assests/people/Sanjay V. Patil.jpg" alt="Sanjay V. Patil Profile Image">
-            </div>
-            <h3>Sanjay V. Patil</h3>
-            <a href="tel:22783050" class="staff-phone-link"><i class="fa-solid fa-phone"></i> 22783050</a>
+      </div>
+      <div class="card">
+        <div class="stripe s-blue"></div>
+        <div class="card-body">
+          <div class="profile-img">
+            <img src="assests/people/Sanjay V. Patil.jpg" alt="Sanjay V. Patil"/>
+          </div>
+          <div class="cname">Sanjay V. Patil</div>
+          <span class="badge b-blue">Front Desk</span>
+          <div class="contacts">
+            <a href="tel:022-22783050"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.99 1.18 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>22783050</a>
+          </div>
         </div>
-        
-        <div class="staff-profile-card">
-            <div class="image-placeholder-container">
-                <img src="assests/people/Sumit S. Nitnaware.jpg" alt="Sumit S. Nitnaware Profile Image">
-            </div>
-            <h3>Sumit S. Nitnaware</h3>
-            <a href="tel:22783050" class="staff-phone-link"><i class="fa-solid fa-phone"></i> 22783050</a>
+      </div>
+      <div class="card">
+        <div class="stripe s-blue"></div>
+        <div class="card-body">
+          <div class="profile-img">
+            <img src="assests/people/Sumit S. Nitnaware.jpg" alt="Sumit S. Nitnaware"/>
+          </div>
+          <div class="cname">Sumit S. Nitnaware</div>
+          <span class="badge b-blue">Front Desk</span>
+          <div class="contacts">
+            <a href="tel:022-22783050"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.99 1.18 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>22783050</a>
+          </div>
         </div>
-        
-        <div class="staff-profile-card">
-            <div class="image-placeholder-container">
-                <img src="assests/people/Bhakti V. Khetle.jpg" alt="Bhakti V. Khetle Profile Image">
-            </div>
-            <h3>Bhakti V. Khetle</h3>
-            <a href="tel:22783050" class="staff-phone-link"><i class="fa-solid fa-phone"></i> 22783050</a>
+      </div>
+      <div class="card">
+        <div class="stripe s-blue"></div>
+        <div class="card-body">
+          <div class="profile-img">
+            <img src="assests/people/Bhakti V. Khetle.jpg" alt="Bhakti V. Khetle"/>
+          </div>
+          <div class="cname">Bhakti V. Khetle</div>
+          <span class="badge b-blue">Front Desk</span>
+          <div class="contacts">
+            <a href="tel:022-22783050"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81 19.79 19.79 0 01.99 1.18 2 2 0 013 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 14.92z"/></svg>22783050</a>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Care-takers Section -->
-    <div class="section-badge"><i class="fa-solid fa-hand-holding-hand"></i> Support Staff</div>
-    <h2 class="section-head">Care-takers</h2>
-    
-    <div class="profile-grid caretakers">
-        <div class="staff-profile-card">
-            <div class="image-placeholder-container">
-                <img src="assests/people/Prasad P. Rane.jpg" alt="Prasad P. Rane Profile Image">
-            </div>
-            <h3>Prasad P. Rane</h3>
-            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Logistics &amp; Care</span>
+  <div class="role-section">
+    <div class="role-header"><span class="role-label">Care-takers</span><div class="role-line"></div></div>
+    <div class="grid g3">
+      <div class="card">
+        <div class="stripe s-green"></div>
+        <div class="card-body">
+          <div class="profile-img">
+            <img src="assests/people/Prasad P. Rane.jpg" alt="Prasad P. Rane"/>
+          </div>
+          <div class="cname">Prasad P. Rane</div>
+          <span class="badge b-green">Care-taker</span>
         </div>
-        
-        <div class="staff-profile-card">
-            <div class="image-placeholder-container">
-                <img src="assests/people/Arun S. Khude.jpg" alt="Arun S. Khude Profile Image">
-            </div>
-            <h3>Arun S. Khude</h3>
-            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Turn-down Support</span>
+      </div>
+      <div class="card">
+        <div class="stripe s-green"></div>
+        <div class="card-body">
+          <div class="profile-img">
+            <img src="assests/people/Arun S. Khude.jpg" alt="Arun S. Khude"/>
+          </div>
+          <div class="cname">Arun S. Khude</div>
+          <span class="badge b-green">Care-taker</span>
         </div>
-        
-        <div class="staff-profile-card">
-            <div class="image-placeholder-container">
-                <img src="assests/people/Jayawant M. Tandel.jpg" alt="Jayawant M. Tandel Profile Image">
-            </div>
-            <h3>Jayawant M. Tandel</h3>
-            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Facility Maintenance</span>
+      </div>
+      <div class="card">
+        <div class="stripe s-green"></div>
+        <div class="card-body">
+          <div class="profile-img">
+            <img src="assests/people/Jayawant M. Tandel.jpg" alt="Jayawant M. Tandel"/>
+          </div>
+          <div class="cname">Jayawant M. Tandel</div>
+          <span class="badge b-green">Care-taker</span>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Additional Facility Support Section (Mapped from provided directory image) -->
-    <div class="section-badge"><i class="fa-solid fa-plus-circle"></i> Additional Operations</div>
-    <h2 class="section-head">Assigned Guest House Staff</h2>
-    
-    <div class="profile-grid new-images-grid">
-        <div class="staff-profile-card">
-            <div class="image-placeholder-container">
-                <img src="assests/people/sb-1alt.jpg" alt="Staff Profile Image sb-1alt">
-            </div>
-            <h3>Staff Member</h3>
-            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Assigned Support</span>
+  <!-- Guesthouse Premises Gallery Section -->
+  <div class="role-section">
+    <div class="role-header"><span class="role-label">Guesthouse Premises</span><div class="role-line"></div></div>
+    <div class="gallery-grid">
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="assests/people/sb-1alt.jpg" alt="Ramanujan House Premises View 1"/>
         </div>
-
-        <div class="staff-profile-card">
-            <div class="image-placeholder-container">
-                <img src="assests/people/sb-2a.jpg" alt="Staff Profile Image sb-2a">
-            </div>
-            <h3>Staff Member</h3>
-            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Assigned Support</span>
+        <div class="gallery-info">
+          <div class="gallery-title">Front Entrance & Lawns</div>
         </div>
-
-        <div class="staff-profile-card">
-            <div class="image-placeholder-container">
-                <img src="assests/people/sb-2alt.jpg" alt="Staff Profile Image sb-2alt">
-            </div>
-            <h3>Staff Member</h3>
-            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Assigned Support</span>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="assests/people/sb-2a.jpg" alt="Ramanujan House Premises View 2"/>
         </div>
-
-        <div class="staff-profile-card">
-            <div class="image-placeholder-container">
-                <img src="assests/people/sb-2b.jpg" alt="Staff Profile Image sb-2b">
-            </div>
-            <h3>Staff Member</h3>
-            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Assigned Support</span>
+        <div class="gallery-info">
+          <div class="gallery-title">Main Lounge Area</div>
         </div>
-
-        <div class="staff-profile-card">
-            <div class="image-placeholder-container">
-                <img src="assests/people/sb-3alt.jpg" alt="Staff Profile Image sb-3alt">
-            </div>
-            <h3>Staff Member</h3>
-            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Assigned Support</span>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="assests/people/sb-2alt.jpg" alt="Ramanujan House Premises View 3"/>
         </div>
-
-        <div class="staff-profile-card">
-            <div class="image-placeholder-container">
-                <img src="assests/people/sb-4alst.jpg" alt="Staff Profile Image sb-4alst">
-            </div>
-            <h3>Staff Member</h3>
-            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Assigned Support</span>
+        <div class="gallery-info">
+          <div class="gallery-title">Residential Corridor</div>
         </div>
-
-        <div class="staff-profile-card">
-            <div class="image-placeholder-container">
-                <img src="assests/people/sb-6alt.jpg" alt="Staff Profile Image sb-6alt">
-            </div>
-            <h3>Staff Member</h3>
-            <span style="font-size: 0.82rem; color:#5e706a; display:block; margin-top:4px; font-weight: 500;">Assigned Support</span>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="assests/people/sb-2b.jpg" alt="Ramanujan House Premises View 4"/>
         </div>
+        <div class="gallery-info">
+          <div class="gallery-title">Dining Facility External</div>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="assests/people/sb-3alt.jpg" alt="Ramanujan House Premises View 5"/>
+        </div>
+        <div class="gallery-info">
+          <div class="gallery-title">Guest Room Suite</div>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="assests/people/sb-4alst.jpg" alt="Ramanujan House Premises View 6"/>
+        </div>
+        <div class="gallery-info">
+          <div class="gallery-title">Courtyard & Walkway</div>
+        </div>
+      </div>
+      <div class="gallery-card">
+        <div class="gallery-img-wrapper">
+          <img src="assests/people/sb-6alt.jpg" alt="Ramanujan House Premises View 7"/>
+        </div>
+        <div class="gallery-info">
+          <div class="gallery-title">Exterior Architecture</div>
+        </div>
+      </div>
     </div>
+  </div>
 
-</section>
+</main>
 
-<!-- Footer Component -->
-<footer class="footer-ultimate">
-    <div class="footer-flex">
-        <div>
-            <h2 style="color: white; font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 12px;">
-                <img src="tifr.jpg" alt="TIFR Seal" class="tifr-logo" style="width: 44px; height: 44px;">
-                TIFR Guest House
-            </h2>
-            <p style="margin-top: 8px; font-size: 0.88rem; opacity: 0.8; max-width: 520px; line-height: 1.5;">Tata Institute of Fundamental Research, Colaba Campus, Mumbai. Our motto is to make your stay pleasant and comfortable in TIFR.</p>
-        </div>
-    </div>
-    <div style="text-align: center; margin-top: 32px; font-size: 0.78rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 20px; opacity: 0.4; letter-spacing: 0.5px;">&copy; 2026 Tata Institute of Fundamental Research. All rights reserved.</div>
-</footer>
 
-<!-- Interactivity & Responsive Control Logic -->
-<script>
-    // Navigation Toggle for Small Displays
-    const menuToggler = document.querySelector('.mobile-toggle');
-    const linksWrapper = document.querySelector('.nav-links');
-    
-    menuToggler.addEventListener('click', () => {
-        linksWrapper.classList.toggle('mobile-active');
-        const iconNode = menuToggler.querySelector('i');
-        iconNode.className = linksWrapper.classList.contains('mobile-active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-    });
 
-    // Glassmorphism dynamic navbar effect during scroll sequence
-    window.addEventListener('scroll', () => {
-        const topNav = document.querySelector('.nav-master');
-        if(window.scrollY > 40) {
-            topNav.style.background = 'rgba(255, 255, 255, 0.92)';
-            topNav.style.boxShadow = '0 15px 35px rgba(4, 32, 27, 0.08)';
-            topNav.style.padding = '10px 32px';
-        } else {
-            topNav.style.background = 'rgba(255, 255, 255, 0.82)';
-            topNav.style.boxShadow = '0 10px 30px rgba(4, 32, 27, 0.05)';
-            topNav.style.padding = '14px 32px';
-        }
-    });
-
-    // Smooth entry layout scroll trigger animations setup
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.from(".staff-profile-card, .officer-block, .hotline-card", {
-        opacity: 0,
-        y: 20,
-        duration: 0.6,
-        stagger: 0.06,
-        ease: "power3.out",
-        scrollTrigger: {
-            trigger: ".section-wrap",
-            start: "top 85%"
-        }
-    });
-</script>
 </body>
 </html>
