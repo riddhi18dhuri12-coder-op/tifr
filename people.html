@@ -55,11 +55,14 @@
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Ctext x='5%25' y='12%25' font-family='Courier, monospace' font-size='24' fill='%2312694b'%3Eiℌ ∂Ψ/∂t = ĤΨ%3C/text%3E%3Ctext x='75%25' y='18%25' font-family='Courier, monospace' font-size='22' fill='%2312694b'%3EE = mc²%3C/text%3E%3Ctext x='15%25' y='45%25' font-family='Courier, monospace' font-size='26' fill='%2312694b'%3E∬ R dx dy%3C/text%3E%3Ctext x='80%25' y='55%25' font-family='Courier, monospace' font-size='20' fill='%2312694b'%3E∇ × B = μ₀J%3C/text%3E%3Ctext x='40%25' y='85%25' font-family='Courier, monospace' font-size='25' fill='%2312694b'%3E∑ 1/n² = π²/6%3C/text%3E%3Cpath d='M30,300 Q90,350 50,400 T150,450' fill='none' stroke='%2312694b' stroke-width='2'/%3E%3Ccircle cx='85%25' cy='35%25' r='30' fill='none' stroke='%2312694b' stroke-width='1.5' stroke-dasharray='5,5'/%3E%3C/svg%3E");
         }
 
+        %3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Ctext x='5%25' y='12%25' font-family='Courier, monospace' font-size='24' fill='%2312694b'%3Eiℌ ∂Ψ/∂t = ĤΨ%3C/text%3E%3Ctext x='75%25' y='18%25' font-family='Courier, monospace' font-size='22' fill='%2312694b'%3EE = mc²%3C/text%3E%3Ctext x='15%25' y='45%25' font-family='Courier, monospace' font-size='26' fill='%2312694b'%3E∬ R dx dy%3C/text%3E%3Ctext x='80%25' y='55%25' font-family='Courier, monospace' font-size='20' fill='%2312694b'%3E∇ × B = μ₀J%3C/text%3E%3Ctext x='40%25' y='85%25' font-family='Courier, monospace' font-size='25' fill='%2312694b'%3E∑ 1/n² = π²/6%3C/text%3E%3Cpath d='M30,300 Q90,350 50,400 T150,450' fill='none' stroke='%2312694b' stroke-width='2'/%3E%3Ccircle cx='85%25' cy='35%25' r='30' fill='none' stroke='%2312694b' stroke-width='1.5' stroke-dasharray='5,5'/%3E%3C/svg%3E");
+        }
+
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #e3ebe7; }
         ::-webkit-scrollbar-thumb { background: var(--accent-emerald); border-radius: 4px; }
 
-        /* NAVIGATION HEADER BAR (EXACT AS INDEX.HTML) */
+        /* NAVIGATION HEADER BAR */
         .nav-master {
             position: fixed;
             top: 20px;
@@ -111,10 +114,10 @@
         .nav-links a.active-link::after, .nav-links a:hover::after { width: 100%; }
         .mobile-toggle { display: none; background: none; border: none; font-size: 1.4rem; color: var(--deep-teal); cursor: pointer; }
 
-        /* HERO AREA SECTION ATTACHED WITH INTEGRATED STRIP */
+        /* HERO AREA SECTION (image_637fc9.png) */
         .hero-ram {
             position: relative;
-            min-height: 48vh;
+            min-height: 38vh;
             background: linear-gradient(rgba(4, 25, 21, 0.82), rgba(6, 38, 32, 0.97)), url('assests/people/sb-2alt.jpg');
             background-size: cover;
             background-position: center;
@@ -123,7 +126,7 @@
             align-items: center;
             justify-content: center;
             border-radius: 0 0 40px 40px;
-            padding: 100px 20px 120px 20px;
+            padding: 100px 20px 80px 20px;
             margin-top: 105px;
             text-align: center;
         }
@@ -141,16 +144,12 @@
             font-weight: 400;
         }
 
-        /* INTEGRATED STATEMENTS UTILITY MODULE ATTACHED TO HERO CONTAINER */
-        .fixed-statement-box {
-            position: absolute;
-            bottom: -40px;
-            left: 50%;
-            transform: translateX(-50%);
+        /* SEPARATED UTILITY STRIP CONTAINER (image_6382ac.png) */
+        .statement-box-standalone {
             width: calc(100% - 48px);
             max-width: 1300px;
+            margin: 40px auto 20px auto;
             padding: 0;
-            z-index: 50;
         }
         .statement-card-inner {
             background: #ffffff;
@@ -183,7 +182,7 @@
         /* FILTER LAYOUT CONFIGURATIONS */
         .filter-container {
             max-width: 1300px;
-            margin: 80px auto 0;
+            margin: 40px auto 0;
             padding: 0 24px;
             display: flex;
             justify-content: center;
@@ -214,7 +213,7 @@
         .section-wrap {
             max-width: 1300px;
             margin: 0 auto;
-            padding: 50px 24px;
+            padding: 40px 24px;
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
         .section-badge { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-emerald); font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
@@ -261,20 +260,26 @@
             transform: translateY(-6px);
         }
 
-        /* STRICT PASSPORT SIZE DIMENSIONAL FRAMING RATIO (3:4) */
+        /* STRICT PASSPORT SIZE DIMENSIONAL FRAMING RATIO (3:4) WITH BORDER */
         .avatar-frame {
             width: 100%;
             aspect-ratio: 3 / 4;
             overflow: hidden;
             background-color: var(--mint-glow);
             position: relative;
-            border-bottom: 1px solid var(--border-soft);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .avatar-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             object-position: center top;
+            border: 3px solid rgba(18, 105, 75, 0.2);
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(6, 38, 32, 0.1);
             transition: transform 0.6s var(--transition-butter);
         }
         .editorial-card:hover .avatar-frame img {
@@ -283,9 +288,9 @@
         
         .status-pill {
             position: absolute;
-            top: 16px;
-            right: 16px;
-            background: rgba(6, 38, 32, 0.75);
+            top: 24px;
+            right: 24px;
+            background: rgba(6, 38, 32, 0.85);
             color: #ffffff;
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
@@ -299,8 +304,9 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
+        /* CONTACT DETAILS SECTION BELOW IMAGE */
         .staff-bio {
-            padding: 24px;
+            padding: 0 24px 24px 24px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -388,7 +394,7 @@
         .bento-overlay p { font-size: 0.8rem; color: #bcccb5; transform: translateY(10px); transition: transform 0.4s var(--transition-butter) 0.05s; }
         .bento-card:hover .bento-overlay h4, .bento-card:hover .bento-overlay p { transform: translateY(0); }
 
-        /* FOOTER MODULE CONTAINER (EXACT AS INDEX.HTML) */
+        /* FOOTER MODULE CONTAINER */
         .footer-ultimate { background: var(--deep-teal); border-radius: 32px 32px 0 0; padding: 60px 40px 30px; color: #d1e2dd; margin-top: 60px; }
         .footer-flex { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; max-width: 1300px; margin: 0 auto; }
         .footer-brand-side { display: flex; flex-direction: column; }
@@ -415,8 +421,7 @@
         }
 
         @media (max-width: 1024px) {
-            .fixed-statement-box { position: relative; bottom: unset; left: unset; transform: unset; margin: 40px auto -20px; width: 100%; }
-            .hero-ram { padding-bottom: 40px; }
+            .statement-box-standalone { margin: 30px auto 10px auto; }
             .connect-strip { grid-template-columns: 1fr; gap: 14px; }
             .hero-title-container h1 { font-size: 2.5rem; }
             .nav-master { padding: 14px 24px; width: calc(100% - 24px); top: 12px; }
@@ -463,42 +468,42 @@
     </div>
 </nav>
 
-<!-- HERO AREA INTEGRATED WITH INTERCOM & AVAILABILITY OVERLAY -->
+<!-- HERO AREA SECTION (image_637fc9.png) -->
 <section class="hero-ram">
     <div class="hero-title-container">
         <h1>The Guesthouse Staff</h1>
         <p>Providing pristine operational support and elite hospitality management for the fundamental scientific community.</p>
     </div>
-    
-    <!-- ATTACHED FIXED COMMUNICATIONS STRIP LAYER -->
-    <div class="fixed-statement-box">
-        <div class="statement-card-inner">
-            <div class="connect-strip">
-                <div class="connect-node">
-                    <i class="fa-solid fa-phone-volume"></i>
-                    <div>
-                        <h4>Internal Intercom</h4>
-                        <p>Ext. 3050</p>
-                    </div>
+</section>
+
+<!-- SEPARATED COMMUNICATIONS STRIP MODULE (image_6382ac.png) -->
+<div class="statement-box-standalone">
+    <div class="statement-card-inner">
+        <div class="connect-strip">
+            <div class="connect-node">
+                <i class="fa-solid fa-phone-volume"></i>
+                <div>
+                    <h4>Internal Intercom</h4>
+                    <p>Ext. 3050</p>
                 </div>
-                <div class="connect-node">
-                    <i class="fa-solid fa-phone-flip"></i>
-                    <div>
-                        <h4>External Inquiries</h4>
-                        <p>+91-22-22783050</p>
-                    </div>
+            </div>
+            <div class="connect-node">
+                <i class="fa-solid fa-phone-flip"></i>
+                <div>
+                    <h4>External Inquiries</h4>
+                    <p>+91-22-22783050</p>
                 </div>
-                <div class="connect-node">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-                    <div>
-                        <h4>Availability</h4>
-                        <p>24/7 Shift Cover</p>
-                    </div>
+            </div>
+            <div class="connect-node">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <div>
+                    <h4>Availability</h4>
+                    <p>24/7 Shift Cover</p>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <!-- CATEGORY FILTER CONTROLS MODULE -->
 <div class="filter-container">
@@ -602,6 +607,9 @@
             <div class="staff-bio">
                 <h3>Prasad P. Rane</h3>
                 <span class="card-label-tag">Guesthouse Caretaker</span>
+                <div class="staff-channels">
+                    <a href="tel:22783050" class="channel-link"><i class="fa-solid fa-phone"></i> Ext. 3050 / 22783050</a>
+                </div>
             </div>
         </div>
         <div class="editorial-card">
@@ -611,6 +619,9 @@
             <div class="staff-bio">
                 <h3>Arun S. Khude</h3>
                 <span class="card-label-tag">Guesthouse Caretaker</span>
+                <div class="staff-channels">
+                    <a href="tel:22783050" class="channel-link"><i class="fa-solid fa-phone"></i> Ext. 3050 / 22783050</a>
+                </div>
             </div>
         </div>
         <div class="editorial-card">
@@ -620,6 +631,9 @@
             <div class="staff-bio">
                 <h3>Jayawant M. Tandel</h3>
                 <span class="card-label-tag">Guesthouse Caretaker</span>
+                <div class="staff-channels">
+                    <a href="tel:22783050" class="channel-link"><i class="fa-solid fa-phone"></i> Ext. 3050 / 22783050</a>
+                </div>
             </div>
         </div>
     </div>
