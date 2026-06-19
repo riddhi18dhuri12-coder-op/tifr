@@ -146,11 +146,12 @@
             padding: 4px;
         }
 
-        /* HERO AREA BANNER WITH INDEX SEGMENT ALIGNMENT MATCH */
+        /* HERO AREA BANNER - UPDATED TO COVER BOTH SIDES EDGE-TO-EDGE LIKE INDEX.HTML */
         .hero-ram {
             position: relative;
-            margin-top: 140px; /* Synchronized spacing buffer identical to index.html structure */
-            min-height: 38vh;
+            margin-top: 140px; /* Precise top buffer allocation */
+            width: 100%;       /* Spans full fluid viewport width edge-to-edge */
+            min-height: 40vh;
             background: linear-gradient(rgba(3, 20, 17, 0.45), rgba(5, 33, 28, 0.75)), url('assests/people/sb-2alt.jpg');
             background-size: cover;
             background-position: center;
@@ -158,12 +159,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border-radius: 50px; /* Made fully symmetric just like internal index containers */
-            width: calc(100% - 48px);
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 65px 20px;
+            padding: 80px 24px;
             text-align: center;
             box-shadow: var(--shadow-3d-raised);
         }
@@ -183,12 +179,14 @@
             max-width: 600px;
             font-weight: 400;
             opacity: 0.9;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* FILTER CONTROLS BUTTONS */
         .filter-container {
             max-width: 1400px;
-            margin: 40px auto 0;
+            margin: 50px auto 0;
             padding: 0 40px;
             display: flex;
             justify-content: center;
@@ -467,7 +465,7 @@
 
         /* RESPONSIVE MEDIA BREAKPOINTS */
         @media (max-width: 1024px) {
-            .hero-ram { margin-top: 100px; width: calc(100% - 24px); }
+            .hero-ram { margin-top: 100px; padding: 60px 20px; }
             .connect-strip { grid-template-columns: 1fr; gap: 14px; }
             .statement-box-standalone { width: calc(100% - 40px); }
             .section-wrap { padding: 40px 20px; }
@@ -519,7 +517,7 @@
             .footer-ultimate { border-radius: 32px 32px 0 0; padding: 32px 20px 20px; }
         }
         @media (max-width: 640px) {
-            .hero-ram { margin-top: 90px; border-radius: 24px; }
+            .hero-ram { margin-top: 90px; padding: 45px 16px; }
             .hero-title-container h1 { font-size: 2.2rem; }
             .avatar-frame { height: 280px; }
             .avatar-frame img { width: 160px; height: 210px; }
