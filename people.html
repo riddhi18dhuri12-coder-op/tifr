@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>TIFR GuestHouse | Our Team & Administration</title>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Guesthouse Staff & Roster | TIFR GuestHouse Portal</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
+    
     <style>
-        /* ── RESET & VARIABLES ── */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        /* Central Theme CSS variables synchronized from index.html */
         :root {
             --bg-ivory: #f2f6f3;
             --deep-teal: #05211c;
@@ -40,65 +40,28 @@
             color: #142622;
             overflow-x: hidden;
             scroll-behavior: smooth;
+            position: relative;
         }
 
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #e0e9e4;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: var(--accent-emerald);
-            border-radius: 4px;
-        }
-
-        /* ── SCROLL PROGRESS BAR ── */
-        .scroll-progress-bar {
+        /* Scientific background pattern stylized to match index styling */
+        body::before {
+            content: "";
             position: fixed;
             top: 0;
             left: 0;
-            height: 3px;
-            width: 0%;
-            background: linear-gradient(90deg, var(--accent-emerald), #4ade80);
-            z-index: 9999;
-            border-radius: 0 2px 2px 0;
-            transition: width 0.08s linear;
-        }
-
-        /* ── BACK TO TOP ── */
-        .back-to-top {
-            position: fixed;
-            bottom: 32px;
-            right: 32px;
-            width: 48px;
-            height: 48px;
-            background: var(--deep-teal);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.1rem;
-            cursor: pointer;
-            z-index: 1500;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 24px rgba(5, 33, 28, 0.28);
-            opacity: 0;
-            transform: translateY(16px);
-            transition: opacity 0.35s var(--transition-butter), transform 0.35s var(--transition-butter), background 0.2s;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.03;
             pointer-events: none;
-        }
-        .back-to-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-            pointer-events: auto;
-        }
-        .back-to-top:hover {
-            background: var(--accent-emerald);
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Ctext x='5%25' y='12%25' font-family='Courier, monospace' font-size='24' fill='%23105e43'%3Eiℌ ∂Ψ/∂t = ĤΨ%3C/text%3E%3Ctext x='75%25' y='18%25' font-family='Courier, monospace' font-size='22' fill='%23105e43'%3EE = mc²%3C/text%3E%3Ctext x='15%25' y='45%25' font-family='Courier, monospace' font-size='26' fill='%23105e43'%3E∬ R dx dy%3C/text%3E%3Ctext x='80%25' y='55%25' font-family='Courier, monospace' font-size='20' fill='%23105e43'%3E∇ × B = μ₀J%3C/text%3E%3Ctext x='40%25' y='85%25' font-family='Courier, monospace' font-size='25' fill='%23105e43'%3E∑ 1/n² = π²/6%3C/text%3E%3Cpath d='M30,300 Q90,350 50,400 T150,450' fill='none' stroke='%23105e43' stroke-width='2'/%3E%3Ccircle cx='85%25' cy='35%25' r='30' fill='none' stroke='%23105e43' stroke-width='1.5' stroke-dasharray='5,5'/%3E%3C/svg%3E");
         }
 
-        /* ── NAVBAR ── */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e0e9e4; }
+        ::-webkit-scrollbar-thumb { background: var(--accent-emerald); border-radius: 4px; }
+
+        /* FLOATING NAVIGATION BAR MATCHING INDEX.HTML */
         .nav-master {
             position: fixed;
             top: 24px;
@@ -111,7 +74,7 @@
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border-radius: 35px;
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255,255,255,0.8);
             box-shadow: var(--shadow-3d-flat);
             padding: 14px 36px;
             display: flex;
@@ -119,64 +82,46 @@
             align-items: center;
             transition: all 0.5s var(--transition-butter);
         }
-
-        .logo-brand-container {
-            display: flex;
-            align-items: center;
-            gap: 18px;
-        }
-
-        .tifr-logo {
-            width: 58px;
-            height: 58px;
-            object-fit: contain;
-            filter: drop-shadow(0 6px 12px rgba(5, 33, 28, 0.18));
+        
+        .logo-brand-container { display: flex; align-items: center; gap: 18px; }
+        .tifr-logo { 
+            width: 58px; 
+            height: 58px; 
+            object-fit: contain; 
+            filter: drop-shadow(0 6px 12px rgba(5, 33, 28, 0.18)); 
             image-rendering: -webkit-optimize-contrast;
             transition: transform 0.6s var(--transition-butter);
         }
-
-        .nav-master:hover .tifr-logo {
-            transform: scale(1.06) rotate(4deg);
-        }
-
-        .logo-brand {
-            font-weight: 800;
-            font-size: 1.4rem;
-            letter-spacing: -0.7px;
+        .nav-master:hover .tifr-logo { transform: scale(1.06) rotate(4deg); }
+        .logo-text-wrapper { display: flex; flex-direction: column; }
+        .logo-brand { 
+            font-weight: 800; 
+            font-size: 1.4rem; 
+            letter-spacing: -0.7px; 
             background: linear-gradient(135deg, var(--deep-teal), var(--accent-emerald));
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
             white-space: nowrap;
         }
-
-        .nav-links {
-            display: flex;
-            gap: 28px;
-        }
+        
+        .nav-links { display: flex; gap: 28px; }
         .nav-links a {
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
             color: #23423a;
-            transition: color 0.25s;
             position: relative;
             display: flex;
             align-items: center;
             gap: 6px;
             padding: 6px 0;
+            transition: color 0.25s;
         }
-        .nav-links a i {
-            font-size: 0.82rem;
-            opacity: 0.6;
-            transition: transform 0.3s;
-        }
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: var(--accent-emerald);
-        }
-
-        .nav-links a:after {
+        .nav-links a i { font-size: 0.82rem; opacity: 0.6; transition: transform 0.3s; }
+        .nav-links a:hover { color: var(--accent-emerald); }
+        .nav-links a:hover i { transform: translateY(-1px); opacity: 1; }
+        .nav-links a::after {
             content: '';
             position: absolute;
             bottom: 0;
@@ -188,11 +133,8 @@
             border-radius: 2px;
             transition: width 0.3s var(--transition-butter);
         }
-        .nav-links a:hover:after,
-        .nav-links a.active:after {
-            width: 100%;
-        }
-
+        .nav-links a.active-link::after, .nav-links a:hover::after { width: 100%; }
+        
         .mobile-toggle {
             display: none;
             background: none;
@@ -204,177 +146,292 @@
             padding: 4px;
         }
 
-        /* ── HERO BANNER ── */
-        .hero-banner {
-            min-height: 35vh;
-            background: linear-gradient(135deg, var(--deep-teal), #0a3d33);
-            border-radius: 50px;
-            margin-top: 130px;
+        /* HERO AREA BANNER - UPDATED TO COVER BOTH SIDES EDGE-TO-EDGE LIKE INDEX.HTML */
+        .hero-ram {
+            position: relative;
+            margin-top: 140px; /* Precise top buffer allocation */
+            width: 100%;       /* Spans full fluid viewport width edge-to-edge */
+            min-height: 40vh;
+            background: linear-gradient(rgba(3, 20, 17, 0.45), rgba(5, 33, 28, 0.75)), url('assests/people/sb-2alt.jpg');
+            background-size: cover;
+            background-position: center;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 80px 24px;
             text-align: center;
-            padding: 40px;
-            color: white;
             box-shadow: var(--shadow-3d-raised);
-            position: relative;
-            overflow: hidden;
         }
-
-        .hero-banner-content h1 {
-            font-size: 3rem;
+        .hero-title-container h1 {
+            font-size: 3.4rem;
             font-weight: 800;
-            letter-spacing: -1px;
-            margin-bottom: 10px;
+            letter-spacing: -1.5px;
             background: linear-gradient(120deg, #ffffff, #e3fcf1);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
         }
-
-        .hero-banner-content p {
+        .hero-title-container p {
+            color: #e3fcf1;
             font-size: 1.1rem;
-            opacity: 0.85;
+            margin-top: 12px;
             max-width: 600px;
-            margin: 0 auto;
+            font-weight: 400;
+            opacity: 0.9;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        /* ── SECTION WRAPPERS & BADGES ── */
+        /* FILTER CONTROLS BUTTONS */
+        .filter-container {
+            max-width: 1400px;
+            margin: 50px auto 0;
+            padding: 0 40px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: #ffffff;
+            border: 1px solid var(--border-soft);
+            color: var(--deep-teal);
+            padding: 12px 26px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s var(--transition-butter);
+            box-shadow: 0 4px 10px rgba(5,33,28,0.02);
+        }
+        .filter-btn:hover { border-color: var(--accent-emerald); background: var(--mint-glow); }
+        .filter-btn.active-filter {
+            background: var(--accent-emerald);
+            color: #ffffff;
+            border-color: var(--accent-emerald);
+            box-shadow: 0 10px 25px rgba(16, 94, 67, 0.25);
+        }
+
+        /* FLOATING CONNECT CONNECTIONS BLOCK */
+        .statement-box-standalone {
+            width: calc(100% - 80px);
+            max-width: 1320px;
+            margin: 30px auto 10px auto;
+            padding: 0;
+            position: relative;
+            z-index: 100;
+        }    
+        .statement-card-inner {
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 30px;
+            box-shadow: var(--shadow-3d-flat);
+            border: 1px solid var(--border-soft);
+            border-left: 6px solid var(--accent-emerald);
+        }
+        .connect-strip {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        .connect-node {
+            background: var(--mint-glow);
+            border: 1px solid rgba(16, 94, 67, 0.08);
+            padding: 18px 24px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            transition: all 0.4s var(--transition-butter);
+        }
+        .connect-node:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 8px 20px rgba(5,33,28,0.05);
+        }
+        .connect-node i { font-size: 1.6rem; color: var(--accent-emerald); }
+        .connect-node div h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #485c56; font-weight: 700; text-align: left; }
+        .connect-node div p { font-size: 1.05rem; font-weight: 700; color: var(--deep-teal); margin-top: 3px; text-align: left; }
+
+        /* GRID STRUCTURES PANELS */
         .section-wrap {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 80px 40px;
+            padding: 40px 40px 60px;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .section-badge { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent-emerald); font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+        .section-head { font-size: 2.6rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 54px; color: var(--deep-teal); position: relative; display: inline-block; }
+        .section-head::after {
+            content: '';
+            position: absolute;
+            bottom: -14px;
+            left: 0;
+            width: 60px;
+            height: 5px;
+            background: var(--accent-emerald);
+            border-radius: 4px;
         }
 
-        .section-badge {
-            font-size: 0.78rem;
-            text-transform: uppercase;
-            letter-spacing: 2.5px;
-            color: var(--accent-emerald);
-            font-weight: 700;
-            margin-bottom: 36px;
+        /* STAFF DISPLAY MANAGEMENT MATRIX */
+        .staff-matrix {
             display: flex;
-            align-items: center;
-            gap: 8px;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 36px;
+            width: 100%;
         }
 
-        /* ── PEOPLE GRID & CARDS ── */
-        .people-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
-        }
-
-        .people-grid.management {
-            grid-template-columns: repeat(1, 1fr);
-            max-width: 340px;
-        }
-
-        .person-card {
+        /* STANDARDIZED EDITORIAL CARD STYLING CRITERIA */
+        .editorial-card {
             background: white;
             border-radius: 32px;
-            padding: 32px 24px;
-            text-align: center;
+            overflow: hidden;
             box-shadow: var(--shadow-3d-flat);
-            border: 1px solid rgba(16, 94, 67, 0.06);
-            transition: all 0.5s var(--transition-butter);
-            transform-style: preserve-3d;
-            perspective: 1000px;
+            border: 1px solid rgba(16, 94, 67, 0.08);
             display: flex;
             flex-direction: column;
-            align-items: center;
+            transition: all 0.5s var(--transition-butter);
+            position: relative;
+            transform-style: preserve-3d;
+            width: 100%;
+            max-width: 290px;
+            min-height: 560px;
         }
-
-        .person-card:hover {
+        .editorial-card:hover {
             box-shadow: var(--shadow-3d-raised);
         }
 
-        .avatar-wrap {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
+        .avatar-frame {
+            width: 100%;
+            height: 300px;
             overflow: hidden;
-            margin-bottom: 20px;
-            border: 4px solid var(--mint-glow);
-            box-shadow: 0 8px 20px rgba(5, 33, 28, 0.08);
-            background: #f8faf9;
-            transform: translateZ(30px);
+            background: #f2f6f3;
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .avatar-frame img {
+            width: 180px;
+            height: 240px;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 16px;
+            border: 3px solid rgba(16, 94, 67, 0.15);
+            box-shadow: 0 8px 25px rgba(5,33,28,0.08);
+            transition: transform 0.6s var(--transition-butter);
+            image-rendering: -webkit-optimize-contrast;
             backface-visibility: hidden;
         }
-
-        .avatar-wrap img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            image-rendering: -webkit-optimize-contrast;
-        }
-
-        .person-card h3 {
-            font-size: 1.25rem;
+        .editorial-card:hover .avatar-frame img { transform: scale(1.04); }
+        
+        .status-pill {
+            position: absolute;
+            top: 24px;
+            right: 24px;
+            background: rgba(5, 33, 28, 0.85);
+            color: #ffffff;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.68rem;
             font-weight: 700;
-            color: var(--deep-teal);
-            margin-bottom: 4px;
-            transform: translateZ(25px);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 10;
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        .person-role {
-            font-size: 0.88rem;
-            font-weight: 600;
-            color: var(--accent-emerald);
-            background: var(--mint-glow);
-            padding: 4px 14px;
-            border-radius: 20px;
-            margin-bottom: 18px;
-            display: inline-block;
-            transform: translateZ(20px);
-        }
-
-        .person-meta {
-            width: 100%;
-            border-top: 1px solid #edf3ef;
-            padding-top: 16px;
-            margin-top: auto;
+        /* TEXT AND CHANNELS AREA FOR CARDS */
+        .staff-bio {
+            padding: 0 24px 28px 24px;
+            text-align: center;
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            flex-grow: 1;
             transform: translateZ(15px);
         }
+        .staff-bio h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .card-label-tag {
+            align-self: center;
+            font-size: 0.70rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--accent-emerald);
+            background: var(--mint-glow);
+            padding: 6px 14px;
+            border-radius: 40px;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
 
-        .meta-line {
+        .meta-channels-group {
+            margin-top: auto;
+            border-top: 1px dashed #e2ece7;
+            padding-top: 18px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .meta-link-row {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            font-size: 0.84rem;
-            color: #4a5d58;
-        }
-
-        .meta-line i {
-            color: var(--accent-emerald);
-            font-size: 0.85rem;
-            opacity: 0.8;
-        }
-
-        .meta-line a {
-            color: #4a5d58;
+            gap: 10px;
             text-decoration: none;
+            color: #485c56;
+            font-size: 0.85rem;
+            font-weight: 500;
             transition: color 0.2s;
         }
+        .meta-link-row i { color: var(--accent-emerald); font-size: 0.90rem; }
+        .meta-link-row:hover { color: var(--accent-emerald); }
 
-        .meta-line a:hover {
-            color: var(--accent-emerald);
+        /* LIGHTBOX MODAL IMAGE PREVIEW SYSTEM */
+        .lightbox-orb {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(3, 16, 14, 0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
+        }
+        .lightbox-inner {
+            position: relative;
+            max-width: 85vw;
+            max-height: 85vh;
+        }
+        .lightbox-inner img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 20px;
+            box-shadow: 0 40px 90px rgba(0,0,0,0.6);
+            object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
         }
 
-        /* ── FOOTER ── */
+        /* COMPACT FOOTER PANEL MATCHING INDEX */
         .footer-ultimate {
             background: var(--deep-teal);
             border-radius: 45px 45px 0 0;
             padding: 50px 40px 24px;
             color: #d1e2dd;
-            box-shadow: inset 0 4px 25px rgba(0, 0, 0, 0.25);
+            box-shadow: inset 0 4px 25px rgba(0,0,0,0.25);
             margin-top: 40px;
         }
-
         .footer-flex {
             display: flex;
             justify-content: space-between;
@@ -384,18 +441,9 @@
             max-width: 1400px;
             margin: 0 auto;
         }
-
-        .footer-brand-side {
-            flex: 1;
-            min-width: 320px;
-        }
-
-        .footer-info-side {
-            display: flex;
-            gap: 16px;
-            flex-wrap: wrap;
-        }
-
+        .footer-brand-side { flex: 1; min-width: 320px; }
+        .footer-info-side { display: flex; gap: 16px; flex-wrap: wrap; }
+        
         .contact-pill {
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.06);
@@ -408,51 +456,30 @@
             font-size: 0.88rem;
             transition: all 0.3s ease;
         }
-
-        .contact-pill:hover {
-            background: rgba(255, 255, 255, 0.09);
+        .contact-pill:hover { 
+            background: rgba(255,255,255,0.09); 
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
         }
+        .contact-pill i { color: #59ca9f; font-size: 1.05rem; }
 
-        .contact-pill i {
-            color: #59ca9f;
-            font-size: 1.05rem;
-        }
-
-        /* ── RESPONSIVE ── */
-        @media (max-width: 1200px) {
-            .people-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-
+        /* RESPONSIVE MEDIA BREAKPOINTS */
         @media (max-width: 1024px) {
-            .people-grid { grid-template-columns: repeat(2, 1fr) !important; }
-            .people-grid.management { margin: 0 auto; }
-            .footer-flex { flex-direction: column; align-items: flex-start; gap: 20px; }
-            .footer-info-side { flex-direction: column; width: 100%; }
-
-            .hero-banner {
-                min-height: 25vh;
-                margin-top: 105px;
-                border-radius: 35px;
-                padding: 30px 20px;
-            }
-
-            .hero-banner-content h1 { font-size: 2.2rem; }
-            .hero-banner-content p { font-size: 0.95rem; }
-            .section-wrap { padding: 60px 20px; }
-
-            .nav-master {
-                padding: 12px 24px;
+            .hero-ram { margin-top: 100px; padding: 60px 20px; }
+            .connect-strip { grid-template-columns: 1fr; gap: 14px; }
+            .statement-box-standalone { width: calc(100% - 40px); }
+            .section-wrap { padding: 40px 20px; }
+            
+            .nav-master { 
+                padding: 12px 24px; 
                 width: calc(100% - 24px);
                 top: 12px;
                 border-radius: 24px;
             }
-
             .logo-brand { font-size: 1.2rem; }
             .tifr-logo { width: 48px; height: 48px; }
+            
             .mobile-toggle { display: block; }
-
             .nav-links {
                 position: fixed;
                 top: 85px;
@@ -460,7 +487,7 @@
                 width: 100%;
                 background: rgba(255, 255, 255, 0.98);
                 backdrop-filter: blur(25px);
-                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.08);
                 flex-direction: column;
                 padding: 24px;
                 gap: 14px;
@@ -472,13 +499,11 @@
                 pointer-events: none;
                 z-index: 1999;
             }
-
             .nav-links.mobile-active {
                 transform: translateY(0);
                 opacity: 1;
                 pointer-events: auto;
             }
-
             .nav-links a {
                 font-size: 1.05rem;
                 padding: 12px 0;
@@ -486,233 +511,299 @@
                 border-bottom: 1px solid #ebf2ee;
             }
             .nav-links a:after { display: none; }
+            
+            .footer-flex { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .footer-info-side { flex-direction: column; width: 100%; }
             .footer-ultimate { border-radius: 32px 32px 0 0; padding: 32px 20px 20px; }
-            .contact-pill { padding: 12px 16px; font-size: 0.85rem; border-radius: 12px; }
-            .back-to-top { bottom: 20px; right: 20px; width: 42px; height: 42px; }
         }
-
-        @media (max-width: 520px) {
-            .people-grid { grid-template-columns: 1fr !important; }
+        @media (max-width: 640px) {
+            .hero-ram { margin-top: 90px; padding: 45px 16px; }
+            .hero-title-container h1 { font-size: 2.2rem; }
+            .avatar-frame { height: 280px; }
+            .avatar-frame img { width: 160px; height: 210px; }
+            .editorial-card { min-height: auto; max-width: 100%; }
         }
     </style>
 </head>
+<body>
 
-<body style="opacity:0;transition:opacity 0.45s ease;" id="pageBody">
-
-    <!-- SCROLL TRACK & BACK TO TOP -->
-    <div class="scroll-progress-bar" id="scrollBar"></div>
-    <button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-chevron-up"></i></button>
-
-    <!-- NAVBAR -->
-    <nav class="nav-master">
-        <div class="logo-brand-container">
-            <img src="tifr-logo-black-new.png" alt="TIFR Official Seal Logo" class="tifr-logo" />
+<nav class="nav-master">
+    <div class="logo-brand-container">
+        <img src="tifr-logo-black-new.png" alt="TIFR Official Seal Logo" class="tifr-logo">
+        <div class="logo-text-wrapper">
             <div class="logo-brand">TIFR GuestHouse</div>
         </div>
-        <button class="mobile-toggle" aria-label="Toggle Navigation Menu"><i class="fa-solid fa-bars"></i></button>
-        <div class="nav-links">
-            <a href="#"><i class="fa-solid fa-house-chimney"></i> TIFR Home</a>
-            <a href="index.html"><i class="fa-solid fa-monument"></i> About</a>
-            <a href="people.html" class="active"><i class="fa-solid fa-users-viewfinder"></i> People</a>
-            <a href="catering.html"><i class="fa-solid fa-utensils"></i> Catering</a>
-            <a href="usage_rules.html"><i class="fa-solid fa-gavel"></i> Usage Rules</a>
-            <a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a>
-        </div>
-    </nav>
+    </div>
+    <button class="mobile-toggle" aria-label="Toggle Navigation Menu"><i class="fa-solid fa-bars"></i></button>
+    <div class="nav-links">
+        <a href="#"><i class="fa-solid fa-house-chimney"></i> TIFR Home</a>
+        <a href="index.html"><i class="fa-solid fa-monument"></i> About</a>
+        <a href="people.html" class="active-link"> <i class="fa-solid fa-users-viewfinder"></i> People</a>
+        <a href="catering.html"><i class="fa-solid fa-utensils"></i> Catering</a>
+        <a href="usage_rules.html"><i class="fa-solid fa-gavel"></i> Usage Rules</a>
+        <a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a>
+    </div>
+</nav>
 
-    <!-- HERO HEADER -->
-    <section class="hero-banner">
-        <div class="hero-banner-content">
-            <h1>Our Management & Staff</h1>
-            <p>Dedicated hospitality professionals operating 24/7 to ensure an exceptional campus residency experience for international and domestic researchers.</p>
-        </div>
-    </section>
+<section class="hero-ram">
+    <div class="hero-title-container">
+        <h1>Administration & Staff</h1>
+        <p>The dedicated support team and management committee ensuring flawless operations and hospitality workspace environments around the clock.</p>
+    </div>
+</section>
 
-    <!-- SECTION 1: ADMINISTRATION -->
-    <section class="section-wrap" id="administration">
-        <div class="section-badge"><i class="fa-solid fa-user-shield"></i> Administration</div>
-        
-        <div class="people-grid management">
-            <div class="person-card tilt-card">
-                <div class="avatar-wrap"><img src="assests/people/Mohan M. Kakade.jpg" alt="Mohan M. Kakade"></div>
-                <h3>Mohan M. Kakade</h3>
-                <div class="person-role">Housekeeping Incharge</div>
-                <div class="person-meta">
-                    <div class="meta-line"><i class="fa-solid fa-phone"></i> <a href="tel:+912222783065">+91-22-22783065</a></div>
-                    <div class="meta-line"><i class="fa-solid fa-envelope"></i> <a href="mailto:ghincharge@tifr.res.in">ghincharge@tifr.res.in</a></div>
-                    <div class="meta-line"><i class="fa-solid fa-envelope"></i> <a href="mailto:housekeeping@tifr.res.in">housekeeping@tifr.res.in</a></div>
+<!-- SORT/FILTER NAVIGATION ROW -->
+<div class="filter-container">
+    <button class="filter-btn active-filter" data-target="all">All Personnel</button>
+    <button class="filter-btn" data-target="committee">Guesthouse Committee</button>
+    <button class="filter-btn" data-target="office">Office & Managers</button>
+    <button class="filter-btn" data-target="caretakers">Frontdesk Caretakers</button>
+</div>
+
+<!-- CONNECT BANNER -->
+<div class="statement-box-standalone">
+    <div class="statement-card-inner">
+        <div class="connect-strip">
+            <div class="connect-node">
+                <i class="fa-solid fa-phone-volume"></i>
+                <div>
+                    <h4>Internal Intercom</h4>
+                    <p>Ext. 2501 / 2341</p>
+                </div>
+            </div>
+            <div class="connect-node">
+                <i class="fa-solid fa-envelope-open-text"></i>
+                <div>
+                    <h4>Electronic Mail</h4>
+                    <p>guesthouse@tifr.res.in</p>
+                </div>
+            </div>
+            <div class="connect-node">
+                <i class="fa-solid fa-building-shield"></i>
+                <div>
+                    <h4>Reception Desk</h4>
+                    <p>Available 24 / 7</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ALL ROSTERS TIER GRID WRAPPERS -->
+<div class="all-tiers-wrapper">
+
+    <!-- COMMITTEE SECTION -->
+<section class="section-wrap tier-section" id="tier-committee">
+        <div class="section-badge"><i class="fa-solid fa-landmark"></i> Governance Panel</div>
+        <h2 class="section-head">Guesthouse Committee</h2>
+        <div class="staff-matrix">
+            <div class="editorial-card">
+                <div class="status-pill">Chairperson</div>
+                <div class="avatar-frame">
+                    <img src="assests/people/prof_ramakrishnan.jpg" class="zoomable-target" alt="Prof. B. Ramakrishnan Profile Pic">
+                </div>
+                <div class="staff-bio">
+                    <h3>Prof. B. Ramakrishnan</h3>
+                    <div class="card-label-tag">Committee Chair</div>
+                    <div class="meta-channels-group">
+                        <a href="mailto:ramki@math.tifr.res.in" class="meta-link-row"><i class="fa-regular fa-envelope"></i> ramki@math.tifr.res.in</a>
+                        <span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 2228</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 2: FRONT DESK -->
-    <section class="section-wrap" style="padding-top: 0;" id="frontdesk">
-        <div class="section-badge"><i class="fa-solid fa-headset"></i> Front Desk Operations</div>
-        
-        <div class="people-grid">
-            <div class="person-card tilt-card">
-                <div class="avatar-wrap"><img src="assests/people/Mohan M. Vartak.jpg" alt="Mohan M. Vartak"></div>
-                <h3>Mohan M. Vartak</h3>
-                <div class="person-role">Front Desk Officer</div>
-                <div class="person-meta">
-                    <div class="meta-line"><i class="fa-solid fa-phone-flip"></i> Ext: 22783050</div>
+    <section class="section-wrap tier-section" id="tier-office">
+        <div class="section-badge"><i class="fa-solid fa-briefcase"></i> Operations Hub</div>
+        <h2 class="section-head">Administrative Office</h2>
+        <div class="staff-matrix">
+            <div class="editorial-card">
+                <div class="status-pill">Manager</div>
+                <div class="avatar-frame"><img src="assests/people/placeholder_m.jpg" class="zoomable-target" alt="Shri. S. D. Choudhary"></div>
+                <div class="staff-bio">
+                    <h3>Shri. S. D. Choudhary</h3>
+                    <div class="card-label-tag">Guesthouse Manager</div>
+                    <div class="meta-channels-group">
+                        <a href="mailto:sdchoudhary@tifr.res.in" class="meta-link-row"><i class="fa-regular fa-envelope"></i> sdchoudhary@tifr.res.in</a>
+                        <span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 2577</span>
+                    </div>
                 </div>
             </div>
-
-            <div class="person-card tilt-card">
-                <div class="avatar-wrap"><img src="assests/people/Sanjay V. Patil.jpg" alt="Sanjay V. Patil"></div>
-                <h3>Sanjay V. Patil</h3>
-                <div class="person-role">Front Desk Officer</div>
-                <div class="person-meta">
-                    <div class="meta-line"><i class="fa-solid fa-phone-flip"></i> Ext: 22783050</div>
-                </div>
-            </div>
-
-            <div class="person-card tilt-card">
-                <div class="avatar-wrap"><img src="assests/people/Sumit S. Nitnaware.jpg" alt="Sumit S. Nitnaware"></div>
-                <h3>Sumit S. Nitnaware</h3>
-                <div class="person-role">Front Desk Officer</div>
-                <div class="person-meta">
-                    <div class="meta-line"><i class="fa-solid fa-phone-flip"></i> Ext: 22783050</div>
-                </div>
-            </div>
-
-            <div class="person-card tilt-card">
-                <div class="avatar-wrap"><img src="assests/people/Bhakti V. Khetle.jpg" alt="Bhakti V. Khetle"></div>
-                <h3>Bhakti V. Khetle</h3>
-                <div class="person-role">Front Desk Officer</div>
-                <div class="person-meta">
-                    <div class="meta-line"><i class="fa-solid fa-phone-flip"></i> Ext: 22783050</div>
+            <div class="editorial-card">
+                <div class="status-pill">Asst. Manager</div>
+                <div class="avatar-frame"><img src="assests/people/placeholder_f.jpg" class="zoomable-target" alt="Smt. J. J. Patel"></div>
+                <div class="staff-bio">
+                    <h3>Smt. J. J. Patel</h3>
+                    <div class="card-label-tag">Assistant Manager</div>
+                    <div class="meta-channels-group">
+                        <a href="mailto:jjpatel@tifr.res.in" class="meta-link-row"><i class="fa-regular fa-envelope"></i> jjpatel@tifr.res.in</a>
+                        <span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 2501</span>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SECTION 3: CARETAKERS -->
-    <section class="section-wrap" style="padding-top: 0;" id="caretakers">
-        <div class="section-badge"><i class="fa-solid fa-key"></i> Property Care-takers</div>
-        
-        <div class="people-grid" style="grid-template-columns: repeat(3, 1fr);">
-            <div class="person-card tilt-card">
-                <div class="avatar-wrap"><img src="assests/people/Prasad P. Rane.jpg" alt="Prasad P. Rane"></div>
-                <h3>Prasad P. Rane</h3>
-                <div class="person-role">Facility Caretaker</div>
-            </div>
-
-            <div class="person-card tilt-card">
-                <div class="avatar-wrap"><img src="assests/people/Arun S. Khude.jpg" alt="Arun S. Khude"></div>
-                <h3>Arun S. Khude</h3>
-                <div class="person-role">Facility Caretaker</div>
-            </div>
-
-            <div class="person-card tilt-card">
-                <div class="avatar-wrap"><img src="assests/people/Jayawant M. Tandel.jpg" alt="Jayawant M. Tandel"></div>
-                <h3>Jayawant M. Tandel</h3>
-                <div class="person-role">Facility Caretaker</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer-ultimate" id="contact">
-        <div class="footer-flex">
-            <div class="footer-brand-side">
-                <h2 style="color: white; font-size: 1.7rem; font-weight: 800; letter-spacing: -1px; display: flex; align-items: center; gap: 14px;">
-                    <img src="tifr-logo-black-new.png" alt="TIFR Official Seal Logo" class="tifr-logo" style="width: 50px; height: 50px;" />
-                    TIFR GuestHouse
-                </h2>
-                <p style="margin-top: 8px; line-height: 1.5; opacity: 0.75; font-size: 0.88rem;">Tata Institute of Fundamental Research, Colaba Campus, Mumbai. Advancing global research synergy through premium residential hospitality.</p>
-            </div>
-            <div class="footer-info-side">
-                <div class="contact-pill"><i class="fa-solid fa-envelope-open-text"></i> feedback.gh@tifr.res.in</div>
-                <div class="contact-pill"><i class="fa-solid fa-business-time"></i> Check-in 12:00 PM / Check-out 10:00 AM</div>
-                <div class="contact-pill"><i class="fa-solid fa-fingerprint"></i> TIFR Datanet Verification Required</div>
-            </div>
-        </div>
-        <div style="text-align: center; margin-top: 25px; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 18px; opacity: 0.45;">&copy; 2026 Tata Institute of Fundamental Research. All rights reserved.</div>
-    </footer>
-
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-
-        // ─── Scroll Progress Indicator & Back to Top Button ───
-        window.addEventListener('scroll', () => {
-            const scrollBar = document.getElementById('scrollBar');
-            const backToTop = document.getElementById('backToTop');
-            const totalScroll = document.documentElement.scrollHeight - window.innerHeight;
+    <section class="section-wrap tier-section" id="tier-caretakers">
+        <div class="section-badge"><i class="fa-solid fa-headset"></i> Operations Team</div>
+        <h2 class="section-head">Front Desk & Caretakers</h2>
+        <div class="staff-matrix">
+            <div class="editorial-card"><div class="avatar-frame"><img src="assests/people/Mohan M. Vartak.jpg" class="zoomable-target" alt="Mohan M. Vartak"></div>
+                <div class="staff-bio"><h3>Mohan M. Vartak</h3><div class="card-label-tag">Front Desk Officer</div><div class="meta-channels-group"><span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 3050</span></div></div></div>
             
-            if (totalScroll > 0) {
-                const percentage = (window.scrollY / totalScroll) * 100;
-                scrollBar.style.width = `${percentage}%`;
-            }
+            <div class="editorial-card"><div class="avatar-frame"><img src="assests/people/Sanjay V. Patil.jpg" class="zoomable-target" alt="Sanjay V. Patil"></div>
+                <div class="staff-bio"><h3>Sanjay V. Patil</h3><div class="card-label-tag">Front Desk Officer</div><div class="meta-channels-group"><span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 3050</span></div></div></div>
             
-            if (window.scrollY > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
+            <div class="editorial-card"><div class="avatar-frame"><img src="assests/people/Sumit S. Nitnaware.jpg" class="zoomable-target" alt="Sumit S. Nitnaware"></div>
+                <div class="staff-bio"><h3>Sumit S. Nitnaware</h3><div class="card-label-tag">Front Desk Officer</div><div class="meta-channels-group"><span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 3050</span></div></div></div>
+            
+            <div class="editorial-card"><div class="avatar-frame"><img src="assests/people/Bhakti V. Khetle.jpg" class="zoomable-target" alt="Bhakti V. Khetle"></div>
+                <div class="staff-bio"><h3>Bhakti V. Khetle</h3><div class="card-label-tag">Front Desk Officer</div><div class="meta-channels-group"><span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 3050</span></div></div></div>
 
-        // ─── Mobile Menu Toggle ───
-        const mobileToggle = document.querySelector('.mobile-toggle');
-        const navLinks = document.querySelector('.nav-links');
+            <div class="editorial-card"><div class="avatar-frame"><img src="assests/people/Prasad P. Rane.jpg" class="zoomable-target" alt="Prasad P. Rane"></div>
+                <div class="staff-bio"><h3>Prasad P. Rane</h3><div class="card-label-tag">Facility Caretaker</div><div class="meta-channels-group"><span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 3050</span></div></div></div>
 
-        mobileToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('mobile-active');
-            const icon = mobileToggle.querySelector('i');
-            icon.className = navLinks.classList.contains('mobile-active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-        });
+            <div class="editorial-card"><div class="avatar-frame"><img src="assests/people/Arun S. Khude.jpg" class="zoomable-target" alt="Arun S. Khude"></div>
+                <div class="staff-bio"><h3>Arun S. Khude</h3><div class="card-label-tag">Facility Caretaker</div><div class="meta-channels-group"><span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 3050</span></div></div></div>
 
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('mobile-active');
-                mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
-            });
-        });
+            <div class="editorial-card"><div class="avatar-frame"><img src="assests/people/Jayawant M. Tandel.jpg" class="zoomable-target" alt="Jayawant M. Tandel"></div>
+                <div class="staff-bio"><h3>Jayawant M. Tandel</h3><div class="card-label-tag">Facility Caretaker</div><div class="meta-channels-group"><span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 3050</span></div></div></div>
+        </div>
+    </section>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        // ─── Navbar Translucency on Scroll ───
-        window.addEventListener('scroll', () => {
-            const nav = document.querySelector('.nav-master');
-            if (window.scrollY > 40) {
-                nav.style.background = 'rgba(255, 255, 255, 0.94)';
-                nav.style.boxShadow = '0 15px 35px rgba(5, 33, 28, 0.08)';
-            } else {
-                nav.style.background = 'rgba(255, 255, 255, 0.88)';
-                nav.style.boxShadow = '0 10px 25px rgba(5, 33, 28, 0.05)';
-            }
-        });
+</div>
 
-        // ─── GSAP Section Animations ───
-        document.querySelectorAll('.section-wrap').forEach(el => {
-            gsap.fromTo(el, { opacity: 0, y: 20 }, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: "power2.out",
-                scrollTrigger: { trigger: el, start: "top 90%", toggleActions: "play none none reverse" }
-            });
-        });
+<footer class="footer-ultimate" id="contact">
+    <div class="footer-flex">
+        <div class="footer-brand-side">
+            <h2 style="color: white; font-size: 1.7rem; font-weight: 800; letter-spacing: -1px; display: flex; align-items: center; gap: 14px;">
+                <img src="tifr-logo-black-new.png" alt="TIFR Official Seal Logo" class="tifr-logo" style="width: 50px; height: 50px;">
+                TIFR GuestHouse
+            </h2>
+            <p style="margin-top: 8px; line-height: 1.5; opacity: 0.75; font-size: 0.88rem;">Tata Institute of Fundamental Research, Colaba Campus, Mumbai. Advancing global research synergy through premium residential hospitality.</p>
+        </div>
+        <div class="footer-info-side">
+            <div class="contact-pill"><i class="fa-solid fa-envelope-open-text"></i> feedback.gh@tifr.res.in</div>
+            <div class="contact-pill"><i class="fa-solid fa-business-time"></i> Check-in 12:00 PM / Check-out 10:00 AM</div>
+            <div class="contact-pill"><i class="fa-solid fa-fingerprint"></i> TIFR Datanet Verification Required</div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 25px; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 18px; opacity: 0.45;">&copy; 2026 Tata Institute of Fundamental Research. All rights reserved.</div>
+</footer>
 
-        // ─── 3D Card Parallax Effect ───
-        if (!window.matchMedia("(max-width: 1024px)").matches) {
-            document.querySelectorAll('.tilt-card').forEach(node => {
-                node.addEventListener('mousemove', (e) => {
-                    const rect = node.getBoundingClientRect();
-                    const x = (e.clientX - rect.left - rect.width / 2) / 14;
-                    const y = (e.clientY - rect.top - rect.height / 2) / 14;
-                    node.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${-y}deg) translateY(-4px)`;
-                    node.style.transition = 'transform 0.05s ease-out';
-                });
-                node.addEventListener('mouseleave', () => {
-                    node.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px)`;
-                    node.style.transition = 'transform 0.5s var(--transition-butter)';
-                });
-            });
+<div class="lightbox-orb" id="globalLightbox">
+    <div class="lightbox-inner"><img id="lightboxImg" src="" alt="Active Modal Target View"></div>
+</div>
+
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Mobile Navigation Drawer Toggle Action
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-active');
+        const icon = mobileToggle.querySelector('i');
+        if(navLinks.classList.contains('mobile-active')) {
+            icon.className = 'fa-solid fa-xmark';
+        } else {
+            icon.className = 'fa-solid fa-bars';
         }
+    });
 
-        // ─── Page Display Transition ───
-        document.getElementById('pageBody').style.opacity = '1';
-    </script>
+    // Dynamic Navbar Translucency on Window Scroll
+    window.addEventListener('scroll', () => {
+        const navigationBar = document.querySelector('.nav-master');
+        if(window.scrollY > 40) {
+            navigationBar.style.background = 'rgba(255, 255, 255, 0.94)';
+            navigationBar.style.boxShadow = '0 15px 35px rgba(5, 33, 28, 0.08)';
+        } else {
+            navigationBar.style.background = 'rgba(255, 255, 255, 0.88)';
+            navigationBar.style.boxShadow = '0 10px 25px rgba(5, 33, 28, 0.05)';
+        }
+    });
+
+    // ScrollTrigger Animations for layouts
+    document.querySelectorAll('.section-wrap, .statement-box-standalone').forEach(element => {
+        gsap.fromTo(element, { opacity: 0, y: 20 }, {
+            opacity: 1, y: 0, duration: 0.6, ease: "power2.out",
+            scrollTrigger: { trigger: element, start: "top 90%", toggleActions: "play none none reverse" }
+        });
+    });
+
+    // Interactive Mouse Tracking 3D Parallax Calculation
+    if (!window.matchMedia("(max-width: 1024px)").matches) {
+        document.querySelectorAll('.editorial-card, .connect-node').forEach(nodeElement => {
+            nodeElement.addEventListener('mousemove', (moveEvent) => {
+                const boundaries = nodeElement.getBoundingClientRect();
+                const coordinateVectorX = (moveEvent.clientX - boundaries.left - boundaries.width/2) / 22;
+                const coordinateVectorY = (moveEvent.clientY - boundaries.top - boundaries.height/2) / 22;
+                nodeElement.style.transform = `perspective(1000px) rotateY(${coordinateVectorX}deg) rotateX(${-coordinateVectorY}deg) translateY(-4px)`;
+                nodeElement.style.transition = 'transform 0.05s ease-out';
+            });
+            nodeElement.addEventListener('mouseleave', () => {
+                nodeElement.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px)`;
+                nodeElement.style.transition = 'transform 0.5s var(--transition-butter)';
+            });
+        });
+    }
+
+    // Interactive Sorting/Filtering Logic Controllers
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const sections = document.querySelectorAll('.tier-section');
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            filterButtons.forEach(btn => btn.classList.remove('active-filter'));
+            button.classList.add('active-filter');
+            
+            const target = button.getAttribute('data-target');
+
+            sections.forEach(section => {
+                if (target === 'all') {
+                    section.style.display = 'block';
+                    setTimeout(() => { section.style.opacity = '1'; section.style.transform = 'translateY(0)'; }, 50);
+                } else {
+                    if (section.id === `tier-${target}`) {
+                        section.style.display = 'block';
+                        setTimeout(() => { section.style.opacity = '1'; section.style.transform = 'translateY(0)'; }, 50);
+                    } else {
+                        section.style.opacity = '0';
+                        section.style.transform = 'translateY(15px)';
+                        section.style.display = 'none';
+                    }
+                }
+            });
+            ScrollTrigger.refresh();
+        });
+    });
+
+    // Lightbox View Controllers
+    const globalLightbox = document.getElementById('globalLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const comprehensiveImages = document.querySelectorAll('.zoomable-target');
+    
+    comprehensiveImages.forEach(imageInstance => {
+        imageInstance.style.cursor = 'zoom-in';
+        imageInstance.addEventListener('click', (clickEvent) => {
+            clickEvent.stopPropagation();
+            globalLightbox.style.display = 'flex';
+            lightboxImg.src = imageInstance.src;
+            document.body.style.overflow = 'hidden';
+            gsap.fromTo(lightboxImg, { scale: 0.95, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.3, ease: "power2.out" });
+        });
+    });
+    
+    globalLightbox.addEventListener('click', () => {
+        globalLightbox.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    });
+</script>
 </body>
 </html>
