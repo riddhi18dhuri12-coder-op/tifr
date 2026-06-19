@@ -643,154 +643,6 @@
             transform: scale(1.05);
         }
 
-        /* ── LIVE MEAL STATUS BANNER (enhanced) ── */
-        .meal-status-bar {
-            background: white;
-            border-bottom: 1px solid var(--border-soft);
-            padding: 14px 40px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-            border-radius: 0 0 24px 24px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
-            margin-top: -8px;
-            position: relative;
-            z-index: 5;
-        }
-        .meal-status-left {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.88rem;
-            color: #445953;
-            font-weight: 500;
-        }
-        .meal-status-left i {
-            color: var(--accent-emerald);
-        }
-        .meal-status-dot {
-            width: 9px;
-            height: 9px;
-            border-radius: 50%;
-            background: #22c55e;
-            box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
-            animation: pulse-dot 2s infinite;
-            flex-shrink: 0;
-        }
-        .meal-status-dot.closed {
-            background: #ef4444;
-            box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2);
-        }
-        @keyframes pulse-dot {
-            0%,
-            100% {
-                box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
-            }
-            50% {
-                box-shadow: 0 0 0 6px rgba(34, 197, 94, 0.08);
-            }
-        }
-        #liveStatusText {
-            font-weight: 700;
-            color: var(--deep-teal);
-        }
-        .live-clock {
-            font-size: 0.82rem;
-            color: #5c6e69;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        #liveClock {
-            font-weight: 700;
-            color: var(--accent-emerald);
-        }
-
-        /* ── CAMPUS DAY TIMELINE (new) ── */
-        .timeline-wrap {
-            background: white;
-            border-radius: 32px;
-            padding: 36px 44px;
-            box-shadow: var(--shadow-3d-flat);
-            border: 1px solid var(--border-soft);
-            margin-top: 0;
-        }
-        .timeline-title {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--deep-teal);
-            margin-bottom: 28px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .timeline-title i {
-            color: var(--accent-emerald);
-        }
-        .timeline-track {
-            position: relative;
-            height: 8px;
-            background: #edf3ef;
-            border-radius: 8px;
-            margin-bottom: 10px;
-        }
-        .timeline-now-marker {
-            position: absolute;
-            top: -8px;
-            width: 2px;
-            height: 24px;
-            background: #ef4444;
-            border-radius: 2px;
-            transition: left 1s linear;
-            z-index: 4;
-        }
-        .timeline-now-marker::before {
-            content: 'NOW';
-            position: absolute;
-            top: -18px;
-            left: 50%;
-            transform: translateX(-50%);
-            font-size: 0.55rem;
-            font-weight: 800;
-            color: #ef4444;
-            letter-spacing: 0.5px;
-            white-space: nowrap;
-        }
-        .timeline-segment {
-            position: absolute;
-            height: 100%;
-            border-radius: 6px;
-            opacity: 0.85;
-        }
-        .timeline-rows {
-            display: flex;
-            flex-direction: column;
-            gap: 18px;
-        }
-        .timeline-row {
-            display: grid;
-            grid-template-columns: 130px 1fr;
-            align-items: center;
-            gap: 16px;
-        }
-        .timeline-row-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #445953;
-            white-space: nowrap;
-        }
-        .timeline-hours {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.68rem;
-            color: #8ea89f;
-            margin-top: 4px;
-            font-weight: 500;
-        }
-
         /* ── FOOTER ── */
         .footer-ultimate {
             background: var(--deep-teal);
@@ -1009,19 +861,6 @@
                 font-size: 0.85rem;
                 border-radius: 12px;
             }
-            .meal-status-bar {
-                padding: 12px 20px;
-            }
-            .timeline-wrap {
-                padding: 24px 20px;
-            }
-            .timeline-row {
-                grid-template-columns: 90px 1fr;
-                gap: 10px;
-            }
-            .timeline-row-label {
-                font-size: 0.72rem;
-            }
             .back-to-top {
                 bottom: 20px;
                 right: 20px;
@@ -1061,7 +900,7 @@
         </div>
     </nav>
 
-    <!-- HERO (notice bar removed – index only) -->
+    <!-- HERO -->
     <section class="hero-ram">
         <div class="hero-slideshow-container">
             <div class="hero-slide active" style="background-image: url('assests/catering/GH-3b.jpg');"></div>
@@ -1071,21 +910,21 @@
 
         <div class="hero-card">
             <h1>Catering Services</h1>
-            <p>The Colaba campus of TIFR has several eateries which collectively provide dining services from 8:00 AM in the morning to 2:00 AM in the early morning to staff, residents, and guests. In addition, the guesthouse provides specialised in-house menu options inside the Guest House.</p>
+            <p>The Colaba campus of TIFR has several eateries which collectively provide dining services from 8:00 AM in the morning to 2:00 AM in the early morning to staff, residents, and guests[cite: 5]. In addition, the guesthouse provides specialised in-house menu options inside the Guest House[cite: 5].</p>
 
             <div class="connect-strip">
                 <div class="connect-node">
                     <i class="fa-solid fa-bowl-food"></i>
                     <div>
                         <h4>Campus Service Window</h4>
-                        <p>08:00 AM — 02:00 AM</p>
+                        <p>08:00 AM — 02:00 AM[cite: 5]</p>
                     </div>
                 </div>
                 <div class="connect-node">
                     <i class="fa-solid fa-mug-saucer"></i>
                     <div>
                         <h4>GuestHouse Kitchen</h4>
-                        <p>In-house Resident Dining</p>
+                        <p>In-house Resident Dining[cite: 5]</p>
                     </div>
                 </div>
             </div>
@@ -1099,18 +938,6 @@
 
     <div id="content-below"></div>
 
-    <!-- ─── LIVE MEAL STATUS BANNER (enhanced) ─── -->
-    <div class="meal-status-bar">
-        <div class="meal-status-left">
-            <span class="meal-status-dot" id="statusDot"></span>
-            <span>🍽️ Current Meal Status:</span>
-            <span id="liveStatusText">Checking…</span>
-        </div>
-        <div class="live-clock">
-            <i class="fa-regular fa-clock"></i> Campus Time: <span id="liveClock">--:--:--</span>
-        </div>
-    </div>
-
     <!-- ─── IN-HOUSE DINING ─── -->
     <section class="section-wrap" id="in-house">
         <div class="section-badge"><i class="fa-solid fa-bell-concierge"></i> In-House Dining</div>
@@ -1122,8 +949,8 @@
                     <i class="fa-solid fa-egg"></i>
                     <div>
                         <h3>Breakfast Service</h3>
-                        <p><strong>Timings:</strong> 8:00 AM — 10:00 AM</p>
-                        <p style="color: #64748b; font-size: 0.85rem; margin-top: 4px;">Charges are conveniently inclusive in the standard room rent allocation.</p>
+                        <p><strong>Timings:</strong> 8:00 AM — 10:00 AM[cite: 5]</p>
+                        <p style="color: #64748b; font-size: 0.85rem; margin-top: 4px;">Charges are conveniently inclusive in the standard room rent allocation[cite: 5].</p>
                     </div>
                 </div>
 
@@ -1131,7 +958,7 @@
                     <i class="fa-solid fa-circle-xmark" style="color: #ef4444;"></i>
                     <div>
                         <h3 style="color: #991b1b;">Lunch Service Notice</h3>
-                        <p style="color: #7f1d1d; font-size: 0.9rem;">Lunch is not provided in the Guesthouse Cafeteria space. Guests are welcome to utilise other active canteens on campus.</p>
+                        <p style="color: #7f1d1d; font-size: 0.9rem;">Lunch is not provided in the Guesthouse Cafeteria space[cite: 5]. Guests are welcome to utilise other active canteens on campus[cite: 5].</p>
                     </div>
                 </div>
 
@@ -1139,11 +966,11 @@
                     <i class="fa-solid fa-cloud-moon"></i>
                     <div>
                         <h3>Dinner Service (Prior Request)</h3>
-                        <p><strong>Timings:</strong> 8:00 PM — 9:30 PM</p>
-                        <p style="color: #64748b; font-size: 0.85rem; margin-top: 4px; margin-bottom: 10px;">Available on prior notice request submitted at the front desk before 6:30 PM daily.</p>
+                        <p><strong>Timings:</strong> 8:00 PM — 9:30 PM[cite: 5]</p>
+                        <p style="color: #64748b; font-size: 0.85rem; margin-top: 4px; margin-bottom: 10px;">Available on prior notice request submitted at the front desk before 6:30 PM daily[cite: 5].</p>
                         <div class="price-badge-container">
-                            <span class="price-tag">Veg: ₹100</span>
-                            <span class="price-tag">Non-Veg: ₹125</span>
+                            <span class="price-tag">Veg: ₹100[cite: 5]</span>
+                            <span class="price-tag">Non-Veg: ₹125[cite: 5]</span>
                         </div>
                     </div>
                 </div>
@@ -1167,11 +994,11 @@
                 </div>
                 <div class="eatery-details">
                     <h3><i class="fa-solid fa-stroopwafel"></i> West Canteen</h3>
-                    <p class="loc-text">Main Building, Ground Floor</p>
+                    <p class="loc-text">Main Building, Ground Floor[cite: 5]</p>
                     <div class="timing-pill-box">
-                        <div class="time-pill"><span>Breakfast & Snacks</span><strong>8:15 AM - 12:00 PM</strong></div>
-                        <div class="time-pill"><span>Lunch Allocation</span><strong>12:15 PM - 2:15 PM</strong></div>
-                        <div class="time-pill"><span>Beverages & Snacks</span><strong>3:30 PM - 6:00 PM</strong></div>
+                        <div class="time-pill"><span>Breakfast & Snacks</span><strong>8:15 AM - 12:00 PM[cite: 5]</strong></div>
+                        <div class="time-pill"><span>Lunch Allocation</span><strong>12:15 PM - 2:15 PM[cite: 5]</strong></div>
+                        <div class="time-pill"><span>Beverages & Snacks</span><strong>3:30 PM - 6:00 PM[cite: 5]</strong></div>
                     </div>
                 </div>
             </div>
@@ -1182,13 +1009,13 @@
                 </div>
                 <div class="eatery-details">
                     <h3><i class="fa-solid fa-bowl-rice"></i> East Canteen</h3>
-                    <p class="loc-text">Main Building, Ground Floor</p>
+                    <p class="loc-text">Main Building, Ground Floor[cite: 5]</p>
                     <div class="timing-pill-box">
-                        <div class="time-pill"><span>Early Breakfast</span><strong>7:30 AM - 8:00 AM</strong></div>
-                        <div class="time-pill"><span>Late Breakfast Track</span><strong>9:30 AM - 10:00 AM</strong></div>
-                        <div class="time-pill"><span>Lunch Window</span><strong>12:00 PM - 2:00 PM</strong></div>
-                        <div class="time-pill"><span>Beverages & Snacks</span><strong>3:30 PM - 4:15 PM</strong></div>
-                        <div class="time-pill"><span>Dinner Service</span><strong>7:00 PM - 8:30 PM</strong></div>
+                        <div class="time-pill"><span>Early Breakfast</span><strong>7:30 AM - 8:00 AM[cite: 5]</strong></div>
+                        <div class="time-pill"><span>Late Breakfast Track</span><strong>9:30 AM - 10:00 AM[cite: 5]</strong></div>
+                        <div class="time-pill"><span>Lunch Window</span><strong>12:00 PM - 2:00 PM[cite: 5]</strong></div>
+                        <div class="time-pill"><span>Beverages & Snacks</span><strong>3:30 PM - 4:15 PM[cite: 5]</strong></div>
+                        <div class="time-pill"><span>Dinner Service</span><strong>7:00 PM - 8:30 PM[cite: 5]</strong></div>
                     </div>
                 </div>
             </div>
@@ -1199,63 +1026,14 @@
                 </div>
                 <div class="eatery-details">
                     <h3><i class="fa-solid fa-pepper-hot"></i> Jagdish Canteen</h3>
-                    <p class="loc-text">Ground Floor, Jagdish House (Housing Colony Extn. 2155)</p>
+                    <p class="loc-text">Ground Floor, Jagdish House (Housing Colony Extn. 2155)[cite: 5]</p>
                     <div class="timing-pill-box">
                         <div class="time-pill">
                             <span>Continuous Service</span>
-                            <strong>8:00 AM - 1:45 AM</strong>
+                            <strong>8:00 AM - 1:45 AM[cite: 5]</strong>
                         </div>
-                        <p style="font-size: 0.78rem; color: #5c6e69; line-height: 1.4; padding: 4px 2px;">Provides a versatile all-day and late-night array of meals, light refreshments, hot beverages, and traditional snacks.</p>
+                        <p style="font-size: 0.78rem; color: #5c6e69; line-height: 1.4; padding: 4px 2px;">Provides a versatile all-day and late-night array of meals, light refreshments, hot beverages, and traditional snacks[cite: 5].</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ─── CAMPUS DAY TIMELINE (new feature) ─── -->
-    <section class="section-wrap" style="padding-top: 20px;">
-        <div class="section-badge"><i class="fa-regular fa-calendar-circle-plus"></i> Campus Rhythm</div>
-        <h2 class="section-head">Today's Dining Timeline</h2>
-        <div class="timeline-wrap">
-            <div class="timeline-title"><i class="fa-regular fa-clock"></i> Service Flow – Colaba Campus</div>
-            <div class="timeline-track" id="timelineTrack">
-                <div class="timeline-segment" style="left:0%; width:18%; background:#86b9a0;"></div>
-                <div class="timeline-segment" style="left:18%; width:12%; background:#4f9a7a;"></div>
-                <div class="timeline-segment" style="left:30%; width:16%; background:#86b9a0;"></div>
-                <div class="timeline-segment" style="left:46%; width:10%; background:#c9a87c;"></div>
-                <div class="timeline-segment" style="left:56%; width:18%; background:#86b9a0;"></div>
-                <div class="timeline-segment" style="left:74%; width:8%; background:#4f9a7a;"></div>
-                <div class="timeline-segment" style="left:82%; width:18%; background:#c9a87c;"></div>
-                <div class="timeline-now-marker" id="nowMarker" style="left:10%;"></div>
-            </div>
-            <div class="timeline-hours">
-                <span>08:00</span>
-                <span>10:00</span>
-                <span>12:00</span>
-                <span>14:00</span>
-                <span>16:00</span>
-                <span>18:00</span>
-                <span>20:00</span>
-                <span>22:00</span>
-                <span>00:00</span>
-                <span>02:00</span>
-            </div>
-            <div class="timeline-rows" style="margin-top:16px;">
-                <div class="timeline-row">
-                    <span class="timeline-row-label"><i class="fa-regular fa-sun"></i> Breakfast</span>
-                    <span style="font-size:0.8rem; color:#23423a;">West / East / Jagdish</span>
-                </div>
-                <div class="timeline-row">
-                    <span class="timeline-row-label"><i class="fa-regular fa-sun-haze"></i> Lunch</span>
-                    <span style="font-size:0.8rem; color:#23423a;">West (12:15–2:15) · East (12:00–2:00)</span>
-                </div>
-                <div class="timeline-row">
-                    <span class="timeline-row-label"><i class="fa-regular fa-moon"></i> Dinner</span>
-                    <span style="font-size:0.8rem; color:#23423a;">East (7:00–8:30) · GuestHouse (8:00–9:30, prior req)</span>
-                </div>
-                <div class="timeline-row">
-                    <span class="timeline-row-label"><i class="fa-regular fa-moon-stars"></i> Late Night</span>
-                    <span style="font-size:0.8rem; color:#23423a;">Jagdish (8:00 AM – 1:45 AM) · snacks & beverages</span>
                 </div>
             </div>
         </div>
@@ -1401,56 +1179,6 @@
 
         // ─── Hero float ───
         gsap.to('.hero-card', { y: -6, duration: 3, repeat: -1, yoyo: true, ease: "power1.inOut" });
-
-        // ─── LIVE CLOCK & MEAL STATUS (enhanced) ───
-        function updateClockAndStatus() {
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const mins = String(now.getMinutes()).padStart(2, '0');
-            const secs = String(now.getSeconds()).padStart(2, '0');
-            document.getElementById('liveClock').textContent = `${hours}:${mins}:${secs}`;
-
-            // meal status logic (based on current time)
-            const h = now.getHours();
-            const m = now.getMinutes();
-            const time = h + m / 60;
-            const statusEl = document.getElementById('liveStatusText');
-            const dot = document.getElementById('statusDot');
-
-            let status = '';
-            let isOpen = false;
-            if (time >= 8.0 && time < 10.0) { status = '🍳 Breakfast (GuestHouse, West, East, Jagdish)';
-                isOpen = true; } else if (time >= 10.0 && time < 12.0) { status = '☕ Snacks & Beverages (West, Jagdish)';
-                isOpen = true; } else if (time >= 12.0 && time < 14.15) { status = '🥘 Lunch (West, East, Jagdish)';
-                isOpen = true; } else if (time >= 14.15 && time < 15.30) { status = '☕ Afternoon Refreshments (Jagdish)';
-                isOpen = true; } else if (time >= 15.30 && time < 19.0) { status = '☕ Snacks & Beverages (West, Jagdish)';
-                isOpen = true; } else if (time >= 19.0 && time < 20.30) { status = '🍛 Dinner (East, Jagdish)';
-                isOpen = true; } else if (time >= 20.30 && time < 21.30) { status = '🍽️ Dinner (GuestHouse – prior req, Jagdish)';
-                isOpen = true; } else if (time >= 21.30 && time < 23.59) { status = '🌙 Late Night (Jagdish)';
-                isOpen = true; } else if (time >= 0.0 && time < 1.45) { status = '🌙 Late Night (Jagdish)';
-                isOpen = true; } else { status = '⏸️ Limited service (check Jagdish)'; isOpen = false; }
-
-            statusEl.textContent = status;
-            dot.className = 'meal-status-dot' + (isOpen ? '' : ' closed');
-        }
-
-        updateClockAndStatus();
-        setInterval(updateClockAndStatus, 1000);
-
-        // ─── Timeline now-marker (runs every minute) ───
-        function updateTimelineMarker() {
-            const now = new Date();
-            const h = now.getHours();
-            const m = now.getMinutes();
-            // map 8:00 = 0%, 2:00 (next day) = 100%
-            let minutesSince8 = (h - 8) * 60 + m;
-            if (minutesSince8 < 0) minutesSince8 += 24 * 60; // wrap
-            const totalMinutes = 18 * 60; // 8am – 2am = 18h
-            const pct = Math.min(100, (minutesSince8 / totalMinutes) * 100);
-            document.getElementById('nowMarker').style.left = pct + '%';
-        }
-        updateTimelineMarker();
-        setInterval(updateTimelineMarker, 60000);
 
         // ─── body fade-in ───
         document.getElementById('pageBody').style.opacity = '1';
