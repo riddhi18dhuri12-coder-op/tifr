@@ -146,9 +146,10 @@
             padding: 4px;
         }
 
-        /* HERO AREA BANNER MATCHING INDEX SECTION STYLE */
+        /* HERO AREA BANNER WITH INDEX SEGMENT ALIGNMENT MATCH */
         .hero-ram {
             position: relative;
+            margin-top: 140px; /* Synchronized spacing buffer identical to index.html structure */
             min-height: 38vh;
             background: linear-gradient(rgba(3, 20, 17, 0.45), rgba(5, 33, 28, 0.75)), url('assests/people/sb-2alt.jpg');
             background-size: cover;
@@ -157,8 +158,12 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border-radius: 0 0 50px 50px;
-            padding: 130px 20px 65px 20px;
+            border-radius: 50px; /* Made fully symmetric just like internal index containers */
+            width: calc(100% - 48px);
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 65px 20px;
             text-align: center;
             box-shadow: var(--shadow-3d-raised);
         }
@@ -210,7 +215,7 @@
             box-shadow: 0 10px 25px rgba(16, 94, 67, 0.25);
         }
 
-        /* FLOATING CONNECT CONNECTIONS BLOCK - PLACED DIRECTLY BELOW SORT CONTROLS */
+        /* FLOATING CONNECT CONNECTIONS BLOCK */
         .statement-box-standalone {
             width: calc(100% - 80px);
             max-width: 1320px;
@@ -270,21 +275,16 @@
             border-radius: 4px;
         }
 
-        /* EDITORIAL STAFF MATRIX GRIDS */
+        /* STAFF DISPLAY MANAGEMENT MATRIX */
         .staff-matrix {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 36px;
-        }
-        .staff-matrix.leadership-tier {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-        }
-        .staff-matrix.caretaker-tier {
-            grid-template-columns: repeat(3, 1fr);
+            gap: 36px;
+            width: 100%;
         }
 
-        /* STANDARDIZED HEIGHT CARDS */
+        /* STANDARDIZED EDITORIAL CARD STYLING CRITERIA */
         .editorial-card {
             background: white;
             border-radius: 32px;
@@ -297,20 +297,16 @@
             position: relative;
             transform-style: preserve-3d;
             width: 100%;
-            min-height: 580px; /* Forces identical card height profiles globally */
+            max-width: 290px;
+            min-height: 560px;
         }
         .editorial-card:hover {
             box-shadow: var(--shadow-3d-raised);
         }
 
-        /* Standardized layout container for Leadership tier card */
-        .staff-matrix.leadership-tier .editorial-card {
-            max-width: 325px;
-        }
-
         .avatar-frame {
             width: 100%;
-            height: 320px;
+            height: 300px;
             overflow: hidden;
             background: #f2f6f3;
             padding: 24px;
@@ -319,8 +315,8 @@
             align-items: center;
         }
         .avatar-frame img {
-            width: 200px;
-            height: 270px;
+            width: 180px;
+            height: 240px;
             object-fit: cover;
             object-position: top center;
             border-radius: 16px;
@@ -352,7 +348,7 @@
 
         /* TEXT AND CHANNELS AREA FOR CARDS */
         .staff-bio {
-            padding: 0 32px 32px 32px;
+            padding: 0 24px 28px 24px;
             text-align: center;
             display: flex;
             flex-direction: column;
@@ -360,7 +356,7 @@
             transform: translateZ(15px);
         }
         .staff-bio h3 {
-            font-size: 1.25rem;
+            font-size: 1.15rem;
             font-weight: 700;
             color: var(--deep-teal);
             margin-bottom: 8px;
@@ -368,12 +364,12 @@
         }
         .card-label-tag {
             align-self: center;
-            font-size: 0.72rem;
+            font-size: 0.70rem;
             font-weight: 700;
             text-transform: uppercase;
             color: var(--accent-emerald);
             background: var(--mint-glow);
-            padding: 6px 16px;
+            padding: 6px 14px;
             border-radius: 40px;
             margin-bottom: 20px;
             letter-spacing: 0.5px;
@@ -382,7 +378,7 @@
         .meta-channels-group {
             margin-top: auto;
             border-top: 1px dashed #e2ece7;
-            padding-top: 20px;
+            padding-top: 18px;
             display: flex;
             flex-direction: column;
             gap: 10px;
@@ -394,11 +390,11 @@
             gap: 10px;
             text-decoration: none;
             color: #485c56;
-            font-size: 0.88rem;
+            font-size: 0.85rem;
             font-weight: 500;
             transition: color 0.2s;
         }
-        .meta-link-row i { color: var(--accent-emerald); font-size: 0.95rem; }
+        .meta-link-row i { color: var(--accent-emerald); font-size: 0.90rem; }
         .meta-link-row:hover { color: var(--accent-emerald); }
 
         /* LIGHTBOX MODAL IMAGE PREVIEW SYSTEM */
@@ -470,11 +466,8 @@
         .contact-pill i { color: #59ca9f; font-size: 1.05rem; }
 
         /* RESPONSIVE MEDIA BREAKPOINTS */
-        @media (max-width: 1200px) {
-            .staff-matrix { grid-template-columns: repeat(2, 1fr) !important; gap: 24px; }
-            .staff-matrix.leadership-tier { display: grid; grid-template-columns: 1fr !important; justify-items: center; }
-        }
         @media (max-width: 1024px) {
+            .hero-ram { margin-top: 100px; width: calc(100% - 24px); }
             .connect-strip { grid-template-columns: 1fr; gap: 14px; }
             .statement-box-standalone { width: calc(100% - 40px); }
             .section-wrap { padding: 40px 20px; }
@@ -526,11 +519,11 @@
             .footer-ultimate { border-radius: 32px 32px 0 0; padding: 32px 20px 20px; }
         }
         @media (max-width: 640px) {
-            .staff-matrix { grid-template-columns: 1fr !important; }
+            .hero-ram { margin-top: 90px; border-radius: 24px; }
             .hero-title-container h1 { font-size: 2.2rem; }
             .avatar-frame { height: 280px; }
-            .avatar-frame img { width: 180px; height: 240px; }
-            .editorial-card { min-height: auto; }
+            .avatar-frame img { width: 160px; height: 210px; }
+            .editorial-card { min-height: auto; max-width: 100%; }
         }
     </style>
 </head>
@@ -569,7 +562,7 @@
     <button class="filter-btn" data-target="caretakers">Frontdesk Caretakers</button>
 </div>
 
-<!-- CONNECT BANNER (Referencing style inspired by image_4b593c.png) -->
+<!-- CONNECT BANNER -->
 <div class="statement-box-standalone">
     <div class="statement-card-inner">
         <div class="connect-strip">
@@ -606,7 +599,7 @@
         <div class="section-badge"><i class="fa-solid fa-landmark"></i> Governance Panel</div>
         <h2 class="section-head">Guesthouse Committee</h2>
         
-        <div class="staff-matrix leadership-tier">
+        <div class="staff-matrix">
             <div class="editorial-card">
                 <div class="status-pill">Chairperson</div>
                 <div class="avatar-frame">
@@ -697,7 +690,7 @@
         <div class="section-badge"><i class="fa-solid fa-bell"></i> Reception Shield</div>
         <h2 class="section-head">Frontdesk Caretakers</h2>
         
-        <div class="staff-matrix caretaker-tier">
+        <div class="staff-matrix">
             <div class="editorial-card">
                 <div class="status-pill">Shift A</div>
                 <div class="avatar-frame">
@@ -798,7 +791,7 @@
         }
     });
 
-    // Comprehensive ScrollTrigger Animations for standard layouts
+    // ScrollTrigger Animations for layouts
     document.querySelectorAll('.section-wrap, .statement-box-standalone').forEach(element => {
         gsap.fromTo(element, { opacity: 0, y: 20 }, {
             opacity: 1, y: 0, duration: 0.6, ease: "power2.out",
@@ -806,7 +799,7 @@
         });
     });
 
-    // High Performance Interactive Mouse Tracking 3D Parallax Calculation
+    // Interactive Mouse Tracking 3D Parallax Calculation
     if (!window.matchMedia("(max-width: 1024px)").matches) {
         document.querySelectorAll('.editorial-card, .connect-node').forEach(nodeElement => {
             nodeElement.addEventListener('mousemove', (moveEvent) => {
