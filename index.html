@@ -741,8 +741,6 @@
 <section class="hero-ram">
     <div class="hero-slideshow-container">
         <div class="hero-slide active" style="background-image: url('main.png');"></div>
-        <div class="hero-slide" style="background-image: url('sb-2.jpg');"></div>
-        <div class="hero-slide" style="background-image: url('sb-4.jpg');"></div>
     </div>
 
     <div class="hero-card">
@@ -955,16 +953,6 @@
         }
     });
 
-    // Elegant Hero Carousel Background Slideshow Setup
-    let activeSlideIndex = 0;
-    const arraySlides = document.querySelectorAll('.hero-slide');
-    function updateHeroCarousel() {
-        arraySlides[activeSlideIndex].classList.remove('active');
-        activeSlideIndex = (activeSlideIndex + 1) % arraySlides.length;
-        arraySlides[activeSlideIndex].classList.add('active');
-    }
-    setInterval(updateHeroCarousel, 5000);
-    
     // Smooth Content Trigger Animations using GSAP
     const structuralWrappers = document.querySelectorAll('.section-wrap');
     structuralWrappers.forEach(targetWrapper => {
