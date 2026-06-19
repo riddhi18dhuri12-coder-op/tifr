@@ -20,28 +20,30 @@
             box-sizing: border-box;
         }
 
+        /* Central Theme CSS variables synchronized from index.html */
         :root {
-            --bg-ivory: #f4f8f6;
-            --deep-teal: #062620;
-            --accent-emerald: #12694b;
-            --mint-glow: #eef8f4;
-            --glass-white: #ffffff;
-            --border-soft: rgba(18, 105, 75, 0.08);
-            --shadow-elevated: 0 30px 60px -20px rgba(6, 38, 32, 0.04), 0 0 0 1px rgba(18, 105, 75, 0.03);
-            --shadow-hover: 0 45px 80px -25px rgba(6, 38, 32, 0.12), 0 0 0 1px rgba(18, 105, 75, 0.15);
-            --transition-butter: cubic-bezier(0.25, 1, 0.5, 1);
+            --bg-ivory: #f2f6f3;
+            --deep-teal: #05211c;
+            --accent-emerald: #105e43;
+            --mint-glow: #e8f5ef;
+            --glass-white: rgba(255, 255, 255, 0.88);
+            --border-soft: rgba(16, 94, 67, 0.14);
+            --shadow-3d-flat: 0 10px 25px rgba(5, 33, 28, 0.05), 0 2px 6px rgba(5, 33, 28, 0.02);
+            --shadow-3d-raised: 0 25px 50px -10px rgba(5, 33, 28, 0.15), 0 10px 20px -8px rgba(5, 33, 28, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            --shadow-3d-deep: 0 35px 70px -15px rgba(3, 20, 17, 0.35), 0 20px 40px -10px rgba(0, 0, 0, 0.25);
+            --transition-butter: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-ivory);
-            color: #1a2e29;
+            color: #142622;
             overflow-x: hidden;
             scroll-behavior: smooth;
             position: relative;
         }
 
-        /* MATH & SCIENCE DIALECTIC DOODLE BACKGROUND TONE */
+        /* Scientific background pattern stylized to match index styling */
         body::before {
             content: "";
             position: fixed;
@@ -50,42 +52,59 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.04;
+            opacity: 0.03;
             pointer-events: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Ctext x='5%25' y='12%25' font-family='Courier, monospace' font-size='24' fill='%2312694b'%3Eiℌ ∂Ψ/∂t = ĤΨ%3C/text%3E%3Ctext x='75%25' y='18%25' font-family='Courier, monospace' font-size='22' fill='%2312694b'%3EE = mc²%3C/text%3E%3Ctext x='15%25' y='45%25' font-family='Courier, monospace' font-size='26' fill='%2312694b'%3E∬ R dx dy%3C/text%3E%3Ctext x='80%25' y='55%25' font-family='Courier, monospace' font-size='20' fill='%2312694b'%3E∇ × B = μ₀J%3C/text%3E%3Ctext x='40%25' y='85%25' font-family='Courier, monospace' font-size='25' fill='%2312694b'%3E∑ 1/n² = π²/6%3C/text%3E%3Cpath d='M30,300 Q90,350 50,400 T150,450' fill='none' stroke='%2312694b' stroke-width='2'/%3E%3Ccircle cx='85%25' cy='35%25' r='30' fill='none' stroke='%2312694b' stroke-width='1.5' stroke-dasharray='5,5'/%3E%3C/svg%3E");
-        }
-
-        %3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Ctext x='5%25' y='12%25' font-family='Courier, monospace' font-size='24' fill='%2312694b'%3Eiℌ ∂Ψ/∂t = ĤΨ%3C/text%3E%3Ctext x='75%25' y='18%25' font-family='Courier, monospace' font-size='22' fill='%2312694b'%3EE = mc²%3C/text%3E%3Ctext x='15%25' y='45%25' font-family='Courier, monospace' font-size='26' fill='%2312694b'%3E∬ R dx dy%3C/text%3E%3Ctext x='80%25' y='55%25' font-family='Courier, monospace' font-size='20' fill='%2312694b'%3E∇ × B = μ₀J%3C/text%3E%3Ctext x='40%25' y='85%25' font-family='Courier, monospace' font-size='25' fill='%2312694b'%3E∑ 1/n² = π²/6%3C/text%3E%3Cpath d='M30,300 Q90,350 50,400 T150,450' fill='none' stroke='%2312694b' stroke-width='2'/%3E%3Ccircle cx='85%25' cy='35%25' r='30' fill='none' stroke='%2312694b' stroke-width='1.5' stroke-dasharray='5,5'/%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25'%3E%3Ctext x='5%25' y='12%25' font-family='Courier, monospace' font-size='24' fill='%23105e43'%3Eiℌ ∂Ψ/∂t = ĤΨ%3C/text%3E%3Ctext x='75%25' y='18%25' font-family='Courier, monospace' font-size='22' fill='%23105e43'%3EE = mc²%3C/text%3E%3Ctext x='15%25' y='45%25' font-family='Courier, monospace' font-size='26' fill='%23105e43'%3E∬ R dx dy%3C/text%3E%3Ctext x='80%25' y='55%25' font-family='Courier, monospace' font-size='20' fill='%23105e43'%3E∇ × B = μ₀J%3C/text%3E%3Ctext x='40%25' y='85%25' font-family='Courier, monospace' font-size='25' fill='%23105e43'%3E∑ 1/n² = π²/6%3C/text%3E%3Cpath d='M30,300 Q90,350 50,400 T150,450' fill='none' stroke='%23105e43' stroke-width='2'/%3E%3Ccircle cx='85%25' cy='35%25' r='30' fill='none' stroke='%23105e43' stroke-width='1.5' stroke-dasharray='5,5'/%3E%3C/svg%3E");
         }
 
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #e3ebe7; }
+        ::-webkit-scrollbar-track { background: #e0e9e4; }
         ::-webkit-scrollbar-thumb { background: var(--accent-emerald); border-radius: 4px; }
 
-        /* NAVIGATION HEADER BAR */
+        /* FLOATING NAVIGATION BAR MATCHING INDEX.HTML */
         .nav-master {
             position: fixed;
-            top: 20px;
+            top: 24px;
             left: 50%;
             transform: translateX(-50%);
-            width: calc(100% - 40px);
+            width: calc(100% - 48px);
             max-width: 1400px;
             z-index: 2000;
-            background: #ffffff;
-            border-radius: 24px;
-            border: 1px solid rgba(18, 105, 75, 0.12);
-            box-shadow: 0 10px 30px rgba(6, 38, 32, 0.05);
-            padding: 18px 36px;
+            background: var(--glass-white);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 35px;
+            border: 1px solid rgba(255,255,255,0.8);
+            box-shadow: var(--shadow-3d-flat);
+            padding: 14px 36px;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            transition: all 0.5s var(--transition-butter);
         }
         
         .logo-brand-container { display: flex; align-items: center; gap: 18px; }
-        .tifr-logo { width: 52px; height: 52px; object-fit: contain; filter: drop-shadow(0 2px 8px rgba(6,38,32,0.08)); }
+        .tifr-logo { 
+            width: 58px; 
+            height: 58px; 
+            object-fit: contain; 
+            filter: drop-shadow(0 6px 12px rgba(5, 33, 28, 0.18)); 
+            image-rendering: -webkit-optimize-contrast;
+            transition: transform 0.6s var(--transition-butter);
+        }
+        .nav-master:hover .tifr-logo { transform: scale(1.06) rotate(4deg); }
         .logo-text-wrapper { display: flex; flex-direction: column; }
-        .logo-brand { font-weight: 800; font-size: 1.3rem; color: var(--deep-teal); letter-spacing: -0.5px; line-height: 1.1; }
-        .logo-subtext { font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent-emerald); margin-top: 2px; }
+        .logo-brand { 
+            font-weight: 800; 
+            font-size: 1.4rem; 
+            letter-spacing: -0.7px; 
+            background: linear-gradient(135deg, var(--deep-teal), var(--accent-emerald));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            white-space: nowrap;
+        }
+        .logo-subtext { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent-emerald); margin-top: 2px; }
         
         .nav-links { display: flex; gap: 28px; }
         .nav-links a {
@@ -96,69 +115,145 @@
             position: relative;
             display: flex;
             align-items: center;
-            gap: 8px;
-            transition: color 0.3s ease;
+            gap: 6px;
+            padding: 6px 0;
+            transition: color 0.25s;
         }
-        .nav-links a i { font-size: 0.85rem; color: var(--accent-emerald); }
+        .nav-links a i { font-size: 0.82rem; opacity: 0.6; transition: transform 0.3s; }
         .nav-links a:hover { color: var(--accent-emerald); }
+        .nav-links a:hover i { transform: translateY(-1px); opacity: 1; }
         .nav-links a::after {
             content: '';
             position: absolute;
-            bottom: -6px;
-            left: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
-            height: 2px;
+            height: 3px;
             background: var(--accent-emerald);
+            border-radius: 2px;
             transition: width 0.3s var(--transition-butter);
         }
         .nav-links a.active-link::after, .nav-links a:hover::after { width: 100%; }
-        .mobile-toggle { display: none; background: none; border: none; font-size: 1.4rem; color: var(--deep-teal); cursor: pointer; }
+        
+        .mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--deep-teal);
+            cursor: pointer;
+            z-index: 2100;
+            padding: 4px;
+        }
 
-        /* HERO AREA SECTION (image_637fc9.png) */
+        /* FLASHING NOTICE BANNER SYSTEM */
+        .flashing-notice-bar {
+            background-color: #ffebeb;
+            border-bottom: 2px solid #ff4d4d;
+            color: #cc0000;
+            text-align: center;
+            padding: 14px 20px;
+            font-size: 0.94rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-top: 120px; 
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(204, 0, 0, 0.05);
+        }
+        .flashing-notice-bar i {
+            animation: notice-flash 1.2s infinite alternate cubic-bezier(0.4, 0, 0.6, 1);
+        }
+        @keyframes notice-flash {
+            0% { opacity: 0.3; transform: scale(0.95); }
+            100% { opacity: 1; transform: scale(1.08); color: #ff0000; }
+        }
+
+        /* HERO AREA BANNER MATCHING INDEX SECTION STYLE */
         .hero-ram {
             position: relative;
-            min-height: 38vh;
-            background: linear-gradient(rgba(4, 25, 21, 0.82), rgba(6, 38, 32, 0.97)), url('assests/people/sb-2alt.jpg');
+            min-height: 35vh;
+            background: linear-gradient(rgba(3, 20, 17, 0.45), rgba(5, 33, 28, 0.75)), url('assests/people/sb-2alt.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            border-radius: 0 0 40px 40px;
-            padding: 100px 20px 80px 20px;
-            margin-top: 105px;
+            border-radius: 0 0 50px 50px;
+            padding: 60px 20px 60px 20px;
             text-align: center;
+            box-shadow: var(--shadow-3d-raised);
         }
         .hero-title-container h1 {
-            font-size: 3.2rem;
+            font-size: 3.4rem;
             font-weight: 800;
-            color: white;
             letter-spacing: -1.5px;
+            background: linear-gradient(120deg, #ffffff, #e3fcf1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
         }
         .hero-title-container p {
-            color: #bcccb5;
+            color: #e3fcf1;
             font-size: 1.1rem;
             margin-top: 12px;
             max-width: 600px;
             font-weight: 400;
+            opacity: 0.9;
         }
 
-.statement-box-standalone {
-    width: calc(100% - 48px);
-    max-width: 1300px;
-    margin: -50px auto 40px auto;
-    padding: 0;
-    position: relative;
-    z-index: 100;
-}    
+        /* FILTER CONTROLS BUTTONS */
+        .filter-container {
+            max-width: 1400px;
+            margin: 40px auto 0;
+            padding: 0 40px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+        .filter-btn {
+            background: #ffffff;
+            border: 1px solid var(--border-soft);
+            color: var(--deep-teal);
+            padding: 12px 26px;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s var(--transition-butter);
+            box-shadow: 0 4px 10px rgba(5,33,28,0.02);
+        }
+        .filter-btn:hover { border-color: var(--accent-emerald); background: var(--mint-glow); }
+        .filter-btn.active-filter {
+            background: var(--accent-emerald);
+            color: #ffffff;
+            border-color: var(--accent-emerald);
+            box-shadow: 0 10px 25px rgba(16, 94, 67, 0.25);
+        }
+
+        /* FLOATING CONNECT CONNECTIONS BLOCK - PLACED DIRECTLY BELOW SORT CONTROLS */
+        .statement-box-standalone {
+            width: calc(100% - 80px);
+            max-width: 1320px;
+            margin: 30px auto 10px auto;
+            padding: 0;
+            position: relative;
+            z-index: 100;
+        }    
         .statement-card-inner {
             background: #ffffff;
-            border-radius: 24px;
-            padding: 28px 36px;
-            box-shadow: 0 25px 50px -12px rgba(6, 38, 32, 0.08);
+            border-radius: 32px;
+            padding: 30px;
+            box-shadow: var(--shadow-3d-flat);
             border: 1px solid var(--border-soft);
-            border-left: 5px solid var(--accent-emerald);
+            border-left: 6px solid var(--accent-emerald);
         }
         .connect-strip {
             display: grid;
@@ -167,317 +262,342 @@
         }
         .connect-node {
             background: var(--mint-glow);
-            border: 1px solid rgba(18, 105, 75, 0.08);
-            padding: 16px 24px;
-            border-radius: 18px;
+            border: 1px solid rgba(16, 94, 67, 0.08);
+            padding: 18px 24px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             gap: 16px;
-            transition: transform 0.3s var(--transition-butter);
+            transition: all 0.4s var(--transition-butter);
         }
-        .connect-node:hover { transform: translateY(-2px); }
-        .connect-node i { font-size: 1.5rem; color: var(--accent-emerald); }
-        .connect-node div h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; color: #4a635b; font-weight: 700; text-align: left; }
+        .connect-node:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0 8px 20px rgba(5,33,28,0.05);
+        }
+        .connect-node i { font-size: 1.6rem; color: var(--accent-emerald); }
+        .connect-node div h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #485c56; font-weight: 700; text-align: left; }
         .connect-node div p { font-size: 1.05rem; font-weight: 700; color: var(--deep-teal); margin-top: 3px; text-align: left; }
 
-        /* FILTER LAYOUT CONFIGURATIONS */
-        .filter-container {
-            max-width: 1300px;
-            margin: 40px auto 0;
-            padding: 0 24px;
-            display: flex;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-        .filter-btn {
-            background: #ffffff;
-            border: 1px solid rgba(18, 105, 75, 0.12);
-            color: var(--deep-teal);
-            padding: 10px 22px;
-            border-radius: 30px;
-            font-size: 0.88rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(6,38,32,0.02);
-        }
-        .filter-btn:hover { border-color: var(--accent-emerald); background: var(--mint-glow); }
-        .filter-btn.active-filter {
-            background: var(--accent-emerald);
-            color: #ffffff;
-            border-color: var(--accent-emerald);
-            box-shadow: 0 10px 20px -5px rgba(18, 105, 75, 0.3);
-        }
-
-        /* GRID STRUCTURE LAYOUTS */
+        /* GRID STRUCTURES PANELS */
         .section-wrap {
-            max-width: 1300px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 40px 24px;
+            padding: 40px 40px 60px;
             transition: opacity 0.4s ease, transform 0.4s ease;
         }
-        .section-badge { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--accent-emerald); font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-        .section-head { font-size: 2.2rem; font-weight: 800; letter-spacing: -0.5px; margin-bottom: 35px; color: var(--deep-teal); position: relative; display: inline-block; }
+        .section-badge { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 2.5px; color: var(--accent-emerald); font-weight: 700; margin-bottom: 14px; display: flex; align-items: center; gap: 8px; }
+        .section-head { font-size: 2.6rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 54px; color: var(--deep-teal); position: relative; display: inline-block; }
         .section-head::after {
             content: '';
             position: absolute;
-            bottom: -8px;
+            bottom: -14px;
             left: 0;
-            width: 40px;
-            height: 3px;
+            width: 60px;
+            height: 5px;
             background: var(--accent-emerald);
-            border-radius: 2px;
+            border-radius: 4px;
         }
 
-        /* MATRIX LAYOUT SCALED TO UNIFORM PROPORTIONS */
+        /* EDITORIAL STAFF MATRIX GRIDS */
         .staff-matrix {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 32px;
+            gap: 36px;
         }
-      .staff-matrix.leadership-tier {
-    display: flex;
-    justify-content: center;
-}
-
-.staff-matrix.leadership-tier .editorial-card{
-    width: 320px;
-}
+        .staff-matrix.leadership-tier {
+            display: flex;
+            justify-content: center;
+        }
+        .staff-matrix.leadership-tier .editorial-card{
+            width: 340px;
+        }
         .staff-matrix.caretaker-tier {
             grid-template-columns: repeat(3, 1fr);
         }
 
+        /* 3D STYLE CARDS IN ALIGNMENT WITH INDEX.HTML */
         .editorial-card {
-            background: var(--glass-white);
-            border-radius: 24px;
+            background: white;
+            border-radius: 32px;
             overflow: hidden;
-            box-shadow: var(--shadow-elevated);
-            border: 1px solid var(--border-soft);
+            box-shadow: var(--shadow-3d-flat);
+            border: 1px solid rgba(16, 94, 67, 0.08);
             display: flex;
             flex-direction: column;
-            transition: all 0.4s var(--transition-butter);
+            transition: all 0.5s var(--transition-butter);
             position: relative;
+            transform-style: preserve-3d;
         }
         .editorial-card:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-6px);
+            box-shadow: var(--shadow-3d-raised);
         }
 
         .avatar-frame {
-    width: 100%;
-    height: 380px;
-    overflow: hidden;
-    background: #f7faf8;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-       .avatar-frame img {
-    width: 240px;
-    height: 320px;
-    object-fit: cover;
-    object-position: top center;
-    border-radius: 12px;
-    border: 3px solid rgba(18,105,75,0.15);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-}
-        .editorial-card:hover .avatar-frame img {
-            transform: scale(1.04);
+            width: 100%;
+            height: 380px;
+            overflow: hidden;
+            background: #f2f6f3;
+            padding: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+        .avatar-frame img {
+            width: 240px;
+            height: 320px;
+            object-fit: cover;
+            object-position: top center;
+            border-radius: 16px;
+            border: 3px solid rgba(16, 94, 67, 0.15);
+            box-shadow: 0 8px 25px rgba(5,33,28,0.08);
+            transition: transform 0.6s var(--transition-butter);
+            image-rendering: -webkit-optimize-contrast;
+            backface-visibility: hidden;
+        }
+        .editorial-card:hover .avatar-frame img { transform: scale(1.04); }
         
         .status-pill {
             position: absolute;
             top: 24px;
             right: 24px;
-            background: rgba(6, 38, 32, 0.85);
+            background: rgba(5, 33, 28, 0.85);
             color: #ffffff;
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
-            padding: 6px 12px;
-            border-radius: 30px;
-            font-size: 0.65rem;
+            padding: 6px 14px;
+            border-radius: 40px;
+            font-size: 0.68rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             z-index: 10;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
         }
 
-        /* CONTACT DETAILS SECTION BELOW IMAGE */
+        /* TEXT AND CHANNELS AREA FOR CARDS */
         .staff-bio {
-            padding: 0 24px 24px 24px;
+            padding: 0 36px 36px 36px;
             text-align: center;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
+            transform: translateZ(15px);
         }
         .staff-bio h3 {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             font-weight: 700;
             color: var(--deep-teal);
-            margin-bottom: 6px;
-            letter-spacing: -0.3px;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
         }
         .card-label-tag {
             align-self: center;
-            font-size: 0.7rem;
+            font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
             color: var(--accent-emerald);
             background: var(--mint-glow);
-            padding: 4px 12px;
+            padding: 6px 16px;
             border-radius: 40px;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
             letter-spacing: 0.5px;
         }
-        
-        .staff-channels {
-            border-top: 1px solid rgba(18, 105, 75, 0.08);
-            padding-top: 16px;
+
+        .meta-channels-group {
             margin-top: auto;
+            border-top: 1px dashed #e2ece7;
+            padding-top: 20px;
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            text-align: left;
+            gap: 10px;
         }
-        .channel-link {
+        .meta-link-row {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 10px;
-            font-size: 0.85rem;
-            color: #4a635b;
             text-decoration: none;
-            transition: all 0.2s ease;
+            color: #485c56;
+            font-size: 0.88rem;
+            font-weight: 500;
+            transition: color 0.2s;
         }
-        .channel-link:hover { color: var(--accent-emerald); transform: translateX(2px); }
-        .channel-link i { color: var(--accent-emerald); font-size: 0.95rem; width: 16px; }
+        .meta-link-row i { color: var(--accent-emerald); font-size: 0.95rem; }
+        .meta-link-row:hover { color: var(--accent-emerald); }
 
-        /* SCENIC BENTO CONTAINER GALLERY LAYOUTS */
-        .premises-bento {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-auto-rows: 220px;
-            gap: 24px;
+        /* LIGHTBOX MODAL IMAGE PREVIEW SYSTEM */
+        .lightbox-orb {
+            display: none;
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(3, 16, 14, 0.97);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+            cursor: zoom-out;
         }
-        .bento-card {
+        .lightbox-inner {
             position: relative;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: var(--shadow-elevated);
-            border: 1px solid var(--border-soft);
+            max-width: 85vw;
+            max-height: 85vh;
         }
-        .bento-card img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s var(--transition-butter);
+        .lightbox-inner img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 20px;
+            box-shadow: 0 40px 90px rgba(0,0,0,0.6);
+            object-fit: contain;
+            image-rendering: -webkit-optimize-contrast;
         }
-        .bento-card:hover img { transform: scale(1.05); }
-        .w-2 { grid-column: span 2; }
-        .h-2 { grid-row: span 2; }
 
-        .bento-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(6, 38, 32, 0.9) 0%, rgba(6, 38, 32, 0.4) 50%, rgba(0,0,0,0) 100%);
+        /* COMPACT FOOTER PANEL MATCHING INDEX */
+        .footer-ultimate {
+            background: var(--deep-teal);
+            border-radius: 45px 45px 0 0;
+            padding: 50px 40px 24px;
+            color: #d1e2dd;
+            box-shadow: inset 0 4px 25px rgba(0,0,0,0.25);
+            margin-top: 40px;
+        }
+        .footer-flex {
             display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            padding: 24px;
-            color: white;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 36px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
-        .bento-card:hover .bento-overlay { opacity: 1; }
-        .bento-overlay h4 { font-size: 1.05rem; font-weight: 600; margin-bottom: 4px; transform: translateY(10px); transition: transform 0.4s var(--transition-butter); }
-        .bento-overlay p { font-size: 0.8rem; color: #bcccb5; transform: translateY(10px); transition: transform 0.4s var(--transition-butter) 0.05s; }
-        .bento-card:hover .bento-overlay h4, .bento-card:hover .bento-overlay p { transform: translateY(0); }
-
-        /* FOOTER MODULE CONTAINER */
-        .footer-ultimate { background: var(--deep-teal); border-radius: 32px 32px 0 0; padding: 60px 40px 30px; color: #d1e2dd; margin-top: 60px; }
-        .footer-flex { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; max-width: 1300px; margin: 0 auto; }
-        .footer-brand-side { display: flex; flex-direction: column; }
-        .footer-logo-row { display: flex; align-items: center; gap: 20px; }
-        .footer-tifr-logo { width: 64px; height: 64px; object-fit: contain; }
-        .contact-pill { background: rgba(255, 255, 255, 0.04); border: 1px solid rgba(255, 255, 255, 0.06); border-radius: 14px; padding: 12px 20px; display: flex; align-items: center; gap: 12px; font-weight: 500; font-size: 0.9rem; transition: background 0.3s ease; }
-        .contact-pill:hover { background: rgba(255, 255, 255, 0.08); }
+        .footer-brand-side { flex: 1; min-width: 320px; }
+        .footer-info-side { display: flex; gap: 16px; flex-wrap: wrap; }
+        
+        .contact-pill {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 14px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            font-size: 0.88rem;
+            transition: all 0.3s ease;
+        }
+        .contact-pill:hover { 
+            background: rgba(255,255,255,0.09); 
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
         .contact-pill i { color: #59ca9f; font-size: 1.05rem; }
 
-        /* MACRO LIGHTBOX STYLING OVERLAYS */
-        .lightbox-orb {
-            display: none; position: fixed; inset: 0;
-            background: rgba(4, 20, 17, 0.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
-            z-index: 10000; justify-content: center; align-items: center; cursor: zoom-out;
-        }
-        .lightbox-inner { position: relative; max-width: 85vw; max-height: 85vh; }
-        .lightbox-inner img { max-width: 100%; max-height: 85vh; border-radius: 20px; box-shadow: 0 50px 100px rgba(0,0,0,0.6); }
-
-        /* RESPONSIVE RUNTIME BREAKPOINTS */
+        /* RESPONSIVE MEDIA BREAKPOINTS */
         @media (max-width: 1200px) {
-            .staff-matrix { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-            .staff-matrix.caretaker-tier { grid-template-columns: repeat(2, 1fr); }
-            .premises-bento { grid-template-columns: repeat(2, 1fr); }
+            .staff-matrix { grid-template-columns: repeat(2, 1fr) !important; gap: 24px; }
+            .staff-matrix.leadership-tier { display: grid; grid-template-columns: 1fr !important; }
+            .staff-matrix.leadership-tier .editorial-card { width: 100%; }
         }
-
         @media (max-width: 1024px) {
-            .statement-box-standalone { margin: 30px auto 10px auto; }
             .connect-strip { grid-template-columns: 1fr; gap: 14px; }
-            .hero-title-container h1 { font-size: 2.5rem; }
-            .nav-master { padding: 14px 24px; width: calc(100% - 24px); top: 12px; }
-            .mobile-toggle { display: block; }
-            .tifr-logo { width: 44px; height: 44px; }
-            .logo-brand { font-size: 1.1rem; }
-            .nav-links {
-                position: fixed; top: 85px; left: 0; width: 100%; background: #ffffff;
-                box-shadow: 0 20px 40px rgba(0,0,0,0.1); flex-direction: column; padding: 28px;
-                gap: 20px; border-radius: 20px; transform: translateY(-150%); opacity: 0;
-                transition: all 0.4s var(--transition-butter); pointer-events: none;
-                border: 1px solid rgba(18, 105, 75, 0.08);
+            .statement-box-standalone { width: calc(100% - 40px); }
+            .section-wrap { padding: 40px 20px; }
+            
+            .nav-master { 
+                padding: 12px 24px; 
+                width: calc(100% - 24px);
+                top: 12px;
+                border-radius: 24px;
             }
-            .nav-links.mobile-active { transform: translateY(0); opacity: 1; pointer-events: auto; }
-            .footer-flex { flex-direction: column; align-items: flex-start; gap: 30px; }
+            .logo-brand { font-size: 1.2rem; }
+            .tifr-logo { width: 48px; height: 48px; }
+            .flashing-notice-bar { margin-top: 110px; font-size: 0.88rem; padding: 12px 16px; }
+            
+            .mobile-toggle { display: block; }
+            .nav-links {
+                position: fixed;
+                top: 85px;
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(25px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+                flex-direction: column;
+                padding: 24px;
+                gap: 14px;
+                border-radius: 24px;
+                border: 1px solid var(--border-soft);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+                pointer-events: none;
+                z-index: 1999;
+            }
+            .nav-links.mobile-active {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+            .nav-links a {
+                font-size: 1.05rem;
+                padding: 12px 0;
+                width: 100%;
+                border-bottom: 1px solid #ebf2ee;
+            }
+            .nav-links a:after { display: none; }
+            
+            .footer-flex { flex-direction: column; align-items: flex-start; gap: 20px; }
+            .footer-info-side { flex-direction: column; width: 100%; }
+            .footer-ultimate { border-radius: 32px 32px 0 0; padding: 32px 20px 20px; }
         }
-
-        @media (max-width: 768px) {
-            .staff-matrix, .staff-matrix.caretaker-tier, .premises-bento { grid-template-columns: 1fr; gap: 24px; }
-            .w-2, .h-2 { grid-column: span 1; grid-row: span 1; }
-            .premises-bento { grid-auto-rows: 180px; }
+        @media (max-width: 640px) {
+            .staff-matrix { grid-template-columns: 1fr !important; }
+            .hero-title-container h1 { font-size: 2.2rem; }
+            .avatar-frame { height: 320px; }
+            .avatar-frame img { width: 200px; height: 260px; }
         }
     </style>
 </head>
 <body>
 
-<!-- EXACT MATCH TOP NAVIGATION BAR HEADER -->
 <nav class="nav-master">
     <div class="logo-brand-container">
         <img src="tifr-logo-black-new.png" alt="TIFR Official Seal Logo" class="tifr-logo">
         <div class="logo-text-wrapper">
             <div class="logo-brand">TIFR GuestHouse</div>
-            <div class="logo-subtext">TIFR Mumbai</div>
         </div>
     </div>
     <button class="mobile-toggle" aria-label="Toggle Navigation Menu"><i class="fa-solid fa-bars"></i></button>
     <div class="nav-links">
-        <a href="index.html"><i class="fa-solid fa-house-chimney"></i> TIFR Home</a>
-        <a href="index.html#about"><i class="fa-solid fa-monument"></i> About</a>
-        <a href="people.html" class="active-link" style="color: var(--accent-emerald);"><i class="fa-solid fa-users-viewfinder"></i> People</a>
+        <a href="#"><i class="fa-solid fa-house-chimney"></i> TIFR Home</a>
+        <a href="index.html"><i class="fa-solid fa-monument"></i> About</a>
+        <a href="people.html" class="active-link"> <i class="fa-solid fa-users-viewfinder"></i> People</a>
         <a href="catering.html"><i class="fa-solid fa-utensils"></i> Catering</a>
         <a href="usage_rules.html"><i class="fa-solid fa-gavel"></i> Usage Rules</a>
-        <a href="#contact"><i class="fa-solid fa-address-book"></i> Contact</a>
+        <a href="contact.html"><i class="fa-solid fa-address-book"></i> Contact</a>
     </div>
 </nav>
 
-<!-- HERO AREA SECTION (image_637fc9.png) -->
+<div class="flashing-notice-bar">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <span>NOTICE: TIFR guesthouse facility can be availed by TIFR Institute visitors only.</span>
+</div>
+
 <section class="hero-ram">
     <div class="hero-title-container">
-        <h1>The Guesthouse Staff</h1>
-        <p>Providing pristine operational support and elite hospitality management for the fundamental scientific community.</p>
+        <h1>Administration & Staff</h1>
+        <p>The dedicated support team and management committee ensuring flawless operations and hospitality workspace environments around the clock.</p>
     </div>
 </section>
 
-<!-- SEPARATED COMMUNICATIONS STRIP MODULE (image_6382ac.png) -->
+<div class="filter-container">
+    <button class="filter-btn active-filter" data-target="all">All Personnel</button>
+    <button class="filter-btn" data-target="committee">Guesthouse Committee</button>
+    <button class="filter-btn" data-target="office">Office & Managers</button>
+    <button class="filter-btn" data-target="caretakers">Frontdesk Caretakers</button>
+</div>
+
 <div class="statement-box-standalone">
     <div class="statement-card-inner">
         <div class="connect-strip">
@@ -485,264 +605,257 @@
                 <i class="fa-solid fa-phone-volume"></i>
                 <div>
                     <h4>Internal Intercom</h4>
-                    <p>Ext. 3050</p>
+                    <p>Ext. 2501 / 2341</p>
                 </div>
             </div>
             <div class="connect-node">
-                <i class="fa-solid fa-phone-flip"></i>
+                <i class="fa-solid fa-envelope-open-text"></i>
                 <div>
-                    <h4>External Inquiries</h4>
-                    <p>+91-22-22783050</p>
+                    <h4>Electronic Mail</h4>
+                    <p>guesthouse@tifr.res.in</p>
                 </div>
             </div>
             <div class="connect-node">
-                <i class="fa-solid fa-clock-rotate-left"></i>
+                <i class="fa-solid fa-building-shield"></i>
                 <div>
-                    <h4>Availability</h4>
-                    <p>24/7 Shift Cover</p>
+                    <h4>Reception Desk</h4>
+                    <p>Available 24 / 7</p>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- CATEGORY FILTER CONTROLS MODULE -->
-<div class="filter-container">
-    <button class="filter-btn active-filter" data-target="all">All Personnel</button>
-    <button class="filter-btn" data-target="management">Operations Hub</button>
-    <button class="filter-btn" data-target="frontdesk">Front Desk Matrix</button>
-    <button class="filter-btn" data-target="caretakers">Facility Custodians</button>
+<div class="all-tiers-wrapper">
+
+    <section class="section-wrap tier-section" id="tier-committee">
+        <div class="section-badge"><i class="fa-solid fa-landmark"></i> Governance Panel</div>
+        <h2 class="section-head">Guesthouse Committee</h2>
+        
+        <div class="staff-matrix leadership-tier">
+            <div class="editorial-card">
+                <div class="status-pill">Chairperson</div>
+                <div class="avatar-frame">
+                    <img src="assests/people/prof_ramakrishnan.jpg" class="zoomable-target" alt="Prof. B. Ramakrishnan Profile Pic">
+                </div>
+                <div class="staff-bio">
+                    <h3>Prof. B. Ramakrishnan</h3>
+                    <div class="card-label-tag">Committee Chair</div>
+                    <div class="meta-channels-group">
+                        <a href="mailto:ramki@math.tifr.res.in" class="meta-link-row"><i class="fa-regular fa-envelope"></i> ramki@math.tifr.res.in</a>
+                        <span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 2228</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-wrap tier-section" id="tier-office">
+        <div class="section-badge"><i class="fa-solid fa-briefcase"></i> Operations Hub</div>
+        <h2 class="section-head">Administrative Office</h2>
+        
+        <div class="staff-matrix">
+            <div class="editorial-card">
+                <div class="status-pill">Manager</div>
+                <div class="avatar-frame">
+                    <img src="assests/people/placeholder_m.jpg" class="zoomable-target" alt="Shri. S. D. Choudhary Profile Pic">
+                </div>
+                <div class="staff-bio">
+                    <h3>Shri. S. D. Choudhary</h3>
+                    <div class="card-label-tag">Guesthouse Manager</div>
+                    <div class="meta-channels-group">
+                        <a href="mailto:sdchoudhary@tifr.res.in" class="meta-link-row"><i class="fa-regular fa-envelope"></i> sdchoudhary@tifr.res.in</a>
+                        <span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 2577</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="editorial-card">
+                <div class="status-pill">Asst. Manager</div>
+                <div class="avatar-frame">
+                    <img src="assests/people/placeholder_f.jpg" class="zoomable-target" alt="Smt. J. J. Patel Profile Pic">
+                </div>
+                <div class="staff-bio">
+                    <h3>Smt. J. J. Patel</h3>
+                    <div class="card-label-tag">Assistant Manager</div>
+                    <div class="meta-channels-group">
+                        <a href="mailto:jjpatel@tifr.res.in" class="meta-link-row"><i class="fa-regular fa-envelope"></i> jjpatel@tifr.res.in</a>
+                        <span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 2501</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="editorial-card">
+                <div class="status-pill">Supervisor</div>
+                <div class="avatar-frame">
+                    <img src="assests/people/placeholder_m.jpg" class="zoomable-target" alt="Shri. R. K. Mishra Profile Pic">
+                </div>
+                <div class="staff-bio">
+                    <h3>Shri. R. K. Mishra</h3>
+                    <div class="card-label-tag">Catering Supervisor</div>
+                    <div class="meta-channels-group">
+                        <a href="mailto:rkmishra@tifr.res.in" class="meta-link-row"><i class="fa-regular fa-envelope"></i> rkmishra@tifr.res.in</a>
+                        <span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 2341</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="editorial-card">
+                <div class="status-pill">Accounts</div>
+                <div class="avatar-frame">
+                    <img src="assests/people/placeholder_m.jpg" class="zoomable-target" alt="Shri. A. B. Joshi Profile Pic">
+                </div>
+                <div class="staff-bio">
+                    <h3>Shri. A. B. Joshi</h3>
+                    <div class="card-label-tag">Senior Accountant</div>
+                    <div class="meta-channels-group">
+                        <a href="mailto:abjoshi@tifr.res.in" class="meta-link-row"><i class="fa-regular fa-envelope"></i> abjoshi@tifr.res.in</a>
+                        <span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 2588</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-wrap tier-section" id="tier-caretakers">
+        <div class="section-badge"><i class="fa-solid fa-bell"></i> Reception Shield</div>
+        <h2 class="section-head">Frontdesk Caretakers</h2>
+        
+        <div class="staff-matrix caretaker-tier">
+            <div class="editorial-card">
+                <div class="status-pill">Shift A</div>
+                <div class="avatar-frame">
+                    <img src="assests/people/placeholder_m.jpg" class="zoomable-target" alt="Shri. M. N. Gaikwad Profile Pic">
+                </div>
+                <div class="staff-bio">
+                    <h3>Shri. M. N. Gaikwad</h3>
+                    <div class="card-label-tag">Senior Caretaker</div>
+                    <div class="meta-channels-group">
+                        <span class="meta-link-row"><i class="fa-solid fa-headset"></i> Desk Terminal 1</span>
+                        <span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 2501</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="editorial-card">
+                <div class="status-pill">Shift B</div>
+                <div class="avatar-frame">
+                    <img src="assests/people/placeholder_m.jpg" class="zoomable-target" alt="Shri. K. P. Sharma Profile Pic">
+                </div>
+                <div class="staff-bio">
+                    <h3>Shri. K. P. Sharma</h3>
+                    <div class="card-label-tag">Caretaker Desk</div>
+                    <div class="meta-channels-group">
+                        <span class="meta-link-row"><i class="fa-solid fa-headset"></i> Desk Terminal 2</span>
+                        <span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 2501</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="editorial-card">
+                <div class="status-pill">Shift C</div>
+                <div class="avatar-frame">
+                    <img src="assests/people/placeholder_m.jpg" class="zoomable-target" alt="Shri. V. S. Shinde Profile Pic">
+                </div>
+                <div class="staff-bio">
+                    <h3>Shri. V. S. Shinde</h3>
+                    <div class="card-label-tag">Night Caretaker</div>
+                    <div class="meta-channels-group">
+                        <span class="meta-link-row"><i class="fa-solid fa-headset"></i> Night Operations</span>
+                        <span class="meta-link-row"><i class="fa-solid fa-phone"></i> Ext. 2501</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </div>
 
-<!-- OPERATIONS HUB SECTION -->
-<section class="section-wrap" id="tier-management">
-    <div class="section-badge"><i class="fa-solid fa-shield-user"></i> Operations Hub</div>
-    <h2 class="section-head">Officer-in-Charge</h2>
-    
-    <div class="staff-matrix leadership-tier">
-        <div class="editorial-card">
-            <div class="status-pill">Primary Incharge</div>
-            <div class="avatar-frame">
-                <img src="assests/people/Mohan M. Kakade.jpg" class="zoomable-target" alt="Mohan M. Kakade">
-            </div>
-            <div class="staff-bio">
-                <h3>Mohan M. Kakade</h3>
-                <span class="card-label-tag">Housekeeping Incharge</span>
-                <div class="staff-channels">
-                    <a href="tel:+912222783065" class="channel-link"><i class="fa-solid fa-square-phone"></i> +91-22-22783065</a>
-                    <a href="mailto:ghincharge@tifr.res.in" class="channel-link"><i class="fa-solid fa-square-envelope"></i> ghincharge@tifr.res.in</a>
-                    <a href="mailto:housekeeping@tifr.res.in" class="channel-link"><i class="fa-solid fa-envelope"></i> housekeeping@tifr.res.in</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FRONT DESK MATRIX SECTION -->
-<section class="section-wrap" id="tier-frontdesk">
-    <div class="section-badge"><i class="fa-solid fa-headset"></i> Communications Matrix</div>
-    <h2 class="section-head">Front Desk Personnel</h2>
-    
-    <div class="staff-matrix">
-        <div class="editorial-card">
-            <div class="avatar-frame">
-                <img src="assests/people/Mohan M. Vartak.jpg" class="zoomable-target" alt="Mohan M. Vartak">
-            </div>
-            <div class="staff-bio">
-                <h3>Mohan M. Vartak</h3>
-                <span class="card-label-tag">Desk Operations</span>
-                <div class="staff-channels">
-                    <a href="tel:22783050" class="channel-link"><i class="fa-solid fa-phone"></i> Ext. 3050 / 22783050</a>
-                </div>
-            </div>
-        </div>
-        <div class="editorial-card">
-            <div class="avatar-frame">
-                <img src="assests/people/Sanjay V. Patil.jpg" class="zoomable-target" alt="Sanjay V. Patil">
-            </div>
-            <div class="staff-bio">
-                <h3>Sanjay V. Patil</h3>
-                <span class="card-label-tag">Desk Operations</span>
-                <div class="staff-channels">
-                    <a href="tel:22783050" class="channel-link"><i class="fa-solid fa-phone"></i> Ext. 3050 / 22783050</a>
-                </div>
-            </div>
-        </div>
-        <div class="editorial-card">
-            <div class="avatar-frame">
-                <img src="assests/people/Sumit S. Nitnaware.jpg" class="zoomable-target" alt="Sumit S. Nitnaware">
-            </div>
-            <div class="staff-bio">
-                <h3>Sumit S. Nitnaware</h3>
-                <span class="card-label-tag">Desk Operations</span>
-                <div class="staff-channels">
-                    <a href="tel:22783050" class="channel-link"><i class="fa-solid fa-phone"></i> Ext. 3050 / 22783050</a>
-                </div>
-            </div>
-        </div>
-        <div class="editorial-card">
-            <div class="avatar-frame">
-                <img src="assests/people/Bhakti V. Khetle.jpg" class="zoomable-target" alt="Bhakti V. Khetle">
-            </div>
-            <div class="staff-bio">
-                <h3>Bhakti V. Khetle</h3>
-                <span class="card-label-tag">Desk Operations</span>
-                <div class="staff-channels">
-                    <a href="tel:22783050" class="channel-link"><i class="fa-solid fa-phone"></i> Ext. 3050 / 22783050</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- FACILITY CUSTODIANS CARETAKERS SECTION -->
-<section class="section-wrap" id="tier-caretakers">
-    <div class="section-badge"><i class="fa-solid fa-hand-holding-hand"></i> Facility Custodians</div>
-    <h2 class="section-head">Care-takers Team</h2>
-    
-    <div class="staff-matrix caretaker-tier">
-        <div class="editorial-card">
-            <div class="avatar-frame">
-                <img src="assests/people/Prasad P. Rane.jpg" class="zoomable-target" alt="Prasad P. Rane">
-            </div>
-            <div class="staff-bio">
-                <h3>Prasad P. Rane</h3>
-                <span class="card-label-tag">Guesthouse Caretaker</span>
-                <div class="staff-channels">
-                    <a href="tel:22783050" class="channel-link"><i class="fa-solid fa-phone"></i> Ext. 3050 / 22783050</a>
-                </div>
-            </div>
-        </div>
-        <div class="editorial-card">
-            <div class="avatar-frame">
-                <img src="assests/people/Arun S. Khude.jpg" class="zoomable-target" alt="Arun S. Khude">
-            </div>
-            <div class="staff-bio">
-                <h3>Arun S. Khude</h3>
-                <span class="card-label-tag">Guesthouse Caretaker</span>
-                <div class="staff-channels">
-                    <a href="tel:22783050" class="channel-link"><i class="fa-solid fa-phone"></i> Ext. 3050 / 22783050</a>
-                </div>
-            </div>
-        </div>
-        <div class="editorial-card">
-            <div class="avatar-frame">
-                <img src="assests/people/Jayawant M. Tandel.jpg" class="zoomable-target" alt="Jayawant M. Tandel">
-            </div>
-            <div class="staff-bio">
-                <h3>Jayawant M. Tandel</h3>
-                <span class="card-label-tag">Guesthouse Caretaker</span>
-                <div class="staff-channels">
-                    <a href="tel:22783050" class="channel-link"><i class="fa-solid fa-phone"></i> Ext. 3050 / 22783050</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- SCENIC BENTO GRID SHOWCASE -->
-<section class="section-wrap">
-    <div class="section-badge"><i class="fa-solid fa-images"></i> Scenic Showcase</div>
-    <h2 class="section-head">Premises Gallery</h2>
-    
-    <div class="premises-bento">
-        <div class="bento-card w-2 h-2">
-            <img src="assests/people/sb-2alt.jpg" class="zoomable-target" alt="TIFR House Entry Frontage View">
-            <div class="bento-overlay">
-                <h4>Primary Facility Frontage View</h4>
-                <p>The iconic exterior entrance design structure.</p>
-            </div>
-        </div>
-        <div class="bento-card h-2">
-            <img src="assests/people/sb-1alt.jpg" class="zoomable-target" alt="Manicured Green Walkways">
-            <div class="bento-overlay">
-                <h4>Campus Greenery & Pathways</h4>
-                <p>Serene open spaces tailored for cognitive clarity.</p>
-            </div>
-        </div>
-        <div class="bento-card">
-            <img src="assests/people/sb-2a.jpg" class="zoomable-target" alt="TIFR Facade Accent view">
-            <div class="bento-overlay">
-                <h4>Building Wing & Courtyard Detail</h4>
-                <p>Seamlessly blending nature with geometric architecture.</p>
-            </div>
-        </div>
-        <div class="bento-card">
-            <img src="assests/people/sb-2b.jpg" class="zoomable-target" alt="Residential Quarters Wing Section">
-            <div class="bento-overlay">
-                <h4>Residential Quarters Wing Section</h4>
-                <p>Comfortable housing modules optimized for visiting researchers.</p>
-            </div>
-        </div>
-        <div class="bento-card w-2">
-            <img src="assests/people/sb-4alst.jpg" class="zoomable-target" alt="Dining Hall Environment">
-            <div class="bento-overlay">
-                <h4>Main Dining & Catering Facilities</h4>
-                <p>Hygiene-first facility serving rich multi-cuisine culinary operations.</p>
-            </div>
-        </div>
-        <div class="bento-card">
-            <img src="assests/people/sb-3alt.jpg" class="zoomable-target" alt="Common Lounge Workspace Area">
-            <div class="bento-overlay">
-                <h4>Intermediate Common Lounge Area</h4>
-                <p>Shared open lounges designed for scientific cross-collaboration.</p>
-            </div>
-        </div>
-        <div class="bento-card w-2">
-            <img src="assests/people/sb-6alt.jpg" class="zoomable-target" alt="Studio Suite Living Layout">
-            <div class="bento-overlay">
-                <h4>Fully Serviced Studio Suite Setup</h4>
-                <p>Spacious room architecture featuring state-of-the-art living utilities.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- EXACT MATCH FOOTER ARCHITECTURE -->
 <footer class="footer-ultimate" id="contact">
     <div class="footer-flex">
         <div class="footer-brand-side">
-            <div class="footer-logo-row">
-                <img src="tifr-logo-black-new.png" alt="TIFR Logo" class="footer-tifr-logo">
-                <div>
-                    <h2 style="color: white; font-size: 1.6rem; font-weight: 800; line-height: 1.1;">TIFR GuestHouse</h2>
-                    <p style="color: var(--accent-emerald); font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-top: 4px;">Guesthouse Facility Portal</p>
-                </div>
-            </div>
-            <p style="margin-top: 20px; opacity: 0.7; font-size: 0.88rem; max-width: 500px; line-height: 1.6;">Tata Institute of Fundamental Research, Colaba Campus, Mumbai. Advancing global research synergy through premium, dedicated academic hospitality frameworks.</p>
+            <h2 style="color: white; font-size: 1.7rem; font-weight: 800; letter-spacing: -1px; display: flex; align-items: center; gap: 14px;">
+                <img src="tifr-logo-black-new.png" alt="TIFR Official Seal Logo" class="tifr-logo" style="width: 50px; height: 50px;">
+                TIFR GuestHouse
+            </h2>
+            <p style="margin-top: 8px; line-height: 1.5; opacity: 0.75; font-size: 0.88rem;">Tata Institute of Fundamental Research, Colaba Campus, Mumbai. Advancing global research synergy through premium residential hospitality.</p>
         </div>
-        <div style="display: flex; gap: 15px; flex-wrap: wrap; margin-top: 20px;">
-            <div class="contact-pill"><i class="fa-solid fa-envelope-open-text"></i> guesthouse@tifr.res.in</div>
-            <div class="contact-pill"><i class="fa-solid fa-business-time"></i> Check-in 12 PM / Check-out 10 AM</div>
+        <div class="footer-info-side">
+            <div class="contact-pill"><i class="fa-solid fa-envelope-open-text"></i> feedback.gh@tifr.res.in</div>
+            <div class="contact-pill"><i class="fa-solid fa-business-time"></i> Check-in 12:00 PM / Check-out 10:00 AM</div>
+            <div class="contact-pill"><i class="fa-solid fa-fingerprint"></i> TIFR Datanet Verification Required</div>
         </div>
     </div>
-    <div style="text-align: center; margin-top: 50px; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; opacity: 0.4;">&copy; 2026 Tata Institute of Fundamental Research. All rights reserved.</div>
+    <div style="text-align: center; margin-top: 25px; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 18px; opacity: 0.45;">&copy; 2026 Tata Institute of Fundamental Research. All rights reserved.</div>
 </footer>
 
-<!-- LIGHTBOX ELEMENT INFRASTRUCTURE -->
 <div class="lightbox-orb" id="globalLightbox">
-    <div class="lightbox-inner"><img id="lightboxImg" src="" alt="Active View"></div>
+    <div class="lightbox-inner"><img id="lightboxImg" src="" alt="Active Modal Target View"></div>
 </div>
 
 <script>
-    // Navigation Drawer Logic Links
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Mobile Navigation Drawer Toggle Action
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navLinks = document.querySelector('.nav-links');
     
     mobileToggle.addEventListener('click', () => {
         navLinks.classList.toggle('mobile-active');
-        mobileToggle.querySelector('i').className = navLinks.classList.contains('mobile-active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+        const icon = mobileToggle.querySelector('i');
+        if(navLinks.classList.contains('mobile-active')) {
+            icon.className = 'fa-solid fa-xmark';
+        } else {
+            icon.className = 'fa-solid fa-bars';
+        }
     });
 
-    // Content Display Dynamic Filters Linkages
+    // Dynamic Navbar Translucency on Window Scroll
+    window.addEventListener('scroll', () => {
+        const navigationBar = document.querySelector('.nav-master');
+        if(window.scrollY > 40) {
+            navigationBar.style.background = 'rgba(255, 255, 255, 0.94)';
+            navigationBar.style.boxShadow = '0 15px 35px rgba(5, 33, 28, 0.08)';
+        } else {
+            navigationBar.style.background = 'rgba(255, 255, 255, 0.88)';
+            navigationBar.style.boxShadow = '0 10px 25px rgba(5, 33, 28, 0.05)';
+        }
+    });
+
+    // Comprehensive ScrollTrigger Animations for standard layouts
+    document.querySelectorAll('.section-wrap, .statement-box-standalone').forEach(element => {
+        gsap.fromTo(element, { opacity: 0, y: 20 }, {
+            opacity: 1, y: 0, duration: 0.6, ease: "power2.out",
+            scrollTrigger: { trigger: element, start: "top 90%", toggleActions: "play none none reverse" }
+        });
+    });
+
+    // High Performance Interactive Mouse Tracking 3D Parallax Calculation
+    if (!window.matchMedia("(max-width: 1024px)").matches) {
+        document.querySelectorAll('.editorial-card, .connect-node').forEach(nodeElement => {
+            nodeElement.addEventListener('mousemove', (moveEvent) => {
+                const boundaries = nodeElement.getBoundingClientRect();
+                const coordinateVectorX = (moveEvent.clientX - boundaries.left - boundaries.width/2) / 22;
+                const coordinateVectorY = (moveEvent.clientY - boundaries.top - boundaries.height/2) / 22;
+                nodeElement.style.transform = `perspective(1000px) rotateY(${coordinateVectorX}deg) rotateX(${-coordinateVectorY}deg) translateY(-4px)`;
+                nodeElement.style.transition = 'transform 0.05s ease-out';
+            });
+            nodeElement.addEventListener('mouseleave', () => {
+                nodeElement.style.transform = `perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px)`;
+                nodeElement.style.transition = 'transform 0.5s var(--transition-butter)';
+            });
+        });
+    }
+
+    // Interactive Sorting/Filtering Logic Controllers
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const sections = document.querySelectorAll('.section-wrap[id^="tier-"]');
+    const sections = document.querySelectorAll('.tier-section');
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             filterButtons.forEach(btn => btn.classList.remove('active-filter'));
             button.classList.add('active-filter');
-
+            
             const target = button.getAttribute('data-target');
 
             sections.forEach(section => {
@@ -760,6 +873,7 @@
                     }
                 }
             });
+            ScrollTrigger.refresh();
         });
     });
 
@@ -781,7 +895,7 @@
     
     globalLightbox.addEventListener('click', () => {
         globalLightbox.style.display = 'none';
-        document.body.style.overflow = '';
+        document.body.style.overflow = 'auto';
     });
 </script>
 </body>
