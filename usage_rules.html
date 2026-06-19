@@ -20,7 +20,6 @@
             box-sizing: border-box;
         }
 
-        /* Central Theme CSS variables synchronized across the platform */
         :root {
             --bg-ivory: #f2f6f3;
             --deep-teal: #05211c;
@@ -43,7 +42,6 @@
             position: relative;
         }
 
-        /* Scientific background pattern stylized to match index styling */
         body::before {
             content: "";
             position: fixed;
@@ -146,10 +144,11 @@
             padding: 4px;
         }
 
-        /* HERO AREA BANNER - DESIGNED TO COVER BOTH SIDES EDGE-TO-EDGE */
+        /* EDGE-TO-EDGE HERO BANNER */
         .hero-ram {
             position: relative;
-            margin-top: 140px;
+            margin-top: 0;
+            padding-top: 180px;
             width: 100%;
             min-height: 40vh;
             background: linear-gradient(rgba(3, 20, 17, 0.45), rgba(5, 33, 28, 0.75)), url('main.png');
@@ -159,7 +158,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            padding: 80px 24px;
+            padding-bottom: 80px;
             text-align: center;
             box-shadow: var(--shadow-3d-raised);
         }
@@ -173,12 +172,12 @@
             color: transparent;
         }
 
-        /* FLOATING STATEMENT CONTAINER */
+        /* DETACHED STATEMENT CONTAINER WITH NATURAL MARGIN */
         .fixed-statement-box {
             width: calc(100% - 80px);
-            max-width: 1320px;
-            margin: -40px auto 30px auto;
-            padding: 0;
+            max-width: 1400px;
+            margin: 50px auto 10px auto;
+            padding: 0 40px;
             position: relative;
             z-index: 100;
         }
@@ -245,7 +244,6 @@
             border-radius: 4px;
         }
 
-        /* CARD DISPLAY GRID SYSTEMS */
         .premium-card-stack {
             display: flex;
             flex-direction: column;
@@ -257,7 +255,6 @@
             gap: 36px;
         }
 
-        /* HIGH-END EDITORIAL CARD SYSTEM */
         .editorial-card {
             background: #ffffff;
             border-radius: 32px;
@@ -270,7 +267,6 @@
             position: relative;
         }
         
-        /* TWO COLUMN IMAGE LAYOUT RATIOS */
         .editorial-card.split-x {
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
@@ -339,7 +335,6 @@
             color: #445952;
         }
 
-        /* PROTOCOL BULLET LIST SYSTEM */
         .protocol-list {
             list-style: none;
             display: flex;
@@ -365,7 +360,6 @@
             font-size: 0.9rem;
         }
 
-        /* COMPACT FOOTER PANEL MATCHING GENERAL THEME */
         .footer-ultimate {
             background: var(--deep-teal);
             border-radius: 45px 45px 0 0;
@@ -405,14 +399,13 @@
         }
         .contact-pill i { color: #59ca9f; font-size: 1.05rem; }
 
-        /* RESPONSIVE LAYOUT MEDIA BREAKPOINTS */
         @media (max-width: 1024px) {
-            .hero-ram { margin-top: 100px; padding: 60px 20px; }
+            .hero-ram { padding-top: 140px; padding-bottom: 60px; }
             .premium-row { grid-template-columns: 1fr; gap: 24px; }
             .editorial-card.split-x { grid-template-columns: 1fr !important; }
             .card-image-box { order: -1; min-height: 220px; max-height: 280px; }
             .card-content-box { padding: 30px; }
-            .fixed-statement-box { width: calc(100% - 40px); margin: -20px auto 25px; }
+            .fixed-statement-box { width: 100%; margin: 30px auto 10px; padding: 0 20px; }
             .statement-card-inner { flex-direction: column; text-align: center; padding: 24px; }
             .section-wrap { padding: 40px 20px; }
             
@@ -463,7 +456,7 @@
             .footer-ultimate { border-radius: 32px 32px 0 0; padding: 32px 20px 20px; }
         }
         @media (max-width: 640px) {
-            .hero-ram { margin-top: 90px; padding: 45px 16px; }
+            .hero-ram { padding-top: 120px; padding-bottom: 45px; }
             .hero-title-container h1 { font-size: 2.2rem; }
             .card-content-box { padding: 24px; }
         }
@@ -498,7 +491,7 @@
 <div class="fixed-statement-box">
     <div class="statement-card-inner">
         <i class="fa-solid fa-building-shield"></i>
-        <p>In order to provide efficient services to all our guests, a few simple instructions and regulations have been formulated by the management committee. All guests and hosts are kindly requested to read the following document and strictly adhere to these criteria.</p>
+        <p>In order to provide efficient services to all our guests, a few simple instructions and regulations have been formulated by the management committee. All guests and hosts are kindly requested to read the following document and strictly adhere to these criteria[cite: 4].</p>
     </div>
 </div>
 
@@ -514,7 +507,7 @@
             <div class="card-content-box">
                 <span class="card-label-tag">Eligibility</span>
                 <h3 class="card-headline"><i class="fa-solid fa-passport"></i> Institutional Access</h3>
-                <p class="card-body-text">The Guesthouse is an integrated part of TIFR designed exclusively to accommodate short and medium-term official visitors to the Institute. Field station staff visiting the Colaba campus must process allocations through their Faculty member-in-charge.</p>
+                <p class="card-body-text">The Guesthouse is an integrated part of TIFR designed exclusively to accommodate short and medium-term official visitors to the Institute[cite: 4]. Field station staff visiting the Colaba campus must process allocations through their Faculty member-in-charge[cite: 4].</p>
             </div>
             <div class="card-image-box">
                 <img src="assests/usage_rules/sb-10 (1).jpg" alt="Campus Facilities" class="card-img-actual">
@@ -529,7 +522,7 @@
             <div class="card-content-box">
                 <span class="card-label-tag">Allocation Parameters</span>
                 <h3 class="card-headline"><i class="fa-solid fa-calendar-check"></i> Tenure Limits</h3>
-                <p class="card-body-text">Guesthouse accommodation can be provided for a maximum continuous period of 3 months. Hosts must proactively inform their arriving visitors regarding standard parameters and ensure bill settlement execution prior to final departure.</p>
+                <p class="card-body-text">Guesthouse accommodation can be provided for a maximum continuous period of 3 months[cite: 4]. Hosts must proactively inform their arriving visitors regarding standard parameters and ensure bill settlement execution prior to final departure[cite: 4].</p>
             </div>
         </div>
 
@@ -539,14 +532,14 @@
                 <div class="card-content-box">
                     <span class="card-label-tag">System Constraints</span>
                     <h3 class="card-headline"><i class="fa-solid fa-hourglass-half"></i> Arrival Lockout</h3>
-                    <p class="card-body-text">Bookings for domestic guests close 24 hours after the scheduled check-in time, while international profiles are held for 48 hours. No-shows within these windows result in systematic cancellation.</p>
+                    <p class="card-body-text">Bookings for domestic guests close 24 hours after the scheduled check-in time, while international profiles are held for 48 hours[cite: 4]. No-shows within these windows result in systematic cancellation[cite: 4].</p>
                 </div>
             </div>
             <div class="editorial-card">
                 <div class="card-content-box">
                     <span class="card-label-tag">Schedule</span>
                     <h3 class="card-headline"><i class="fa-solid fa-clock"></i> Timeline Transitions</h3>
-                    <p class="card-body-text">Standard Check-in time is fixed at 12:00 Noon and Check-out time is sharp at 10:00 AM. Timely compliance is vital to allow housekeeping groups sufficient room preparation cycles.</p>
+                    <p class="card-body-text">Standard Check-in time is fixed at 12:00 Noon and Check-out time is sharp at 10:00 AM[cite: 4]. Timely compliance is vital to allow housekeeping groups sufficient room preparation cycles[cite: 4].</p>
                 </div>
             </div>
         </div>
@@ -557,10 +550,10 @@
                 <span class="card-label-tag" style="background-color: #fcefee; color: #a94442;">Mandatory Protocols</span>
                 <h3 class="card-headline"><i class="fa-solid fa-circle-info"></i> Critical Stay Protocols</h3>
                 <ul class="protocol-list">
-                    <li><strong>Data Validation:</strong> Please re-confirm booking horizons at the reception upon arrival. Due to high occupancy, uniform room configurations may not always span your entire stay.</li>
-                    <li><strong>Overstay Constraints:</strong> Overstays are strictly prohibited. If your departure runs behind, clear your room by 10:00 AM and securely transfer luggage to the front desk reception locker.</li>
-                    <li><strong>Dispute Remediation:</strong> For scheduling conflicts, consult your institutional hosts immediately to connect with the Guesthouse Officer In-charge. Threatening or abusing support staff is strictly prohibited.</li>
-                    <li><strong>Visitor Policies:</strong> Active residents are forbidden from housing unauthorized step-in guests within private chambers overnight.</li>
+                    <li><strong>Data Validation:</strong> Please re-confirm booking horizons at the reception upon arrival[cite: 4]. Due to high occupancy, uniform room configurations may not always span your entire stay[cite: 4].</li>
+                    <li><strong>Overstay Constraints:</strong> Overstays are strictly prohibited[cite: 4]. If your departure runs behind, clear your room by 10:00 AM and securely transfer luggage to the front desk reception locker[cite: 4].</li>
+                    <li><strong>Dispute Remediation:</strong> For scheduling conflicts, consult your institutional hosts immediately to connect with the Guesthouse Officer In-charge[cite: 4]. Threatening or abusing support staff is strictly prohibited[cite: 4].</li>
+                    <li><strong>Visitor Policies:</strong> Active residents are forbidden from housing unauthorized step-in guests within private chambers overnight[cite: 4].</li>
                 </ul>
             </div>
         </div>
@@ -574,7 +567,7 @@
                 <div class="card-content-box" style="padding: 28px;">
                     <span class="card-label-tag">Conservation</span>
                     <h3 class="card-headline"><i class="fa-solid fa-leaf"></i> Utility & Room Care</h3>
-                    <p class="card-body-text">Guests must proactively shut off all active air conditioning units, interior lights, ceiling fans, close windows, and lock their doors safely whenever exiting chambers.</p>
+                    <p class="card-body-text">Guests must proactively shut off all active air conditioning units, interior lights, ceiling fans, close windows, and lock their doors safely whenever exiting chambers[cite: 4].</p>
                 </div>
             </div>
 
@@ -585,7 +578,7 @@
                 <div class="card-content-box" style="padding: 28px;">
                     <span class="card-label-tag">Restrictions</span>
                     <h3 class="card-headline"><i class="fa-solid fa-ban"></i> Prohibited Substances</h3>
-                    <p class="card-body-text">The possession or consumption of alcoholic drinks and intoxicating beverages anywhere within the Guesthouse premises is strictly prohibited.</p>
+                    <p class="card-body-text">The possession or consumption of alcoholic drinks and intoxicating beverages anywhere within the Guesthouse premises is strictly prohibited[cite: 4].</p>
                 </div>
             </div>
         </div>
@@ -596,14 +589,14 @@
                 <div class="card-content-box">
                     <span class="card-label-tag">Security</span>
                     <h3 class="card-headline"><i class="fa-solid fa-vault"></i> Property Assets</h3>
-                    <p class="card-body-text">Management assumes no liability for valuable personal items. Please make continuous use of the built-in electronic combination safe lockers provided inside closets.</p>
+                    <p class="card-body-text">Management assumes no liability for valuable personal items[cite: 4]. Please make continuous use of the built-in electronic combination safe lockers provided inside closets[cite: 4].</p>
                 </div>
             </div>
             <div class="editorial-card">
                 <div class="card-content-box">
                     <span class="card-label-tag">Evaluation</span>
                     <h3 class="card-headline"><i class="fa-solid fa-comments"></i> Continuous Improvement</h3>
-                    <p class="card-body-text">Suggestions or complaints are highly appreciated. Submissions may be dropped off via paper forms at the lobby center desk, or transmitted seamlessly to <strong>feedback.gh@tifr.res.in</strong>.</p>
+                    <p class="card-body-text">Suggestions or complaints are highly appreciated[cite: 4]. Submissions may be dropped off via paper forms at the lobby center desk, or transmitted seamlessly to <strong>feedback.gh@tifr.res.in</strong>[cite: 4].</p>
                 </div>
             </div>
         </div>
@@ -620,14 +613,14 @@
             <div class="card-content-box">
                 <span class="card-label-tag">Acoustics</span>
                 <h3 class="card-headline"><i class="fa-solid fa-tv"></i> Acoustic Restraint</h3>
-                <p class="card-body-text">The Guesthouse maintains a quiet, productive atmosphere for resident scholars. Playing media devices, TV structures, or music systems at high volumes is unauthorized at any time, and strictly regulated post 10:00 PM.</p>
+                <p class="card-body-text">The Guesthouse maintains a quiet, productive atmosphere for resident scholars. Playing media devices, TV structures, or music systems at high volumes is unauthorized at any time, and strictly regulated post 10:00 PM[cite: 4].</p>
             </div>
         </div>
         <div class="editorial-card">
             <div class="card-content-box">
                 <span class="card-label-tag">Common Space</span>
                 <h3 class="card-headline"><i class="fa-solid fa-people-group"></i> Corridor Etiquette</h3>
-                <p class="card-body-text">Please refrain from congregating, loitering, or holding impromptu social sessions inside structural walkways and access corridors to prevent disturbing adjacent research quarters.</p>
+                <p class="card-body-text">Please refrain from congregating, loitering, or holding impromptu social sessions inside structural walkways and access corridors to prevent disturbing adjacent research quarters[cite: 4].</p>
             </div>
         </div>
     </div>
@@ -642,14 +635,14 @@
             <div class="card-content-box">
                 <span class="card-label-tag">Defense Protocol</span>
                 <h3 class="card-headline"><i class="fa-solid fa-camera-ban"></i> Photography Constraints</h3>
-                <p class="card-body-text">As TIFR sits enclosed inside the secure Navy Nagar Defense Domain, operations run subject to regulatory guidelines overseen by the Indian Navy. Notably, <strong>casual photography is restricted entirely to the interior of the TIFR Housing Complex</strong>. It remains strictly illegal on external military streets.</p>
+                <p class="card-body-text">As TIFR sits enclosed inside the secure Navy Nagar Defense Domain, operations run subject to regulatory guidelines overseen by the Indian Navy[cite: 4]. Notably, <strong>casual photography is restricted entirely to the interior of the TIFR Housing Complex</strong>[cite: 4]. It remains strictly illegal on external military streets[cite: 4].</p>
             </div>
         </div>
         <div class="editorial-card">
             <div class="card-content-box">
                 <span class="card-label-tag">Verification</span>
                 <h3 class="card-headline"><i class="fa-solid fa-id-card"></i> Identification Protocols</h3>
-                <p class="card-body-text">Naval Security guards maintain checkpoints to inspect or verify parties moving within Navy Nagar. Visitors must carry a recognized government photo ID at all times. Guests must cooperate with gate screenings and display credentials upon request.</p>
+                <p class="card-body-text">Naval Security guards maintain checkpoints to inspect or verify parties moving within Navy Nagar[cite: 4]. Visitors must carry a recognized government photo ID at all times[cite: 4]. Guests must cooperate with gate screenings and display credentials upon request[cite: 4].</p>
             </div>
         </div>
     </div>
@@ -662,11 +655,11 @@
                 <img src="tifr.jpg" alt="TIFR Official Seal Logo" class="tifr-logo" style="width: 50px; height: 50px;">
                 TIFR GuestHouse
             </h2>
-            <p style="margin-top: 8px; line-height: 1.5; opacity: 0.75; font-size: 0.88rem;">Tata Institute of Fundamental Research, Colaba Campus, Mumbai. Advancing global research synergy through premium residential hospitality.</p>
+            <p style="margin-top: 8px; line-height: 1.5; opacity: 0.75; font-size: 0.88rem;">Tata Institute of Fundamental Research, Colaba Campus, Mumbai[cite: 4]. Advancing global research synergy through premium residential hospitality.</p>
         </div>
         <div class="footer-info-side">
             <div class="contact-pill"><i class="fa-solid fa-envelope-open-text"></i> feedback.gh@tifr.res.in</div>
-            <div class="contact-pill"><i class="fa-solid fa-business-time"></i> Check-in 12:00 PM / Check-out 10:00 AM</div>
+            <div class="contact-pill"><i class="fa-solid fa-business-time"></i> Check-in 12:00 PM / Check-out 10:00 AM[cite: 4]</div>
             <div class="contact-pill"><i class="fa-solid fa-fingerprint"></i> TIFR Datanet Verification Required</div>
         </div>
     </div>
@@ -676,7 +669,6 @@
 <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    // Mobile Navigation Toggle
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navLinks = document.querySelector('.nav-links');
     
@@ -686,7 +678,6 @@
         icon.className = navLinks.classList.contains('mobile-active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
     });
 
-    // Dynamic Navbar Translucency on Window Scroll
     window.addEventListener('scroll', () => {
         const navigationBar = document.querySelector('.nav-master');
         if(window.scrollY > 40) {
@@ -698,7 +689,6 @@
         }
     });
 
-    // ScrollTrigger Entrance Animations
     document.querySelectorAll('.section-wrap, .fixed-statement-box').forEach(element => {
         gsap.fromTo(element, { opacity: 0, y: 20 }, {
             opacity: 1, y: 0, duration: 0.6, ease: "power2.out",
@@ -706,7 +696,6 @@
         });
     });
 
-    // Interactive 3D Parallax Calculation for Cards
     if (!window.matchMedia("(max-width: 1024px)").matches) {
         document.querySelectorAll('.editorial-card').forEach(nodeElement => {
             nodeElement.addEventListener('mousemove', (moveEvent) => {
