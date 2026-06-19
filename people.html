@@ -28,7 +28,7 @@
             --glass-white: #ffffff;
             --border-soft: rgba(18, 105, 75, 0.08);
             --shadow-elevated: 0 30px 60px -20px rgba(6, 38, 32, 0.04), 0 0 0 1px rgba(18, 105, 75, 0.03);
-            --shadow-hover: 0 45px 80px -25 rgba(6, 38, 32, 0.12), 0 0 0 1px rgba(18, 105, 75, 0.15);
+            --shadow-hover: 0 45px 80px -25px rgba(6, 38, 32, 0.12), 0 0 0 1px rgba(18, 105, 75, 0.15);
             --transition-butter: cubic-bezier(0.25, 1, 0.5, 1);
         }
 
@@ -41,7 +41,7 @@
             position: relative;
         }
 
-        /* SCIENCE & MATH BACKGROUND DOODLE TEXTURE */
+        /* MATH & SCIENCE DIALECTIC DOODLE BACKGROUND TONE */
         body::before {
             content: "";
             position: fixed;
@@ -59,7 +59,7 @@
         ::-webkit-scrollbar-track { background: #e3ebe7; }
         ::-webkit-scrollbar-thumb { background: var(--accent-emerald); border-radius: 4px; }
 
-        /* NAVIGATION BAR */
+        /* NAVIGATION HEADER BAR (EXACT AS INDEX.HTML) */
         .nav-master {
             position: fixed;
             top: 20px;
@@ -111,17 +111,19 @@
         .nav-links a.active-link::after, .nav-links a:hover::after { width: 100%; }
         .mobile-toggle { display: none; background: none; border: none; font-size: 1.4rem; color: var(--deep-teal); cursor: pointer; }
 
-        /* HERO BACKDROP */
+        /* HERO AREA SECTION ATTACHED WITH INTEGRATED STRIP */
         .hero-ram {
-            min-height: 35vh;
+            position: relative;
+            min-height: 48vh;
             background: linear-gradient(rgba(4, 25, 21, 0.82), rgba(6, 38, 32, 0.97)), url('assests/people/sb-2alt.jpg');
             background-size: cover;
             background-position: center;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             border-radius: 0 0 40px 40px;
-            padding: 80px 20px;
+            padding: 100px 20px 120px 20px;
             margin-top: 105px;
             text-align: center;
         }
@@ -139,12 +141,15 @@
             font-weight: 400;
         }
 
-        /* FIXED STATEMENT UTILITY STRIP */
+        /* INTEGRATED STATEMENTS UTILITY MODULE ATTACHED TO HERO CONTAINER */
         .fixed-statement-box {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 48px);
             max-width: 1300px;
-            margin: -40px auto 40px;
-            padding: 0 24px;
-            position: relative;
+            padding: 0;
             z-index: 50;
         }
         .statement-card-inner {
@@ -155,8 +160,6 @@
             border: 1px solid var(--border-soft);
             border-left: 5px solid var(--accent-emerald);
         }
-
-        /* INTERCOM QUICK STRIP */
         .connect-strip {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -174,13 +177,13 @@
         }
         .connect-node:hover { transform: translateY(-2px); }
         .connect-node i { font-size: 1.5rem; color: var(--accent-emerald); }
-        .connect-node div h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; color: #4a635b; font-weight: 700; }
-        .connect-node div p { font-size: 1.05rem; font-weight: 700; color: var(--deep-teal); margin-top: 3px; }
+        .connect-node div h4 { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.8px; color: #4a635b; font-weight: 700; text-align: left; }
+        .connect-node div p { font-size: 1.05rem; font-weight: 700; color: var(--deep-teal); margin-top: 3px; text-align: left; }
 
-        /* FILTER SYSTEM ELEMENTS */
+        /* FILTER LAYOUT CONFIGURATIONS */
         .filter-container {
             max-width: 1300px;
-            margin: 20px auto 0;
+            margin: 80px auto 0;
             padding: 0 24px;
             display: flex;
             justify-content: center;
@@ -199,10 +202,7 @@
             transition: all 0.3s ease;
             box-shadow: 0 4px 10px rgba(6,38,32,0.02);
         }
-        .filter-btn:hover {
-            border-color: var(--accent-emerald);
-            background: var(--mint-glow);
-        }
+        .filter-btn:hover { border-color: var(--accent-emerald); background: var(--mint-glow); }
         .filter-btn.active-filter {
             background: var(--accent-emerald);
             color: #ffffff;
@@ -210,7 +210,7 @@
             box-shadow: 0 10px 20px -5px rgba(18, 105, 75, 0.3);
         }
 
-        /* GRID STRUCTURAL ARCHITECTURE */
+        /* GRID STRUCTURE LAYOUTS */
         .section-wrap {
             max-width: 1300px;
             margin: 0 auto;
@@ -230,7 +230,7 @@
             border-radius: 2px;
         }
 
-        /* UNIFORM STAFF MATRIX GRID SYSTEM */
+        /* MATRIX LAYOUT SCALED TO UNIFORM PROPORTIONS */
         .staff-matrix {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
@@ -238,7 +238,7 @@
         }
         .staff-matrix.leadership-tier {
             grid-template-columns: 1fr;
-            max-width: 360px;
+            max-width: 340px;
             margin: 0 auto;
         }
         .staff-matrix.caretaker-tier {
@@ -261,13 +261,14 @@
             transform: translateY(-6px);
         }
 
-        /* ABSOLUTELY STRICT UNIFORM FRAMING SCALE FOR STAFF IMAGES */
+        /* STRICT PASSPORT SIZE DIMENSIONAL FRAMING RATIO (3:4) */
         .avatar-frame {
             width: 100%;
-            aspect-ratio: 1 / 1;
+            aspect-ratio: 3 / 4;
             overflow: hidden;
             background-color: var(--mint-glow);
             position: relative;
+            border-bottom: 1px solid var(--border-soft);
         }
         .avatar-frame img {
             width: 100%;
@@ -277,10 +278,9 @@
             transition: transform 0.6s var(--transition-butter);
         }
         .editorial-card:hover .avatar-frame img {
-            transform: scale(1.06);
+            transform: scale(1.04);
         }
         
-        /* CARD OVERLAY STATUS SYSTEM */
         .status-pill {
             position: absolute;
             top: 16px;
@@ -299,16 +299,15 @@
             border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        /* BIO DESIGN SCALE */
         .staff-bio {
-            padding: 26px;
+            padding: 24px;
             text-align: center;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
         }
         .staff-bio h3 {
-            font-size: 1.25rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--deep-teal);
             margin-bottom: 6px;
@@ -316,41 +315,39 @@
         }
         .card-label-tag {
             align-self: center;
-            font-size: 0.72rem;
+            font-size: 0.7rem;
             font-weight: 700;
             text-transform: uppercase;
             color: var(--accent-emerald);
             background: var(--mint-glow);
-            padding: 5px 14px;
+            padding: 4px 12px;
             border-radius: 40px;
-            margin-bottom: 18px;
+            margin-bottom: 16px;
             letter-spacing: 0.5px;
-            border: 1px solid rgba(18, 105, 75, 0.05);
         }
         
         .staff-channels {
             border-top: 1px solid rgba(18, 105, 75, 0.08);
-            padding-top: 18px;
+            padding-top: 16px;
             margin-top: auto;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
             text-align: left;
         }
         .channel-link {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 0.88rem;
+            gap: 10px;
+            font-size: 0.85rem;
             color: #4a635b;
             text-decoration: none;
             transition: all 0.2s ease;
-            padding: 4px 0;
         }
         .channel-link:hover { color: var(--accent-emerald); transform: translateX(2px); }
-        .channel-link i { color: var(--accent-emerald); font-size: 1rem; width: 18px; }
+        .channel-link i { color: var(--accent-emerald); font-size: 0.95rem; width: 16px; }
 
-        /* INTERACTIVE PREMISES GALLERY GRID */
+        /* SCENIC BENTO CONTAINER GALLERY LAYOUTS */
         .premises-bento {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -371,7 +368,6 @@
             transition: transform 0.6s var(--transition-butter);
         }
         .bento-card:hover img { transform: scale(1.05); }
-        
         .w-2 { grid-column: span 2; }
         .h-2 { grid-row: span 2; }
 
@@ -392,7 +388,7 @@
         .bento-overlay p { font-size: 0.8rem; color: #bcccb5; transform: translateY(10px); transition: transform 0.4s var(--transition-butter) 0.05s; }
         .bento-card:hover .bento-overlay h4, .bento-card:hover .bento-overlay p { transform: translateY(0); }
 
-        /* FOOTER SYSTEM */
+        /* FOOTER MODULE CONTAINER (EXACT AS INDEX.HTML) */
         .footer-ultimate { background: var(--deep-teal); border-radius: 32px 32px 0 0; padding: 60px 40px 30px; color: #d1e2dd; margin-top: 60px; }
         .footer-flex { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px; max-width: 1300px; margin: 0 auto; }
         .footer-brand-side { display: flex; flex-direction: column; }
@@ -402,7 +398,7 @@
         .contact-pill:hover { background: rgba(255, 255, 255, 0.08); }
         .contact-pill i { color: #59ca9f; font-size: 1.05rem; }
 
-        /* LIGHTBOX SYSTEM */
+        /* MACRO LIGHTBOX STYLING OVERLAYS */
         .lightbox-orb {
             display: none; position: fixed; inset: 0;
             background: rgba(4, 20, 17, 0.96); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
@@ -411,7 +407,7 @@
         .lightbox-inner { position: relative; max-width: 85vw; max-height: 85vh; }
         .lightbox-inner img { max-width: 100%; max-height: 85vh; border-radius: 20px; box-shadow: 0 50px 100px rgba(0,0,0,0.6); }
 
-        /* RESPONSIVE LAYOUT BREAKPOINTS */
+        /* RESPONSIVE RUNTIME BREAKPOINTS */
         @media (max-width: 1200px) {
             .staff-matrix { grid-template-columns: repeat(2, 1fr); gap: 24px; }
             .staff-matrix.caretaker-tier { grid-template-columns: repeat(2, 1fr); }
@@ -419,7 +415,8 @@
         }
 
         @media (max-width: 1024px) {
-            .fixed-statement-box { margin: -20px auto 20px; }
+            .fixed-statement-box { position: relative; bottom: unset; left: unset; transform: unset; margin: 40px auto -20px; width: 100%; }
+            .hero-ram { padding-bottom: 40px; }
             .connect-strip { grid-template-columns: 1fr; gap: 14px; }
             .hero-title-container h1 { font-size: 2.5rem; }
             .nav-master { padding: 14px 24px; width: calc(100% - 24px); top: 12px; }
@@ -446,6 +443,7 @@
 </head>
 <body>
 
+<!-- EXACT MATCH TOP NAVIGATION BAR HEADER -->
 <nav class="nav-master">
     <div class="logo-brand-container">
         <img src="tifr.jpg" alt="TIFR Official Seal Logo" class="tifr-logo">
@@ -465,42 +463,44 @@
     </div>
 </nav>
 
+<!-- HERO AREA INTEGRATED WITH INTERCOM & AVAILABILITY OVERLAY -->
 <section class="hero-ram">
     <div class="hero-title-container">
         <h1>The Guesthouse Staff</h1>
         <p>Providing pristine operational support and elite hospitality management for the fundamental scientific community.</p>
     </div>
-</section>
-
-<div class="fixed-statement-box">
-    <div class="statement-card-inner">
-        <div class="connect-strip">
-            <div class="connect-node">
-                <i class="fa-solid fa-phone-volume"></i>
-                <div>
-                    <h4>Internal Intercom</h4>
-                    <p>Ext. 3050</p>
+    
+    <!-- ATTACHED FIXED COMMUNICATIONS STRIP LAYER -->
+    <div class="fixed-statement-box">
+        <div class="statement-card-inner">
+            <div class="connect-strip">
+                <div class="connect-node">
+                    <i class="fa-solid fa-phone-volume"></i>
+                    <div>
+                        <h4>Internal Intercom</h4>
+                        <p>Ext. 3050</p>
+                    </div>
                 </div>
-            </div>
-            <div class="connect-node">
-                <i class="fa-solid fa-phone-flip"></i>
-                <div>
-                    <h4>External Inquiries</h4>
-                    <p>+91-22-22783050</p>
+                <div class="connect-node">
+                    <i class="fa-solid fa-phone-flip"></i>
+                    <div>
+                        <h4>External Inquiries</h4>
+                        <p>+91-22-22783050</p>
+                    </div>
                 </div>
-            </div>
-            <div class="connect-node">
-                <i class="fa-solid fa-clock-rotate-left"></i>
-                <div>
-                    <h4>Availability</h4>
-                    <p>24/7 Shift Cover</p>
+                <div class="connect-node">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <div>
+                        <h4>Availability</h4>
+                        <p>24/7 Shift Cover</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<!-- CATEGORY FILTER INTERACTIVE CONTROLS -->
+<!-- CATEGORY FILTER CONTROLS MODULE -->
 <div class="filter-container">
     <button class="filter-btn active-filter" data-target="all">All Personnel</button>
     <button class="filter-btn" data-target="management">Operations Hub</button>
@@ -508,7 +508,7 @@
     <button class="filter-btn" data-target="caretakers">Facility Custodians</button>
 </div>
 
-<!-- MANAGEMENT TIER -->
+<!-- OPERATIONS HUB SECTION -->
 <section class="section-wrap" id="tier-management">
     <div class="section-badge"><i class="fa-solid fa-shield-user"></i> Operations Hub</div>
     <h2 class="section-head">Officer-in-Charge</h2>
@@ -532,13 +532,12 @@
     </div>
 </section>
 
-<!-- FRONT DESK TIER -->
+<!-- FRONT DESK MATRIX SECTION -->
 <section class="section-wrap" id="tier-frontdesk">
     <div class="section-badge"><i class="fa-solid fa-headset"></i> Communications Matrix</div>
     <h2 class="section-head">Front Desk Personnel</h2>
     
     <div class="staff-matrix">
-        <!-- Staff member 1 -->
         <div class="editorial-card">
             <div class="avatar-frame">
                 <img src="assests/people/Mohan M. Vartak.jpg" class="zoomable-target" alt="Mohan M. Vartak">
@@ -551,7 +550,6 @@
                 </div>
             </div>
         </div>
-        <!-- Staff member 2 -->
         <div class="editorial-card">
             <div class="avatar-frame">
                 <img src="assests/people/Sanjay V. Patil.jpg" class="zoomable-target" alt="Sanjay V. Patil">
@@ -564,7 +562,6 @@
                 </div>
             </div>
         </div>
-        <!-- Staff member 3 -->
         <div class="editorial-card">
             <div class="avatar-frame">
                 <img src="assests/people/Sumit S. Nitnaware.jpg" class="zoomable-target" alt="Sumit S. Nitnaware">
@@ -577,7 +574,6 @@
                 </div>
             </div>
         </div>
-        <!-- Staff member 4 -->
         <div class="editorial-card">
             <div class="avatar-frame">
                 <img src="assests/people/Bhakti V. Khetle.jpg" class="zoomable-target" alt="Bhakti V. Khetle">
@@ -593,13 +589,12 @@
     </div>
 </section>
 
-<!-- CARETAKERS TIER -->
+<!-- FACILITY CUSTODIANS CARETAKERS SECTION -->
 <section class="section-wrap" id="tier-caretakers">
     <div class="section-badge"><i class="fa-solid fa-hand-holding-hand"></i> Facility Custodians</div>
     <h2 class="section-head">Care-takers Team</h2>
     
     <div class="staff-matrix caretaker-tier">
-        <!-- Caretaker 1 -->
         <div class="editorial-card">
             <div class="avatar-frame">
                 <img src="assests/people/Prasad P. Rane.jpg" class="zoomable-target" alt="Prasad P. Rane">
@@ -609,7 +604,6 @@
                 <span class="card-label-tag">Guesthouse Caretaker</span>
             </div>
         </div>
-        <!-- Caretaker 2 -->
         <div class="editorial-card">
             <div class="avatar-frame">
                 <img src="assests/people/Arun S. Khude.jpg" class="zoomable-target" alt="Arun S. Khude">
@@ -619,7 +613,6 @@
                 <span class="card-label-tag">Guesthouse Caretaker</span>
             </div>
         </div>
-        <!-- Caretaker 3 -->
         <div class="editorial-card">
             <div class="avatar-frame">
                 <img src="assests/people/Jayawant M. Tandel.jpg" class="zoomable-target" alt="Jayawant M. Tandel">
@@ -632,7 +625,7 @@
     </div>
 </section>
 
-<!-- SCENIC SHOWCASE BENTO GALLERY -->
+<!-- SCENIC BENTO GRID SHOWCASE -->
 <section class="section-wrap">
     <div class="section-badge"><i class="fa-solid fa-images"></i> Scenic Showcase</div>
     <h2 class="section-head">Premises Gallery</h2>
@@ -690,6 +683,7 @@
     </div>
 </section>
 
+<!-- EXACT MATCH FOOTER ARCHITECTURE -->
 <footer class="footer-ultimate" id="contact">
     <div class="footer-flex">
         <div class="footer-brand-side">
@@ -710,13 +704,13 @@
     <div style="text-align: center; margin-top: 50px; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 24px; opacity: 0.4;">&copy; 2026 Tata Institute of Fundamental Research. All rights reserved.</div>
 </footer>
 
-<!-- LIGHTBOX ELEMENT -->
+<!-- LIGHTBOX ELEMENT INFRASTRUCTURE -->
 <div class="lightbox-orb" id="globalLightbox">
     <div class="lightbox-inner"><img id="lightboxImg" src="" alt="Active View"></div>
 </div>
 
 <script>
-    // Mobile Drawer Navigation Toggle Linkage
+    // Navigation Drawer Logic Links
     const mobileToggle = document.querySelector('.mobile-toggle');
     const navLinks = document.querySelector('.nav-links');
     
@@ -725,13 +719,12 @@
         mobileToggle.querySelector('i').className = navLinks.classList.contains('mobile-active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
     });
 
-    // Filtering Engine Linkage System
+    // Content Display Dynamic Filters Linkages
     const filterButtons = document.querySelectorAll('.filter-btn');
     const sections = document.querySelectorAll('.section-wrap[id^="tier-"]');
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // Remove active classification tag from current buttons
             filterButtons.forEach(btn => btn.classList.remove('active-filter'));
             button.classList.add('active-filter');
 
@@ -755,7 +748,7 @@
         });
     });
 
-    // Global Lightbox Macro Magnifier Operations Setup
+    // Scenery Lightbox View Controllers
     const globalLightbox = document.getElementById('globalLightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const comprehensiveImages = document.querySelectorAll('.zoomable-target');
