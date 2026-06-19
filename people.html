@@ -730,26 +730,37 @@
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
+            // 1. Update UI state for buttons
             filterButtons.forEach(btn => btn.classList.remove('active-filter'));
             button.classList.add('active-filter');
             
             const target = button.getAttribute('data-target');
 
+            // 2. Iterate through sections to show/hide based on target
             sections.forEach(section => {
-                if (target === 'all') {
+                const isMatch = (target === 'all' || section.id === `tier-${target}`);
+
+                if (isMatch) {
                     section.style.display = 'block';
-                    setTimeout(() => { section.style.opacity = '1'; section.style.transform = 'translateY(0)'; }, 50);
+                    // Trigger a brief delay to allow CSS transitions to pick up
+                    requestAnimationFrame(() => {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    });
                 } else {
-                    if (section.id === `tier-${target}`) {
-                        section.style.display = 'block';
-                        setTimeout(() => { section.style.opacity = '1'; section.style.transform = 'translateY(0)'; }, 50);
-                    } else {
-                        section.style.opacity = '0';
-                        section.style.transform = 'translateY(15px)';
-                        section.style.display = 'none';
-                    }
+                    // Hide non-matching sections
+                    section.style.opacity = '0';
+                    section.style.transform = 'translateY(15px)';
+                    // Set display to none after the transition finishes
+                    setTimeout(() => {
+                        if (section.style.opacity === '0') {
+                            section.style.display = 'none';
+                        }
+                    }, 300); // Matches transition duration
                 }
             });
+
+            // 3. Refresh ScrollTrigger to recalculate animations
             ScrollTrigger.refresh();
         });
     });
