@@ -208,16 +208,16 @@
             padding: 4px;
         }
 
-        /* ── HERO ── */
+        /* ── HERO BANNER (REDUCED SIZE) ── */
         .hero-ram {
-            min-height: 70vh;
+            min-height: 35vh;
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 50px;
             margin-top: 130px; 
-            padding: 60px 20px 80px;
+            padding: 40px;
             box-shadow: var(--shadow-3d-raised);
             overflow: hidden;
         }
@@ -236,7 +236,7 @@
             opacity: 0;
             transform: scale(1.04);
             transition: opacity 1.5s ease-in-out, transform 12s linear;
-            image-rendering: -webkit-optimize-contrast; /* Ensures high clarity */
+            image-rendering: -webkit-optimize-contrast;
             backface-visibility: hidden;
         }
 
@@ -245,130 +245,85 @@
             transform: scale(1);
         }
 
-        /* Adjusted values from 0.35/0.55 down to 0.20/0.35 for pristine clarity */
         .hero-ram::after {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(rgba(3, 20, 17, 0.20), rgba(5, 33, 28, 0.35));
+            background: linear-gradient(rgba(3, 20, 17, 0.25), rgba(5, 33, 28, 0.45));
             z-index: 2;
         }
 
         .hero-card {
-            max-width: 860px;
+            max-width: 960px;
             width: 100%;
-            background: rgba(5, 33, 28, 0.65); /* Slightly darker card text base for clarity against clear bg */
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            padding: 48px 56px;
-            border-radius: 36px;
             text-align: center;
             color: white;
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            box-shadow: var(--shadow-3d-deep);
-            transform-style: preserve-3d;
-            perspective: 1000px;
             position: relative;
             z-index: 3;
         }
 
         .hero-card h1 {
-            font-size: 3.4rem;
+            font-size: 3rem;
             font-weight: 800;
             letter-spacing: -1px;
-            line-height: 1.15;
-            margin-bottom: 18px;
+            margin-bottom: 10px;
             background: linear-gradient(120deg, #ffffff, #e3fcf1);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            transform: translateZ(40px);
         }
 
         .hero-card p {
             font-size: 1.1rem;
             line-height: 1.6;
-            opacity: 0.95;
-            font-weight: 400;
-            transform: translateZ(25px);
-            margin-bottom: 12px;
+            opacity: 0.85;
+            max-width: 720px;
+            margin: 0 auto;
         }
 
         .connect-strip {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 16px;
-            margin-top: 28px;
-            text-align: left;
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 20px;
         }
 
         .connect-node {
-            background: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            padding: 16px 22px;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            padding: 10px 20px;
             border-radius: 20px;
             display: flex;
             align-items: center;
-            gap: 16px;
-            transform: translateZ(20px);
+            gap: 12px;
+            text-align: left;
         }
 
         .connect-node i {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             color: #a8e6cc;
         }
         .connect-node div h4 {
-            font-size: 0.72rem;
+            font-size: 0.65rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             color: #a8e6cc;
             font-weight: 700;
         }
         .connect-node div p {
-            font-size: 1rem;
-            font-weight: 700;
-            margin-top: 3px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 1px;
             color: white;
-        }
-
-        .scroll-indicator {
-            position: absolute;
-            bottom: 24px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 4px;
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            font-size: 0.72rem;
-            font-weight: 700;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            transition: color 0.3s;
-            z-index: 15;
-        }
-
-        .scroll-indicator:hover {
-            color: #ffffff;
-        }
-        .scroll-indicator i {
-            font-size: 1.2rem;
-            animation: bounceArrow 2s infinite;
-        }
-
-        @keyframes bounceArrow {
-            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-            40% { transform: translateY(-6px); }
-            60% { transform: translateY(-3px); }
         }
 
         /* ── SECTION WRAPPERS ── */
         .section-wrap {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 100px 40px;
+            padding: 80px 40px;
         }
 
         .section-badge {
@@ -384,10 +339,10 @@
         }
 
         .section-head {
-            font-size: 2.6rem;
+            font-size: 2.4rem;
             font-weight: 800;
             letter-spacing: -1px;
-            margin-bottom: 54px;
+            margin-bottom: 44px;
             position: relative;
             color: var(--deep-teal);
         }
@@ -644,6 +599,7 @@
             padding: 50px 40px 24px;
             color: #d1e2dd;
             box-shadow: inset 0 4px 25px rgba(0, 0, 0, 0.25);
+            margin-top: 40px;
         }
 
         .footer-flex {
@@ -740,20 +696,16 @@
             .footer-info-side { flex-direction: column; width: 100%; }
 
             .hero-ram {
-                min-height: 55vh;
+                min-height: 25vh;
                 margin-top: 105px;
-                padding-top: 40px;
+                padding: 30px 20px;
                 border-radius: 35px;
             }
 
-            .hero-card {
-                padding: 36px 24px;
-                border-radius: 28px;
-            }
-            .hero-card h1 { font-size: 2.4rem; }
-            .hero-card p { font-size: 1rem; }
-            .connect-strip { grid-template-columns: 1fr; }
-            .section-wrap { padding: 70px 20px; }
+            .hero-card h1 { font-size: 2.2rem; }
+            .hero-card p { font-size: 0.95rem; }
+            .connect-strip { flex-direction: column; gap: 12px; }
+            .section-wrap { padding: 60px 20px; }
 
             .nav-master {
                 padding: 12px 24px;
@@ -864,14 +816,7 @@
                 </div>
             </div>
         </div>
-
-        <a href="#content-below" class="scroll-indicator" aria-label="Scroll down to content">
-            <span>Scroll</span>
-            <i class="fa-solid fa-chevron-down"></i>
-        </a>
     </section>
-
-    <div id="content-below"></div>
 
     <!-- ─── IN-HOUSE DINING ─── -->
     <section class="section-wrap" id="in-house">
@@ -1110,9 +1055,6 @@
                 }
             });
         });
-
-        // ─── Hero float ───
-        gsap.to('.hero-card', { y: -6, duration: 3, repeat: -1, yoyo: true, ease: "power1.inOut" });
 
         // ─── body fade-in ───
         document.getElementById('pageBody').style.opacity = '1';
