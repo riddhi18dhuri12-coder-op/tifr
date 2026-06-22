@@ -1,1 +1,139 @@
-h
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Contact & Directions | TIFR GuestHouse</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-ivory: #f2f6f3;
+            --deep-teal: #05211c;
+            --accent-emerald: #105e43;
+            --mint-glow: #e8f5ef;
+            --glass-white: rgba(255, 255, 255, 0.88);
+            --border-soft: rgba(16, 94, 67, 0.14);
+            --shadow-3d-flat: 0 10px 25px rgba(5, 33, 28, 0.05), 0 2px 6px rgba(5, 33, 28, 0.02);
+            --shadow-3d-raised: 0 25px 50px -10px rgba(5, 33, 28, 0.15), 0 10px 20px -8px rgba(5, 33, 28, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            --transition-butter: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-ivory);
+            color: #142622;
+        }
+
+        /* HEADER & NAVIGATION (SYNCED WITH INDEX) */
+        .nav-master {
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 48px);
+            max-width: 1400px;
+            z-index: 2000;
+            background: var(--glass-white);
+            backdrop-filter: blur(24px);
+            border-radius: 35px;
+            border: 1px solid rgba(255,255,255,0.8);
+            box-shadow: var(--shadow-3d-flat);
+            padding: 14px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-brand-container { display: flex; align-items: center; gap: 18px; }
+        .tifr-logo { width: 58px; height: 58px; object-fit: contain; }
+        .logo-brand { font-weight: 800; font-size: 1.4rem; color: var(--deep-teal); }
+
+        .nav-links { display: flex; gap: 28px; }
+        .nav-links a { text-decoration: none; font-weight: 600; font-size: 0.9rem; color: #23423a; }
+        .nav-links a:hover { color: var(--accent-emerald); }
+
+        /* CONTENT */
+        .section-wrap { max-width: 1400px; margin: 150px auto 50px; padding: 0 40px; }
+        .section-head { font-size: 2.6rem; font-weight: 800; color: var(--deep-teal); margin-bottom: 40px; }
+        
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+        .glass-card {
+            background: white;
+            border-radius: 32px;
+            padding: 44px;
+            box-shadow: var(--shadow-3d-flat);
+            border: 1px solid var(--border-soft);
+        }
+
+        .contact-item { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
+        .icon-box { width: 50px; height: 50px; background: var(--mint-glow); color: var(--accent-emerald); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; }
+        
+        /* FOOTER (SYNCED) */
+        .footer-ultimate {
+            background: var(--deep-teal);
+            border-radius: 45px 45px 0 0;
+            padding: 50px 40px 24px;
+            color: #d1e2dd;
+            margin-top: 80px;
+        }
+
+        @media (max-width: 1024px) {
+            .contact-grid { grid-template-columns: 1fr; }
+            .nav-master { width: calc(100% - 24px); top: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="nav-master">
+    <div class="logo-brand-container">
+        <img src="tifr-logo-black-new.png" alt="Logo" class="tifr-logo">
+        <div class="logo-brand">TIFR GuestHouse</div>
+    </div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<section class="section-wrap">
+    <h2 class="section-head">Get In Touch</h2>
+    <div class="contact-grid">
+        <div class="glass-card">
+            <h3>Contact Details</h3>
+            <br>
+            <div class="contact-item">
+                <div class="icon-box"><i class="fa-solid fa-phone"></i></div>
+                <div><strong>Phone</strong><br>+91-22-2278 3050</div>
+            </div>
+            <div class="contact-item">
+                <div class="icon-box"><i class="fa-solid fa-envelope"></i></div>
+                <div><strong>Email</strong><br>guesthouse@tifr.res.in</div>
+            </div>
+        </div>
+        <div class="glass-card">
+            <h3>Feedback</h3>
+            <br>
+            <p>Your suggestions help us improve. For feedback, please reach out to our management desk.</p>
+            <br>
+            <div class="contact-item">
+                <div class="icon-box"><i class="fa-solid fa-comments"></i></div>
+                <div><strong>Feedback Email</strong><br>feedback.gh@tifr.res.in</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer class="footer-ultimate">
+    <p style="text-align: center;">&copy; 2026 Tata Institute of Fundamental Research. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
