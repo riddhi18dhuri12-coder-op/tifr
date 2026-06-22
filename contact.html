@@ -3,96 +3,804 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Contact & Directions | TIFR GuestHouse</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <title>Contact | TIFR GuestHouse</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
+
         :root {
             --bg-ivory: #f2f6f3;
             --deep-teal: #05211c;
             --accent-emerald: #105e43;
+            --mint-glow: #e8f5ef;
             --glass-white: rgba(255, 255, 255, 0.88);
+            --border-soft: rgba(16, 94, 67, 0.14);
             --shadow-3d-flat: 0 10px 25px rgba(5, 33, 28, 0.05), 0 2px 6px rgba(5, 33, 28, 0.02);
-            --shadow-3d-raised: 0 25px 50px -10px rgba(5, 33, 28, 0.15), 0 10px 20px -8px rgba(5, 33, 28, 0.1);
+            --shadow-3d-raised: 0 25px 50px -10px rgba(5, 33, 28, 0.15), 0 10px 20px -8px rgba(5, 33, 28, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            --shadow-3d-deep: 0 35px 70px -15px rgba(3, 20, 17, 0.35), 0 20px 40px -10px rgba(0, 0, 0, 0.25);
+            --transition-butter: cubic-bezier(0.16, 1, 0.3, 1);
         }
 
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-ivory); color: #142622; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-ivory);
+            color: #142622;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
 
-        /* Navigation & Footer matching Index */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #e0e9e4; }
+        ::-webkit-scrollbar-thumb { background: var(--accent-emerald); border-radius: 4px; }
+
+        /* ── NAVBAR ── */
         .nav-master {
-            position: fixed; top: 24px; left: 50%; transform: translateX(-50%);
-            width: calc(100% - 48px); max-width: 1400px; z-index: 2000;
-            background: var(--glass-white); backdrop-filter: blur(24px);
-            border-radius: 35px; border: 1px solid rgba(255,255,255,0.8);
-            box-shadow: var(--shadow-3d-flat); padding: 14px 36px;
-            display: flex; justify-content: space-between; align-items: center;
+            position: fixed;
+            top: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 48px);
+            max-width: 1400px;
+            z-index: 2000;
+            background: var(--glass-white);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 35px;
+            border: 1px solid rgba(255,255,255,0.8);
+            box-shadow: var(--shadow-3d-flat);
+            padding: 14px 36px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.5s var(--transition-butter);
         }
 
-        .section-wrap { max-width: 1400px; margin: 150px auto 50px; padding: 0 40px; }
-        .section-head { font-size: 2.6rem; font-weight: 800; color: var(--deep-teal); margin-bottom: 40px; }
-        
-        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
-        .glass-card {
-            background: white; border-radius: 32px; padding: 44px;
-            box-shadow: var(--shadow-3d-flat); border: 1px solid rgba(16, 94, 67, 0.14);
+        .logo-brand-container { display: flex; align-items: center; gap: 18px; }
+
+        .tifr-logo {
+            width: 58px; height: 58px;
+            object-fit: contain;
+            filter: drop-shadow(0 6px 12px rgba(5, 33, 28, 0.18));
+            transition: transform 0.6s var(--transition-butter);
+        }
+        .nav-master:hover .tifr-logo { transform: scale(1.06) rotate(4deg); }
+
+        .logo-brand {
+            font-weight: 800;
+            font-size: 1.4rem;
+            letter-spacing: -0.7px;
+            background: linear-gradient(135deg, var(--deep-teal), var(--accent-emerald));
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            white-space: nowrap;
         }
 
-        .map-view-container {
-            display: block; width: 100%; height: 350px; border-radius: 32px;
-            overflow: hidden; box-shadow: var(--shadow-3d-raised);
+        .nav-links { display: flex; gap: 28px; }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #23423a;
+            transition: color 0.25s;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 0;
         }
-        .map-view-container img { width: 100%; height: 100%; object-fit: cover; }
+        .nav-links a i { font-size: 0.82rem; opacity: 0.6; transition: transform 0.3s; }
+        .nav-links a:hover, .nav-links a.active { color: var(--accent-emerald); }
+        .nav-links a:hover i, .nav-links a.active i { transform: translateY(-1px); opacity: 1; }
+        .nav-links a:after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 0; height: 3px;
+            background: var(--accent-emerald);
+            border-radius: 2px;
+            transition: width 0.3s var(--transition-butter);
+        }
+        .nav-links a:hover:after, .nav-links a.active:after { width: 100%; }
 
+        .mobile-toggle {
+            display: none;
+            background: none; border: none;
+            font-size: 1.5rem;
+            color: var(--deep-teal);
+            cursor: pointer;
+            z-index: 2100; padding: 4px;
+        }
+
+        /* ── NOTICE BAR ── */
+        .flashing-notice-bar {
+            background-color: #ffebeb;
+            border-bottom: 2px solid #ff4d4d;
+            color: #cc0000;
+            text-align: center;
+            padding: 14px 20px;
+            font-size: 0.94rem;
+            font-weight: 700;
+            letter-spacing: 0.3px;
+            margin-top: 120px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 15px rgba(204, 0, 0, 0.05);
+        }
+        .flashing-notice-bar i { animation: notice-flash 1.2s infinite alternate cubic-bezier(0.4, 0, 0.6, 1); }
+        @keyframes notice-flash {
+            0%   { opacity: 0.3; transform: scale(0.95); }
+            100% { opacity: 1;   transform: scale(1.08); color: #ff0000; }
+        }
+
+        /* ── HERO ── */
+        .hero-contact {
+            min-height: 52vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 0 0 50px 50px;
+            padding: 140px 20px 80px;
+            box-shadow: var(--shadow-3d-raised);
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--deep-teal) 0%, #0d3d2f 55%, var(--accent-emerald) 100%);
+        }
+        .hero-contact::after {
+            content: '';
+            position: absolute; inset: 0;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(16,94,67,0.35) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(232,245,239,0.08) 0%, transparent 55%);
+        }
+
+        .hero-card {
+            max-width: 860px; width: 100%;
+            background: rgba(5, 33, 28, 0.55);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            padding: 48px 56px;
+            border-radius: 36px;
+            text-align: center;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.25);
+            box-shadow: var(--shadow-3d-deep);
+            position: relative;
+            z-index: 3;
+        }
+        .hero-card h1 {
+            font-size: 3.4rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.15;
+            margin-bottom: 18px;
+            background: linear-gradient(120deg, #ffffff, #e3fcf1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .hero-card p { font-size: 1.05rem; line-height: 1.6; opacity: 0.9; margin-bottom: 0; }
+
+        /* ── SCROLL INDICATOR ── */
+        .scroll-indicator {
+            position: absolute; bottom: 24px; left: 50%;
+            transform: translateX(-50%);
+            display: flex; flex-direction: column; align-items: center; gap: 4px;
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-size: 0.72rem; font-weight: 700; letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: color 0.3s; z-index: 15;
+        }
+        .scroll-indicator:hover { color: #fff; }
+        .scroll-indicator i { font-size: 1.2rem; animation: bounceArrow 2s infinite; }
+        @keyframes bounceArrow {
+            0%,20%,50%,80%,100% { transform: translateY(0); }
+            40% { transform: translateY(-6px); }
+            60% { transform: translateY(-3px); }
+        }
+
+        /* ── SECTIONS ── */
+        .section-wrap {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 100px 40px;
+        }
+        .section-badge {
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            color: var(--accent-emerald);
+            font-weight: 700;
+            margin-bottom: 14px;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .section-head {
+            font-size: 2.6rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 54px;
+            position: relative;
+            color: var(--deep-teal);
+        }
+        .section-head:after {
+            content: '';
+            position: absolute;
+            bottom: -14px; left: 0;
+            width: 60px; height: 5px;
+            background: var(--accent-emerald);
+            border-radius: 4px;
+        }
+
+        /* ── GLASS CARD ── */
+        .glass-info {
+            background: white;
+            border-radius: 32px;
+            padding: 44px;
+            box-shadow: var(--shadow-3d-flat);
+            border: 1px solid var(--border-soft);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            transition: all 0.4s var(--transition-butter);
+            transform-style: preserve-3d;
+        }
+        .glass-info:hover { box-shadow: var(--shadow-3d-raised); }
+
+        /* ── REACH US LAYOUT ── */
+        .reach-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 36px;
+            align-items: stretch;
+        }
+
+        /* ── MAP EMBED ── */
+        .map-container {
+            border-radius: 32px;
+            overflow: hidden;
+            box-shadow: var(--shadow-3d-flat);
+            border: 1px solid var(--border-soft);
+            transition: box-shadow 0.4s var(--transition-butter);
+            min-height: 480px;
+            position: relative;
+        }
+        .map-container:hover { box-shadow: var(--shadow-3d-raised); }
+        .map-container iframe {
+            width: 100%; height: 100%;
+            border: none; display: block;
+            min-height: 480px;
+        }
+
+        /* ── MAP INFO SIDE PANELS ── */
+        .map-info-panels {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .map-info-panel {
+            background: white;
+            border-radius: 24px;
+            padding: 28px 30px;
+            box-shadow: var(--shadow-3d-flat);
+            border: 1px solid var(--border-soft);
+            transition: all 0.4s var(--transition-butter);
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        .map-info-panel:hover { box-shadow: var(--shadow-3d-raised); }
+        .map-panel-icon {
+            min-width: 46px; height: 46px;
+            background: var(--mint-glow);
+            border-radius: 14px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.2rem; color: var(--accent-emerald);
+            border: 1px solid rgba(16,94,67,0.08);
+            flex-shrink: 0;
+            transition: all 0.35s var(--transition-butter);
+        }
+        .map-info-panel:hover .map-panel-icon {
+            background: var(--accent-emerald);
+            color: white;
+            transform: scale(1.08) rotate(-4deg);
+        }
+        .map-panel-body h4 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            margin-bottom: 8px;
+            letter-spacing: -0.3px;
+        }
+        .map-panel-body p, .map-panel-body address {
+            font-size: 0.91rem;
+            color: #445953;
+            line-height: 1.7;
+            font-style: normal;
+        }
+        .map-panel-body a {
+            color: var(--accent-emerald);
+            font-weight: 600;
+            text-decoration: none;
+        }
+        .map-panel-body a:hover { text-decoration: underline; }
+
+        /* ── CONTACT CARDS GRID ── */
+        .contact-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 0;
+        }
+
+        .contact-card {
+            background: white;
+            border-radius: 28px;
+            padding: 36px 32px;
+            box-shadow: var(--shadow-3d-flat);
+            border: 1px solid var(--border-soft);
+            transition: all 0.4s var(--transition-butter);
+            transform-style: preserve-3d;
+        }
+        .contact-card:hover { box-shadow: var(--shadow-3d-raised); }
+
+        .contact-card-icon {
+            width: 56px; height: 56px;
+            background: var(--mint-glow);
+            border-radius: 18px;
+            display: flex; align-items: center; justify-content: center;
+            margin-bottom: 22px;
+            font-size: 1.4rem;
+            color: var(--accent-emerald);
+            border: 1px solid rgba(16,94,67,0.08);
+            transition: transform 0.4s var(--transition-butter), background 0.3s;
+        }
+        .contact-card:hover .contact-card-icon {
+            transform: scale(1.1) rotate(-4deg);
+            background: var(--accent-emerald);
+            color: white;
+        }
+
+        .contact-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            margin-bottom: 10px;
+        }
+        .contact-card p {
+            font-size: 0.95rem;
+            color: #445953;
+            line-height: 1.65;
+        }
+        .contact-card a {
+            color: var(--accent-emerald);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity 0.2s;
+        }
+        .contact-card a:hover { opacity: 0.75; }
+
+        /* ── EMAIL HIGHLIGHT ── */
+        .email-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--mint-glow);
+            border: 1px solid rgba(16,94,67,0.12);
+            border-radius: 40px;
+            padding: 10px 22px;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--accent-emerald);
+            margin-top: 14px;
+            text-decoration: none;
+            transition: all 0.3s var(--transition-butter);
+            word-break: break-all;
+        }
+        .email-pill:hover {
+            background: var(--accent-emerald);
+            color: white;
+            box-shadow: 0 8px 20px rgba(16,94,67,0.2);
+        }
+
+
+
+        /* ── BUS TAG ── */
+        .bus-badge {
+            display: inline-flex; align-items: center; gap: 5px;
+            background: var(--deep-teal); color: white;
+            border-radius: 8px; padding: 3px 10px;
+            font-size: 0.8rem; font-weight: 700;
+            margin: 0 2px;
+        }
+
+        /* ── FEEDBACK HIGHLIGHT BOX ── */
+        .feedback-box {
+            background: linear-gradient(135deg, #f0faf5 0%, #e4f5ec 100%);
+            border: 1px solid rgba(16,94,67,0.12);
+            border-radius: 24px;
+            padding: 32px 36px;
+            margin-top: 36px;
+            display: flex;
+            gap: 28px;
+            align-items: flex-start;
+        }
+        .feedback-box-icon {
+            min-width: 52px; height: 52px;
+            background: var(--accent-emerald);
+            border-radius: 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem; color: white;
+            flex-shrink: 0;
+        }
+        .feedback-box h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            margin-bottom: 8px;
+        }
+        .feedback-box p {
+            font-size: 0.92rem;
+            color: #445953;
+            line-height: 1.65;
+        }
+
+        /* ── FOOTER ── */
         .footer-ultimate {
-            background: var(--deep-teal); border-radius: 45px 45px 0 0;
-            padding: 50px 40px 24px; color: #d1e2dd;
+            background: var(--deep-teal);
+            border-radius: 50px 50px 0 0;
+            padding: 48px 48px 28px;
+            margin-top: 60px;
+        }
+        .footer-flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 36px;
+            flex-wrap: wrap;
+        }
+        .footer-brand-side { max-width: 360px; }
+        .footer-info-side {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .contact-pill {
+            display: flex; align-items: center; gap: 12px;
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 14px 20px;
+            color: rgba(255,255,255,0.82);
+            font-size: 0.88rem; font-weight: 500;
+        }
+        .contact-pill i { color: #6ecba0; font-size: 1rem; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 1024px) {
+            .reach-grid, .contact-cards-grid { grid-template-columns: 1fr !important; }
+            .footer-flex { flex-direction: column; gap: 20px; }
+            .footer-info-side { width: 100%; }
+
+            .hero-contact { min-height: 46vh; padding-top: 130px; border-radius: 0 0 35px 35px; }
+            .hero-card { padding: 36px 24px; border-radius: 28px; }
+            .hero-card h1 { font-size: 2.4rem; }
+
+            .section-wrap { padding: 70px 20px; }
+
+            .nav-master { padding: 12px 24px; width: calc(100% - 24px); top: 12px; border-radius: 24px; }
+            .logo-brand { font-size: 1.2rem; }
+            .tifr-logo { width: 48px; height: 48px; }
+            .flashing-notice-bar { margin-top: 110px; font-size: 0.88rem; padding: 12px 16px; }
+
+            .mobile-toggle { display: block; }
+            .nav-links {
+                position: fixed;
+                top: 85px; left: 0; width: 100%;
+                background: rgba(255,255,255,0.98);
+                backdrop-filter: blur(25px);
+                box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+                flex-direction: column;
+                padding: 24px; gap: 14px;
+                border-radius: 24px;
+                border: 1px solid var(--border-soft);
+                transform: translateY(-150%);
+                opacity: 0;
+                transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+                pointer-events: none;
+                z-index: 1999;
+            }
+            .nav-links.mobile-active { transform: translateY(0); opacity: 1; pointer-events: auto; }
+            .nav-links a { font-size: 1.05rem; padding: 12px 0; width: 100%; border-bottom: 1px solid #ebf2ee; }
+            .nav-links a:after { display: none; }
+
+            .feedback-box { flex-direction: column; gap: 18px; }
+            .glass-info { padding: 28px 24px; }
+            .reach-grid { grid-template-columns: 1fr !important; }
+            .map-container { min-height: 300px; }
+            .map-container iframe { min-height: 300px; }
+            .map-info-panel { padding: 20px; }
+            .map-panel-icon { min-width: 40px; height: 40px; font-size: 1rem; }
+            .footer-ultimate { border-radius: 32px 32px 0 0; padding: 32px 20px 20px; }
+            .contact-pill { padding: 12px 16px; font-size: 0.85rem; border-radius: 12px; }
         }
     </style>
 </head>
 <body>
 
+<!-- ── NAVBAR ── -->
 <nav class="nav-master">
-    <div class="logo-brand">TIFR GuestHouse</div>
+    <div class="logo-brand-container">
+        <img src="tifr-logo-black-new.png" alt="TIFR Official Seal Logo" class="tifr-logo">
+        <div class="logo-brand">TIFR GuestHouse</div>
+    </div>
+    <button class="mobile-toggle" aria-label="Toggle Navigation Menu"><i class="fa-solid fa-bars"></i></button>
     <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="contact.html">Contact</a>
+        <a href="#"><i class="fa-solid fa-house-chimney"></i> TIFR Home</a>
+        <a href="index.html"><i class="fa-solid fa-monument"></i> About</a>
+        <a href="people.html"><i class="fa-solid fa-users-viewfinder"></i> People</a>
+        <a href="catering.html"><i class="fa-solid fa-utensils"></i> Catering</a>
+        <a href="usage_rules.html"><i class="fa-solid fa-gavel"></i> Usage Rules</a>
+        <a href="contact.html" class="active"><i class="fa-solid fa-address-book"></i> Contact</a>
     </div>
 </nav>
 
-<section class="section-wrap">
-    <h2 class="section-head">Contact & Directions</h2>
-    
-    <a href="https://maps.google.com" target="_blank" class="map-view-container">
-        <img src="image_5726c2.png" alt="Ramanujan Guesthouse Map">
-    </a>
+<!-- ── NOTICE BAR ── -->
+<div class="flashing-notice-bar">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <span>NOTICE: TIFR guesthouse facility can be availed by TIFR Institute visitors only.</span>
+</div>
 
-    <div class="contact-grid">
-        <div class="glass-card">
-            <h3>To Reach Us</h3>
-            <p style="line-height: 1.6; color: #333;">Ramanujan House is located inside the TIFR housing colony on 2, Homi Bhabha Road, opposite the TIFR campus. To reach us, you can take a taxi and ask the driver to take you to the Navy Nagar bus terminus in Colaba, or take bus no. 3, 11, 125 from CST and bus no. 137 from Churchgate station, and get down at the last stop. Then proceed towards the same direction until you reach the end of the road where TIFR campus is located.</p>
+<!-- ── HERO ── -->
+<section class="hero-contact">
+    <div class="hero-card">
+        <h1><i class="fa-solid fa-address-book" style="opacity:0.85; margin-right:10px;"></i>Contact Us</h1>
+        <p>Reach out to the Ramanujan Guesthouse team — we're here to assist visiting scholars and research affiliates at the TIFR Colaba Campus.</p>
+    </div>
+    <a href="#reach-us" class="scroll-indicator" aria-label="Scroll down to content">
+        <span>Scroll</span>
+        <i class="fa-solid fa-chevron-down"></i>
+    </a>
+</section>
+
+<div id="reach-us"></div>
+
+<!-- ── TO REACH US ── -->
+<section class="section-wrap">
+    <div class="section-badge"><i class="fa-solid fa-location-crosshairs"></i> Getting Here</div>
+    <h2 class="section-head">How to Reach Us</h2>
+
+    <div class="reach-grid">
+        <!-- Map embed — left side -->
+        <div class="map-container">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.0744734592487!2d72.80000827520748!3d18.904816982369826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce3b2dbb05df%3A0x3eb7ee0a3a4ed24b!2sTata%20Institute%20of%20Fundamental%20Research!5e0!3m2!1sen!2sin!4v1700000000000"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="TIFR Campus Location Map">
+            </iframe>
         </div>
-        <div class="glass-card">
-            <h3>Contact Details</h3>
-            <p><strong>Phone Number:</strong> +91-22-2278 3050</p>
-            <p style="margin-top: 10px;"><strong>Email:</strong> guesthouse@tifr.res.in</p>
-            
-            <h3 style="margin-top: 30px;">Feedback</h3>
-            <p>Your appreciation of our services & complaints/suggestions motivates us to strive for improvements. Please write to us or fill up the feedback form available at the front desk.</p>
-            <p style="margin-top: 10px;"><strong>Email:</strong> feedback.gh@tifr.res.in</p>
-        </div>
-        <div class="glass-card" style="grid-column: span 2;">
-            <h3>Location</h3>
-            <p>The Ramanujan Guesthouse is located inside the TIFR Housing Colony adjacent to the TIFR Main Campus on Homi Bhabha Road, in Navy Nagar, Colaba, Mumbai.</p>
+
+        <!-- Info panels — right side (matching reference image style) -->
+        <div class="map-info-panels">
+
+            <div class="map-info-panel">
+                <div class="map-panel-icon"><i class="fa-solid fa-location-dot"></i></div>
+                <div class="map-panel-body">
+                    <h4>How to Find Us</h4>
+                    <address>
+                        Ramanujan Guest House<br>
+                        2, Homi Bhabha Road<br>
+                        Navy Nagar, Colaba<br>
+                        Mumbai — 400 005<br>
+                        Maharashtra, India
+                    </address>
+                </div>
+            </div>
+
+            <div class="map-info-panel">
+                <div class="map-panel-icon"><i class="fa-solid fa-clock"></i></div>
+                <div class="map-panel-body">
+                    <h4>How to Get Here</h4>
+                    <p>
+                        Take a taxi to <strong>Navy Nagar bus terminus</strong> in Colaba, or ride bus
+                        <span class="bus-badge"><i class="fa-solid fa-bus"></i> 3</span>
+                        <span class="bus-badge"><i class="fa-solid fa-bus"></i> 11</span>
+                        <span class="bus-badge"><i class="fa-solid fa-bus"></i> 125</span>
+                        from <a href="http://en.wikipedia.org/wiki/Chhatrapati_Shivaji_Terminus" target="_blank" rel="noopener">CST</a>
+                        or bus <span class="bus-badge"><i class="fa-solid fa-bus"></i> 137</span>
+                        from <a href="http://en.wikipedia.org/wiki/Churchgate_railway_station" target="_blank" rel="noopener">Churchgate</a>.
+                        Alight at the last stop and walk towards the TIFR campus gate.
+                    </p>
+                    <a href="http://www.tifr.res.in/index.php/en/contact-us/how-to-reach-tifr.html" target="_blank" rel="noopener" style="display:inline-block; margin-top:10px; font-size:0.85rem;">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Full directions on TIFR website
+                    </a>
+                </div>
+            </div>
+
+            <div class="map-info-panel">
+                <div class="map-panel-icon"><i class="fa-solid fa-phone"></i></div>
+                <div class="map-panel-body">
+                    <h4>How to Get in Touch</h4>
+                    <p>We make sure to respond to every enquiry within 48 hours.</p>
+                    <p style="margin-top: 8px;">
+                        Call us at <a href="tel:+912222783050"><strong>+91-22-2278 3050</strong></a>
+                        or use the email below.
+                    </p>
+                    <a class="email-pill" href="mailto:guesthouse@tifr.res.in" style="margin-top:12px; font-size:0.83rem;">
+                        <i class="fa-solid fa-envelope"></i> guesthouse{at}tifr.res.in
+                    </a>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
 
+<!-- ── CONTACT DETAILS ── -->
+<section class="section-wrap" style="padding-top: 0;">
+    <div class="section-badge"><i class="fa-solid fa-phone-volume"></i> Get in Touch</div>
+    <h2 class="section-head">Contact Details</h2>
+
+    <div class="contact-cards-grid">
+
+        <!-- Phone -->
+        <div class="contact-card">
+            <div class="contact-card-icon">
+                <i class="fa-solid fa-phone"></i>
+            </div>
+            <h3>Phone Number</h3>
+            <p>Reach the front desk directly for reservations, queries, and check-in support.</p>
+            <a class="email-pill" href="tel:+912222783050">
+                <i class="fa-solid fa-phone"></i> +91-22-2278 3050
+            </a>
+        </div>
+
+        <!-- Email -->
+        <div class="contact-card">
+            <div class="contact-card-icon">
+                <i class="fa-solid fa-envelope"></i>
+            </div>
+            <h3>Email</h3>
+            <p>Write to us for bookings, enquiries, or any information regarding your stay.</p>
+            <a class="email-pill" href="mailto:guesthouse@tifr.res.in">
+                <i class="fa-solid fa-envelope"></i> guesthouse{at}tifr.res.in
+            </a>
+        </div>
+
+        <!-- Location -->
+        <div class="contact-card">
+            <div class="contact-card-icon">
+                <i class="fa-solid fa-map-pin"></i>
+            </div>
+            <h3>Location</h3>
+            <p>
+                The Ramanujan Guesthouse is located inside the <strong>TIFR Housing Colony</strong>, adjacent to the TIFR Main Campus on <strong>Homi Bhabha Road</strong>, in Navy Nagar, Colaba, Mumbai.
+            </p>
+        </div>
+    </div>
+
+    <!-- Feedback box -->
+    <div class="feedback-box">
+        <div class="feedback-box-icon">
+            <i class="fa-solid fa-comment-dots"></i>
+        </div>
+        <div>
+            <h4>Feedback</h4>
+            <p>
+                Your appreciation of our services &amp; complaints / suggestions motivate us to strive for improvements. Therefore, please do write to us at the following address or fill up the feedback form available at the front desk.
+            </p>
+            <a class="email-pill" href="mailto:feedback.gh@tifr.res.in" style="margin-top: 18px;">
+                <i class="fa-solid fa-paper-plane"></i> feedback.gh{at}tifr.res.in
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ── FOOTER ── -->
 <footer class="footer-ultimate">
-    <p style="text-align: center;">© 2026 Tata Institute of Fundamental Research. All rights reserved.</p>
+    <div class="footer-flex">
+        <div class="footer-brand-side">
+            <h2 style="color: white; font-size: 1.7rem; font-weight: 800; letter-spacing: -1px; display: flex; align-items: center; gap: 14px;">
+                <img src="tifr-logo-black-new.png" alt="TIFR Official Seal Logo" class="tifr-logo" style="width: 50px; height: 50px;">
+                TIFR GuestHouse
+            </h2>
+            <p style="margin-top: 8px; line-height: 1.5; opacity: 0.75; font-size: 0.88rem;">Tata Institute of Fundamental Research, Colaba Campus, Mumbai. Advancing global research synergy through premium residential hospitality.</p>
+        </div>
+        <div class="footer-info-side">
+            <div class="contact-pill"><i class="fa-solid fa-envelope-open-text"></i> feedback.gh@tifr.res.in</div>
+            <div class="contact-pill"><i class="fa-solid fa-business-time"></i> Check-in 12:00 PM / Check-out 10:00 AM</div>
+            <div class="contact-pill"><i class="fa-solid fa-fingerprint"></i> TIFR Datanet Verification Required</div>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 25px; font-size: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); padding-top: 18px; opacity: 0.45;">
+        &copy; Guesthouse TIFR | Designed by Lalit C. Borde
+    </div>
 </footer>
 
+<script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    // Mobile nav toggle
+    const mobileToggle = document.querySelector('.mobile-toggle');
+    const navLinks = document.querySelector('.nav-links');
+    mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('mobile-active');
+        const icon = mobileToggle.querySelector('i');
+        icon.className = navLinks.classList.contains('mobile-active') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('mobile-active');
+            mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
+        });
+    });
+
+    // Scroll navbar effect
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.nav-master');
+        if (window.scrollY > 40) {
+            nav.style.background = 'rgba(255,255,255,0.94)';
+            nav.style.boxShadow = '0 15px 35px rgba(5,33,28,0.08)';
+        } else {
+            nav.style.background = 'rgba(255,255,255,0.88)';
+            nav.style.boxShadow = '0 10px 25px rgba(5,33,28,0.05)';
+        }
+    });
+
+    // Scroll-triggered fade-in for sections
+    document.querySelectorAll('.section-wrap').forEach(wrap => {
+        gsap.fromTo(wrap, { opacity: 0, y: 20 }, {
+            opacity: 1, y: 0, duration: 0.6, ease: "power2.out",
+            scrollTrigger: { trigger: wrap, start: "top 90%", toggleActions: "play none none reverse" }
+        });
+    });
+
+    // 3D tilt on cards
+    if (!window.matchMedia("(max-width: 1024px)").matches) {
+        document.querySelectorAll('.contact-card, .glass-info, .map-container').forEach(el => {
+            el.addEventListener('mousemove', e => {
+                const b = el.getBoundingClientRect();
+                const x = (e.clientX - b.left - b.width / 2) / 26;
+                const y = (e.clientY - b.top - b.height / 2) / 26;
+                el.style.transform = `perspective(1000px) rotateY(${x}deg) rotateX(${-y}deg) translateY(-4px)`;
+                el.style.transition = 'transform 0.05s ease-out';
+            });
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'perspective(1000px) rotateY(0deg) rotateX(0deg) translateY(0px)';
+                el.style.transition = 'transform 0.5s cubic-bezier(0.16,1,0.3,1)';
+            });
+        });
+    }
+
+    // Smooth anchor scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const hash = this.getAttribute('href');
+            if (hash !== '#') {
+                const target = document.querySelector(hash);
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // Hero card float animation
+    gsap.to('.hero-card', { y: -6, duration: 3, repeat: -1, yoyo: true, ease: "power1.inOut" });
+</script>
 </body>
 </html>
