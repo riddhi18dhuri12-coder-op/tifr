@@ -107,7 +107,7 @@
             font-size: 0.94rem;
             font-weight: 700;
             letter-spacing: 0.3px;
-            margin-top: 120px; 
+            margin-top: 0; 
             position: relative;
             z-index: 10;
             display: flex;
@@ -177,6 +177,7 @@
             justify-content: center;
             border-radius: 0 0 50px 50px;
             padding: 140px 20px 80px;
+            margin-top: 100px;
             box-shadow: var(--shadow-3d-raised);
             overflow: hidden;
         }
@@ -307,7 +308,7 @@
         .section-wrap {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 100px 40px;
+            padding: 64px 40px;
         }
         .section-badge {
             font-size: 0.78rem;
@@ -482,9 +483,9 @@
             font-size: 0.9rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            border-bottom: 2px solid #e2ece7;
+            border-bottom: 2px solid #7aab96;
         }
-        .tariff-table td { padding: 22px; border-bottom: 1px solid #ebf2ee; font-weight: 500; font-size: 1rem; }
+        .tariff-table td { padding: 22px; border-bottom: 1px solid #b0cfc4; font-weight: 500; font-size: 1rem; }
         .tariff-table tr:last-child td { border-bottom: none; }
         .rate-badge {
             background: #e9f5ef;
@@ -626,13 +627,14 @@
             .hero-ram {
                 min-height: 55vh;
                 padding-top: 130px;
+                margin-top: 80px;
                 border-radius: 0 0 35px 35px;
             }
             .hero-card { padding: 36px 24px; border-radius: 28px; }
             .hero-card h1 { font-size: 2.4rem; }
             .hero-card p { font-size: 1rem; }
             
-            .section-wrap { padding: 70px 20px; }
+            .section-wrap { padding: 44px 20px; }
             
             .nav-master { 
                 padding: 12px 24px; 
@@ -642,7 +644,7 @@
             }
             .logo-brand { font-size: 1.2rem; }
             .tifr-logo { width: 48px; height: 48px; }
-            .flashing-notice-bar { margin-top: 110px; font-size: 0.88rem; padding: 12px 16px; }
+            .flashing-notice-bar { margin-top: 0; font-size: 0.88rem; padding: 12px 16px; }
             
             .mobile-toggle { display: block; }
             .nav-links {
@@ -733,11 +735,6 @@
     </div>
 </nav>
 
-<div class="flashing-notice-bar">
-    <i class="fa-solid fa-circle-exclamation"></i>
-    <span>NOTICE: TIFR guesthouse facility can be availed by TIFR Institute visitors only.</span>
-</div>
-
 <section class="hero-ram">
     <div class="hero-slideshow-container">
         <div class="hero-slide active" style="background-image: url('main.png');"></div>
@@ -756,6 +753,11 @@
 </section>
 
 <div id="content-below"></div>
+
+<div class="flashing-notice-bar">
+    <i class="fa-solid fa-circle-exclamation"></i>
+    <span>NOTICE: TIFR guesthouse facility can be availed by TIFR Institute visitors only.</span>
+</div>
 
 <section class="section-wrap" id="about">
     <div class="section-badge"><i class="fa-solid fa-award"></i> Homage to Genius</div>
