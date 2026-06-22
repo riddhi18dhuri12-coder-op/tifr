@@ -66,7 +66,7 @@
         .logo-brand-container { display: flex; align-items: center; gap: 18px; }
 
         .tifr-logo {
-            width: 58px; height: 58px;
+            width: 72px; height: 72px;
             object-fit: contain;
             filter: drop-shadow(0 6px 12px rgba(5, 33, 28, 0.18));
             transition: transform 0.6s var(--transition-butter);
@@ -147,8 +147,8 @@
         }
 
         /* ── HERO ── */
-        .hero-contact {
-            min-height: 52vh;
+        .hero-ram {
+            min-height: 70vh;
             position: relative;
             display: flex;
             align-items: center;
@@ -157,14 +157,31 @@
             padding: 140px 20px 80px;
             box-shadow: var(--shadow-3d-raised);
             overflow: hidden;
-            background: linear-gradient(135deg, var(--deep-teal) 0%, #0d3d2f 55%, var(--accent-emerald) 100%);
         }
-        .hero-contact::after {
+        .hero-slideshow-container {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+        .hero-slide {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            opacity: 0;
+            transform: scale(1.08);
+            transition: opacity 1.5s ease-in-out, transform 12s linear;
+        }
+        .hero-slide.active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .hero-ram::after {
             content: '';
-            position: absolute; inset: 0;
-            background:
-                radial-gradient(ellipse at 20% 50%, rgba(16,94,67,0.35) 0%, transparent 60%),
-                radial-gradient(ellipse at 80% 20%, rgba(232,245,239,0.08) 0%, transparent 55%);
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(3, 20, 17, 0.35), rgba(5, 33, 28, 0.55));
+            z-index: 2;
         }
 
         .hero-card {
@@ -178,6 +195,8 @@
             color: white;
             border: 1px solid rgba(255,255,255,0.25);
             box-shadow: var(--shadow-3d-deep);
+            transform-style: preserve-3d;
+            perspective: 1000px;
             position: relative;
             z-index: 3;
         }
@@ -191,8 +210,16 @@
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            transform: translateZ(40px);
         }
-        .hero-card p { font-size: 1.05rem; line-height: 1.6; opacity: 0.9; margin-bottom: 0; }
+        .hero-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            font-weight: 400;
+            transform: translateZ(25px);
+            margin-bottom: 0;
+        }
 
         /* ── SCROLL INDICATOR ── */
         .scroll-indicator {
@@ -461,33 +488,41 @@
         /* ── FOOTER ── */
         .footer-ultimate {
             background: var(--deep-teal);
-            border-radius: 50px 50px 0 0;
-            padding: 48px 48px 28px;
-            margin-top: 60px;
+            border-radius: 45px 45px 0 0;
+            padding: 50px 40px 24px;
+            color: #d1e2dd;
+            box-shadow: inset 0 4px 25px rgba(0,0,0,0.25);
         }
         .footer-flex {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            gap: 36px;
+            align-items: center;
             flex-wrap: wrap;
+            gap: 36px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
-        .footer-brand-side { max-width: 360px; }
-        .footer-info-side {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+        .footer-brand-side { flex: 1; min-width: 320px; }
+        .footer-info-side { display: flex; gap: 16px; flex-wrap: wrap; }
         .contact-pill {
-            display: flex; align-items: center; gap: 12px;
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.04);
+            border: 1px solid rgba(255,255,255,0.06);
             border-radius: 14px;
-            padding: 14px 20px;
-            color: rgba(255,255,255,0.82);
-            font-size: 0.88rem; font-weight: 500;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+            font-size: 0.88rem;
+            color: #d1e2dd;
+            transition: all 0.3s ease;
         }
-        .contact-pill i { color: #6ecba0; font-size: 1rem; }
+        .contact-pill:hover {
+            background: rgba(255,255,255,0.09);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .contact-pill i { color: #59ca9f; font-size: 1.05rem; }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 1024px) {
@@ -495,7 +530,7 @@
             .footer-flex { flex-direction: column; gap: 20px; }
             .footer-info-side { width: 100%; }
 
-            .hero-contact { min-height: 46vh; padding-top: 130px; border-radius: 0 0 35px 35px; }
+            .hero-ram { min-height: 55vh; padding-top: 130px; border-radius: 0 0 35px 35px; }
             .hero-card { padding: 36px 24px; border-radius: 28px; }
             .hero-card h1 { font-size: 2.4rem; }
 
@@ -503,8 +538,7 @@
 
             .nav-master { padding: 12px 24px; width: calc(100% - 24px); top: 12px; border-radius: 24px; }
             .logo-brand { font-size: 1.2rem; }
-            .tifr-logo { width: 48px; height: 48px; }
-            .flashing-notice-bar { margin-top: 110px; font-size: 0.88rem; padding: 12px 16px; }
+            .tifr-logo { width: 56px; height: 56px; }
 
             .mobile-toggle { display: block; }
             .nav-links {
@@ -558,18 +592,17 @@
     </div>
 </nav>
 
-<!-- ── NOTICE BAR ── -->
-<div class="flashing-notice-bar">
-    <i class="fa-solid fa-circle-exclamation"></i>
-    <span>NOTICE: TIFR guesthouse facility can be availed by TIFR Institute visitors only.</span>
-</div>
-
 <!-- ── HERO ── -->
-<section class="hero-contact">
+<section class="hero-ram">
+    <div class="hero-slideshow-container">
+        <div class="hero-slide active" style="background-image: url('main.png');"></div>
+    </div>
+
     <div class="hero-card">
-        <h1><i class="fa-solid fa-address-book" style="opacity:0.85; margin-right:10px;"></i>Contact Us</h1>
+        <h1>Contact Us</h1>
         <p>Reach out to the Ramanujan Guesthouse team — we're here to assist visiting scholars and research affiliates at the TIFR Colaba Campus.</p>
     </div>
+
     <a href="#reach-us" class="scroll-indicator" aria-label="Scroll down to content">
         <span>Scroll</span>
         <i class="fa-solid fa-chevron-down"></i>
@@ -587,11 +620,11 @@
         <!-- Map embed — left side -->
         <div class="map-container">
             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3774.0744734592487!2d72.80000827520748!3d18.904816982369826!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7ce3b2dbb05df%3A0x3eb7ee0a3a4ed24b!2sTata%20Institute%20of%20Fundamental%20Research!5e0!3m2!1sen!2sin!4v1700000000000"
+                src="https://maps.google.com/maps?q=Ramanujan+Guest+House+TIFR+Homi+Bhabha+Road+Navy+Nagar+Colaba+Mumbai&t=&z=16&ie=UTF8&iwloc=&output=embed"
                 allowfullscreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
-                title="TIFR Campus Location Map">
+                title="Ramanujan Guest House TIFR Location Map">
             </iframe>
         </div>
 
@@ -719,7 +752,7 @@
                 <img src="tifr-logo-black-new.png" alt="TIFR Official Seal Logo" class="tifr-logo" style="width: 50px; height: 50px;">
                 TIFR GuestHouse
             </h2>
-            <p style="margin-top: 8px; line-height: 1.5; opacity: 0.75; font-size: 0.88rem;">Tata Institute of Fundamental Research, Colaba Campus, Mumbai. Advancing global research synergy through premium residential hospitality.</p>
+            <p style="margin-top: 8px; line-height: 1.6; color: #a8c8be; font-size: 0.92rem;">Tata Institute of Fundamental Research, Colaba Campus, Mumbai. Advancing global research synergy through premium residential hospitality.</p>
         </div>
         <div class="footer-info-side">
             <div class="contact-pill"><i class="fa-solid fa-envelope-open-text"></i> feedback.gh@tifr.res.in</div>
